@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Syndics list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Chargécopro</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for syndic in syndics %}
+            <tr>
+                <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
+                <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.telephone }}</td>
+                <td>{{ syndic.email }}</td>
+                <td>{{ syndic.chargeCopro }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('syndic_new') }}">Create a new syndic</a>
+        </li>
+    </ul>
+{% endblock %}
