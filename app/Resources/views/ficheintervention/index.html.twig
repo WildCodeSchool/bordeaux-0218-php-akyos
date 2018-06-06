@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ficheinterventions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Avancement</th>
+                <th>Typeintervention</th>
+                <th>Fourniture</th>
+                <th>Urgence</th>
+                <th>Descriptif</th>
+                <th>Datedemande</th>
+                <th>Dateintervention</th>
+                <th>Datemodification</th>
+                <th>Paid</th>
+                <th>Satisfactionclient</th>
+                <th>Commentaire</th>
+                <th>Nombreintervenants</th>
+                <th>Duree</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ficheIntervention in ficheInterventions %}
+            <tr>
+                <td><a href="{{ path('ficheintervention_show', { 'id': ficheIntervention.id }) }}">{{ ficheIntervention.id }}</a></td>
+                <td>{{ ficheIntervention.avancement }}</td>
+                <td>{{ ficheIntervention.typeIntervention }}</td>
+                <td>{{ ficheIntervention.fourniture }}</td>
+                <td>{{ ficheIntervention.urgence }}</td>
+                <td>{{ ficheIntervention.descriptif }}</td>
+                <td>{% if ficheIntervention.dateDemande %}{{ ficheIntervention.dateDemande|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if ficheIntervention.dateIntervention %}{{ ficheIntervention.dateIntervention|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if ficheIntervention.dateModification %}{{ ficheIntervention.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if ficheIntervention.paid %}Yes{% else %}No{% endif %}</td>
+                <td>{{ ficheIntervention.satisfactionClient }}</td>
+                <td>{{ ficheIntervention.commentaire }}</td>
+                <td>{{ ficheIntervention.nombreIntervenants }}</td>
+                <td>{% if ficheIntervention.duree %}{{ ficheIntervention.duree|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ficheintervention_show', { 'id': ficheIntervention.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ficheintervention_edit', { 'id': ficheIntervention.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ficheintervention_new') }}">Create a new ficheIntervention</a>
+        </li>
+    </ul>
+{% endblock %}
