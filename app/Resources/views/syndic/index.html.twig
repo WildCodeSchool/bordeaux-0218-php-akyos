@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Syndics list</h1>
 
-    <table class="table">
+    <table class="tablep b  ">
         <thead>
             <tr>
                 <th>Id</th>
@@ -16,6 +16,22 @@
             </tr>
         </thead>
         <tbody>
+        <div class="block pull-r-l">
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">Block</h3>
+            </div>
+            <div class="block-content">
+
+            </div>
+        </div>
         {% for syndic in syndics %}
             <tr>
                 <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
