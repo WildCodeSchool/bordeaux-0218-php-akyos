@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Parkings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Places</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for parking in parkings %}
+            <tr>
+                <td><a href="{{ path('parking_show', { 'id': parking.id }) }}">{{ parking.id }}</a></td>
+                <td>{{ parking.places }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('parking_show', { 'id': parking.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('parking_new') }}">Create a new parking</a>
+        </li>
+    </ul>
+{% endblock %}

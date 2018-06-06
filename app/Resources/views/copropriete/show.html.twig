@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Copropriete</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ copropriete.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ copropriete.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ copropriete.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Chargecopropriete</th>
+                <td>{{ copropriete.chargeCopropriete }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ copropriete.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ copropriete.mail }}</td>
+            </tr>
+            <tr>
+                <th>Messagepublic</th>
+                <td>{{ copropriete.messagePublic }}</td>
+            </tr>
+            <tr>
+                <th>Messageprive</th>
+                <td>{{ copropriete.messagePrive }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('copropriete_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('copropriete_edit', { 'id': copropriete.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

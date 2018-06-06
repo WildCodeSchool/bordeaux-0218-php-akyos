@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Communs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commun in communs %}
+            <tr>
+                <td><a href="{{ path('communs_show', { 'id': commun.id }) }}">{{ commun.id }}</a></td>
+                <td>{{ commun.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('communs_show', { 'id': commun.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('communs_edit', { 'id': commun.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('communs_new') }}">Create a new commun</a>
+        </li>
+    </ul>
+{% endblock %}
