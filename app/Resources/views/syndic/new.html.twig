@@ -5,12 +5,10 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" class="btn btn-primary btn-block" value="Create" />
+        <input type="submit" class="btn btn-primary center-block" value="Create" />
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('syndic_index') }}" class="btn btn-primary">Back to the list</a>
-        </li>
+            <a href="{{ path('syndic_index') }}" class="btn btn-primary center-block ">Back to the list</a>
     </ul>
 {% endblock %}
