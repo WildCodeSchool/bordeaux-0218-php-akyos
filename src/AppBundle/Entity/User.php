@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
+     * @ORM\OneToMany(targetEntity="Syndicat", mappedBy="user")
+     */
+    private $syndics;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Worker", mappedBy="user")
+     */
+    private $internenants;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

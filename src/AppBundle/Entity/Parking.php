@@ -12,6 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Parking
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Component", mappedBy="parking")
+     *
+     */
+    private $element;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="parkings")
+     *
+     */
+    private $condominium;
+
     /**
      * @var int
      *
