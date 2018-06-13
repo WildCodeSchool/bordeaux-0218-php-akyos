@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Condominium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ condominium.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ condominium.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ condominium.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Chargecopropriete</th>
+                <td>{{ condominium.chargeCopropriete }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ condominium.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ condominium.mail }}</td>
+            </tr>
+            <tr>
+                <th>Messagepublic</th>
+                <td>{{ condominium.messagePublic }}</td>
+            </tr>
+            <tr>
+                <th>Messageprive</th>
+                <td>{{ condominium.messagePrive }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('condominium_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Interventionsheet</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ interventionSheet.id }}</td>
+            </tr>
+            <tr>
+                <th>Avancement</th>
+                <td>{{ interventionSheet.avancement }}</td>
+            </tr>
+            <tr>
+                <th>Typeintervention</th>
+                <td>{{ interventionSheet.typeIntervention }}</td>
+            </tr>
+            <tr>
+                <th>Fourniture</th>
+                <td>{{ interventionSheet.fourniture }}</td>
+            </tr>
+            <tr>
+                <th>Urgence</th>
+                <td>{{ interventionSheet.urgence }}</td>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <td>{{ interventionSheet.descriptif }}</td>
+            </tr>
+            <tr>
+                <th>Datedemande</th>
+                <td>{% if interventionSheet.dateDemande %}{{ interventionSheet.dateDemande|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateintervention</th>
+                <td>{% if interventionSheet.dateIntervention %}{{ interventionSheet.dateIntervention|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{% if interventionSheet.dateModification %}{{ interventionSheet.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Paid</th>
+                <td>{% if interventionSheet.paid %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Satisfactionclient</th>
+                <td>{{ interventionSheet.satisfactionClient }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ interventionSheet.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Nombreintervenants</th>
+                <td>{{ interventionSheet.nombreIntervenants }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{% if interventionSheet.duree %}{{ interventionSheet.duree|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('interventionsheet_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('interventionsheet_edit', { 'id': interventionSheet.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

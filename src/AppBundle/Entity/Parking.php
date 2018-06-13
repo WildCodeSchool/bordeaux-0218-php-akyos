@@ -81,5 +81,93 @@ class Parking
     {
         return $this->places;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->components = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add component
+     *
+     * @param \AppBundle\Entity\Component $component
+     *
+     * @return Parking
+     */
+    public function addComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components[] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Remove component
+     *
+     * @param \AppBundle\Entity\Component $component
+     */
+    public function removeComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components->removeElement($component);
+    }
+
+    /**
+     * Get components
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComponents()
+    {
+        return $this->components;
+    }
+
+    /**
+     * Set building
+     *
+     * @param \AppBundle\Entity\Building $building
+     *
+     * @return Parking
+     */
+    public function setBuilding(\AppBundle\Entity\Building $building = null)
+    {
+        $this->building = $building;
+
+        return $this;
+    }
+
+    /**
+     * Get building
+     *
+     * @return \AppBundle\Entity\Building
+     */
+    public function getBuilding()
+    {
+        return $this->building;
+    }
+
+    /**
+     * Set condominium
+     *
+     * @param \AppBundle\Entity\Condominium $condominium
+     *
+     * @return Parking
+     */
+    public function setCondominium(\AppBundle\Entity\Condominium $condominium = null)
+    {
+        $this->condominium = $condominium;
+
+        return $this;
+    }
+
+    /**
+     * Get condominium
+     *
+     * @return \AppBundle\Entity\Condominium
+     */
+    public function getCondominium()
+    {
+        return $this->condominium;
+    }
+}

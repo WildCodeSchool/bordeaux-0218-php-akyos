@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Buildings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Anneedeconstruction</th>
+                <th>Constructeur</th>
+                <th>Categorie</th>
+                <th>Classeenergetique</th>
+                <th>Nombredelots</th>
+                <th>Nombredetages</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for building in buildings %}
+            <tr>
+                <td><a href="{{ path('building_show', { 'id': building.id }) }}">{{ building.id }}</a></td>
+                <td>{{ building.nom }}</td>
+                <td>{{ building.anneeDeConstruction }}</td>
+                <td>{{ building.constructeur }}</td>
+                <td>{{ building.categorie }}</td>
+                <td>{{ building.classeEnergetique }}</td>
+                <td>{{ building.nombreDeLots }}</td>
+                <td>{{ building.nombreDEtages }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('building_show', { 'id': building.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('building_edit', { 'id': building.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('building_new') }}">Create a new building</a>
+        </li>
+    </ul>
+{% endblock %}

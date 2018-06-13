@@ -446,5 +446,52 @@ class InterventionSheet
     {
         return $this->duree;
     }
-}
 
+    /**
+     * Set worker
+     *
+     * @param \AppBundle\Entity\Worker $worker
+     *
+     * @return InterventionSheet
+     */
+    public function setWorker(\AppBundle\Entity\Worker $worker = null)
+    {
+        $this->worker = $worker;
+
+        return $this;
+    }
+
+    /**
+     * Get worker
+     *
+     * @return \AppBundle\Entity\Worker
+     */
+    public function getWorker()
+    {
+        return $this->worker;
+    }
+
+    /**
+     * Set condominium
+     *
+     * @param \AppBundle\Entity\Condominium $condominium
+     *
+     * @return InterventionSheet
+     */
+    public function setCondominium(\AppBundle\Entity\Condominium $condominium = null)
+    {
+        $this->condominium = $condominium;
+
+        return $this;
+    }
+
+    /**
+     * Get condominium
+     *
+     * @return \AppBundle\Entity\Condominium
+     */
+    public function getCondominium()
+    {
+        return $this->condominium;
+    }
+}

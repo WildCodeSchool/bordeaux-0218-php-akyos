@@ -230,5 +230,69 @@ class Worker
     {
         return $this->mail;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->interventionSheets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add interventionSheet
+     *
+     * @param \AppBundle\Entity\InterventionSheet $interventionSheet
+     *
+     * @return Worker
+     */
+    public function addInterventionSheet(\AppBundle\Entity\InterventionSheet $interventionSheet)
+    {
+        $this->interventionSheets[] = $interventionSheet;
+
+        return $this;
+    }
+
+    /**
+     * Remove interventionSheet
+     *
+     * @param \AppBundle\Entity\InterventionSheet $interventionSheet
+     */
+    public function removeInterventionSheet(\AppBundle\Entity\InterventionSheet $interventionSheet)
+    {
+        $this->interventionSheets->removeElement($interventionSheet);
+    }
+
+    /**
+     * Get interventionSheets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterventionSheets()
+    {
+        return $this->interventionSheets;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Worker
+     */
+    public function setUser(\AppBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Unit</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ unit.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ unit.numero }}</td>
+            </tr>
+            <tr>
+                <th>Etage</th>
+                <td>{{ unit.etage }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ unit.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ unit.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ unit.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ unit.mail }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ unit.commentaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('unit_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

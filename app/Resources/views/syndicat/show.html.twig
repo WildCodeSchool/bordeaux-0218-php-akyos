@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Syndicat</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ syndicat.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ syndicat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ syndicat.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ syndicat.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ syndicat.email }}</td>
+            </tr>
+            <tr>
+                <th>Chargecopro</th>
+                <td>{{ syndicat.chargeCopro }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('syndicat_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('syndicat_edit', { 'id': syndicat.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Condominium
  *
  * @ORM\Table(name="condominium")
- * @ORM\Entity(repositoryClass="CondominiumRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CondominiumRepository")
  */
 class Condominium
 {
@@ -277,5 +277,174 @@ class Condominium
     {
         return $this->messagePrive;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->interventionsSheets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commons = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parkings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->buildings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add interventionsSheet
+     *
+     * @param \AppBundle\Entity\InterventionSheet $interventionsSheet
+     *
+     * @return Condominium
+     */
+    public function addInterventionsSheet(\AppBundle\Entity\InterventionSheet $interventionsSheet)
+    {
+        $this->interventionsSheets[] = $interventionsSheet;
+
+        return $this;
+    }
+
+    /**
+     * Remove interventionsSheet
+     *
+     * @param \AppBundle\Entity\InterventionSheet $interventionsSheet
+     */
+    public function removeInterventionsSheet(\AppBundle\Entity\InterventionSheet $interventionsSheet)
+    {
+        $this->interventionsSheets->removeElement($interventionsSheet);
+    }
+
+    /**
+     * Get interventionsSheets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterventionsSheets()
+    {
+        return $this->interventionsSheets;
+    }
+
+    /**
+     * Add common
+     *
+     * @param \AppBundle\Entity\Common $common
+     *
+     * @return Condominium
+     */
+    public function addCommon(\AppBundle\Entity\Common $common)
+    {
+        $this->commons[] = $common;
+
+        return $this;
+    }
+
+    /**
+     * Remove common
+     *
+     * @param \AppBundle\Entity\Common $common
+     */
+    public function removeCommon(\AppBundle\Entity\Common $common)
+    {
+        $this->commons->removeElement($common);
+    }
+
+    /**
+     * Get commons
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommons()
+    {
+        return $this->commons;
+    }
+
+    /**
+     * Add parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Condominium
+     */
+    public function addParking(\AppBundle\Entity\Parking $parking)
+    {
+        $this->parkings[] = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Remove parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     */
+    public function removeParking(\AppBundle\Entity\Parking $parking)
+    {
+        $this->parkings->removeElement($parking);
+    }
+
+    /**
+     * Get parkings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParkings()
+    {
+        return $this->parkings;
+    }
+
+    /**
+     * Add building
+     *
+     * @param \AppBundle\Entity\Building $building
+     *
+     * @return Condominium
+     */
+    public function addBuilding(\AppBundle\Entity\Building $building)
+    {
+        $this->buildings[] = $building;
+
+        return $this;
+    }
+
+    /**
+     * Remove building
+     *
+     * @param \AppBundle\Entity\Building $building
+     */
+    public function removeBuilding(\AppBundle\Entity\Building $building)
+    {
+        $this->buildings->removeElement($building);
+    }
+
+    /**
+     * Get buildings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBuildings()
+    {
+        return $this->buildings;
+    }
+
+    /**
+     * Set syndic
+     *
+     * @param \AppBundle\Entity\Syndicat $syndic
+     *
+     * @return Condominium
+     */
+    public function setSyndic(\AppBundle\Entity\Syndicat $syndic)
+    {
+        $this->syndic = $syndic;
+
+        return $this;
+    }
+
+    /**
+     * Get syndic
+     *
+     * @return \AppBundle\Entity\Syndicat
+     */
+    public function getSyndic()
+    {
+        return $this->syndic;
+    }
+}

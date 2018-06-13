@@ -103,5 +103,80 @@ class User
     {
         return $this->password;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->syndicats = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add syndicat
+     *
+     * @param \AppBundle\Entity\Syndicat $syndicat
+     *
+     * @return User
+     */
+    public function addSyndicat(\AppBundle\Entity\Syndicat $syndicat)
+    {
+        $this->syndicats[] = $syndicat;
+
+        return $this;
+    }
+
+    /**
+     * Remove syndicat
+     *
+     * @param \AppBundle\Entity\Syndicat $syndicat
+     */
+    public function removeSyndicat(\AppBundle\Entity\Syndicat $syndicat)
+    {
+        $this->syndicats->removeElement($syndicat);
+    }
+
+    /**
+     * Get syndicats
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSyndicats()
+    {
+        return $this->syndicats;
+    }
+
+    /**
+     * Add worker
+     *
+     * @param \AppBundle\Entity\Worker $worker
+     *
+     * @return User
+     */
+    public function addWorker(\AppBundle\Entity\Worker $worker)
+    {
+        $this->workers[] = $worker;
+
+        return $this;
+    }
+
+    /**
+     * Remove worker
+     *
+     * @param \AppBundle\Entity\Worker $worker
+     */
+    public function removeWorker(\AppBundle\Entity\Worker $worker)
+    {
+        $this->workers->removeElement($worker);
+    }
+
+    /**
+     * Get workers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWorkers()
+    {
+        return $this->workers;
+    }
+}

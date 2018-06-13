@@ -197,5 +197,69 @@ class Syndicat
     {
         return $this->chargeCopro;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->condominium = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add condominium
+     *
+     * @param \AppBundle\Entity\Condominium $condominium
+     *
+     * @return Syndicat
+     */
+    public function addCondominium(\AppBundle\Entity\Condominium $condominium)
+    {
+        $this->condominium[] = $condominium;
+
+        return $this;
+    }
+
+    /**
+     * Remove condominium
+     *
+     * @param \AppBundle\Entity\Condominium $condominium
+     */
+    public function removeCondominium(\AppBundle\Entity\Condominium $condominium)
+    {
+        $this->condominium->removeElement($condominium);
+    }
+
+    /**
+     * Get condominium
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCondominium()
+    {
+        return $this->condominium;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Syndicat
+     */
+    public function setUser(\AppBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

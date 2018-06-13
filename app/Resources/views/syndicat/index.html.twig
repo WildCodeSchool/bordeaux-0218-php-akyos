@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Syndicats list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Chargecopro</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for syndicat in syndicats %}
+            <tr>
+                <td><a href="{{ path('syndicat_show', { 'id': syndicat.id }) }}">{{ syndicat.id }}</a></td>
+                <td>{{ syndicat.nom }}</td>
+                <td>{{ syndicat.adresse }}</td>
+                <td>{{ syndicat.telephone }}</td>
+                <td>{{ syndicat.email }}</td>
+                <td>{{ syndicat.chargeCopro }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('syndicat_show', { 'id': syndicat.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('syndicat_edit', { 'id': syndicat.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('syndicat_new') }}">Create a new syndicat</a>
+        </li>
+    </ul>
+{% endblock %}

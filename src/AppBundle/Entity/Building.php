@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Building
  *
  * @ORM\Table(name="building")
- * @ORM\Entity(repositoryClass="BuildingRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BuildingRepository")
  */
 class Building
 {
@@ -271,5 +271,149 @@ class Building
     {
         return $this->nombreDEtages;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getCommons()
+    {
+        return $this->commons;
+    }
+
+    /**
+     * @param mixed $commons
+     */
+    public function setCommons($commons)
+    {
+        $this->commons = $commons;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParkings()
+    {
+        return $this->parkings;
+    }
+
+    /**
+     * @param mixed $parkings
+     */
+    public function setParkings($parkings)
+    {
+        $this->parkings = $parkings;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCondominium()
+    {
+        return $this->condominium;
+    }
+
+    /**
+     * @param mixed $condominium
+     */
+    public function setCondominium($condominium)
+    {
+        $this->condominium = $condominium;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * @param mixed $units
+     */
+    public function setUnits($units)
+    {
+        $this->units = $units;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commons = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parkings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->units = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add common
+     *
+     * @param \AppBundle\Entity\Common $common
+     *
+     * @return Building
+     */
+    public function addCommon(\AppBundle\Entity\Common $common)
+    {
+        $this->commons[] = $common;
+
+        return $this;
+    }
+
+    /**
+     * Remove common
+     *
+     * @param \AppBundle\Entity\Common $common
+     */
+    public function removeCommon(\AppBundle\Entity\Common $common)
+    {
+        $this->commons->removeElement($common);
+    }
+
+    /**
+     * Add parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Building
+     */
+    public function addParking(\AppBundle\Entity\Parking $parking)
+    {
+        $this->parkings[] = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Remove parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     */
+    public function removeParking(\AppBundle\Entity\Parking $parking)
+    {
+        $this->parkings->removeElement($parking);
+    }
+
+    /**
+     * Add unit
+     *
+     * @param \AppBundle\Entity\Unit $unit
+     *
+     * @return Building
+     */
+    public function addUnit(\AppBundle\Entity\Unit $unit)
+    {
+        $this->units[] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Remove unit
+     *
+     * @param \AppBundle\Entity\Unit $unit
+     */
+    public function removeUnit(\AppBundle\Entity\Unit $unit)
+    {
+        $this->units->removeElement($unit);
+    }
+}

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Common
  *
  * @ORM\Table(name="common")
- * @ORM\Entity(repositoryClass="CommonRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CommonRepository")
  */
 class Common
 {
@@ -79,5 +79,83 @@ class Common
     {
         return $this->nom;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getComponents()
+    {
+        return $this->components;
+    }
+
+    /**
+     * @param mixed $components
+     */
+    public function setComponents($components)
+    {
+        $this->components = $components;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBuilding()
+    {
+        return $this->building;
+    }
+
+    /**
+     * @param mixed $building
+     */
+    public function setBuilding($building)
+    {
+        $this->building = $building;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCondominium()
+    {
+        return $this->condominium;
+    }
+
+    /**
+     * @param mixed $condominium
+     */
+    public function setCondominium($condominium)
+    {
+        $this->condominium = $condominium;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->components = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add component
+     *
+     * @param \AppBundle\Entity\Component $component
+     *
+     * @return Common
+     */
+    public function addComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components[] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Remove component
+     *
+     * @param \AppBundle\Entity\Component $component
+     */
+    public function removeComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components->removeElement($component);
+    }
+}

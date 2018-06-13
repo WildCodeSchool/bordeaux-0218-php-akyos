@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Building is divided into several UNITS that are each separately owned, surrounded by common areas
  *
  * @ORM\Table(name="unit")
- * @ORM\Entity(repositoryClass="UnitRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UnitRepository")
  */
 class Unit
 {
@@ -259,5 +259,69 @@ class Unit
     {
         return $this->commentaire;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->components = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add component
+     *
+     * @param \AppBundle\Entity\Component $component
+     *
+     * @return Unit
+     */
+    public function addComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components[] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Remove component
+     *
+     * @param \AppBundle\Entity\Component $component
+     */
+    public function removeComponent(\AppBundle\Entity\Component $component)
+    {
+        $this->components->removeElement($component);
+    }
+
+    /**
+     * Get components
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComponents()
+    {
+        return $this->components;
+    }
+
+    /**
+     * Set building
+     *
+     * @param \AppBundle\Entity\Building $building
+     *
+     * @return Unit
+     */
+    public function setBuilding(\AppBundle\Entity\Building $building = null)
+    {
+        $this->building = $building;
+
+        return $this;
+    }
+
+    /**
+     * Get building
+     *
+     * @return \AppBundle\Entity\Building
+     */
+    public function getBuilding()
+    {
+        return $this->building;
+    }
+}

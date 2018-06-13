@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Interventionsheets list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Avancement</th>
+                <th>Typeintervention</th>
+                <th>Fourniture</th>
+                <th>Urgence</th>
+                <th>Descriptif</th>
+                <th>Datedemande</th>
+                <th>Dateintervention</th>
+                <th>Datemodification</th>
+                <th>Paid</th>
+                <th>Satisfactionclient</th>
+                <th>Commentaire</th>
+                <th>Nombreintervenants</th>
+                <th>Duree</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for interventionSheet in interventionSheets %}
+            <tr>
+                <td><a href="{{ path('interventionsheet_show', { 'id': interventionSheet.id }) }}">{{ interventionSheet.id }}</a></td>
+                <td>{{ interventionSheet.avancement }}</td>
+                <td>{{ interventionSheet.typeIntervention }}</td>
+                <td>{{ interventionSheet.fourniture }}</td>
+                <td>{{ interventionSheet.urgence }}</td>
+                <td>{{ interventionSheet.descriptif }}</td>
+                <td>{% if interventionSheet.dateDemande %}{{ interventionSheet.dateDemande|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if interventionSheet.dateIntervention %}{{ interventionSheet.dateIntervention|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if interventionSheet.dateModification %}{{ interventionSheet.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if interventionSheet.paid %}Yes{% else %}No{% endif %}</td>
+                <td>{{ interventionSheet.satisfactionClient }}</td>
+                <td>{{ interventionSheet.commentaire }}</td>
+                <td>{{ interventionSheet.nombreIntervenants }}</td>
+                <td>{% if interventionSheet.duree %}{{ interventionSheet.duree|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('interventionsheet_show', { 'id': interventionSheet.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('interventionsheet_edit', { 'id': interventionSheet.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('interventionsheet_new') }}">Create a new interventionSheet</a>
+        </li>
+    </ul>
+{% endblock %}

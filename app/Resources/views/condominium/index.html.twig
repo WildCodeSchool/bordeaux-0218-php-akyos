@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Condominia list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Chargecopropriete</th>
+                <th>Telephone</th>
+                <th>Mail</th>
+                <th>Messagepublic</th>
+                <th>Messageprive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for condominium in condominia %}
+            <tr>
+                <td><a href="{{ path('condominium_show', { 'id': condominium.id }) }}">{{ condominium.id }}</a></td>
+                <td>{{ condominium.nom }}</td>
+                <td>{{ condominium.adresse }}</td>
+                <td>{{ condominium.chargeCopropriete }}</td>
+                <td>{{ condominium.telephone }}</td>
+                <td>{{ condominium.mail }}</td>
+                <td>{{ condominium.messagePublic }}</td>
+                <td>{{ condominium.messagePrive }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('condominium_show', { 'id': condominium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('condominium_new') }}">Create a new condominium</a>
+        </li>
+    </ul>
+{% endblock %}

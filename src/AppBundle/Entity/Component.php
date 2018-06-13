@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Component
  *
  * @ORM\Table(name="component")
- * @ORM\Entity(repositoryClass="ComponentRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ComponentRepository")
  */
 class Component
 {
@@ -173,5 +173,76 @@ class Component
     {
         return $this->reference;
     }
-}
 
+    /**
+     * Set common
+     *
+     * @param \AppBundle\Entity\Common $common
+     *
+     * @return Component
+     */
+    public function setCommon(\AppBundle\Entity\Common $common = null)
+    {
+        $this->common = $common;
+
+        return $this;
+    }
+
+    /**
+     * Get common
+     *
+     * @return \AppBundle\Entity\Common
+     */
+    public function getCommon()
+    {
+        return $this->common;
+    }
+
+    /**
+     * Set parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Component
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return \AppBundle\Entity\Parking
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
+
+    /**
+     * Set unit
+     *
+     * @param \AppBundle\Entity\Unit $unit
+     *
+     * @return Component
+     */
+    public function setUnit(\AppBundle\Entity\Unit $unit = null)
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Get unit
+     *
+     * @return \AppBundle\Entity\Unit
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+}
