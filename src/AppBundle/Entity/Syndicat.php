@@ -7,18 +7,18 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Syndicat
  *
- * @ORM\Table(name="syndic")
- * @ORM\Entity(repositoryClass="SyndicatRepository")
+ * @ORM\Table(name="syndicat")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SyndicatRepository")
  */
 class Syndicat
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndic")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicats")
      */
     private $condominium;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="syndics")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="syndicats")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

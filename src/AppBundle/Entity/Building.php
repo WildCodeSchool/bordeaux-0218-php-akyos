@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Building
  *
- * @ORM\Table(name="batiment")
+ * @ORM\Table(name="building")
  * @ORM\Entity(repositoryClass="BuildingRepository")
  */
 class Building
@@ -19,16 +19,21 @@ class Building
     private $commons;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="building")
+     */
+    private $parkings;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="buildings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $condominium;
 
     /**
-     * @ORM\OneToMany(targetEntity="Unit", mappedBy="building")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Unit", mappedBy="building")
      *
      */
-    private $lots;
+    private $units;
 
     /**
      * @var int

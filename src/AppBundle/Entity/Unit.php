@@ -5,21 +5,21 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Unit
+ * Building is divided into several UNITS that are each separately owned, surrounded by common areas
  *
- * @ORM\Table(name="lot")
+ * @ORM\Table(name="unit")
  * @ORM\Entity(repositoryClass="UnitRepository")
  */
 class Unit
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Component", mappedBy="lot")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Component", mappedBy="unit")
      *
      */
-    private $element;
+    private $components;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Building", inversedBy="lots")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Building", inversedBy="units")
      */
     private $building;
 

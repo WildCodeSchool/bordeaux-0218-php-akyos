@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Common
  *
- * @ORM\Table(name="communs")
+ * @ORM\Table(name="common")
  * @ORM\Entity(repositoryClass="CommonRepository")
  */
 class Common
@@ -16,7 +16,7 @@ class Common
      * @ORM\OneToMany(targetEntity="Component", mappedBy="common")
      *
      */
-    private $elements;
+    private $components;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Building", inversedBy="commons")

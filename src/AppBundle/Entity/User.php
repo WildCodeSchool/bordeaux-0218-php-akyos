@@ -13,14 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @ORM\OneToMany(targetEntity="Syndicat", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndicat", mappedBy="user")
      */
-    private $syndics;
+    private $syndicats;
 
     /**
      * @ORM\OneToMany(targetEntity="Worker", mappedBy="user")
      */
-    private $internenants;
+    private $workers;
 
     /**
      * @var int

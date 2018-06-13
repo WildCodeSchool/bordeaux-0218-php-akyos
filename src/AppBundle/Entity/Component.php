@@ -7,28 +7,28 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Component
  *
- * @ORM\Table(name="element")
+ * @ORM\Table(name="component")
  * @ORM\Entity(repositoryClass="ComponentRepository")
  */
 class Component
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Common", inversedBy="elements")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Common", inversedBy="components")
      *
      */
     private $common;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Parking", inversedBy="elements")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Parking", inversedBy="components")
      *
      */
     private $parking;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Unit", inversedBy="elements")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit", inversedBy="components")
      *
      */
-    private $lot;
+    private $unit;
 
     /**
      * @var int

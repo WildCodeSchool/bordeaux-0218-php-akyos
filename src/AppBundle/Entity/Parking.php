@@ -17,7 +17,13 @@ class Parking
      * @ORM\OneToMany(targetEntity="Component", mappedBy="parking")
      *
      */
-    private $element;
+    private $components;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Building", inversedBy="parkings")
+     *
+     */
+    private $building;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="parkings")

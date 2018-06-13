@@ -7,13 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Worker
  *
- * @ORM\Table(name="intervenant")
- * @ORM\Entity(repositoryClass="WorkerRepository")
+ * @ORM\Table(name="worker")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\WorkerRepository")
  */
 class Worker
 {
+
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="intervenants")
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\InterventionSheet", mappedBy="worker")
+     *
+     */
+    private $interventionSheets;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="workers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

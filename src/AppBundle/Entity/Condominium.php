@@ -7,11 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Condominium
  *
- * @ORM\Table(name="copropriete")
+ * @ORM\Table(name="condominium")
  * @ORM\Entity(repositoryClass="CondominiumRepository")
  */
 class Condominium
 {
+    /**
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\InterventionSheet", mappedBy="condominium")
+     *
+     */
+    private $interventionsSheets;
+
     /**
      *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
      *

@@ -7,11 +7,23 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * InterventionSheet
  *
- * @ORM\Table(name="fiche_intervention")
- * @ORM\Entity(repositoryClass="InterventionSheet")
+ * @ORM\Table(name="intervention_sheet")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\InterventionSheet")
  */
 class InterventionSheet
 {
+    /**
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Worker", inversedBy="interventionSheets")
+     *
+     */
+    private $worker;
+
+    /**
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventionSheets")
+     *
+     */
+    private $condominium;
+
     /**
      * @var int
      *
