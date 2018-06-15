@@ -16,3 +16,9 @@
 /vendor/
 /web/bundles/
 .idea/
+/node_modules/
+/web/build/
+/assets/img/*
+!/assets/img/
+/assets/img/avatars/*
+!/assets/img/avatars/

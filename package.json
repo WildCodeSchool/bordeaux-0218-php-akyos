@@ -1,0 +1,49 @@
+{
+  "name": "bordeaux-0218-php-akyos",
+  "version": "1.0.0",
+  "description": "bordeaux-0218-php-akyos =======================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WildCodeSchool/bordeaux-0218-php-akyos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WildCodeSchool/bordeaux-0218-php-akyos/issues"
+  },
+  "homepage": "https://github.com/WildCodeSchool/bordeaux-0218-php-akyos#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "bootstrap": "^3.3.7",
+    "copy-webpack-plugin": "^4.5.1",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webpack-plugin": "^2.1.5",
+    "install": "^0.11.0",
+    "jquery": "^3.3.1",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "npm": "^6.1.0",
+    "popper": "^1.0.1",
+    "url-loader": "^1.0.1",
+    "webpack-notifier": "^1.6.0"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "child_process": "^1.0.2",
+    "fontawesome": "^4.7.2",
+    "fs": "0.0.1-security",
+    "net": "^1.0.2",
+    "popper.js": "^1.14.3",
+    "rijs": "^0.9.1",
+    "rijs.npm": "^2.0.0",
+    "tls": "0.0.1"
+  }
+}
