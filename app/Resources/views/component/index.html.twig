@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Categorie</th>
+                <th>Category</th>
                 <th>Type</th>
                 <th>Photo</th>
                 <th>Reference</th>
@@ -18,7 +18,7 @@
         {% for component in components %}
             <tr>
                 <td><a href="{{ path('component_show', { 'id': component.id }) }}">{{ component.id }}</a></td>
-                <td>{{ component.categorie }}</td>
+                <td>{{ component.category }}</td>
                 <td>{{ component.type }}</td>
                 <td>{{ component.photo }}</td>
                 <td>{{ component.reference }}</td>

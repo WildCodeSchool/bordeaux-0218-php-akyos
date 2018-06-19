@@ -7,12 +7,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Telephone</th>
-                <th>Specialite</th>
-                <th>Adresse</th>
-                <th>Mail</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Phone</th>
+                <th>Competence</th>
+                <th>Adress</th>
+                <th>Email</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,12 +20,12 @@
         {% for worker in workers %}
             <tr>
                 <td><a href="{{ path('worker_show', { 'id': worker.id }) }}">{{ worker.id }}</a></td>
-                <td>{{ worker.nom }}</td>
-                <td>{{ worker.prenom }}</td>
-                <td>{{ worker.telephone }}</td>
-                <td>{{ worker.specialite }}</td>
-                <td>{{ worker.adresse }}</td>
-                <td>{{ worker.mail }}</td>
+                <td>{{ worker.lastName }}</td>
+                <td>{{ worker.firstName }}</td>
+                <td>{{ worker.phone }}</td>
+                <td>{{ worker.competence }}</td>
+                <td>{{ worker.adress }}</td>
+                <td>{{ worker.email }}</td>
                 <td>
                     <ul>
                         <li>

@@ -13,7 +13,22 @@ class InterventionSheetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('avancement')->add('typeIntervention')->add('fourniture')->add('urgence')->add('descriptif')->add('dateDemande')->add('dateIntervention')->add('dateModification')->add('paid')->add('satisfactionClient')->add('commentaire')->add('nombreIntervenants')->add('duree')->add('worker')->add('condominium');
+        $builder
+            ->add('progress')
+            ->add('interventionType')
+            ->add('material')
+            ->add('emergency')
+            ->add('description')
+            ->add('requestDate')
+            ->add('interventionDate')
+            ->add('modificationDate')
+            ->add('paid')
+            ->add('clientSatisfaction')
+            ->add('comment')
+            ->add('workerNumber')
+            ->add('duration')
+            ->add('worker')
+            ->add('condominium');
     }/**
      * {@inheritdoc}
      */
@@ -31,6 +46,4 @@ class InterventionSheetType extends AbstractType
     {
         return 'appbundle_interventionsheet';
     }
-
-
 }

@@ -7,13 +7,13 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Anneedeconstruction</th>
-                <th>Constructeur</th>
-                <th>Categorie</th>
-                <th>Classeenergetique</th>
-                <th>Nombredelots</th>
-                <th>Nombredetages</th>
+                <th>Name</th>
+                <th>Constructionyear</th>
+                <th>Constructor</th>
+                <th>Category</th>
+                <th>Energyclass</th>
+                <th>Unitsnumber</th>
+                <th>Floorsnumber</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,13 +21,13 @@
         {% for building in buildings %}
             <tr>
                 <td><a href="{{ path('building_show', { 'id': building.id }) }}">{{ building.id }}</a></td>
-                <td>{{ building.nom }}</td>
-                <td>{{ building.anneeDeConstruction }}</td>
-                <td>{{ building.constructeur }}</td>
-                <td>{{ building.categorie }}</td>
-                <td>{{ building.classeEnergetique }}</td>
-                <td>{{ building.nombreDeLots }}</td>
-                <td>{{ building.nombreDEtages }}</td>
+                <td>{{ building.name }}</td>
+                <td>{{ building.constructionYear }}</td>
+                <td>{{ building.constructor }}</td>
+                <td>{{ building.category }}</td>
+                <td>{{ building.energyClass }}</td>
+                <td>{{ building.unitsNumber }}</td>
+                <td>{{ building.floorsNumber }}</td>
                 <td>
                     <ul>
                         <li>

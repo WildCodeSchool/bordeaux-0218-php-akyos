@@ -13,7 +13,15 @@ class UnitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numero')->add('etage')->add('nom')->add('prenom')->add('telephone')->add('mail')->add('commentaire')->add('building');
+        $builder
+            ->add('number')
+            ->add('floor')
+            ->add('lastName')
+            ->add('firstName')
+            ->add('phone')
+            ->add('email')
+            ->add('comment')
+            ->add('building');
     }/**
      * {@inheritdoc}
      */
@@ -31,6 +39,4 @@ class UnitType extends AbstractType
     {
         return 'appbundle_unit';
     }
-
-
 }

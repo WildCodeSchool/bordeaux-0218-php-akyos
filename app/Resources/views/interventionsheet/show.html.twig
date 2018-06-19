@@ -10,56 +10,56 @@
                 <td>{{ interventionSheet.id }}</td>
             </tr>
             <tr>
-                <th>Avancement</th>
-                <td>{{ interventionSheet.avancement }}</td>
+                <th>Progress</th>
+                <td>{{ interventionSheet.progress }}</td>
             </tr>
             <tr>
-                <th>Typeintervention</th>
-                <td>{{ interventionSheet.typeIntervention }}</td>
+                <th>Interventiontype</th>
+                <td>{{ interventionSheet.interventionType }}</td>
             </tr>
             <tr>
-                <th>Fourniture</th>
-                <td>{{ interventionSheet.fourniture }}</td>
+                <th>Material</th>
+                <td>{{ interventionSheet.material }}</td>
             </tr>
             <tr>
-                <th>Urgence</th>
-                <td>{{ interventionSheet.urgence }}</td>
+                <th>Emergency</th>
+                <td>{{ interventionSheet.emergency }}</td>
             </tr>
             <tr>
-                <th>Descriptif</th>
-                <td>{{ interventionSheet.descriptif }}</td>
+                <th>Description</th>
+                <td>{{ interventionSheet.description }}</td>
             </tr>
             <tr>
-                <th>Datedemande</th>
-                <td>{% if interventionSheet.dateDemande %}{{ interventionSheet.dateDemande|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Requestdate</th>
+                <td>{% if interventionSheet.requestDate %}{{ interventionSheet.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Dateintervention</th>
-                <td>{% if interventionSheet.dateIntervention %}{{ interventionSheet.dateIntervention|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Interventiondate</th>
+                <td>{% if interventionSheet.interventionDate %}{{ interventionSheet.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Datemodification</th>
-                <td>{% if interventionSheet.dateModification %}{{ interventionSheet.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Modificationdate</th>
+                <td>{% if interventionSheet.modificationDate %}{{ interventionSheet.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Paid</th>
                 <td>{% if interventionSheet.paid %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Satisfactionclient</th>
-                <td>{{ interventionSheet.satisfactionClient }}</td>
+                <th>Clientsatisfaction</th>
+                <td>{{ interventionSheet.clientSatisfaction }}</td>
             </tr>
             <tr>
-                <th>Commentaire</th>
-                <td>{{ interventionSheet.commentaire }}</td>
+                <th>Comment</th>
+                <td>{{ interventionSheet.comment }}</td>
             </tr>
             <tr>
-                <th>Nombreintervenants</th>
-                <td>{{ interventionSheet.nombreIntervenants }}</td>
+                <th>Workernumber</th>
+                <td>{{ interventionSheet.workerNumber }}</td>
             </tr>
             <tr>
-                <th>Duree</th>
-                <td>{% if interventionSheet.duree %}{{ interventionSheet.duree|date('H:i:s') }}{% endif %}</td>
+                <th>Duration</th>
+                <td>{% if interventionSheet.duration %}{{ interventionSheet.duration|date('H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

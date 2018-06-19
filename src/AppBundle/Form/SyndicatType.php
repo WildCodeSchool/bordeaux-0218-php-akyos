@@ -13,7 +13,13 @@ class SyndicatType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('adresse')->add('telephone')->add('email')->add('chargeCopro')->add('user');
+        $builder
+            ->add('name')
+            ->add('adress')
+            ->add('phone')
+            ->add('email')
+            ->add('condominiumManager')
+            ->add('user');
     }/**
      * {@inheritdoc}
      */
@@ -31,6 +37,4 @@ class SyndicatType extends AbstractType
     {
         return 'appbundle_syndicat';
     }
-
-
 }

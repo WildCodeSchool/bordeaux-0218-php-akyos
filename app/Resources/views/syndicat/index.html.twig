@@ -7,11 +7,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Telephone</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Phone</th>
                 <th>Email</th>
-                <th>Chargecopro</th>
+                <th>Condominiummanager</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,11 +19,11 @@
         {% for syndicat in syndicats %}
             <tr>
                 <td><a href="{{ path('syndicat_show', { 'id': syndicat.id }) }}">{{ syndicat.id }}</a></td>
-                <td>{{ syndicat.nom }}</td>
-                <td>{{ syndicat.adresse }}</td>
-                <td>{{ syndicat.telephone }}</td>
+                <td>{{ syndicat.name }}</td>
+                <td>{{ syndicat.adress }}</td>
+                <td>{{ syndicat.phone }}</td>
                 <td>{{ syndicat.email }}</td>
-                <td>{{ syndicat.chargeCopro }}</td>
+                <td>{{ syndicat.condominiumManager }}</td>
                 <td>
                     <ul>
                         <li>

@@ -7,13 +7,13 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Chargecopropriete</th>
-                <th>Telephone</th>
-                <th>Mail</th>
-                <th>Messagepublic</th>
-                <th>Messageprive</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Condominiummanager</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Publicmessage</th>
+                <th>Privatemessage</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,13 +21,13 @@
         {% for condominium in condominia %}
             <tr>
                 <td><a href="{{ path('condominium_show', { 'id': condominium.id }) }}">{{ condominium.id }}</a></td>
-                <td>{{ condominium.nom }}</td>
-                <td>{{ condominium.adresse }}</td>
-                <td>{{ condominium.chargeCopropriete }}</td>
-                <td>{{ condominium.telephone }}</td>
-                <td>{{ condominium.mail }}</td>
-                <td>{{ condominium.messagePublic }}</td>
-                <td>{{ condominium.messagePrive }}</td>
+                <td>{{ condominium.name }}</td>
+                <td>{{ condominium.adress }}</td>
+                <td>{{ condominium.condominiumManager }}</td>
+                <td>{{ condominium.phone }}</td>
+                <td>{{ condominium.email }}</td>
+                <td>{{ condominium.publicMessage }}</td>
+                <td>{{ condominium.privateMessage }}</td>
                 <td>
                     <ul>
                         <li>
