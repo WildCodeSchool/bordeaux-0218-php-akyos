@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Building</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ building.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ building.name }}</td>
+            </tr>
+            <tr>
+                <th>Constructionyear</th>
+                <td>{{ building.constructionYear }}</td>
+            </tr>
+            <tr>
+                <th>Constructor</th>
+                <td>{{ building.constructor }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ building.category }}</td>
+            </tr>
+            <tr>
+                <th>Energyclass</th>
+                <td>{{ building.energyClass }}</td>
+            </tr>
+            <tr>
+                <th>Unitsnumber</th>
+                <td>{{ building.unitsNumber }}</td>
+            </tr>
+            <tr>
+                <th>Floorsnumber</th>
+                <td>{{ building.floorsNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('building_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('building_edit', { 'id': building.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

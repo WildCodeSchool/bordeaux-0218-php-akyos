@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commons list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for common in commons %}
+            <tr>
+                <td><a href="{{ path('common_show', { 'id': common.id }) }}">{{ common.id }}</a></td>
+                <td>{{ common.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('common_show', { 'id': common.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('common_edit', { 'id': common.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('common_new') }}">Create a new common</a>
+        </li>
+    </ul>
+{% endblock %}
