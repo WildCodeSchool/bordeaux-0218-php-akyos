@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ParkingType extends AbstractType
+class BuildingType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,8 +14,13 @@ class ParkingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('parkingSpace')
-            ->add('building')
+            ->add('name')
+            ->add('constructionYear')
+            ->add('constructor')
+            ->add('category')
+            ->add('energyClass')
+            ->add('unitsNumber')
+            ->add('floorsNumber')
             ->add('condominium');
     }/**
      * {@inheritdoc}
@@ -23,7 +28,7 @@ class ParkingType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Parking'
+            'data_class' => 'AppBundle\Entity\Building'
         ));
     }
 
@@ -32,6 +37,6 @@ class ParkingType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_parking';
+        return 'appbundle_building';
     }
 }

@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Parking</h1>
+    <h1>Common</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ parking.id }}</td>
+                <td>{{ common.id }}</td>
             </tr>
             <tr>
-                <th>Parkingspace</th>
-                <td>{{ parking.parkingSpace }}</td>
+                <th>Name</th>
+                <td>{{ common.name }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('parking_index') }}">Back to the list</a>
+            <a href="{{ path('common_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">Edit</a>
+            <a href="{{ path('common_edit', { 'id': common.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

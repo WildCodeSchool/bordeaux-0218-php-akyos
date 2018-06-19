@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Parkings list</h1>
+    <h1>Commons list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Parkingspace</th>
+                <th>Name</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for parking in parkings %}
+        {% for common in commons %}
             <tr>
-                <td><a href="{{ path('parking_show', { 'id': parking.id }) }}">{{ parking.id }}</a></td>
-                <td>{{ parking.parkingSpace }}</td>
+                <td><a href="{{ path('common_show', { 'id': common.id }) }}">{{ common.id }}</a></td>
+                <td>{{ common.name }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('parking_show', { 'id': parking.id }) }}">show</a>
+                            <a href="{{ path('common_show', { 'id': common.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">edit</a>
+                            <a href="{{ path('common_edit', { 'id': common.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +33,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('parking_new') }}">Create a new parking</a>
+            <a href="{{ path('common_new') }}">Create a new common</a>
         </li>
     </ul>
 {% endblock %}

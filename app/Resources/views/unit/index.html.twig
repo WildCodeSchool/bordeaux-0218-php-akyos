@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Units list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Floor</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unit in units %}
+            <tr>
+                <td><a href="{{ path('unit_show', { 'id': unit.id }) }}">{{ unit.id }}</a></td>
+                <td>{{ unit.number }}</td>
+                <td>{{ unit.floor }}</td>
+                <td>{{ unit.lastName }}</td>
+                <td>{{ unit.firstName }}</td>
+                <td>{{ unit.phone }}</td>
+                <td>{{ unit.email }}</td>
+                <td>{{ unit.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('unit_show', { 'id': unit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('unit_new') }}">Create a new unit</a>
+        </li>
+    </ul>
+{% endblock %}
