@@ -36,58 +36,58 @@ class InterventionSheet
     /**
      * @var string
      *
-     * @ORM\Column(name="avancement", type="text")
+     * @ORM\Column(name="progress", type="text")
      */
-    private $avancement;
+    private $progress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type_intervention", type="text")
+     * @ORM\Column(name="intervention_type", type="text")
      */
-    private $typeIntervention;
+    private $interventionType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fourniture", type="text")
+     * @ORM\Column(name="material", type="text")
      */
-    private $fourniture;
+    private $material;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="urgence", type="string", length=255)
+     * @ORM\Column(name="emergency", type="string", length=255)
      */
-    private $urgence;
+    private $emergency;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descriptif", type="text")
+     * @ORM\Column(name="description", type="text")
      */
-    private $descriptif;
+    private $description;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateDemande", type="datetime")
+     * @ORM\Column(name="request_date", type="datetime")
      */
-    private $dateDemande;
+    private $requestDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateIntervention", type="datetime")
+     * @ORM\Column(name="intervention_date", type="datetime")
      */
-    private $dateIntervention;
+    private $interventionDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateModification", type="datetime")
+     * @ORM\Column(name="modification_date", type="datetime")
      */
-    private $dateModification;
+    private $modificationDate;
 
     /**
      * @var bool
@@ -99,30 +99,30 @@ class InterventionSheet
     /**
      * @var int
      *
-     * @ORM\Column(name="satisfactionClient", type="integer")
+     * @ORM\Column(name="client_satisfaction", type="integer")
      */
-    private $satisfactionClient;
+    private $clientSatisfaction;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text")
+     * @ORM\Column(name="comment", type="text")
      */
-    private $commentaire;
+    private $comment;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nombreIntervenants", type="integer")
+     * @ORM\Column(name="worker_number", type="integer")
      */
-    private $nombreIntervenants;
+    private $workerNumber;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="duree", type="time")
+     * @ORM\Column(name="duration", type="time")
      */
-    private $duree;
+    private $duration;
 
 
     /**
@@ -138,13 +138,13 @@ class InterventionSheet
     /**
      * Set avancement
      *
-     * @param string $avancement
+     * @param string $progress
      *
      * @return InterventionSheet
      */
-    public function setAvancement($avancement)
+    public function setProgress($progress)
     {
-        $this->avancement = $avancement;
+        $this->progress = $progress;
 
         return $this;
     }
@@ -154,21 +154,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getAvancement()
+    public function getProgress()
     {
-        return $this->avancement;
+        return $this->progress;
     }
 
     /**
      * Set typeIntervention
      *
-     * @param string $typeIntervention
+     * @param string $interventionType
      *
      * @return InterventionSheet
      */
-    public function setTypeIntervention($typeIntervention)
+    public function setInterventionType($interventionType)
     {
-        $this->typeIntervention = $typeIntervention;
+        $this->interventionType = $interventionType;
 
         return $this;
     }
@@ -178,21 +178,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getTypeIntervention()
+    public function getInterventionType()
     {
-        return $this->typeIntervention;
+        return $this->interventionType;
     }
 
     /**
      * Set fourniture
      *
-     * @param string $fourniture
+     * @param string $material
      *
      * @return InterventionSheet
      */
-    public function setFourniture($fourniture)
+    public function setMaterial($material)
     {
-        $this->fourniture = $fourniture;
+        $this->material = $material;
 
         return $this;
     }
@@ -202,21 +202,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getFourniture()
+    public function getMaterial()
     {
-        return $this->fourniture;
+        return $this->material;
     }
 
     /**
      * Set urgence
      *
-     * @param string $urgence
+     * @param string $emergency
      *
      * @return InterventionSheet
      */
-    public function setUrgence($urgence)
+    public function setEmergency($emergency)
     {
-        $this->urgence = $urgence;
+        $this->emergency = $emergency;
 
         return $this;
     }
@@ -226,21 +226,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getUrgence()
+    public function getEmergency()
     {
-        return $this->urgence;
+        return $this->emergency;
     }
 
     /**
      * Set descriptif
      *
-     * @param string $descriptif
+     * @param string $description
      *
      * @return InterventionSheet
      */
-    public function setDescriptif($descriptif)
+    public function setDescription($description)
     {
-        $this->descriptif = $descriptif;
+        $this->description = $description;
 
         return $this;
     }
@@ -250,21 +250,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getDescriptif()
+    public function getDescription()
     {
-        return $this->descriptif;
+        return $this->description;
     }
 
     /**
      * Set dateDemande
      *
-     * @param \DateTime $dateDemande
+     * @param \DateTime $requestDate
      *
      * @return InterventionSheet
      */
-    public function setDateDemande($dateDemande)
+    public function setRequestDate($requestDate)
     {
-        $this->dateDemande = $dateDemande;
+        $this->requestDate = $requestDate;
 
         return $this;
     }
@@ -274,21 +274,21 @@ class InterventionSheet
      *
      * @return \DateTime
      */
-    public function getDateDemande()
+    public function getRequestDate()
     {
-        return $this->dateDemande;
+        return $this->requestDate;
     }
 
     /**
      * Set dateIntervention
      *
-     * @param \DateTime $dateIntervention
+     * @param \DateTime $interventionDate
      *
      * @return InterventionSheet
      */
-    public function setDateIntervention($dateIntervention)
+    public function setInterventionDate($interventionDate)
     {
-        $this->dateIntervention = $dateIntervention;
+        $this->interventionDate = $interventionDate;
 
         return $this;
     }
@@ -298,21 +298,21 @@ class InterventionSheet
      *
      * @return \DateTime
      */
-    public function getDateIntervention()
+    public function getInterventionDate()
     {
-        return $this->dateIntervention;
+        return $this->interventionDate;
     }
 
     /**
      * Set dateModification
      *
-     * @param \DateTime $dateModification
+     * @param \DateTime $modificationDate
      *
      * @return InterventionSheet
      */
-    public function setDateModification($dateModification)
+    public function setModificationDate($modificationDate)
     {
-        $this->dateModification = $dateModification;
+        $this->modificationDate = $modificationDate;
 
         return $this;
     }
@@ -322,9 +322,9 @@ class InterventionSheet
      *
      * @return \DateTime
      */
-    public function getDateModification()
+    public function getModificationDate()
     {
-        return $this->dateModification;
+        return $this->modificationDate;
     }
 
     /**
@@ -354,13 +354,13 @@ class InterventionSheet
     /**
      * Set satisfactionClient
      *
-     * @param integer $satisfactionClient
+     * @param integer $clientSatisfaction
      *
      * @return InterventionSheet
      */
-    public function setSatisfactionClient($satisfactionClient)
+    public function setClientSatisfaction($clientSatisfaction)
     {
-        $this->satisfactionClient = $satisfactionClient;
+        $this->clientSatisfaction = $clientSatisfaction;
 
         return $this;
     }
@@ -370,21 +370,21 @@ class InterventionSheet
      *
      * @return int
      */
-    public function getSatisfactionClient()
+    public function getClientSatisfaction()
     {
-        return $this->satisfactionClient;
+        return $this->clientSatisfaction;
     }
 
     /**
      * Set commentaire
      *
-     * @param string $commentaire
+     * @param string $comment
      *
      * @return InterventionSheet
      */
-    public function setCommentaire($commentaire)
+    public function setComment($comment)
     {
-        $this->commentaire = $commentaire;
+        $this->comment = $comment;
 
         return $this;
     }
@@ -394,21 +394,21 @@ class InterventionSheet
      *
      * @return string
      */
-    public function getCommentaire()
+    public function getComment()
     {
-        return $this->commentaire;
+        return $this->comment;
     }
 
     /**
      * Set nombreIntervenants
      *
-     * @param integer $nombreIntervenants
+     * @param integer $workerNumber
      *
      * @return InterventionSheet
      */
-    public function setNombreIntervenants($nombreIntervenants)
+    public function setWorkerNumber($workerNumber)
     {
-        $this->nombreIntervenants = $nombreIntervenants;
+        $this->workerNumber = $workerNumber;
 
         return $this;
     }
@@ -418,21 +418,21 @@ class InterventionSheet
      *
      * @return int
      */
-    public function getNombreIntervenants()
+    public function getWorkerNumber()
     {
-        return $this->nombreIntervenants;
+        return $this->workerNumber;
     }
 
     /**
      * Set duree
      *
-     * @param \DateTime $duree
+     * @param \DateTime $duration
      *
      * @return InterventionSheet
      */
-    public function setDuree($duree)
+    public function setDuration($duration)
     {
-        $this->duree = $duree;
+        $this->duration = $duration;
 
         return $this;
     }
@@ -442,9 +442,9 @@ class InterventionSheet
      *
      * @return \DateTime
      */
-    public function getDuree()
+    public function getDuration()
     {
-        return $this->duree;
+        return $this->duration;
     }
 
     /**

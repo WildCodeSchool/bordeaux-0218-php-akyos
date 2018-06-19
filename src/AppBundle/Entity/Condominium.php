@@ -36,10 +36,10 @@ class Condominium
     private $buildings;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Syndicat", inversedBy="condominium")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicat", inversedBy="condominiums")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $syndic;
+    private $syndicat;
 
     /**
      * @var int
@@ -53,51 +53,51 @@ class Condominium
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=128)
+     * @ORM\Column(name="name", type="string", length=128)
      */
-    private $nom;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adress", type="string", length=255)
      */
-    private $adresse;
+    private $adress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="charge_copropriete", type="string", length=128)
+     * @ORM\Column(name="condominium_manager", type="string", length=128)
      */
-    private $chargeCopropriete;
+    private $condominiumManager;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="phone", type="integer")
      */
-    private $telephone;
+    private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=128)
+     * @ORM\Column(name="email", type="string", length=128)
      */
-    private $mail;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message_public", type="text", nullable=true)
+     * @ORM\Column(name="public_message", type="text", nullable=true)
      */
-    private $messagePublic;
+    private $publicMessage;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message_prive", type="text", nullable=true)
+     * @ORM\Column(name="private_message", type="text", nullable=true)
      */
-    private $messagePrive;
+    private $privateMessage;
 
 
     /**
@@ -113,13 +113,13 @@ class Condominium
     /**
      * Set nom
      *
-     * @param string $nom
+     * @param string $name
      *
      * @return Condominium
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -129,21 +129,21 @@ class Condominium
      *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
      * Set adresse
      *
-     * @param string $adresse
+     * @param string $adress
      *
      * @return Condominium
      */
-    public function setAdresse($adresse)
+    public function setAdress($adress)
     {
-        $this->adresse = $adresse;
+        $this->adress = $adress;
 
         return $this;
     }
@@ -153,21 +153,21 @@ class Condominium
      *
      * @return string
      */
-    public function getAdresse()
+    public function getAdress()
     {
-        return $this->adresse;
+        return $this->adress;
     }
 
     /**
      * Set chargeCopropriete
      *
-     * @param string $chargeCopropriete
+     * @param string $condominiumManager
      *
      * @return Condominium
      */
-    public function setChargeCopropriete($chargeCopropriete)
+    public function setCondominiumManager($condominiumManager)
     {
-        $this->chargeCopropriete = $chargeCopropriete;
+        $this->condominiumManager = $condominiumManager;
 
         return $this;
     }
@@ -177,21 +177,21 @@ class Condominium
      *
      * @return string
      */
-    public function getChargeCopropriete()
+    public function getCondominiumManager()
     {
-        return $this->chargeCopropriete;
+        return $this->condominiumManager;
     }
 
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param integer $phone
      *
      * @return Condominium
      */
-    public function setTelephone($telephone)
+    public function setPhone($phone)
     {
-        $this->telephone = $telephone;
+        $this->phone = $phone;
 
         return $this;
     }
@@ -201,21 +201,21 @@ class Condominium
      *
      * @return int
      */
-    public function getTelephone()
+    public function getPhone()
     {
-        return $this->telephone;
+        return $this->phone;
     }
 
     /**
      * Set mail
      *
-     * @param string $mail
+     * @param string $email
      *
      * @return Condominium
      */
-    public function setMail($mail)
+    public function setEmail($email)
     {
-        $this->mail = $mail;
+        $this->email = $email;
 
         return $this;
     }
@@ -225,21 +225,21 @@ class Condominium
      *
      * @return string
      */
-    public function getMail()
+    public function getEmail()
     {
-        return $this->mail;
+        return $this->email;
     }
 
     /**
      * Set messagePublic
      *
-     * @param string $messagePublic
+     * @param string $publicMessage
      *
      * @return Condominium
      */
-    public function setMessagePublic($messagePublic)
+    public function setPublicMessage($publicMessage)
     {
-        $this->messagePublic = $messagePublic;
+        $this->publicMessage = $publicMessage;
 
         return $this;
     }
@@ -249,21 +249,21 @@ class Condominium
      *
      * @return string
      */
-    public function getMessagePublic()
+    public function getPublicMessage()
     {
-        return $this->messagePublic;
+        return $this->publicMessage;
     }
 
     /**
      * Set messagePrive
      *
-     * @param string $messagePrive
+     * @param string $privateMessage
      *
      * @return Condominium
      */
-    public function setMessagePrive($messagePrive)
+    public function setPrivateMessage($privateMessage)
     {
-        $this->messagePrive = $messagePrive;
+        $this->privateMessage = $privateMessage;
 
         return $this;
     }
@@ -273,9 +273,9 @@ class Condominium
      *
      * @return string
      */
-    public function getMessagePrive()
+    public function getPrivateMessage()
     {
-        return $this->messagePrive;
+        return $this->privateMessage;
     }
     /**
      * Constructor
@@ -427,13 +427,13 @@ class Condominium
     /**
      * Set syndic
      *
-     * @param \AppBundle\Entity\Syndicat $syndic
+     * @param \AppBundle\Entity\Syndicat $syndicat
      *
      * @return Condominium
      */
-    public function setSyndic(\AppBundle\Entity\Syndicat $syndic)
+    public function setSyndicat(\AppBundle\Entity\Syndicat $syndicat)
     {
-        $this->syndic = $syndic;
+        $this->syndicat = $syndicat;
 
         return $this;
     }
@@ -443,8 +443,8 @@ class Condominium
      *
      * @return \AppBundle\Entity\Syndicat
      */
-    public function getSyndic()
+    public function getSyndicat()
     {
-        return $this->syndic;
+        return $this->syndicat;
     }
 }

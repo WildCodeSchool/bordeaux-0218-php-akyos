@@ -35,51 +35,51 @@ class Unit
     /**
      * @var int
      *
-     * @ORM\Column(name="numero", type="integer")
+     * @ORM\Column(name="number", type="integer")
      */
-    private $numero;
+    private $number;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="etage", type="integer")
+     * @ORM\Column(name="floor", type="integer")
      */
-    private $etage;
+    private $floor;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=128)
+     * @ORM\Column(name="last_name", type="string", length=128)
      */
-    private $nom;
+    private $lastName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=128)
+     * @ORM\Column(name="first_name", type="string", length=128)
      */
-    private $prenom;
+    private $firstName;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="phone", type="integer")
      */
-    private $telephone;
+    private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $mail;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text", nullable=true)
+     * @ORM\Column(name="comment", type="text", nullable=true)
      */
-    private $commentaire;
+    private $comment;
 
 
     /**
@@ -95,13 +95,13 @@ class Unit
     /**
      * Set numero
      *
-     * @param integer $numero
+     * @param integer $number
      *
      * @return Unit
      */
-    public function setNumero($numero)
+    public function setNumber($number)
     {
-        $this->numero = $numero;
+        $this->number = $number;
 
         return $this;
     }
@@ -111,21 +111,21 @@ class Unit
      *
      * @return int
      */
-    public function getNumero()
+    public function getNumber()
     {
-        return $this->numero;
+        return $this->number;
     }
 
     /**
      * Set etage
      *
-     * @param integer $etage
+     * @param integer $floor
      *
      * @return Unit
      */
-    public function setEtage($etage)
+    public function setFloor($floor)
     {
-        $this->etage = $etage;
+        $this->floor = $floor;
 
         return $this;
     }
@@ -135,21 +135,21 @@ class Unit
      *
      * @return int
      */
-    public function getEtage()
+    public function getFloor()
     {
-        return $this->etage;
+        return $this->floor;
     }
 
     /**
      * Set nom
      *
-     * @param string $nom
+     * @param string $lastName
      *
      * @return Unit
      */
-    public function setNom($nom)
+    public function setLastName($lastName)
     {
-        $this->nom = $nom;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -159,21 +159,21 @@ class Unit
      *
      * @return string
      */
-    public function getNom()
+    public function getLastName()
     {
-        return $this->nom;
+        return $this->lastName;
     }
 
     /**
      * Set prenom
      *
-     * @param string $prenom
+     * @param string $firstName
      *
      * @return Unit
      */
-    public function setPrenom($prenom)
+    public function setFirstName($firstName)
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -183,21 +183,21 @@ class Unit
      *
      * @return string
      */
-    public function getPrenom()
+    public function getFirstName()
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param integer $phone
      *
      * @return Unit
      */
-    public function setTelephone($telephone)
+    public function setPhone($phone)
     {
-        $this->telephone = $telephone;
+        $this->phone = $phone;
 
         return $this;
     }
@@ -207,21 +207,21 @@ class Unit
      *
      * @return int
      */
-    public function getTelephone()
+    public function getPhone()
     {
-        return $this->telephone;
+        return $this->phone;
     }
 
     /**
      * Set mail
      *
-     * @param string $mail
+     * @param string $email
      *
      * @return Unit
      */
-    public function setMail($mail)
+    public function setEmail($email)
     {
-        $this->mail = $mail;
+        $this->email = $email;
 
         return $this;
     }
@@ -231,21 +231,21 @@ class Unit
      *
      * @return string
      */
-    public function getMail()
+    public function getEmail()
     {
-        return $this->mail;
+        return $this->email;
     }
 
     /**
      * Set commentaire
      *
-     * @param string $commentaire
+     * @param string $comment
      *
      * @return Unit
      */
-    public function setCommentaire($commentaire)
+    public function setComment($comment)
     {
-        $this->commentaire = $commentaire;
+        $this->comment = $comment;
 
         return $this;
     }
@@ -255,9 +255,9 @@ class Unit
      *
      * @return string
      */
-    public function getCommentaire()
+    public function getComment()
     {
-        return $this->commentaire;
+        return $this->comment;
     }
     /**
      * Constructor

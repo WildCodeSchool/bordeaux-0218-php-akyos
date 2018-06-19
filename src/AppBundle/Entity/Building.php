@@ -47,51 +47,51 @@ class Building
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=128)
+     * @ORM\Column(name="name", type="string", length=128)
      */
-    private $nom;
+    private $name;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="annee_de_construction", type="integer")
+     * @ORM\Column(name="construction_year", type="integer")
      */
-    private $anneeDeConstruction;
+    private $constructionYear;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="constructeur", type="string", length=255)
+     * @ORM\Column(name="constructor", type="string", length=255)
      */
-    private $constructeur;
+    private $constructor;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="categorie", type="integer")
+     * @ORM\Column(name="category", type="integer")
      */
-    private $categorie;
+    private $category;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="classe_energetique", type="integer")
+     * @ORM\Column(name="energy_class", type="integer")
      */
-    private $classeEnergetique;
+    private $energyClass;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nombre_de_lots", type="integer")
+     * @ORM\Column(name="unit_number", type="integer")
      */
-    private $nombreDeLots;
+    private $unitsNumber;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nombre_d_etages", type="integer")
+     * @ORM\Column(name="floors_number", type="integer")
      */
-    private $nombreDEtages;
+    private $floorsNumber;
 
 
     /**
@@ -107,13 +107,13 @@ class Building
     /**
      * Set nom
      *
-     * @param string $nom
+     * @param string $name
      *
      * @return Building
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -123,21 +123,21 @@ class Building
      *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
      * Set anneeDeConstruction
      *
-     * @param integer $anneeDeConstruction
+     * @param integer $constructionYear
      *
      * @return Building
      */
-    public function setAnneeDeConstruction($anneeDeConstruction)
+    public function setConstructionyear($constructionYear)
     {
-        $this->anneeDeConstruction = $anneeDeConstruction;
+        $this->constructionYear = $constructionYear;
 
         return $this;
     }
@@ -147,21 +147,21 @@ class Building
      *
      * @return int
      */
-    public function getAnneeDeConstruction()
+    public function getConstructionyear()
     {
-        return $this->anneeDeConstruction;
+        return $this->constructionYear;
     }
 
     /**
      * Set constructeur
      *
-     * @param string $constructeur
+     * @param string $constructor
      *
      * @return Building
      */
-    public function setConstructeur($constructeur)
+    public function setConstructor($constructor)
     {
-        $this->constructeur = $constructeur;
+        $this->constructor = $constructor;
 
         return $this;
     }
@@ -171,21 +171,21 @@ class Building
      *
      * @return string
      */
-    public function getConstructeur()
+    public function getConstructor()
     {
-        return $this->constructeur;
+        return $this->constructor;
     }
 
     /**
      * Set categorie
      *
-     * @param integer $categorie
+     * @param integer $category
      *
      * @return Building
      */
-    public function setCategorie($categorie)
+    public function setCategory($category)
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }
@@ -195,21 +195,21 @@ class Building
      *
      * @return int
      */
-    public function getCategorie()
+    public function getCategory()
     {
-        return $this->categorie;
+        return $this->category;
     }
 
     /**
      * Set classeEnergetique
      *
-     * @param integer $classeEnergetique
+     * @param integer $energyClass
      *
      * @return Building
      */
-    public function setClasseEnergetique($classeEnergetique)
+    public function setEnergyclass($energyClass)
     {
-        $this->classeEnergetique = $classeEnergetique;
+        $this->energyClass = $energyClass;
 
         return $this;
     }
@@ -219,21 +219,21 @@ class Building
      *
      * @return int
      */
-    public function getClasseEnergetique()
+    public function getEnergyclass()
     {
-        return $this->classeEnergetique;
+        return $this->energyClass;
     }
 
     /**
      * Set nombreDeLots
      *
-     * @param integer $nombreDeLots
+     * @param integer $unitsNumber
      *
      * @return Building
      */
-    public function setNombreDeLots($nombreDeLots)
+    public function setUnitsNumber($unitsNumber)
     {
-        $this->nombreDeLots = $nombreDeLots;
+        $this->unitsNumber = $unitsNumber;
 
         return $this;
     }
@@ -243,21 +243,21 @@ class Building
      *
      * @return int
      */
-    public function getNombreDeLots()
+    public function getUnitsNumber()
     {
-        return $this->nombreDeLots;
+        return $this->unitsNumber;
     }
 
     /**
      * Set nombreDEtages
      *
-     * @param integer $nombreDEtages
+     * @param integer $floorsNumber
      *
      * @return Building
      */
-    public function setNombreDEtages($nombreDEtages)
+    public function setFloorsNumber($floorsNumber)
     {
-        $this->nombreDEtages = $nombreDEtages;
+        $this->floorsNumber = $floorsNumber;
 
         return $this;
     }
@@ -267,9 +267,9 @@ class Building
      *
      * @return int
      */
-    public function getNombreDEtages()
+    public function getFloorsNumber()
     {
-        return $this->nombreDEtages;
+        return $this->floorsNumber;
     }
 
     /**

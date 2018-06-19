@@ -42,9 +42,9 @@ class Component
     /**
      * @var string
      *
-     * @ORM\Column(name="categorie", type="string", length=128)
+     * @ORM\Column(name="category", type="string", length=128)
      */
-    private $categorie;
+    private $category;
 
     /**
      * @var string
@@ -81,13 +81,13 @@ class Component
     /**
      * Set categorie
      *
-     * @param string $categorie
+     * @param string $category
      *
      * @return Component
      */
-    public function setCategorie($categorie)
+    public function setCategory($category)
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }
@@ -97,9 +97,9 @@ class Component
      *
      * @return string
      */
-    public function getCategorie()
+    public function getCategory()
     {
-        return $this->categorie;
+        return $this->category;
     }
 
     /**

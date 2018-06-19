@@ -43,9 +43,9 @@ class Parking
     /**
      * @var int
      *
-     * @ORM\Column(name="places", type="integer")
+     * @ORM\Column(name="parking_space", type="integer")
      */
-    private $places;
+    private $parkingSpace;
 
 
     /**
@@ -61,13 +61,13 @@ class Parking
     /**
      * Set places
      *
-     * @param integer $places
+     * @param integer $parkingSpace
      *
      * @return Parking
      */
-    public function setPlaces($places)
+    public function setParkingSpace($parkingSpace)
     {
-        $this->places = $places;
+        $this->parkingSpace = $parkingSpace;
 
         return $this;
     }
@@ -77,9 +77,9 @@ class Parking
      *
      * @return int
      */
-    public function getPlaces()
+    public function getParkingSpace()
     {
-        return $this->places;
+        return $this->parkingSpace;
     }
     /**
      * Constructor

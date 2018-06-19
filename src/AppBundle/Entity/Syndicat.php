@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Syndicat
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicats")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicat")
      */
-    private $condominium;
+    private $condominiums;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="syndicats")
@@ -35,37 +35,37 @@ class Syndicat
     /**
      * @var string
      *
-     * @ORM\Column(name="Nom", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $nom;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Adresse", type="string", length=255)
+     * @ORM\Column(name="adress", type="string", length=255)
      */
-    private $adresse;
+    private $adress;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="Telephone", type="integer")
+     * @ORM\Column(name="phone", type="integer")
      */
-    private $telephone;
+    private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Email", type="string", length=128)
+     * @ORM\Column(name="email", type="string", length=128)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ChargeCopro", type="string", length=255)
+     * @ORM\Column(name="condominium_manager", type="string", length=255)
      */
-    private $chargeCopro;
+    private $condominiumManager;
 
 
     /**
@@ -81,13 +81,13 @@ class Syndicat
     /**
      * Set nom
      *
-     * @param string $nom
+     * @param string $name
      *
      * @return Syndicat
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -97,21 +97,21 @@ class Syndicat
      *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
      * Set adresse
      *
-     * @param string $adresse
+     * @param string $adress
      *
      * @return Syndicat
      */
-    public function setAdresse($adresse)
+    public function setAdress($adress)
     {
-        $this->adresse = $adresse;
+        $this->adress = $adress;
 
         return $this;
     }
@@ -121,21 +121,21 @@ class Syndicat
      *
      * @return string
      */
-    public function getAdresse()
+    public function getAdress()
     {
-        return $this->adresse;
+        return $this->adress;
     }
 
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param integer $phone
      *
      * @return Syndicat
      */
-    public function setTelephone($telephone)
+    public function setPhone($phone)
     {
-        $this->telephone = $telephone;
+        $this->phone = $phone;
 
         return $this;
     }
@@ -145,9 +145,9 @@ class Syndicat
      *
      * @return int
      */
-    public function getTelephone()
+    public function getPhone()
     {
-        return $this->telephone;
+        return $this->phone;
     }
 
     /**
@@ -177,13 +177,13 @@ class Syndicat
     /**
      * Set chargeCopro
      *
-     * @param string $chargeCopro
+     * @param string $condominiumManager
      *
      * @return Syndicat
      */
-    public function setChargeCopro($chargeCopro)
+    public function setCondominiumManager($condominiumManager)
     {
-        $this->chargeCopro = $chargeCopro;
+        $this->condominiumManager = $condominiumManager;
 
         return $this;
     }
@@ -193,16 +193,16 @@ class Syndicat
      *
      * @return string
      */
-    public function getChargeCopro()
+    public function getCondominiumManager()
     {
-        return $this->chargeCopro;
+        return $this->condominiumManager;
     }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->condominium = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->condominiums = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -214,7 +214,7 @@ class Syndicat
      */
     public function addCondominium(\AppBundle\Entity\Condominium $condominium)
     {
-        $this->condominium[] = $condominium;
+        $this->condominiums[] = $condominium;
 
         return $this;
     }
@@ -226,7 +226,7 @@ class Syndicat
      */
     public function removeCondominium(\AppBundle\Entity\Condominium $condominium)
     {
-        $this->condominium->removeElement($condominium);
+        $this->condominiums->removeElement($condominium);
     }
 
     /**
@@ -234,9 +234,9 @@ class Syndicat
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCondominium()
+    public function getCondominiums()
     {
-        return $this->condominium;
+        return $this->condominiums;
     }
 
     /**

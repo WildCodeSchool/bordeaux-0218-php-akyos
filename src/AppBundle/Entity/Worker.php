@@ -37,44 +37,44 @@ class Worker
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=128)
+     * @ORM\Column(name="last_name", type="string", length=128)
      */
-    private $nom;
+    private $lastName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=128)
+     * @ORM\Column(name="first_name", type="string", length=128)
      */
-    private $prenom;
+    private $firstName;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="phone", type="integer")
      */
-    private $telephone;
+    private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Specialite", type="string", length=255)
+     * @ORM\Column(name="competence", type="string", length=255)
      */
-    private $specialite;
+    private $competence;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Adresse", type="string", length=255)
+     * @ORM\Column(name="adress", type="string", length=255)
      */
-    private $adresse;
+    private $adress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $mail;
+    private $email;
 
 
     /**
@@ -90,13 +90,13 @@ class Worker
     /**
      * Set nom
      *
-     * @param string $nom
+     * @param string $lastName
      *
      * @return Worker
      */
-    public function setNom($nom)
+    public function setLastName($lastName)
     {
-        $this->nom = $nom;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -106,21 +106,21 @@ class Worker
      *
      * @return string
      */
-    public function getNom()
+    public function getLastName()
     {
-        return $this->nom;
+        return $this->lastName;
     }
 
     /**
      * Set prenom
      *
-     * @param string $prenom
+     * @param string $firstName
      *
      * @return Worker
      */
-    public function setPrenom($prenom)
+    public function setFirstName($firstName)
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -130,21 +130,21 @@ class Worker
      *
      * @return string
      */
-    public function getPrenom()
+    public function getFirstName()
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param integer $phone
      *
      * @return Worker
      */
-    public function setTelephone($telephone)
+    public function setPhone($phone)
     {
-        $this->telephone = $telephone;
+        $this->phone = $phone;
 
         return $this;
     }
@@ -154,21 +154,21 @@ class Worker
      *
      * @return int
      */
-    public function getTelephone()
+    public function getPhone()
     {
-        return $this->telephone;
+        return $this->phone;
     }
 
     /**
      * Set specialite
      *
-     * @param string $specialite
+     * @param string $competence
      *
      * @return Worker
      */
-    public function setSpecialite($specialite)
+    public function setCompetence($competence)
     {
-        $this->specialite = $specialite;
+        $this->competence = $competence;
 
         return $this;
     }
@@ -178,21 +178,21 @@ class Worker
      *
      * @return string
      */
-    public function getSpecialite()
+    public function getCompetence()
     {
-        return $this->specialite;
+        return $this->competence;
     }
 
     /**
      * Set adresse
      *
-     * @param string $adresse
+     * @param string $adress
      *
      * @return Worker
      */
-    public function setAdresse($adresse)
+    public function setAdress($adress)
     {
-        $this->adresse = $adresse;
+        $this->adress = $adress;
 
         return $this;
     }
@@ -202,21 +202,21 @@ class Worker
      *
      * @return string
      */
-    public function getAdresse()
+    public function getAdress()
     {
-        return $this->adresse;
+        return $this->adress;
     }
 
     /**
      * Set mail
      *
-     * @param string $mail
+     * @param string $email
      *
      * @return Worker
      */
-    public function setMail($mail)
+    public function setEmail($email)
     {
-        $this->mail = $mail;
+        $this->email = $email;
 
         return $this;
     }
@@ -226,9 +226,9 @@ class Worker
      *
      * @return string
      */
-    public function getMail()
+    public function getEmail()
     {
-        return $this->mail;
+        return $this->email;
     }
     /**
      * Constructor
