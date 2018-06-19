@@ -13,7 +13,15 @@ class BuildingType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('constructionYear')->add('constructor')->add('category')->add('energyClass')->add('unitsNumber')->add('floorsNumber')->add('condominium');
+        $builder
+            ->add('name')
+            ->add('constructionYear')
+            ->add('constructor')
+            ->add('category')
+            ->add('energyClass')
+            ->add('unitsNumber')
+            ->add('floorsNumber')
+            ->add('condominium');
     }/**
      * {@inheritdoc}
      */
@@ -31,6 +39,4 @@ class BuildingType extends AbstractType
     {
         return 'appbundle_building';
     }
-
-
 }
