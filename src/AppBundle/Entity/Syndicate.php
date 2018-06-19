@@ -5,23 +5,23 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Syndicat
+ * Syndicate
  *
  * @ORM\Table(name="syndicat")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SyndicatRepository")
  */
-class Syndicat
+class Syndicate
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicat")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicate")
      */
     private $condominiums;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="syndicats")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="syndicat")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $users;
 
     /**
      * @var int
@@ -83,7 +83,7 @@ class Syndicat
      *
      * @param string $name
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function setName($name)
     {
@@ -107,7 +107,7 @@ class Syndicat
      *
      * @param string $adress
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function setAdress($adress)
     {
@@ -131,7 +131,7 @@ class Syndicat
      *
      * @param integer $phone
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function setPhone($phone)
     {
@@ -155,7 +155,7 @@ class Syndicat
      *
      * @param string $email
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function setEmail($email)
     {
@@ -179,7 +179,7 @@ class Syndicat
      *
      * @param string $condominiumManager
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function setCondominiumManager($condominiumManager)
     {
@@ -210,7 +210,7 @@ class Syndicat
      *
      * @param \AppBundle\Entity\Condominium $condominium
      *
-     * @return Syndicat
+     * @return Syndicate
      */
     public function addCondominium(\AppBundle\Entity\Condominium $condominium)
     {
@@ -242,13 +242,13 @@ class Syndicat
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \AppBundle\Entity\User $users
      *
-     * @return Syndicat
+     * @return Syndicate
      */
-    public function setUser(\AppBundle\Entity\User $user)
+    public function setUsers(\AppBundle\Entity\User $users)
     {
-        $this->user = $user;
+        $this->users = $users;
 
         return $this;
     }
@@ -258,8 +258,8 @@ class Syndicat
      *
      * @return \AppBundle\Entity\User
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        return $this->users;
     }
 }

@@ -36,10 +36,10 @@ class Condominium
     private $buildings;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicat", inversedBy="condominiums")
+     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="condominiums")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $syndicat;
+    private $syndicate;
 
     /**
      * @var int
@@ -427,13 +427,13 @@ class Condominium
     /**
      * Set syndic
      *
-     * @param \AppBundle\Entity\Syndicat $syndicat
+     * @param \AppBundle\Entity\Syndicate $syndicate
      *
      * @return Condominium
      */
-    public function setSyndicat(\AppBundle\Entity\Syndicat $syndicat)
+    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate)
     {
-        $this->syndicat = $syndicat;
+        $this->syndicate = $syndicate;
 
         return $this;
     }
@@ -441,10 +441,10 @@ class Condominium
     /**
      * Get syndic
      *
-     * @return \AppBundle\Entity\Syndicat
+     * @return \AppBundle\Entity\Syndicate
      */
-    public function getSyndicat()
+    public function getSyndicate()
     {
-        return $this->syndicat;
+        return $this->syndicate;
     }
 }

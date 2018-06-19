@@ -13,14 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndicat", mappedBy="user")
+     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="users")
      */
-    private $syndicats;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Worker", mappedBy="user")
-     */
-    private $workers;
+    private $syndicate;
 
     /**
      * @var int
@@ -108,20 +103,20 @@ class User
      */
     public function __construct()
     {
-        $this->syndicats = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->syndicate = new \Doctrine\Common\Collections\ArrayCollection();
         $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Add syndicat
      *
-     * @param \AppBundle\Entity\Syndicat $syndicat
+     * @param \AppBundle\Entity\Syndicate $syndicat
      *
      * @return User
      */
-    public function addSyndicat(\AppBundle\Entity\Syndicat $syndicat)
+    public function addSyndicat(\AppBundle\Entity\Syndicate $syndicat)
     {
-        $this->syndicats[] = $syndicat;
+        $this->syndicate[] = $syndicat;
 
         return $this;
     }
@@ -129,11 +124,11 @@ class User
     /**
      * Remove syndicat
      *
-     * @param \AppBundle\Entity\Syndicat $syndicat
+     * @param \AppBundle\Entity\Syndicate $syndicat
      */
-    public function removeSyndicat(\AppBundle\Entity\Syndicat $syndicat)
+    public function removeSyndicat(\AppBundle\Entity\Syndicate $syndicat)
     {
-        $this->syndicats->removeElement($syndicat);
+        $this->syndicate->removeElement($syndicat);
     }
 
     /**
@@ -141,9 +136,9 @@ class User
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSyndicats()
+    public function getSyndicate()
     {
-        return $this->syndicats;
+        return $this->syndicate;
     }
 
     /**

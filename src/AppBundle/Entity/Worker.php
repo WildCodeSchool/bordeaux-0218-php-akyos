@@ -20,12 +20,6 @@ class Worker
     private $interventionSheets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="workers")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

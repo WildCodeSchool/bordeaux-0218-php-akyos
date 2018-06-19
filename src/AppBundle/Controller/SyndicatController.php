@@ -2,14 +2,14 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Syndicat;
+use AppBundle\Entity\Syndicate;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Syndicat controller.
+ * Syndicate controller.
  *
  * @Route("syndicat")
  */
@@ -25,7 +25,7 @@ class SyndicatController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $syndicats = $em->getRepository('AppBundle:Syndicat')->findAll();
+        $syndicats = $em->getRepository('AppBundle:Syndicate')->findAll();
 
         return $this->render('syndicat/index.html.twig', array(
             'syndicats' => $syndicats,
@@ -40,7 +40,7 @@ class SyndicatController extends Controller
      */
     public function newAction(Request $request)
     {
-        $syndicat = new Syndicat();
+        $syndicat = new Syndicate();
         $form = $this->createForm('AppBundle\Form\SyndicatType', $syndicat);
         $form->handleRequest($request);
 
@@ -64,7 +64,7 @@ class SyndicatController extends Controller
      * @Route("/{id}", name="syndicat_show")
      * @Method("GET")
      */
-    public function showAction(Syndicat $syndicat)
+    public function showAction(Syndicate $syndicat)
     {
         $deleteForm = $this->createDeleteForm($syndicat);
 
@@ -80,7 +80,7 @@ class SyndicatController extends Controller
      * @Route("/{id}/edit", name="syndicat_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Syndicat $syndicat)
+    public function editAction(Request $request, Syndicate $syndicat)
     {
         $deleteForm = $this->createDeleteForm($syndicat);
         $editForm = $this->createForm('AppBundle\Form\SyndicatType', $syndicat);
@@ -105,7 +105,7 @@ class SyndicatController extends Controller
      * @Route("/{id}", name="syndicat_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Syndicat $syndicat)
+    public function deleteAction(Request $request, Syndicate $syndicat)
     {
         $form = $this->createDeleteForm($syndicat);
         $form->handleRequest($request);
@@ -122,11 +122,11 @@ class SyndicatController extends Controller
     /**
      * Creates a form to delete a syndicat entity.
      *
-     * @param Syndicat $syndicat The syndicat entity
+     * @param Syndicate $syndicat The syndicat entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Syndicat $syndicat)
+    private function createDeleteForm(Syndicate $syndicat)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('syndicat_delete', array('id' => $syndicat->getId())))
