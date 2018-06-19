@@ -13,10 +13,7 @@ class CommonType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('building')
-            ->add('condominium');
+        $builder->add('name')->add('building')->add('condominium');
     }/**
      * {@inheritdoc}
      */
@@ -34,4 +31,6 @@ class CommonType extends AbstractType
     {
         return 'appbundle_common';
     }
+
+
 }

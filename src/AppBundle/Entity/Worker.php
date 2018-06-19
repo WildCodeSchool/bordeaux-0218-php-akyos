@@ -14,10 +14,10 @@ class Worker
 {
 
     /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\InterventionSheet", mappedBy="worker")
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="worker")
      *
      */
-    private $interventionSheets;
+    private $interventions;
 
     /**
      * @var int
@@ -229,19 +229,19 @@ class Worker
      */
     public function __construct()
     {
-        $this->interventionSheets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->interventions = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Add interventionSheet
      *
-     * @param \AppBundle\Entity\InterventionSheet $interventionSheet
+     * @param \AppBundle\Entity\Intervention $interventionSheet
      *
      * @return Worker
      */
-    public function addInterventionSheet(\AppBundle\Entity\InterventionSheet $interventionSheet)
+    public function addInterventionSheet(\AppBundle\Entity\Intervention $interventionSheet)
     {
-        $this->interventionSheets[] = $interventionSheet;
+        $this->interventions[] = $interventionSheet;
 
         return $this;
     }
@@ -249,11 +249,11 @@ class Worker
     /**
      * Remove interventionSheet
      *
-     * @param \AppBundle\Entity\InterventionSheet $interventionSheet
+     * @param \AppBundle\Entity\Intervention $interventionSheet
      */
-    public function removeInterventionSheet(\AppBundle\Entity\InterventionSheet $interventionSheet)
+    public function removeInterventionSheet(\AppBundle\Entity\Intervention $interventionSheet)
     {
-        $this->interventionSheets->removeElement($interventionSheet);
+        $this->interventions->removeElement($interventionSheet);
     }
 
     /**
@@ -261,32 +261,8 @@ class Worker
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getInterventionSheets()
+    public function getInterventions()
     {
-        return $this->interventionSheets;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Worker
-     */
-    public function setUser(\AppBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
+        return $this->interventions;
     }
 }

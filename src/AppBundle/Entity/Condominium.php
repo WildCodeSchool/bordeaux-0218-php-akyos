@@ -13,10 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Condominium
 {
     /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\InterventionSheet", mappedBy="condominium")
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="condominium")
      *
      */
-    private $interventionsSheets;
+    private $interventions;
 
     /**
      *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
@@ -282,7 +282,7 @@ class Condominium
      */
     public function __construct()
     {
-        $this->interventionsSheets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->interventions = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commons = new \Doctrine\Common\Collections\ArrayCollection();
         $this->parkings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->buildings = new \Doctrine\Common\Collections\ArrayCollection();
@@ -291,13 +291,13 @@ class Condominium
     /**
      * Add interventionsSheet
      *
-     * @param \AppBundle\Entity\InterventionSheet $interventionsSheet
+     * @param \AppBundle\Entity\Intervention $interventionsSheet
      *
      * @return Condominium
      */
-    public function addInterventionsSheet(\AppBundle\Entity\InterventionSheet $interventionsSheet)
+    public function addInterventionsSheet(\AppBundle\Entity\Intervention $interventionsSheet)
     {
-        $this->interventionsSheets[] = $interventionsSheet;
+        $this->interventions[] = $interventionsSheet;
 
         return $this;
     }
@@ -305,11 +305,11 @@ class Condominium
     /**
      * Remove interventionsSheet
      *
-     * @param \AppBundle\Entity\InterventionSheet $interventionsSheet
+     * @param \AppBundle\Entity\Intervention $interventionsSheet
      */
-    public function removeInterventionsSheet(\AppBundle\Entity\InterventionSheet $interventionsSheet)
+    public function removeInterventionsSheet(\AppBundle\Entity\Intervention $interventionsSheet)
     {
-        $this->interventionsSheets->removeElement($interventionsSheet);
+        $this->interventions->removeElement($interventionsSheet);
     }
 
     /**
@@ -317,9 +317,9 @@ class Condominium
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getInterventionsSheets()
+    public function getInterventions()
     {
-        return $this->interventionsSheets;
+        return $this->interventions;
     }
 
     /**

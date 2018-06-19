@@ -13,14 +13,7 @@ class WorkerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('lastName')
-            ->add('firstName')
-            ->add('phone')
-            ->add('competence')
-            ->add('adress')
-            ->add('email')
-            ->add('user');
+        $builder->add('lastName')->add('firstName')->add('phone')->add('competence')->add('adress')->add('email');
     }/**
      * {@inheritdoc}
      */
@@ -38,4 +31,6 @@ class WorkerType extends AbstractType
     {
         return 'appbundle_worker';
     }
+
+
 }

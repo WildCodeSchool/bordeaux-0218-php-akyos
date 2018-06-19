@@ -13,15 +13,7 @@ class CondominiumType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('adress')
-            ->add('condominiumManager')
-            ->add('phone')
-            ->add('email')
-            ->add('publicMessage')
-            ->add('privateMessage')
-            ->add('syndicat');
+        $builder->add('name')->add('adress')->add('condominiumManager')->add('phone')->add('email')->add('publicMessage')->add('privateMessage')->add('syndicate');
     }/**
      * {@inheritdoc}
      */
@@ -39,4 +31,6 @@ class CondominiumType extends AbstractType
     {
         return 'appbundle_condominium';
     }
+
+
 }

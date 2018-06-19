@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Syndicate
  *
- * @ORM\Table(name="syndicat")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SyndicatRepository")
+ * @ORM\Table(name="syndicate")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SyndicateRepository")
  */
 class Syndicate
 {
@@ -18,8 +18,7 @@ class Syndicate
     private $condominiums;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="syndicat")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="syndicate")
      */
     private $users;
 
@@ -67,6 +66,10 @@ class Syndicate
      */
     private $condominiumManager;
 
+    public function __toString()
+    {
+        return $this->id . "  __toString():method";
+    }
 
     /**
      * Get id
@@ -261,5 +264,29 @@ class Syndicate
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Syndicate
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
     }
 }

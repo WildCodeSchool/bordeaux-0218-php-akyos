@@ -13,14 +13,7 @@ class ComponentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('category')
-            ->add('type')
-            ->add('photo')
-            ->add('reference')
-            ->add('common')
-            ->add('parking')
-            ->add('unit');
+        $builder->add('category')->add('type')->add('photo')->add('reference')->add('common')->add('parking')->add('unit');
     }/**
      * {@inheritdoc}
      */
@@ -38,4 +31,6 @@ class ComponentType extends AbstractType
     {
         return 'appbundle_component';
     }
+
+
 }

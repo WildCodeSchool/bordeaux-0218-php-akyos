@@ -6,20 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SyndicatType extends AbstractType
+class SyndicateType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('adress')
-            ->add('phone')
-            ->add('email')
-            ->add('condominiumManager')
-            ->add('user');
+        $builder->add('name')->add('adress')->add('phone')->add('email')->add('condominiumManager');
     }/**
      * {@inheritdoc}
      */
@@ -35,6 +29,8 @@ class SyndicatType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_syndicat';
+        return 'appbundle_syndicate';
     }
+
+
 }

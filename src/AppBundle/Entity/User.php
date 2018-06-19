@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
      */
     private $syndicate;
 
@@ -141,37 +141,18 @@ class User
         return $this->syndicate;
     }
 
+
     /**
-     * Add worker
+     * Set syndicate
      *
-     * @param \AppBundle\Entity\Worker $worker
+     * @param \AppBundle\Entity\Syndicate $syndicate
      *
      * @return User
      */
-    public function addWorker(\AppBundle\Entity\Worker $worker)
+    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
     {
-        $this->workers[] = $worker;
+        $this->syndicate = $syndicate;
 
         return $this;
-    }
-
-    /**
-     * Remove worker
-     *
-     * @param \AppBundle\Entity\Worker $worker
-     */
-    public function removeWorker(\AppBundle\Entity\Worker $worker)
-    {
-        $this->workers->removeElement($worker);
-    }
-
-    /**
-     * Get workers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getWorkers()
-    {
-        return $this->workers;
     }
 }

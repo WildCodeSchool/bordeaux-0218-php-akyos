@@ -13,10 +13,7 @@ class ParkingType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('parkingSpace')
-            ->add('building')
-            ->add('condominium');
+        $builder->add('parkingSpace')->add('building')->add('condominium');
     }/**
      * {@inheritdoc}
      */
@@ -34,4 +31,6 @@ class ParkingType extends AbstractType
     {
         return 'appbundle_parking';
     }
+
+
 }

@@ -5,21 +5,21 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * InterventionSheet
+ * Intervention
  *
  * @ORM\Table(name="intervention_sheet")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\InterventionSheet")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Intervention")
  */
-class InterventionSheet
+class Intervention
 {
     /**
-     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Worker", inversedBy="interventionSheets")
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Worker", inversedBy="interventions")
      *
      */
     private $worker;
 
     /**
-     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventionSheets")
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventions")
      *
      */
     private $condominium;
@@ -140,7 +140,7 @@ class InterventionSheet
      *
      * @param string $progress
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setProgress($progress)
     {
@@ -164,7 +164,7 @@ class InterventionSheet
      *
      * @param string $interventionType
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setInterventionType($interventionType)
     {
@@ -188,7 +188,7 @@ class InterventionSheet
      *
      * @param string $material
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setMaterial($material)
     {
@@ -212,7 +212,7 @@ class InterventionSheet
      *
      * @param string $emergency
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setEmergency($emergency)
     {
@@ -236,7 +236,7 @@ class InterventionSheet
      *
      * @param string $description
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setDescription($description)
     {
@@ -260,7 +260,7 @@ class InterventionSheet
      *
      * @param \DateTime $requestDate
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setRequestDate($requestDate)
     {
@@ -284,7 +284,7 @@ class InterventionSheet
      *
      * @param \DateTime $interventionDate
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setInterventionDate($interventionDate)
     {
@@ -308,7 +308,7 @@ class InterventionSheet
      *
      * @param \DateTime $modificationDate
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setModificationDate($modificationDate)
     {
@@ -332,7 +332,7 @@ class InterventionSheet
      *
      * @param boolean $paid
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setPaid($paid)
     {
@@ -356,7 +356,7 @@ class InterventionSheet
      *
      * @param integer $clientSatisfaction
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setClientSatisfaction($clientSatisfaction)
     {
@@ -380,7 +380,7 @@ class InterventionSheet
      *
      * @param string $comment
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setComment($comment)
     {
@@ -404,7 +404,7 @@ class InterventionSheet
      *
      * @param integer $workerNumber
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setWorkerNumber($workerNumber)
     {
@@ -428,7 +428,7 @@ class InterventionSheet
      *
      * @param \DateTime $duration
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setDuration($duration)
     {
@@ -452,7 +452,7 @@ class InterventionSheet
      *
      * @param \AppBundle\Entity\Worker $worker
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setWorker(\AppBundle\Entity\Worker $worker = null)
     {
@@ -476,7 +476,7 @@ class InterventionSheet
      *
      * @param \AppBundle\Entity\Condominium $condominium
      *
-     * @return InterventionSheet
+     * @return Intervention
      */
     public function setCondominium(\AppBundle\Entity\Condominium $condominium = null)
     {
