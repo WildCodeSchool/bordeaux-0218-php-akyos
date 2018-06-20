@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -14,14 +15,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Syndicat", mappedBy="user")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
      */
-    private $syndicats;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Worker", mappedBy="user")
-     */
-    private $workers;
+    private $syndicate;
 
     /**
      * @var int
@@ -32,143 +28,36 @@ class User extends BaseUser
      */
     protected $id;
 
-
-
     /**
-     * Constructor
+     * User constructor.
      */
     public function __construct()
     {
-        parent::__construct();
-        $this->syndicats = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
-
+        $this->syndicate = new ArrayCollection();
     }
 
 
     /**
-     * Get id
+     * Set syndicate
      *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
+     * @param \AppBundle\Entity\Syndicate $syndicate
      *
      * @return User
      */
-    public function setLogin($login)
+    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
     {
-        $this->login = $login;
+        $this->syndicate = $syndicate;
 
         return $this;
     }
 
     /**
-     * Get login
+     * Get syndicate
      *
-     * @return string
+     * @return \AppBundle\Entity\Syndicate
      */
-    public function getLogin()
+    public function getSyndicate()
     {
-        return $this->login;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Add syndicat
-     *
-     * @param \AppBundle\Entity\Syndicat $syndicat
-     *
-     * @return User
-     */
-    public function addSyndicat(\AppBundle\Entity\Syndicat $syndicat)
-    {
-        $this->syndicats[] = $syndicat;
-
-        return $this;
-    }
-
-    /**
-     * Remove syndicat
-     *
-     * @param \AppBundle\Entity\Syndicat $syndicat
-     */
-    public function removeSyndicat(\AppBundle\Entity\Syndicat $syndicat)
-    {
-        $this->syndicats->removeElement($syndicat);
-    }
-
-    /**
-     * Get syndicats
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSyndicats()
-    {
-        return $this->syndicats;
-    }
-
-    /**
-     * Add worker
-     *
-     * @param \AppBundle\Entity\Worker $worker
-     *
-     * @return User
-     */
-    public function addWorker(\AppBundle\Entity\Worker $worker)
-    {
-        $this->workers[] = $worker;
-
-        return $this;
-    }
-
-    /**
-     * Remove worker
-     *
-     * @param \AppBundle\Entity\Worker $worker
-     */
-    public function removeWorker(\AppBundle\Entity\Worker $worker)
-    {
-        $this->workers->removeElement($worker);
-    }
-
-    /**
-     * Get workers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getWorkers()
-    {
-        return $this->workers;
+        return $this->syndicate;
     }
 }

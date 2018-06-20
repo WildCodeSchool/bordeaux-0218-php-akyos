@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Intervention</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ intervention.id }}</td>
+            </tr>
+            <tr>
+                <th>Progress</th>
+                <td>{{ intervention.progress }}</td>
+            </tr>
+            <tr>
+                <th>Interventiontype</th>
+                <td>{{ intervention.interventionType }}</td>
+            </tr>
+            <tr>
+                <th>Material</th>
+                <td>{{ intervention.material }}</td>
+            </tr>
+            <tr>
+                <th>Emergency</th>
+                <td>{{ intervention.emergency }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ intervention.description }}</td>
+            </tr>
+            <tr>
+                <th>Requestdate</th>
+                <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Interventiondate</th>
+                <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Modificationdate</th>
+                <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Paid</th>
+                <td>{% if intervention.paid %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Clientsatisfaction</th>
+                <td>{{ intervention.clientSatisfaction }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ intervention.comment }}</td>
+            </tr>
+            <tr>
+                <th>Workernumber</th>
+                <td>{{ intervention.workerNumber }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{% if intervention.duration %}{{ intervention.duration|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('intervention_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

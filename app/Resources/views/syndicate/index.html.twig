@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Syndicates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Condominiummanager</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for syndicate in syndicates %}
+            <tr>
+                <td><a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">{{ syndicate.id }}</a></td>
+                <td>{{ syndicate.name }}</td>
+                <td>{{ syndicate.adress }}</td>
+                <td>{{ syndicate.phone }}</td>
+                <td>{{ syndicate.email }}</td>
+                <td>{{ syndicate.condominiumManager }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('syndicate_new') }}">Create a new syndicate</a>
+        </li>
+    </ul>
+{% endblock %}

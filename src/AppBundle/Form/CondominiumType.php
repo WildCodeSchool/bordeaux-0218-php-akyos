@@ -21,7 +21,7 @@ class CondominiumType extends AbstractType
             ->add('email')
             ->add('publicMessage')
             ->add('privateMessage')
-            ->add('syndicat');
+            ->add('syndicate');
     }/**
      * {@inheritdoc}
      */

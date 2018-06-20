@@ -19,8 +19,7 @@ class WorkerType extends AbstractType
             ->add('phone')
             ->add('competence')
             ->add('adress')
-            ->add('email')
-            ->add('user');
+            ->add('email');
     }/**
      * {@inheritdoc}
      */
