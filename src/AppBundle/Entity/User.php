@@ -32,12 +32,7 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=128)
-     */
-    private $login;
+
 
     /**
      * Constructor
@@ -45,6 +40,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->syndicats = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
 
     }
 
@@ -105,14 +102,6 @@ class User extends BaseUser
     public function getPassword()
     {
         return $this->password;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->syndicats = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
