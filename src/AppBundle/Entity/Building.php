@@ -416,4 +416,11 @@ class Building
     {
         $this->units->removeElement($unit);
     }
+
+     /****************************************/
+    /* Manual Generated methods / variables */
+    public function __toString()
+    {
+        return "$this->name";
+    }
 }

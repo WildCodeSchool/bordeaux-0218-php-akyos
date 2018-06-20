@@ -65,12 +65,6 @@ class Syndicate
      * @ORM\Column(name="condominium_manager", type="string", length=255)
      */
     private $condominiumManager;
-
-    public function __toString()
-    {
-        return $this->id . "  __toString():method";
-    }
-
     /**
      * Get id
      *
@@ -200,6 +194,7 @@ class Syndicate
     {
         return $this->condominiumManager;
     }
+
     /**
      * Constructor
      */
@@ -207,7 +202,6 @@ class Syndicate
     {
         $this->condominiums = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
     /**
      * Add condominium
      *
@@ -288,5 +282,12 @@ class Syndicate
     public function removeUser(\AppBundle\Entity\User $user)
     {
         $this->users->removeElement($user);
+    }
+
+     /****************************************/
+    /* Manual Generated methods / variables */
+    public function __toString()
+    {
+        return "$this->name";
     }
 }

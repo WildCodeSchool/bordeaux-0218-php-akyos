@@ -447,4 +447,11 @@ class Condominium
     {
         return $this->syndicate;
     }
+
+     /****************************************/
+    /* Manual Generated methods / variables */
+    public function __toString()
+    {
+        return "$this->name";
+    }
 }
