@@ -22,3 +22,6 @@
 !/assets/img/
 /assets/img/avatars/*
 !/assets/img/avatars/
+/assets/js/*core/
+/assets/js/*plugins/
+*.php~

@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Places</th>
+                <th>Parkingspace</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
         {% for parking in parkings %}
             <tr>
                 <td><a href="{{ path('parking_show', { 'id': parking.id }) }}">{{ parking.id }}</a></td>
-                <td>{{ parking.places }}</td>
+                <td>{{ parking.parkingSpace }}</td>
                 <td>
                     <ul>
                         <li>
