@@ -14,7 +14,8 @@ class ParkingControllerTest extends WebTestCase
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/parking/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /parking/");
+        $this->assertEquals(200,
+        $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /parking/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
@@ -27,7 +28,8 @@ class ParkingControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $this->assertGreaterThan(0,
+        $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
@@ -41,7 +43,8 @@ class ParkingControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+        $this->assertGreaterThan(0,
+        $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
 
         // Delete the entity
         $client->submit($crawler->selectButton('Delete')->form());

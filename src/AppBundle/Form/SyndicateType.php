@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SyndicatType extends AbstractType
+class SyndicateType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -18,15 +18,14 @@ class SyndicatType extends AbstractType
             ->add('adress')
             ->add('phone')
             ->add('email')
-            ->add('condominiumManager')
-            ->add('user');
+            ->add('condominiumManager');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Syndicat'
+            'data_class' => 'AppBundle\Entity\Syndicate'
         ));
     }
 
@@ -35,6 +34,6 @@ class SyndicatType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_syndicat';
+        return 'appbundle_syndicate';
     }
 }

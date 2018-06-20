@@ -15,7 +15,8 @@ class UserType extends AbstractType
     {
         $builder
             ->add('login')
-            ->add('password');
+            ->add('password')
+            ->add('syndicate');
     }/**
      * {@inheritdoc}
      */

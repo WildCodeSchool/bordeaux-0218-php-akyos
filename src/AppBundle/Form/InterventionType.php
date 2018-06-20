@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class InterventionSheetType extends AbstractType
+class InterventionType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -35,7 +35,7 @@ class InterventionSheetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\InterventionSheet'
+            'data_class' => 'AppBundle\Entity\Intervention'
         ));
     }
 
@@ -44,6 +44,6 @@ class InterventionSheetType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_interventionsheet';
+        return 'appbundle_intervention';
     }
 }
