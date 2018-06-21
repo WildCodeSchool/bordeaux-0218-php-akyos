@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Bienvenue !</title>
+    <title>{% block page_title %}{% endblock %}</title>
 
     <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -41,22 +41,7 @@
        <!-- END Stylesheets -->
 </head>
 <body>
-    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
-        {% include '_inc/_sidebar.html.twig' %}
-        {% include '_inc/_header.html.twig' %}
-        <main id="main-container">
-            <!-- Page Content -->
-            <div class="content content-boxed">
-                {% include '_inc/_page_header.html.twig' %}
-                {% block body %}
-                    {# Insert here row elements #}
-                {% endblock %}
-            </div>
-            <!-- END Page Content -->
-        </main>
-        {% include '_inc/_footer.html.twig' %}
-
-    </div>
+    {% block core %}{% endblock %}
     {% block javascripts %}
         <!-- Latest compiled and minified JavaScript -->
         <script src="{{ asset('app.js')}}"></script>
