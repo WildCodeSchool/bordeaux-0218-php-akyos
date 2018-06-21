@@ -1,47 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Syndicate</h1>
+    <h1>Syndicat</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ syndicate.id }}</td>
+                <td>{{ syndicat.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td>{{ syndicate.name }}</td>
+                <th>Nom</th>
+                <td>{{ syndicat.nom }}</td>
             </tr>
             <tr>
-                <th>Adress</th>
-                <td>{{ syndicate.adress }}</td>
+                <th>Adresse</th>
+                <td>{{ syndicat.adresse }}</td>
             </tr>
             <tr>
-                <th>Phone</th>
-                <td>{{ syndicate.phone }}</td>
+                <th>Telephone</th>
+                <td>{{ syndicat.telephone }}</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td>{{ syndicate.email }}</td>
+                <td>{{ syndicat.email }}</td>
             </tr>
             <tr>
-                <th>Condominiummanager</th>
-                <td>{{ syndicate.condominiumManager }}</td>
+                <th>Chargecopro</th>
+                <td>{{ syndicat.chargeCopro }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_index') }}">Back to the list</a>
+            <a href="{{ path('syndicat_index') }}">Back to the list</a>
         </li>
         <li>
-<<<<<<< Updated upstream:app/Resources/views/syndicate/show.html.twig
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
-=======
             <a href="{{ path('syndicat_edit', { 'id': syndicat.id }) }}" class="btn alert-success">Edit</a>
->>>>>>> Stashed changes:app/Resources/views/syndicat/show.html.twig
         </li>
         <li>
             {{ form_start(delete_form) }}

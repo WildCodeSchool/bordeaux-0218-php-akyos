@@ -40,6 +40,13 @@ class User
      */
     private $password;
 
+    /**
+     * @param int $id
+     */
+    public function __toString()
+    {
+       return " $this->id ";
+    }
 
     /**
      * Get id
