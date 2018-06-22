@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,9 +16,19 @@ class InterventionType extends AbstractType
     {
         $builder
             ->add('progress')
-            ->add('interventionType')
+            ->add('interventionType', ChoiceType::class, [
+                'choices'  => [
+                    'Scheduled' => null,
+                    'Done' => true,
+                    'Re-schedule' => false,
+                ]])
             ->add('material')
-            ->add('emergency')
+            ->add('emergency', ChoiceType::class, [
+                'choices' => [
+                    'Low' => null,
+                    'Medium' => true,
+                    'High' => false,
+                ]])
             ->add('description')
             ->add('requestDate')
             ->add('interventionDate')
@@ -27,9 +38,11 @@ class InterventionType extends AbstractType
             ->add('comment')
             ->add('workerNumber')
             ->add('duration')
-            ->add('worker')
+            ->add('worker', EntityType::class, array())
             ->add('condominium');
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

@@ -108,13 +108,13 @@ class User
     }
 
     /**
-     * Add syndicat
+     * Add syndicate
      *
      * @param \AppBundle\Entity\Syndicate $syndicat
      *
      * @return User
      */
-    public function addSyndicat(\AppBundle\Entity\Syndicate $syndicat)
+    public function addSyndicate(\AppBundle\Entity\Syndicate $syndicat)
     {
         $this->syndicate[] = $syndicat;
 
@@ -122,17 +122,17 @@ class User
     }
 
     /**
-     * Remove syndicat
+     * Remove syndicate
      *
      * @param \AppBundle\Entity\Syndicate $syndicat
      */
-    public function removeSyndicat(\AppBundle\Entity\Syndicate $syndicat)
+    public function removeSyndicate(\AppBundle\Entity\Syndicate $syndicat)
     {
         $this->syndicate->removeElement($syndicat);
     }
 
     /**
-     * Get syndicats
+     * Get syndicate
      *
      * @return \Doctrine\Common\Collections\Collection
      */

@@ -25,7 +25,9 @@ class InterventionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $interventions = $em->getRepository('AppBundle:Intervention')->findAll();
+        $interventions = $em->getRepository('AppBundle:Intervention')
+            ->findBy(['interventionDate'=> new \DateTime(date('Y-m-d'))]);
+
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
@@ -129,7 +131,7 @@ class InterventionController extends Controller
     private function createDeleteForm(Intervention $intervention)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('intervention_delete', array('id' => $intervention->getId())))
+            ->setAction($this->generateUrl('intervention_delete',  array('id' => $intervention->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

@@ -45,7 +45,7 @@ class Worker
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length= 15)
      */
     private $phone;
 
@@ -70,6 +70,10 @@ class Worker
      */
     private $email;
 
+    public function __toString()
+    {
+        return $this->firstName . " " . $this->lastName;
+    }
 
     /**
      * Get id

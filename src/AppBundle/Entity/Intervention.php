@@ -36,7 +36,7 @@ class Intervention
     /**
      * @var string
      *
-     * @ORM\Column(name="progress", type="text")
+     * @ORM\Column(name="progress", type="integer")
      */
     private $progress;
 
@@ -136,7 +136,7 @@ class Intervention
     }
 
     /**
-     * Set avancement
+     * Set progress
      *
      * @param string $progress
      *
@@ -150,7 +150,7 @@ class Intervention
     }
 
     /**
-     * Get avancement
+     * Get progress
      *
      * @return string
      */
@@ -184,7 +184,7 @@ class Intervention
     }
 
     /**
-     * Set fourniture
+     * Set material
      *
      * @param string $material
      *
@@ -198,7 +198,7 @@ class Intervention
     }
 
     /**
-     * Get fourniture
+     * Get material
      *
      * @return string
      */
@@ -208,7 +208,7 @@ class Intervention
     }
 
     /**
-     * Set urgence
+     * Set emergency
      *
      * @param string $emergency
      *
@@ -222,7 +222,7 @@ class Intervention
     }
 
     /**
-     * Get urgence
+     * Get emergency
      *
      * @return string
      */
@@ -232,7 +232,7 @@ class Intervention
     }
 
     /**
-     * Set descriptif
+     * Set description
      *
      * @param string $description
      *
@@ -246,7 +246,7 @@ class Intervention
     }
 
     /**
-     * Get descriptif
+     * Get description
      *
      * @return string
      */
@@ -256,7 +256,7 @@ class Intervention
     }
 
     /**
-     * Set dateDemande
+     * Set requestDate
      *
      * @param \DateTime $requestDate
      *
@@ -270,7 +270,7 @@ class Intervention
     }
 
     /**
-     * Get dateDemande
+     * Get requestDate
      *
      * @return \DateTime
      */
@@ -376,7 +376,7 @@ class Intervention
     }
 
     /**
-     * Set commentaire
+     * Set comment
      *
      * @param string $comment
      *
@@ -390,7 +390,7 @@ class Intervention
     }
 
     /**
-     * Get commentaire
+     * Get comment
      *
      * @return string
      */
@@ -400,7 +400,7 @@ class Intervention
     }
 
     /**
-     * Set nombreIntervenants
+     * Set workerNumber
      *
      * @param integer $workerNumber
      *
@@ -414,7 +414,7 @@ class Intervention
     }
 
     /**
-     * Get nombreIntervenants
+     * Get Set workerNumber
      *
      * @return int
      */
@@ -424,7 +424,7 @@ class Intervention
     }
 
     /**
-     * Set duree
+     * Set duration
      *
      * @param \DateTime $duration
      *
@@ -438,7 +438,7 @@ class Intervention
     }
 
     /**
-     * Get duree
+     * Get duration
      *
      * @return \DateTime
      */
