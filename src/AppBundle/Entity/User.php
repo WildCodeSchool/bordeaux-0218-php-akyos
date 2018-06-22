@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
@@ -24,48 +25,11 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=128)
-     */
-    private $login;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=128)
-     */
-    private $password;
+    protected $id;
 
 
     /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     *
-     * @return User
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
+<<<<<<< HEAD
      * Get login
      *
      * @return string
@@ -109,19 +73,27 @@ class User
 
     /**
      * Add syndicate
+=======
+     * Set syndicate
+>>>>>>> c95e3325e3c37fefa84d629f418257d2f8c0fd33
      *
-     * @param \AppBundle\Entity\Syndicate $syndicat
+     * @param \AppBundle\Entity\Syndicate $syndicate
      *
      * @return User
      */
+<<<<<<< HEAD
     public function addSyndicate(\AppBundle\Entity\Syndicate $syndicat)
+=======
+    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
+>>>>>>> c95e3325e3c37fefa84d629f418257d2f8c0fd33
     {
-        $this->syndicate[] = $syndicat;
+        $this->syndicate = $syndicate;
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Remove syndicate
      *
      * @param \AppBundle\Entity\Syndicate $syndicat
@@ -135,24 +107,14 @@ class User
      * Get syndicate
      *
      * @return \Doctrine\Common\Collections\Collection
+=======
+     * Get syndicate
+     *
+     * @return \AppBundle\Entity\Syndicate
+>>>>>>> c95e3325e3c37fefa84d629f418257d2f8c0fd33
      */
     public function getSyndicate()
     {
         return $this->syndicate;
-    }
-
-
-    /**
-     * Set syndicate
-     *
-     * @param \AppBundle\Entity\Syndicate $syndicate
-     *
-     * @return User
-     */
-    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
-    {
-        $this->syndicate = $syndicate;
-
-        return $this;
     }
 }

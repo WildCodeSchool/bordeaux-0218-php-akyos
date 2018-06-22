@@ -1,0 +1,18 @@
+{% extends 'base.html.twig'%}
+{% block core %}
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        {% include '_inc/_sidebar.html.twig' %}
+        {% include '_inc/_header.html.twig' %}
+        <main id="main-container">
+            <!-- Page Content -->
+            <div class="content content-boxed">
+                {% include '_inc/_page_header.html.twig' %}
+                {% block body %}
+                    {# Insert here row elements #}
+                {% endblock %}
+            </div>
+            <!-- END Page Content -->
+        </main>
+        {% include '_inc/_footer.html.twig' %}
+    </div>
+{% endblock %}

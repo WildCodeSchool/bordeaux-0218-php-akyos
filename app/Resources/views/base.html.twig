@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
 
-    <title>OneUI - Admin Dashboard Template &amp; UI Framework</title>
+    <title>{% block page_title %}{% endblock %}</title>
 
-    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and
+    published on Themeforest">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
@@ -31,43 +32,21 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{{asset('img/favicons/apple-touch-icon-152x152.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
-
     <!-- Stylesheets -->
-    <!-- Web fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-
-    <!-- Bootstrap and OneUI CSS framework -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" id="css-main" href="{{asset('css/oneui.css') }}">
-
-    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-    <!-- <link rel="stylesheet" id="css-theme" href="{{asset('css/themes/flat.min.css') }}"> -->
-    <!-- END Stylesheets -->
+    {% block stylesheets %}
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,
+        700%7COpen+Sans:300,400,400italic,600,700">
+        <!-- Bootstrap and OneUI CSS framework -->
+        <link rel="stylesheet" id="css-main" href="{{ asset('app.css') }}">
+    {% endblock %}
+       <!-- END Stylesheets -->
 </head>
 <body>
-    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
-        {% include 'inc/_sidebar.html.twig' %}
-        {% include 'inc/_header.html.twig' %}
-        <main id="main-container">
-            <!-- Page Content -->
-            <div class="content content-boxed">
-                {% include 'inc/_page_header.html.twig' %}
-                {% block body %}
-                    {# Insert here row elements #}
-                {% endblock %}
-            </div>
-            <!-- END Page Content -->
-        </main>
-        {% include 'inc/_footer.html.twig' %}
-
-    </div>
-
+    {% block core %}{% endblock %}
     {% block javascripts %}
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                crossorigin="anonymous"></script>
-        <script src="{{ asset('js/oneui.min.js')}}"></script>
+        <script src="{{ asset('app.js')}}"></script>
     {% endblock %}
 </body>
 </html>
