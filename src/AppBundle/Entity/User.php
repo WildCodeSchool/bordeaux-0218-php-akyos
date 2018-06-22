@@ -104,55 +104,5 @@ class User
     public function __construct()
     {
         $this->syndicate = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->workers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add syndicat
-     *
-     * @param \AppBundle\Entity\Syndicate $syndicat
-     *
-     * @return User
-     */
-    public function addSyndicat(\AppBundle\Entity\Syndicate $syndicat)
-    {
-        $this->syndicate[] = $syndicat;
-
-        return $this;
-    }
-
-    /**
-     * Remove syndicat
-     *
-     * @param \AppBundle\Entity\Syndicate $syndicat
-     */
-    public function removeSyndicat(\AppBundle\Entity\Syndicate $syndicat)
-    {
-        $this->syndicate->removeElement($syndicat);
-    }
-
-    /**
-     * Get syndicats
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSyndicate()
-    {
-        return $this->syndicate;
-    }
-
-
-    /**
-     * Set syndicate
-     *
-     * @param \AppBundle\Entity\Syndicate $syndicate
-     *
-     * @return User
-     */
-    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
-    {
-        $this->syndicate = $syndicate;
-
-        return $this;
     }
 }

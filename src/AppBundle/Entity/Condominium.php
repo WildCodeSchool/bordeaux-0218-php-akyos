@@ -99,6 +99,11 @@ class Condominium
      */
     private $privateMessage;
 
+//to Delete
+    public function __toString()
+    {
+        return "$this->syndicate";
+    }
 
     /**
      * Get id

@@ -66,9 +66,10 @@ class Syndicate
      */
     private $condominiumManager;
 
+    //to Delete
     public function __toString()
     {
-        return $this->id . "  __toString():method";
+        return "$this->name";
     }
 
     /**

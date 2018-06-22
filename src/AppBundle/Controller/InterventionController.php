@@ -84,6 +84,8 @@ class InterventionController extends Controller
     {
         $deleteForm = $this->createDeleteForm($intervention);
         $editForm = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+        //$editForm->remove('requestDate');
+        //$editForm->remove('modificationDate');
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
