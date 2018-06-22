@@ -13,21 +13,13 @@ class SyndicateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-<<<<<<< Updated upstream:src/AppBundle/Form/SyndicateType.php
+
         $builder
             ->add('name')
             ->add('adress')
             ->add('phone')
             ->add('email')
             ->add('condominiumManager');
-=======
-        $builder->add('nom')
-                ->add('adresse')
-                ->add('telephone')
-                ->add('email')
-                ->add('chargeCopro')
-                ->add('user');
->>>>>>> Stashed changes:src/AppBundle/Form/SyndicatType.php
     }/**
      * {@inheritdoc}
      */

@@ -58,16 +58,13 @@
 
             <!-- Side Content -->
             <div class="side-content side-content-full">
-                <ul class="nav-main">
-                    <li>nav-main-heading
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Information Syndic</span></a>
+                    <ul class="nav-main">
                         <ul>
-                            <li>
-                                <a href="{{ path('syndicat_new') }}">Information syndic</a>
-                            </li>
                             <li>
                                 <a href="{{ path('condominium_index') }}">Condominium</a>
                             </li>
+                            <li>nav-main-heading
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">Information Syndic</span></a>
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#">Blocks</a>
                                 <ul>
@@ -76,52 +73,42 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#">Chat</a>
-                                <ul>
-                                    <li>
-                                        <a href="base_ui_chat_full.html">Full</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#">Timeline</a>
-                                <ul>
-                                    <li>
-                                        <a href="base_ui_timeline.html">Various</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
                         </ul>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-grid"></i><span class="sidebar-mini-hide">Tables</span></a>
-                        <ul>
-                            <li>
-                                <a href="base_forms_premade.html">Pre-made</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Forms</span></a>
-                         <ul>
-                            <li>
-                                <a href="base_forms_elements.html">Elements</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-magic-wand"></i><span class="sidebar-mini-hide">Layouts</span></a>
-
-                    </li>
-
-                        </ul>
-
-
+                    </ul>
             </div>
+            <h1>information:</h1>
+            <ul>
+                <li>
+                    <a href="{{ path('building_index') }}">Building</a>
+                </li>
+                <li>
+                    <a href="{{ path('common_index') }}">Common</a>
+                </li>
+                <li>
+                    <a href="{{ path('component_index') }}">Component</a>
+                </li>
+                <li>
+                    <a href="{{ path('condominium_index') }}">Condominium</a>
+                </li>
+                <li>
+                    <a href="{{ path('intervention_index') }}">Interventions</a>
+                </li>
+                <li>
+                    <a href="{{ path('parking_index') }}">Parking</a>
+                </li>
+                <li>
+                    <a href="{{ path('syndicate_index') }}">Syndicate</a>
+                </li>
+                <li>
+                    <a href="{{ path('unit_index') }}">Unit</a>
+                </li>
+                <li>
+                    <a href="{{ path('user_index') }}">User</a>
+                </li>
+                <li>
+                    <a href="{{ path('worker_index') }}">Worker</a>
+                </li>
+            </ul>
             <!-- END Side Content -->
         </div>
         <!-- Sidebar Content -->
