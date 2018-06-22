@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
@@ -24,85 +25,28 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * Get syndicate
      *
-     * @ORM\Column(name="login", type="string", length=128)
+     * @return \AppBundle\Entity\Syndicate
      */
-    private $login;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=128)
-     */
-    private $password;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+    public function getSyndicate()
     {
-        return $this->id;
+        return $this->syndicate;
     }
 
     /**
-     * Set login
+     * Set syndicate
      *
-     * @param string $login
+     * @param \AppBundle\Entity\Syndicate $syndicate
      *
      * @return User
      */
-    public function setLogin($login)
+    public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
     {
-        $this->login = $login;
-
+        $this->syndicate = $syndicate;
         return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->syndicate = new \Doctrine\Common\Collections\ArrayCollection();
     }
 }

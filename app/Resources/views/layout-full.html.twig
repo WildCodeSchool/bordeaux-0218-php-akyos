@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig'%}
+{% block core %}
+    <div class="bg-white pulldown">
+        <div class="content content-boxed overflow-hidden">
+                {% include '_inc/_page_header.html.twig' %}
+                {% block body %}
+                    {# Insert here row elements #}
+                {% endblock %}
+        </div>
+        <!-- END Page Content -->
+        {% include '_inc/_footer.html.twig' %}
+    </div>
+{% endblock %}
