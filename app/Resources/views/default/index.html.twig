@@ -1,11 +1,85 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
     <div id="wrapper">
         <div id="container">
-            <div id="welcome">
-                <h1><span>Information</span></h1>
-            </div>
+        <i class="si si-user-follow"></i>
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content content-boxed">
+                    <!-- Header Tiles -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="h1 font-w700"><i class="fa fa-pencil"></i></div>
+                                </div>
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">Ajouter une copropriété</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="h1 font-w700 text-danger"><i class="fa fa-times"></i></div>
+                                </div>
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-danger font-w600">Supprimer une copropriété</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END Header Tiles -->
+
+                    <!-- Customer Info -->
+                    <div class="block">
+                        <!-- Basic Info -->
+                        <div class="block-content text-center overflow-hidden">
+                            <h1 class="text-center">Médoc Syndic</h1>
+                            <div class="push-30-t push animated fadeInDown">
+                                <img class="img-avatar" src="assets/img/avatars/avatar10.jpg" alt="">
+                            </div>
+                            <div class="push-30 animated fadeInUp">
+                                <h2 class="h4 font-w600 push-5">
+                                    Brice Descudet <i class="fa fa-star text-warning" data-toggle="tooltip" title="Premium Member"></i>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <!-- END Basic Info -->
+
+                    </div>
+                    <!-- END Customer Info -->
+
+                    <!-- Addresses -->
+                    <div class="block">
+                        <div class="block-header bg-gray-lighter">
+                            <h3 class="block-title">Adresse</h3>
+                        </div>
+                        <div class="block-content">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Billing Address -->
+                                    <div class="block block-bordered">
+                                        <div class="block-header">
+                                            <h3 class="block-title">Médoc Syndic</h3>
+                                        </div>
+                                        <div class="block-content block-content-full">
+                                            <div class="h4 push-5">Brice Descudet</div>
+                                            <address>
+                                                12, place du Maréchal Foch<br>
+                                                33 340<br>
+                                                Lesparre-Médoc<br><br>
+                                                <i class="fa fa-phone"></i> 05 56 41 32 02<br>
+                                                <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">company@example.com</a>
+                                            </address>
+                                        </div>
+                                    </div>
+                                    <!-- END Billing Address -->
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
         </div>
     </div>
-{% endblock %}g
+{% endblock %}

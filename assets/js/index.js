@@ -1,6 +1,6 @@
-require('../less/main.less');
+//JS config
 require('jquery');
-require('bootstrap');
+require('../../node_modules/bootstrap/dist/js/bootstrap');
 require('jquery-slimscroll');
 require('jquery-scroll-lock');
 require('jquery.appear');
@@ -8,8 +8,8 @@ require('jquery-countto');
 require('jquery-placeholder');
 require('js-cookie');
 require('./app.js');
-
 require('slick');
 require('chartjs');
-//require('./pages/base_pages_dashboard');
 
+// CSS
+require('../less/main.less');
