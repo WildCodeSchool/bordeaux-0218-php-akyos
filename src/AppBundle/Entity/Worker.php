@@ -45,7 +45,7 @@ class Worker
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length= 30)
      */
     private $phone;
 
@@ -69,7 +69,6 @@ class Worker
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
-
 
     /*****************************************/
     /* Manual Generated methods / variables */
