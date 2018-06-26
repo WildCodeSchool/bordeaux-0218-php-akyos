@@ -145,6 +145,6 @@ class InterventionController extends Controller
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
         }
-        return $this->createForm('AppBundle\Form\InterventionType', $intervention);
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array('syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }

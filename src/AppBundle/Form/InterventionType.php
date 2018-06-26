@@ -24,6 +24,7 @@ class InterventionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('interventionType', ChoiceType::class, array(
                 'choices' => array(
@@ -57,11 +58,9 @@ class InterventionType extends AbstractType
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium',
-                'query_builder' => function (CondominiumRepository $er) {
-                    return $er->createAlphabeticalQueryBuilder('condominium')
-                        ->orderBy('condominium.name', 'ASC');
-                },
-                //'choice_label' => 'condodoo',
+                'query_builder' => function (CondominiumRepository $er) use ($options) {
+                    return $er->condoBySyndicQueryBuilder($options['syndicateId']);
+                }
                 ));
     }
 
@@ -71,7 +70,8 @@ class InterventionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Intervention'
+            'data_class' => 'AppBundle\Entity\Intervention',
+            'syndicateId' => null,
         ));
     }
 
