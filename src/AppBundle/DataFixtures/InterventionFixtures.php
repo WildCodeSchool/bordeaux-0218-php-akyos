@@ -16,17 +16,16 @@ use AppBundle\Entity\Intervention;
 use AppBundle\Entity\Worker;
 use Faker\Factory;
 
-class AppFixtures extends Fixture
+class InterventionFixtures extends Fixture
 {
 
-    const SKILLS = ['plumber', 'electrician', 'locksmith'];
+    const SKILLS = array('plumber', 'electrician', 'locksmith');
     /**
      * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
-        //generate worker
         for ($i = 0; $i < 5; $i++) {
 
             $worker = new Worker();
@@ -40,7 +39,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($worker);
         }
-        //generate intervention
+
         for ($i = 0; $i < 15; $i++) {
 
             $intervention = new Intervention();
@@ -48,7 +47,7 @@ class AppFixtures extends Fixture
             $intervention->setWorker($worker);
 
             $intervention->setProgress($faker
-                ->randomElement(array('Scheduled', 'done', 're-schedule')));
+                ->randomElement([1, 2, 3, 4]));
 
             $intervention->setInterventionType($faker
                 ->randomElement(self::SKILLS));
@@ -62,7 +61,12 @@ class AppFixtures extends Fixture
             $intervention->setDescription($faker->text($maxNbChars = 200));
 
             $intervention->setRequestDate($faker->dateTimeThisMonth());
-            $intervention->setInterventionDate($faker->dateTimeThisMonth());
+
+            if($i %2){
+                $intervention->setInterventionDate($faker->dateTimeThisMonth());
+            }else{
+                $intervention->setInterventionDate(new \DateTime());
+            }
             $intervention->setModificationDate($faker->dateTimeThisMonth());
 
             $intervention->setPaid($faker->boolean($chanceOfGettingTrue = 50));

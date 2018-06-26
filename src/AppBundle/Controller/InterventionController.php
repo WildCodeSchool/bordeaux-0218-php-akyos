@@ -26,7 +26,7 @@ class InterventionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy(['interventionDate'=> new \DateTime(date('Y-m-d'))]);
+            ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
 
 
         return $this->render('intervention/index.html.twig', array(
@@ -51,7 +51,8 @@ class InterventionController extends Controller
             $em->persist($intervention);
             $em->flush();
 
-            return $this->redirectToRoute('intervention_show', array('id' => $intervention->getId()));
+            return $this->redirectToRoute('intervention_show',
+                array( 'id' => $intervention->getId() ));
         }
 
         return $this->render('intervention/new.html.twig', array(
@@ -91,7 +92,7 @@ class InterventionController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('intervention_edit', array('id' => $intervention->getId()));
+            return $this->redirectToRoute('intervention_edit', array( 'id' => $intervention->getId() ));
         }
 
         return $this->render('intervention/edit.html.twig', array(
@@ -126,14 +127,14 @@ class InterventionController extends Controller
      *
      * @param Intervention $intervention The intervention entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(Intervention $intervention)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('intervention_delete',  array('id' => $intervention->getId())))
+            ->setAction($this->generateUrl('intervention_delete',
+                array( 'id' => $intervention->getId() )))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

@@ -45,7 +45,7 @@ class Worker
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="string", length= 15)
+     * @ORM\Column(name="phone", type="string", length= 30)
      */
     private $phone;
 
@@ -69,11 +69,6 @@ class Worker
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
-
-    public function __toString()
-    {
-        return $this->firstName . " " . $this->lastName;
-    }
 
     /*****************************************/
     /* Manual Generated methods / variables */

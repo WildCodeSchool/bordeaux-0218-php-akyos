@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Intervention
  *
  * @ORM\Table(name="intervention_sheet")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Intervention")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\InterventionRepository")
  */
 class Intervention
 {
@@ -34,7 +34,7 @@ class Intervention
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
      * @ORM\Column(name="progress", type="integer")
      */
@@ -78,7 +78,7 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="datetime")
+     * @ORM\Column(name="intervention_date", type="date")
      */
     private $interventionDate;
 
