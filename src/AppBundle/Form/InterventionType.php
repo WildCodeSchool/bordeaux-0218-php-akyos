@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use phpDocumentor\Reflection\Types\Compound;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -14,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 
+use Symfony\Component\Security\Core\SecurityContext;
+
 class InterventionType extends AbstractType
 {
     /**
@@ -22,18 +25,8 @@ class InterventionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('progress', ChoiceType::class, array(
-                'choices' => array(
-                    'placeholder' => 'Choose an option',
-                    'À planifier' => 'À planifier',
-                    'En cours' => 'En cours',
-                    'Terminé' => 'Terminé',
-                    'À replanifier' => 'À replanifier',
-                ),
-                'label' => 'etat'
-            ))
             ->add('interventionType', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'placeholder' => 'Choose an option',
                     'Électricité' => 'Électricité',
                     'Plomberie' => 'Plomberie',
@@ -41,7 +34,6 @@ class InterventionType extends AbstractType
                     'Autre' => 'Autre',
                 ),
             ))
-            ->add('material')
             ->add('emergency', ChoiceType::class, array(
                 'choices'=>array(
                 'Prioritaire'=>'Prioritaire',
@@ -50,7 +42,7 @@ class InterventionType extends AbstractType
                 ),
             ))
             ->add('description')
-            ->add('interventionDate')
+
             ->add('paid')
             ->add('clientSatisfaction', RangeType::class, array(
                 'attr' => array(
@@ -59,14 +51,14 @@ class InterventionType extends AbstractType
                 )
             ))
             ->add('comment')
-            ->add('workerNumber')
+
             ->add('duration', TimeType::class, array(
                 'placeholder' => array(
                 'hour' => 'Heure', 'minute' => 'Minute',
                 )
             ))
-            ->add('worker')
-            ->add('condominium');
+
+            ->add('condominium', EntityType::class);
     }
     /**
      * {@inheritdoc}

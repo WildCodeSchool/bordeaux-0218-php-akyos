@@ -41,7 +41,8 @@ class InterventionController extends Controller
     public function newAction(Request $request)
     {
         $intervention = new Intervention();
-        $form = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+
+        $form = $this->getInterventionForm($intervention);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -84,8 +85,6 @@ class InterventionController extends Controller
     {
         $deleteForm = $this->createDeleteForm($intervention);
         $editForm = $this->createForm('AppBundle\Form\InterventionType', $intervention);
-        //$editForm->remove('requestDate');
-        //$editForm->remove('modificationDate');
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -135,5 +134,17 @@ class InterventionController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Creates form determined by ROLE_USER.
+     *
+     */
+    public function getInterventionForm($intervention){
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
+        }
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention);
     }
 }
