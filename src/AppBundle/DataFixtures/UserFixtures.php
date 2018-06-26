@@ -15,8 +15,9 @@
     use Doctrine\Common\DataFixtures\FixtureInterface;
     use Symfony\Component\DependencyInjection\ContainerAwareInterface;
     use Symfony\Component\DependencyInjection\ContainerInterface;
+    use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-    class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareInterface
+    class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareInterface, DependentFixtureInterface
     {
 
         /**
@@ -54,8 +55,26 @@
             $user->setPlainPassword('wild');
             $user->setEnabled(true);
             $user->setRoles(array('ROLE_USER'));
+            $user->setSyndicate($this->getReference('syndicate0'));
 
             // Update the user
             $userManager->updateUser($user, true);
+
+            // Create our user and set details
+            $user = $userManager->createUser();
+            $user->setUsername('laforest');
+            $user->setEmail('dijon@laforest.com');
+            $user->setPlainPassword('wild');
+            $user->setEnabled(true);
+            $user->setRoles(array('ROLE_USER'));
+            $user->setSyndicate($this->getReference('syndicate1'));
+
+            // Update the user
+            $userManager->updateUser($user, true);
+        }
+
+        public function getDependencies()
+        {
+           return [SyndicateFixtures::class];
         }
     }

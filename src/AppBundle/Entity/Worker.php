@@ -45,7 +45,7 @@ class Worker
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string")
      */
     private $phone;
 
@@ -59,9 +59,9 @@ class Worker
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     /**
      * @var string
@@ -192,13 +192,13 @@ class Worker
     /**
      * Set adresse
      *
-     * @param string $adress
+     * @param string $address
      *
      * @return Worker
      */
-    public function setAdress($adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
@@ -208,9 +208,9 @@ class Worker
      *
      * @return string
      */
-    public function getAdress()
+    public function getAddress()
     {
-        return $this->adress;
+        return $this->address;
     }
 
     /**
@@ -276,5 +276,29 @@ class Worker
     public function getInterventions()
     {
         return $this->interventions;
+    }
+
+    /**
+     * Add intervention
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return Worker
+     */
+    public function addIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions[] = $intervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervention
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     */
+    public function removeIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions->removeElement($intervention);
     }
 }
