@@ -147,7 +147,7 @@ class Building
      *
      * @return Building
      */
-    public function setConstructionyear($constructionYear)
+    public function setConstructionYear($constructionYear)
     {
         $this->constructionYear = $constructionYear;
 
@@ -155,17 +155,17 @@ class Building
     }
 
     /**
-     * Get anneeDeConstruction
+     * Get constructionYear
      *
      * @return int
      */
-    public function getConstructionyear()
+    public function getConstructionYear()
     {
         return $this->constructionYear;
     }
 
     /**
-     * Set constructeur
+     * Set constructor
      *
      * @param string $constructor
      *
@@ -179,7 +179,7 @@ class Building
     }
 
     /**
-     * Get constructeur
+     * Get constructor
      *
      * @return string
      */
@@ -189,7 +189,7 @@ class Building
     }
 
     /**
-     * Set categorie
+     * Set category
      *
      * @param integer $category
      *
@@ -203,7 +203,7 @@ class Building
     }
 
     /**
-     * Get categorie
+     * Get category
      *
      * @return int
      */
@@ -213,7 +213,7 @@ class Building
     }
 
     /**
-     * Set classeEnergetique
+     * Set energyClass
      *
      * @param integer $energyClass
      *
@@ -227,7 +227,7 @@ class Building
     }
 
     /**
-     * Get classeEnergetique
+     * Get energyClass
      *
      * @return int
      */
@@ -237,7 +237,7 @@ class Building
     }
 
     /**
-     * Set nombreDeLots
+     * Set unitsNumber
      *
      * @param integer $unitsNumber
      *
@@ -251,7 +251,7 @@ class Building
     }
 
     /**
-     * Get nombreDeLots
+     * Get unitsNumber
      *
      * @return int
      */
@@ -261,7 +261,7 @@ class Building
     }
 
     /**
-     * Set nombreDEtages
+     * Set floorsNumber
      *
      * @param integer $floorsNumber
      *
@@ -275,7 +275,7 @@ class Building
     }
 
     /**
-     * Get nombreDEtages
+     * Get floorsNumber
      *
      * @return int
      */
