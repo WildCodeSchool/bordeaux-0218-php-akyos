@@ -457,4 +457,28 @@ class Condominium
     {
         return $this->syndicate;
     }
+
+    /**
+     * Add intervention
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return Condominium
+     */
+    public function addIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions[] = $intervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervention
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     */
+    public function removeIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions->removeElement($intervention);
+    }
 }

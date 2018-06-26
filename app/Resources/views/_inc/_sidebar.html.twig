@@ -20,23 +20,53 @@
                     <li>
                         <a href="base_pages_dashboard.html"><span class="sidebar-mini-hide"><h2>Menu</h2></span></a>
                     </li>
-
+                    <li>
+                        <a href="base_ui_widgets.html"><i class="fa fa-flash"></i>Demander une intervention</a>
+                    </li>
+                    <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
+                            </i>Mes informations</a>
+                        <ul>
                             <li>
-                                <a href="base_ui_widgets.html"><i class="fa fa-flash"></i>Demander une intervention</a>
+                                <a href="base_ui_blocks.html">Mon compte</a>
                             </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
-                                    </i>Mes informations</a>
+                            <li><a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
+                                    </i>Mes copropriétés</a>
                                 <ul>
                                     <li>
-                                        <a href="base_ui_blocks.html">Mon compte</a>
+                                        <a href="{{ path('building_index') }}">Bâtiment</a>
                                     </li>
-
                                     <li>
-                                        <a href="base_ui_blocks.html">Mes copropriétés</a>
+                                        <a href="{{ path('common_index') }}">Commun</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('component_index') }}">Composant</a>
+
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('condominium_index') }}">Copripriétés </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('intervention_index') }}">Interventions</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('parking_index') }}">Parking</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('syndicate_index') }}">Syndic</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('unit_index') }}">Unité</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('user_index') }}">Utilisateur</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('worker_index') }}">Worker</a>
                                     </li>
                                 </ul>
                             </li>
+
                             <li>
                                 <a href= {{ path("intervention_index") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
                             </li>

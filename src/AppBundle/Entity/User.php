@@ -42,13 +42,14 @@ class User extends BaseUser
         return $this;
     }
 
+
     /**
      * Get syndicate
-     *
-     * @return \AppBundle\Entity\Syndicate
+     * @return Syndicate
      */
     public function getSyndicate()
     {
         return $this->syndicate;
     }
+
 }
