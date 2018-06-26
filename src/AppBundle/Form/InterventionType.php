@@ -7,13 +7,13 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
+use AppBundle\Repository\CondominiumRepository;
 
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -52,14 +52,19 @@ class InterventionType extends AbstractType
             ))
             ->add('comment')
 
-            ->add('duration', TimeType::class, array(
-                'placeholder' => array(
-                'hour' => 'Heure', 'minute' => 'Minute',
-                )
-            ))
 
-            ->add('condominium', EntityType::class);
+
+            ->add('condominium', EntityType::class, array(
+                'placeholder' => 'Choose a Sub Family',
+                'class' => 'AppBundle:Condominium',
+                'query_builder' => function (CondominiumRepository $er) {
+                    return $er->createAlphabeticalQueryBuilder('condominium')
+                        ->orderBy('condominium.name', 'ASC');
+                },
+                //'choice_label' => 'condodoo',
+                ));
     }
+
     /**
      * {@inheritdoc}
      */

@@ -10,4 +10,9 @@ namespace AppBundle\Repository;
  */
 class CondominiumRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function createAlphabeticalQueryBuilder()
+    {
+        return $this->createQueryBuilder('condominium')
+            ->orderBy('condominium.name', 'ASC');
+    }
 }
