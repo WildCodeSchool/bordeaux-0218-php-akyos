@@ -84,7 +84,7 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
         $deleteForm = $this->createDeleteForm($intervention);
-        $editForm = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+        $editForm = $this->getInterventionForm($intervention);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
