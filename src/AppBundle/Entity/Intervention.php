@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Intervention
  *
  * @ORM\Table(name="intervention_sheet")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Intervention")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\InterventionRepository")
  */
 class Intervention
 {
@@ -35,7 +35,7 @@ class Intervention
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
      * @ORM\Column(name="progress", type="text", nullable=true)
      */
@@ -80,7 +80,7 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="datetime")
+     * @ORM\Column(name="intervention_date", type="date")
      */
     private $interventionDate;
 
@@ -147,7 +147,7 @@ class Intervention
     }
 
     /**
-     * Set avancement
+     * Set progress
      *
      * @param string $progress
      *
@@ -161,7 +161,7 @@ class Intervention
     }
 
     /**
-     * Get avancement
+     * Get progress
      *
      * @return string
      */
@@ -195,7 +195,7 @@ class Intervention
     }
 
     /**
-     * Set fourniture
+     * Set material
      *
      * @param string $material
      *
@@ -209,7 +209,7 @@ class Intervention
     }
 
     /**
-     * Get fourniture
+     * Get material
      *
      * @return string
      */
@@ -219,7 +219,7 @@ class Intervention
     }
 
     /**
-     * Set urgence
+     * Set emergency
      *
      * @param string $emergency
      *
@@ -233,7 +233,7 @@ class Intervention
     }
 
     /**
-     * Get urgence
+     * Get emergency
      *
      * @return string
      */
@@ -243,7 +243,7 @@ class Intervention
     }
 
     /**
-     * Set descriptif
+     * Set description
      *
      * @param string $description
      *
@@ -257,7 +257,7 @@ class Intervention
     }
 
     /**
-     * Get descriptif
+     * Get description
      *
      * @return string
      */
@@ -267,7 +267,7 @@ class Intervention
     }
 
     /**
-     * Set dateDemande
+     * Set requestDate
      *
      * @param \DateTime $requestDate
      *
@@ -281,7 +281,7 @@ class Intervention
     }
 
     /**
-     * Get dateDemande
+     * Get requestDate
      *
      * @return \DateTime
      */
@@ -387,7 +387,7 @@ class Intervention
     }
 
     /**
-     * Set commentaire
+     * Set comment
      *
      * @param string $comment
      *
@@ -401,7 +401,7 @@ class Intervention
     }
 
     /**
-     * Get commentaire
+     * Get comment
      *
      * @return string
      */
@@ -411,7 +411,7 @@ class Intervention
     }
 
     /**
-     * Set nombreIntervenants
+     * Set workerNumber
      *
      * @param integer $workerNumber
      *
@@ -425,7 +425,7 @@ class Intervention
     }
 
     /**
-     * Get nombreIntervenants
+     * Get Set workerNumber
      *
      * @return int
      */
@@ -435,7 +435,7 @@ class Intervention
     }
 
     /**
-     * Set duree
+     * Set duration
      *
      * @param \DateTime $duration
      *
@@ -449,7 +449,7 @@ class Intervention
     }
 
     /**
-     * Get duree
+     * Get duration
      *
      * @return \DateTime
      */

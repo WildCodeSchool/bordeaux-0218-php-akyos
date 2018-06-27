@@ -49,4 +49,13 @@ class User extends BaseUser
         $this->syndicate = $syndicate;
         return $this;
     }
+
+    /**
+     * Get syndicate
+     * @return Syndicate
+     */
+    public function getSyndicate()
+    {
+        return $this->syndicate;
+    }
 }

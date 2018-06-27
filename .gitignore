@@ -26,3 +26,5 @@ npm-debug.log
 !/assets/img/avatars/
 /assets/js/*core/
 /assets/js/*plugins/
+*.php~
+npm-debug.log
