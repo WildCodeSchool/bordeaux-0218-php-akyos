@@ -92,7 +92,7 @@ class Syndicate
     }
 
     /**
-     * Set nom
+     * Set name
      *
      * @param string $name
      *
@@ -106,7 +106,7 @@ class Syndicate
     }
 
     /**
-     * Get nom
+     * Get name
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class Syndicate
     }
 
     /**
-     * Set adresse
+     * Set address
      *
      * @param string $address
      *
@@ -125,12 +125,11 @@ class Syndicate
     public function setAddress($address)
     {
         $this->address = $address;
-
         return $this;
     }
 
     /**
-     * Get adresse
+     * Get address
      *
      * @return string
      */
@@ -140,7 +139,7 @@ class Syndicate
     }
 
     /**
-     * Set telephone
+     * Set phone
      *
      * @param integer $phone
      *
@@ -154,7 +153,7 @@ class Syndicate
     }
 
     /**
-     * Get telephone
+     * Get phone
      *
      * @return int
      */
@@ -188,7 +187,7 @@ class Syndicate
     }
 
     /**
-     * Set chargeCopro
+     * Set condominiumManager
      *
      * @param string $condominiumManager
      *
@@ -202,7 +201,7 @@ class Syndicate
     }
 
     /**
-     * Get chargeCopro
+     * Get condominiumManager
      *
      * @return string
      */
