@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,16 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Syndicate
 {
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicate")
-     */
-    private $condominiums;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="syndicate")
-     */
-    private $users;
-
     /**
      * @var int
      *
@@ -41,14 +32,14 @@ class Syndicate
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length=30)
      */
     private $phone;
 
@@ -65,6 +56,17 @@ class Syndicate
      * @ORM\Column(name="condominium_manager", type="string", length=255)
      */
     private $condominiumManager;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicate")
+     */
+    private $condominiums;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="syndicate")
+     */
+    private $users;
+
 
 
     /*****************************************/
@@ -116,14 +118,13 @@ class Syndicate
     /**
      * Set address
      *
-     * @param string $adress
+     * @param string $address
      *
      * @return Syndicate
      */
     public function setAddress($address)
     {
-        $this->adress = $address;
-
+        $this->address = $address;
         return $this;
     }
 
@@ -215,6 +216,7 @@ class Syndicate
     public function __construct()
     {
         $this->condominiums = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Add condominium
@@ -251,23 +253,9 @@ class Syndicate
     }
 
     /**
-     * Set user
+     * Get users
      *
-     * @param \AppBundle\Entity\User $users
-     *
-     * @return Syndicate
-     */
-    public function setUsers(\AppBundle\Entity\User $users)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
+     * @return ArrayCollection
      */
     public function getUsers()
     {

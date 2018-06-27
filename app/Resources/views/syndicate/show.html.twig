@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Syndicate</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -37,11 +37,15 @@
             <a href="{{ path('syndicate_index') }}">Back to the list</a>
         </li>
         <li>
+<<<<<<< Updated upstream:app/Resources/views/syndicate/show.html.twig
             <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
+=======
+            <a href="{{ path('syndicat_edit', { 'id': syndicat.id }) }}" class="btn alert-success">Edit</a>
+>>>>>>> Stashed changes:app/Resources/views/syndicat/show.html.twig
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>
