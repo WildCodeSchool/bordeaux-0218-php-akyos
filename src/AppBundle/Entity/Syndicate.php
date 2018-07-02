@@ -130,7 +130,7 @@ class Syndicate
     }
 
     /**
-     * Get adresse
+     * Get address
      *
      * @return string
      */

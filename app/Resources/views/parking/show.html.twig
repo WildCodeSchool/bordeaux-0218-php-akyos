@@ -10,7 +10,7 @@
                 <td>{{ parking.id }}</td>
             </tr>
             <tr>
-                <th>Parkingspace</th>
+                <th>Espace de parking</th>
                 <td>{{ parking.parkingSpace }}</td>
             </tr>
         </tbody>
@@ -18,14 +18,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('parking_index') }}">Back to the list</a>
+            <a href="{{ path('parking_index') }}">Retour à la list</a>
         </li>
         <li>
-            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">Edit</a>
+            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

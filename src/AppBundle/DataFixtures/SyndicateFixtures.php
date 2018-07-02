@@ -13,29 +13,25 @@
     use AppBundle\Entity\Syndicate;
     use Faker\Factory;
 
+class SyndicateFixtures extends Fixture
+{
 
-
-    class SyndicateFixtures extends Fixture
+    public function load(ObjectManager $manager)
     {
+        $faker = Factory::create();
+        for ($i = 0; $i < 10; $i++) {
+            $syndicate = new Syndicate();
+            $syndicate->setAddress($faker->address);
+            $syndicate->setEmail($faker->companyEmail);
+            $syndicate->setName($faker->company);
+            $syndicate->setPhone($faker->phoneNumber);
+            $syndicate->setCondominiumManager($faker->name);
 
-        public function load(ObjectManager $manager)
-        {
-            $faker = Factory::create();
-            for ($i = 0; $i < 10; $i++){
-                $syndicate = new Syndicate();
-                $syndicate->setAddress($faker->address);
-                $syndicate->setEmail($faker->companyEmail);
-                $syndicate->setName($faker->company);
-                $syndicate->setPhone($faker->phoneNumber);
-                $syndicate->setCondominiumManager($faker->name);
-
-                $manager->persist($syndicate);
+            $manager->persist($syndicate);
 
 
-                $this->addReference('syndicate' . $i, $syndicate);
-
-            }
-            $manager->flush();
+            $this->addReference('syndicate' . $i, $syndicate);
         }
-
+        $manager->flush();
     }
+}

@@ -16,7 +16,7 @@ class SyndicateType extends AbstractType
 
         $builder
             ->add('name')
-            ->add('adress')
+            ->add('address')
             ->add('phone')
             ->add('email')
             ->add('condominiumManager');
