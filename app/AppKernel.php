@@ -3,6 +3,7 @@
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 
 class AppKernel extends Kernel
 {
@@ -28,7 +29,6 @@ class AppKernel extends Kernel
 
             if ('dev' === $this->getEnvironment()) {
                 $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
-                //$bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             }
         }
 
