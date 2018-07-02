@@ -235,6 +235,7 @@ class Worker
     {
         return $this->email;
     }
+
     /**
      * Constructor
      */
