@@ -10,7 +10,7 @@
                 <td>{{ common.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ common.name }}</td>
             </tr>
         </tbody>
@@ -18,10 +18,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('common_index') }}">Back to the list</a>
+            <a href="{{ path('common_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('common_edit', { 'id': common.id }) }}">Edit</a>
+            <a href="{{ path('common_edit', { 'id': common.id }) }}">créer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

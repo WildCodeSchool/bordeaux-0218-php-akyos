@@ -34,7 +34,7 @@ class InterventionFixtures extends Fixture
             $worker->setLastName($faker->lastName);
             $worker->setCompetence($faker->randomElement(self::SKILLS));
             $worker->setPhone($faker->phoneNumber);
-            $worker->setAdress($faker->address);
+            $worker->setAddress($faker->address);
             $worker->setEmail($faker->freeEmail);
 
             $manager->persist($worker);

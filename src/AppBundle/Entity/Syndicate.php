@@ -116,7 +116,7 @@ class Syndicate
     }
 
     /**
-     * Set adresse
+     * Set address
      *
      * @param string $address
      *
@@ -188,7 +188,7 @@ class Syndicate
     }
 
     /**
-     * Set chargeCopro
+     * Set condominiumManager
      *
      * @param string $condominiumManager
      *
@@ -202,7 +202,7 @@ class Syndicate
     }
 
     /**
-     * Get chargeCopro
+     * Get condominiumManager
      *
      * @return string
      */
@@ -219,6 +219,7 @@ class Syndicate
         $this->condominiums = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * Add condominium
      *
