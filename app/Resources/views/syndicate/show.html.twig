@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Syndicate</h1>
+    <h1>Syndic</h1>
 
     <table class="table">
         <tbody>
@@ -10,23 +10,23 @@
                 <td>{{ syndicate.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ syndicate.name }}</td>
             </tr>
             <tr>
-                <th>Adress</th>
-                <td>{{ syndicate.adress }}</td>
+                <th>Adresse</th>
+                <td>{{ syndicate.address }}</td>
             </tr>
             <tr>
-                <th>Phone</th>
+                <th>telephone</th>
                 <td>{{ syndicate.phone }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>Mail</th>
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Condominiummanager</th>
+                <th>Gestionnaire de copropriété</th>
                 <td>{{ syndicate.condominiumManager }}</td>
             </tr>
         </tbody>
@@ -34,18 +34,13 @@
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_index') }}">Back to the list</a>
+            <a href="{{ path('syndicate_index') }}">Retour à la list</a>
         </li>
         <li>
-<<<<<<< Updated upstream:app/Resources/views/syndicate/show.html.twig
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
-=======
-            <a href="{{ path('syndicat_edit', { 'id': syndicat.id }) }}" class="btn alert-success">Edit</a>
->>>>>>> Stashed changes:app/Resources/views/syndicat/show.html.twig
-        </li>
+            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn-danger">
+                <input type="submit" value="Supprimer" class="btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

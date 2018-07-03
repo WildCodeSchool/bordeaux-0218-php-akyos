@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <main id="main-container">
+                <!-- Page Content -->
+                <div class="content content-boxed">
+                    <!-- Header Tiles -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a class="block block-link-hover3 text-center" href="{{ path('condominium_new') }}">
+                                <div class="block-content block-content-full">
+                                    <div class="h1 font-w700"><i class="fa fa-pencil"></i></div>
+                                </div>
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">Ajouter une copropriété</div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <a class="block block-link-hover3 text-center" href="{{ path('intervention_index') }}">
+                                <div class="block-content block-content-full">
+                                    <div class="h1 font-w700"><i class="si si-calendar"></i></div>
+                                </div>
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter text-muted font-w600">Liste des interventions</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END Header Tiles -->
+
+                    </div>
+                    <!-- END Customer Info -->
+
+                    <!-- block -->
+                    <div class="block">
+
+                        <div class="block-content">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- Billing Address -->
+                                    <div class="block block-bordered">
+
+                                        <div class="block-content block-content-full">
+                                            <div class="h4 push-5">Résidence Les Jardins de Voltaire</div>
+                                            <address>
+                                                12, place Grenier<br>
+                                                86 350<br>
+                                                Saint-Romain-En-Gal<br><br>
+                                                <i class="fa fa-phone"></i> 05 56 41 32 02<br>
+                                                <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">company@example.com</a>
+                                            </address>
+                                            <div class="h4 push-5">Résidence du parc Meudon</div>
+                                            <address>
+                                                178, avenue Baloubet<br>
+                                                78 800<br>
+                                                Chaville<br><br>
+                                                <i class="fa fa-phone"></i> 01 76 41 42 22<br>
+                                                <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">company@example.com</a>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- Billing Address -->
+                                    <div class="block block-bordered">
+
+                                        <div class="block-content block-content-full">
+                                            <div class="h4 push-5">Plomberie</div>
+                                            <address>
+                                                Résidence des Mimosas<br>
+                                                33 340<br>
+                                                Lesparre-Médoc<br><br>
+                                                <i class="fa fa-phone"></i> 05 56 41 32 02<br>
+                                                <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">company@example.com</a>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

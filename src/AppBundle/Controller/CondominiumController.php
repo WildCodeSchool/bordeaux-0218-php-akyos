@@ -42,10 +42,19 @@ class CondominiumController extends Controller
     {
         $condominium = new Condominium();
         $form = $this->createForm('AppBundle\Form\CondominiumType', $condominium);
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $form->add('syndicate');
+        }else{
+            $condominium->setSyndicate($this->getUser()->getSyndicate());
+        }
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+
+
+                $em = $this->getDoctrine()->getManager();
             $em->persist($condominium);
             $em->flush();
 

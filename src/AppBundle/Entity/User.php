@@ -27,6 +27,15 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * Get syndicate
+     *
+     * @return \AppBundle\Entity\Syndicate
+     */
+    public function getSyndicate()
+    {
+        return $this->syndicate;
+    }
 
     /**
      * Set syndicate
@@ -38,17 +47,7 @@ class User extends BaseUser
     public function setSyndicate(\AppBundle\Entity\Syndicate $syndicate = null)
     {
         $this->syndicate = $syndicate;
-
         return $this;
     }
 
-
-    /**
-     * Get syndicate
-     * @return Syndicate
-     */
-    public function getSyndicate()
-    {
-        return $this->syndicate;
-    }
 }

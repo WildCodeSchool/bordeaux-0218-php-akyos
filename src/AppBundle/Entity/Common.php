@@ -158,4 +158,9 @@ class Common
     {
         $this->components->removeElement($component);
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,13 +17,13 @@ class CondominiumType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('adress')
+            ->add('address', TextareaType::class)
             ->add('condominiumManager')
             ->add('phone')
-            ->add('email')
-            ->add('publicMessage')
-            ->add('privateMessage')
-            ->add('syndicate');
+            ->add('email', EmailType::class)
+            ->add('publicMessage', TextareaType::class)
+            ->add('privateMessage', TextareaType::class)
+            ;
     }/**
      * {@inheritdoc}
      */
