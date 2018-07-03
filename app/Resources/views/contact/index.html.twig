@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+
+<div class="bg-white">
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-50-t push-30">
+            <div class="col-md-6 col-md-offset-3">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            {{ form_start(form) }}
+                            <div class="form-material form-material-primary">
+                                                <label for="contact-firstname">Prénom</label>
+                                                {{ form_widget(form.firstname) }}
+                                                {{ form_errors(form.firstname) }}
+
+                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="form-material form-material-primary">
+                                                <label for="contact-lastname">Nom</label>
+                                                {{ form_widget(form.name) }}
+                                                {{ form_errors(form.name) }}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material form-material-primary">
+                                                <label for="contact-msg">Message</label>
+                                                {{ form_widget(form.text) }}
+                                                {{ form_errors(form.text) }}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                                            <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-send pull-left"></i> Envoyer votre message</button>
+                                        </div>
+                                    </div>
+                                {{ form_end(form) }}
+                </form>
+
+            </div>
+        </div>
+
+{% endblock %}
