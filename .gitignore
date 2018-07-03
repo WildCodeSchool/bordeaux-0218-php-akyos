@@ -16,6 +16,8 @@
 /vendor/
 /web/bundles/
 .idea/
+*.php~
+npm-debug.log
 /node_modules/
 /web/build/
 /assets/img/*

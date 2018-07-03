@@ -99,6 +99,7 @@ class Condominium
      */
     private $privateMessage;
 
+
     /*****************************************/
     /* Manual Generated methods / variables */
     /***************************************/

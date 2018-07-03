@@ -59,7 +59,8 @@ class InterventionController extends Controller
     public function newAction(Request $request)
     {
         $intervention = new Intervention();
-        $form = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+
+        $form = $this->getInterventionForm($intervention);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -104,7 +105,7 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
         $deleteForm = $this->createDeleteForm($intervention);
-        $editForm = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+        $editForm = $this->getInterventionForm($intervention);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -156,5 +157,17 @@ class InterventionController extends Controller
             ))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    /**
+     * Creates form determined by ROLE_USER.
+     *
+     */
+    public function getInterventionForm($intervention){
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
+        }
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array('syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }
