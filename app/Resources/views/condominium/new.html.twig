@@ -1,16 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Condominium creation</h1>
+    <h1>Créer une Copropriétée</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Modifier" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('condominium_index') }}">Back to the list</a>
+            <a href="{{ path('condominium_index') }}">Retour à la liste</a>
         </li>
     </ul>
 {% endblock %}

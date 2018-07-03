@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class InterventionController extends Controller
 {
     /**
-     * Lists all intervention entities.
+     * Lists today intervention entities.
      *
      * @Route("/", name="intervention_index")
      * @Method("GET")
@@ -30,6 +30,22 @@ class InterventionController extends Controller
 
 
         return $this->render('intervention/index.html.twig', array(
+            'interventions' => $interventions,
+        ));
+    }
+    /**
+     * Lists all intervention entities.
+     *
+     * @Route("/", name="intervention_history")
+     * @Method("GET")
+     */
+    public function indexHistory()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $interventions = $em->getRepository('AppBundle:Intervention');
+
+        return $this->render('intervention/history.html.twig', array(
             'interventions' => $interventions,
         ));
     }

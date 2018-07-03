@@ -17,10 +17,13 @@
             <div class="side-content side-content-full">
                 <ul class="nav-main">
                     <li>
-                        <a href="base_pages_dashboard.html"><span class="sidebar-mini-hide"><h2>Menu</h2></span></a>
+                        <a href="{{ path('homepage') }}"><span class="sidebar-mini-hide"><h2>Logo</h2></span></a>
                     </li>
                     <li>
                         <a href="base_ui_widgets.html"><i class="fa fa-flash"></i>Demander une intervention</a>
+                    </li>
+                    <li>
+                        <a href= {{ path("intervention_index") }} ><i class="fa fa-flash"></i>Interventions prévues ce jour</a>
                     </li>
                     <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
@@ -53,25 +56,21 @@
                                         <a href="{{ path('parking_index') }}">Parking</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('syndicate_index') }}">Syndic</a>
-                                    </li>
-                                    <li>
                                         <a href="{{ path('unit_index') }}">Unité</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ path('user_index') }}">Utilisateur</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('worker_index') }}">Worker</a>
-                                    </li>
+
                                 </ul>
                             </li>
 
                             <li>
-                                <a href= {{ path("intervention_index") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
+                                <a href= {{ path("intervention_history") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
                             </li>
                             <li>
-                                <a href="base_ui_typography.html"><i class="fa fa-envelope-o"></i>Nous contacter</a>
+                                <a href="{{ path('condominium_new') }}"><i class="si si-pencil"></i>
+                                    Ajouter une copropriété</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('contact_index') }}"><i class="fa fa-envelope-o"></i>Nous contacter</a>
                             </li>
                         </ul>
                     </li>

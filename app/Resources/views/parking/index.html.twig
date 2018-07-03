@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Parkings list</h1>
+    <h1>List des parkings</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Parkingspace</th>
+                <th>Espaces de parkings</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,10 +19,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('parking_show', { 'id': parking.id }) }}">show</a>
+                            <a href="{{ path('parking_show', { 'id': parking.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">edit</a>
+                            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +33,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('parking_new') }}">Create a new parking</a>
+            <a href="{{ path('parking_new') }}">Ajouter un parking</a>
         </li>
     </ul>
 {% endblock %}

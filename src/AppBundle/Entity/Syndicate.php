@@ -218,6 +218,7 @@ class Syndicate
         $this->condominiums = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * Add condominium
      *
