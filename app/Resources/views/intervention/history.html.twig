@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Interventions list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Progress</th>
+            <th>InterventionType</th>
+            <th>Material</th>
+            <th>Emergency</th>
+            <th>Description</th>
+            <th>RequestDate</th>
+            <th>InterventionDate</th>
+            <th>ModificationDate</th>
+            <th>Paid</th>
+            <th>ClientSatisfaction</th>
+            <th>Comment</th>
+            <th>WorkerNumber</th>
+            <th>Duration</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for intervention in interventions %}
+            <tr>
+                <td><a href="{{ path('intervention_show', { 'id': intervention.id }) }}">{{ intervention.id }}</a></td>
+                <td>{{ intervention.progress }}</td>
+                <td>{{ intervention.interventionType }}</td>
+                <td>{{ intervention.material }}</td>
+                <td>{{ intervention.emergency }}</td>
+                <td>{{ intervention.description }}</td>
+                <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if intervention.paid %}Yes{% else %}No{% endif %}</td>
+                <td>{{ intervention.clientSatisfaction }}</td>
+                <td>{{ intervention.comment }}</td>
+                <td>{{ intervention.workerNumber }}</td>
+                <td>{% if intervention.duration %}{{ intervention.duration|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('intervention_show', { 'id': intervention.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('intervention_edit', { 'id': intervention.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('intervention_new') }}">Create a new intervention</a>
+        </li>
+    </ul>
+{% endblock %}

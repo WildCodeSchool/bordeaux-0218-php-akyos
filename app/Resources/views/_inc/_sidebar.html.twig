@@ -23,6 +23,9 @@
                         <a href="base_ui_widgets.html"><i class="fa fa-flash"></i>Demander une intervention</a>
                     </li>
                     <li>
+                        <a href= {{ path("intervention_index") }} ><i class="fa fa-flash"></i>Interventions prévues ce jour</a>
+                    </li>
+                    <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
                             </i>Mes informations</a>
                         <ul>
@@ -60,7 +63,7 @@
                             </li>
 
                             <li>
-                                <a href= {{ path("intervention_index") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
+                                <a href= {{ path("intervention_history") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
                             </li>
                             <li>
                                 <a href="{{ path('condominium_new') }}"><i class="si si-pencil"></i>
