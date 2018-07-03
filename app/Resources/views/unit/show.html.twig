@@ -10,31 +10,31 @@
                 <td>{{ unit.id }}</td>
             </tr>
             <tr>
-                <th>Number</th>
+                <th>Nombre</th>
                 <td>{{ unit.number }}</td>
             </tr>
             <tr>
-                <th>Floor</th>
+                <th>Sol</th>
                 <td>{{ unit.floor }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ unit.lastName }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ unit.firstName }}</td>
             </tr>
             <tr>
-                <th>Phone</th>
+                <th>Téléphone</th>
                 <td>{{ unit.phone }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>Mail</th>
                 <td>{{ unit.email }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Commentaire</th>
                 <td>{{ unit.comment }}</td>
             </tr>
         </tbody>
@@ -42,14 +42,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('unit_index') }}">Back to the list</a>
+            <a href="{{ path('unit_index') }}">Retour à la  liste</a>
         </li>
         <li>
-            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Edit</a>
+            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>
