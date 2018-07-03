@@ -324,4 +324,9 @@ class Unit
     {
         return $this->building;
     }
+
+    public function __toString()
+    {
+        return $this->number . " étage: " . $this->floor;
+    }
 }

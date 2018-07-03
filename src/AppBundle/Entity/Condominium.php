@@ -62,7 +62,7 @@ class Condominium
      *
      * @ORM\Column(name="adress", type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     /**
      * @var string
@@ -98,6 +98,7 @@ class Condominium
      * @ORM\Column(name="private_message", type="text", nullable=true)
      */
     private $privateMessage;
+
 
     /*****************************************/
     /* Manual Generated methods / variables */
@@ -147,13 +148,13 @@ class Condominium
     /**
      * Set adresse
      *
-     * @param string $adress
+     * @param string $address
      *
      * @return Condominium
      */
-    public function setAdress($adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
@@ -163,9 +164,9 @@ class Condominium
      *
      * @return string
      */
-    public function getAdress()
+    public function getAddress()
     {
-        return $this->adress;
+        return $this->address;
     }
 
     /**

@@ -1,17 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Syndicates list</h1>
+    <h1>Listes des syndics</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Adress</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Condominiummanager</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Mail</th>
+                <th>Gestionnaire de copropriété</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,17 +20,17 @@
             <tr>
                 <td><a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">{{ syndicate.id }}</a></td>
                 <td>{{ syndicate.name }}</td>
-                <td>{{ syndicate.adress }}</td>
+                <td>{{ syndicate.address }}</td>
                 <td>{{ syndicate.phone }}</td>
                 <td>{{ syndicate.email }}</td>
                 <td>{{ syndicate.condominiumManager }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">show</a>
+                            <a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">edit</a>
+                            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_new') }}">Create a new syndicate</a>
+        <a href="{{ path('syndicate_new') }}">Créer un nouveau syndic</a>
         </li>
     </ul>
 {% endblock %}

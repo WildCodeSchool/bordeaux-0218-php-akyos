@@ -1,16 +1,23 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Condominium creation</h1>
+    <h1>Créer une Copropriétée</h1>
 
     {{ form_start(form) }}
+        {{ form_row(form.syndicate) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+
+        <div class="block-content block-content-mini block-content-full border-t">
+            <div class="row">
+                <div class="col-xs-6">
+                    <a href="{{ path('condominium_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <input type="submit" class="btn btn-success" value="Modifier" />
+                </div>
+            </div>
+        </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('condominium_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
 {% endblock %}

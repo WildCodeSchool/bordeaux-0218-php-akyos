@@ -1,19 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Units list</h1>
+    <h1>Liste d'unité</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Number</th>
-                <th>Floor</th>
-                <th>Lastname</th>
-                <th>Firstname</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Comment</th>
+                <th>Nombre</th>
+                <th>Sol</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>téléphone</th>
+                <th>Mail</th>
+                <th>Commentaire</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -31,10 +31,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('unit_show', { 'id': unit.id }) }}">show</a>
+                            <a href="{{ path('unit_show', { 'id': unit.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">edit</a>
+                            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('unit_new') }}">Create a new unit</a>
+            <a href="{{ path('unit_new') }}">Ajouter une unité</a>
         </li>
     </ul>
 {% endblock %}

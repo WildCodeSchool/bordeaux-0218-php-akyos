@@ -27,21 +27,19 @@ class InterventionFixtures extends Fixture
     {
         $faker = Factory::create();
         for ($i = 0; $i < 5; $i++) {
-
             $worker = new Worker();
 
             $worker->setFirstName($faker->firstName);
             $worker->setLastName($faker->lastName);
             $worker->setCompetence($faker->randomElement(self::SKILLS));
             $worker->setPhone($faker->phoneNumber);
-            $worker->setAdress($faker->address);
+            $worker->setAddress($faker->address);
             $worker->setEmail($faker->freeEmail);
 
             $manager->persist($worker);
         }
 
         for ($i = 0; $i < 15; $i++) {
-
             $intervention = new Intervention();
 
             $intervention->setWorker($worker);
@@ -52,8 +50,10 @@ class InterventionFixtures extends Fixture
             $intervention->setInterventionType($faker
                 ->randomElement(self::SKILLS));
 
-            $intervention->setMaterial($faker->sentence
-            ($nbWords = 6, $variableNbWords = true));
+            $intervention->setMaterial($faker->sentence(
+                $nbWords = 6,
+                $variableNbWords = true
+            ));
 
             $intervention->setEmergency($faker->randomElement(array
             ('low', 'medium', 'major')));
@@ -62,22 +62,26 @@ class InterventionFixtures extends Fixture
 
             $intervention->setRequestDate($faker->dateTimeThisMonth());
 
-            if($i %2){
+            if ($i %2) {
                 $intervention->setInterventionDate($faker->dateTimeThisMonth());
-            }else{
+            } else {
                 $intervention->setInterventionDate(new \DateTime());
             }
             $intervention->setModificationDate($faker->dateTimeThisMonth());
 
             $intervention->setPaid($faker->boolean($chanceOfGettingTrue = 50));
 
-            $intervention->setclientSatisfaction($faker->biasedNumberBetween
-            (1, 5));
+            $intervention->setclientSatisfaction($faker->biasedNumberBetween(
+                1,
+                5
+            ));
 
             $intervention->setComment($faker->text($maxNbChars = 200));
 
-            $intervention->setWorkerNumber($faker->biasedNumberBetween
-            (1, 3));
+            $intervention->setWorkerNumber($faker->biasedNumberBetween(
+                1,
+                3
+            ));
 
             $intervention->setDuration($faker->dateTime());
 

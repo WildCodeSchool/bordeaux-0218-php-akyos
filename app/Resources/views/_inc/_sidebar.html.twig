@@ -8,46 +8,52 @@
             <!-- Side Header -->
 
             <div class="side-header side-content bg-white-op">
-                <div class="img" style="background-image: url('{{ asset('img/photos/dms.png') }}');">
-                </div>
+                <a href="{{ path('dashboard') }}">
+                    <img src="{{ asset('img/photos/syndic.jpg') }}"/>
+                </a>
             </div>
         </div>
-            <!-- END Side Header -->
+        <!-- END Side Header -->
+        <!-- Side Content -->
+        <div class="side-content side-content-full">
+            <ul class="nav-main">
+                <li>
+                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
+                        </i>Mes interventions</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path("intervention_index") }}">En cours</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("intervention_planned") }}">À venir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path("intervention_history") }}">Archivés</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="fa fa-building">
+                        </i>Mes Copropriétés</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('condominium_index') }}">Voir toutes</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('condominium_new') }}">Ajouter</a>
+                        </li>
+                    </ul>
+                <li>
 
-            <!-- Side Content -->
-            <div class="side-content side-content-full">
-                <ul class="nav-main">
-                    <li>
-                        <a href="base_pages_dashboard.html"><span class="sidebar-mini-hide"><h2>Menu</h2></span></a>
-                    </li>
-
-                            <li>
-                                <a href="base_ui_widgets.html"><i class="fa fa-flash"></i>Demander une intervention</a>
-                            </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
-                                    </i>Mes informations</a>
-                                <ul>
-                                    <li>
-                                        <a href="base_ui_blocks.html">Mon compte</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="base_ui_blocks.html">Mes copropriétés</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href= {{ path("intervention_index") }} ><i class="fa fa-folder-open-o"></i>Historique des interventions</a>
-                            </li>
-                            <li>
-                                <a href="base_ui_typography.html"><i class="fa fa-envelope-o"></i>Nous contacter</a>
-                            </li>
-                </ul>
-            </div>
-            <!-- END Side Content -->
+                <li>
+                    <a href="{{ path('contact_index') }}"><i class="fa fa-envelope-o"></i>Nous contacter</a>
+                </li>
+            </ul>
         </div>
-        <!-- Sidebar Content -->
+        <!-- END Side Content -->
     </div>
     <!-- END Sidebar Scroll Container -->
 </nav>

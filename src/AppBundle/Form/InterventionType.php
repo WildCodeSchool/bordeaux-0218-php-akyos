@@ -2,10 +2,16 @@
 
 namespace AppBundle\Form;
 
+use phpDocumentor\Reflection\Types\Compound;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
+use AppBundle\Repository\CondominiumRepository;
+
+use Symfony\Component\Security\Core\SecurityContext;
 
 class InterventionType extends AbstractType
 {
@@ -14,6 +20,7 @@ class InterventionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('progress')
             ->add('interventionType', ChoiceType::class, [
@@ -22,7 +29,7 @@ class InterventionType extends AbstractType
                     'Done' => true,
                     'Re-schedule' => false,
                 ]])
-            ->add('material')
+
             ->add('emergency', ChoiceType::class, [
                 'choices' => [
                     'Low' => null,
@@ -30,16 +37,24 @@ class InterventionType extends AbstractType
                     'High' => false,
                 ]])
             ->add('description')
-            ->add('requestDate')
-            ->add('interventionDate')
-            ->add('modificationDate')
+
             ->add('paid')
-            ->add('clientSatisfaction')
+            ->add('clientSatisfaction', RangeType::class, array(
+                'attr' => array(
+                    'min' => 1,
+                    'max' => 5
+                )
+            ))
             ->add('comment')
-            ->add('workerNumber')
-            ->add('duration')
-            ->add('worker', EntityType::class, array())
-            ->add('condominium');
+
+            ->add('condominium', EntityType::class, array(
+                'placeholder' => 'Choose a Sub Family',
+                'class' => 'AppBundle:Condominium',
+                'query_builder' => function (CondominiumRepository $er) use ($options) {
+                    return $er->condoBySyndicQueryBuilder($options['syndicateId']);
+                }
+                ));
+
     }
 
     /**
@@ -48,7 +63,8 @@ class InterventionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Intervention'
+            'data_class' => 'AppBundle\Entity\Intervention',
+            'syndicateId' => null,
         ));
     }
 

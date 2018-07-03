@@ -13,9 +13,10 @@ class SyndicateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('name')
-            ->add('adress')
+            ->add('address')
             ->add('phone')
             ->add('email')
             ->add('condominiumManager');

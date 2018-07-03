@@ -16,9 +16,9 @@ use Symfony\Component\HttpFoundation\Request;
 class InterventionController extends Controller
 {
     /**
-     * Lists all intervention entities.
+     * Lists today intervention entities.
      *
-     * @Route("/", name="intervention_index")
+     * @Route("/en-cours", name="intervention_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -28,6 +28,39 @@ class InterventionController extends Controller
         $interventions = $em->getRepository('AppBundle:Intervention')
             ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
 
+
+        return $this->render('intervention/index.html.twig', array(
+            'interventions' => $interventions,
+        ));
+    }
+    /**
+     * Lists all intervention entities.
+     *
+     * @Route("/archivees", name="intervention_history")
+     * @Method("GET")
+     */
+    public function historyAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $interventions = $em->getRepository('AppBundle:Intervention')->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+
+        return $this->render('intervention/index.html.twig', array(
+            'interventions' => $interventions,
+        ));
+    }
+
+    /**
+     * Lists all intervention entities.
+     *
+     * @Route("/a-venir", name="intervention_planned")
+     * @Method("GET")
+     */
+    public function plannedAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $interventions = $em->getRepository('AppBundle:Intervention')->findAll();
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
@@ -43,7 +76,8 @@ class InterventionController extends Controller
     public function newAction(Request $request)
     {
         $intervention = new Intervention();
-        $form = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+
+        $form = $this->getInterventionForm($intervention);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,8 +85,10 @@ class InterventionController extends Controller
             $em->persist($intervention);
             $em->flush();
 
-            return $this->redirectToRoute('intervention_show',
-                array( 'id' => $intervention->getId() ));
+            return $this->redirectToRoute(
+                'intervention_show',
+                array( 'id' => $intervention->getId() )
+            );
         }
 
         return $this->render('intervention/new.html.twig', array(
@@ -86,7 +122,7 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
         $deleteForm = $this->createDeleteForm($intervention);
-        $editForm = $this->createForm('AppBundle\Form\InterventionType', $intervention);
+        $editForm = $this->getInterventionForm($intervention);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -132,9 +168,23 @@ class InterventionController extends Controller
     private function createDeleteForm(Intervention $intervention)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('intervention_delete',
-                array( 'id' => $intervention->getId() )))
+            ->setAction($this->generateUrl(
+                'intervention_delete',
+                array( 'id' => $intervention->getId() )
+            ))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    /**
+     * Creates form determined by ROLE_USER.
+     *
+     */
+    public function getInterventionForm($intervention){
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
+        }
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array('syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }
