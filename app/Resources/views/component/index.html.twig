@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Components list</h1>
+    <h1>Liste des composants</h1>
 
     <table class="table">
         <thead>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('component_show', { 'id': component.id }) }}">show</a>
+                            <a href="{{ path('component_show', { 'id': component.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('component_edit', { 'id': component.id }) }}">edit</a>
+                            <a href="{{ path('component_edit', { 'id': component.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('component_new') }}">Create a new component</a>
+            <a href="{{ path('component_new') }}">Créer un nouveau composant</a>
         </li>
     </ul>
 {% endblock %}

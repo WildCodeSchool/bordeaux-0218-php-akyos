@@ -18,7 +18,7 @@
                 <td>{{ condominium.adress }}</td>
             </tr>
             <tr>
-                <th>gestionnaire de copropiétée</th>
+                <th>Gestionnaire de copropiétée</th>
                 <td>{{ condominium.condominiumManager }}</td>
             </tr>
             <tr>
@@ -45,11 +45,11 @@
             <a href="{{ path('condominium_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Editer</a>
+            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

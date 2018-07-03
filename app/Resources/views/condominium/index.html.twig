@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>list des copropriétées</h1>
+    <h1>listes des copropriétées</h1>
 
     <table class="table">
         <thead>
@@ -34,7 +34,7 @@
                             <a href="{{ path('condominium_show', { 'id': condominium.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Editer</a>
+                            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('condominium_new') }}">Create a new condominium</a>
+            <a href="{{ path('condominium_new') }}">Ajouter</a>
         </li>
     </ul>
 {% endblock %}
