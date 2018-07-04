@@ -1,14 +1,14 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Users list</h1>
+    <h1>Liste des utilisateur</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Login</th>
-                <th>Password</th>
+                <th>Identification</th>
+                <th>Mot de passe</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
+            <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
         </li>
     </ul>
 {% endblock %}
