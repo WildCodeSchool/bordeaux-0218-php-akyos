@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Intervention</h1>
+    <h1>Interventions</h1>
 
     <table>
         <tbody>
@@ -10,19 +10,19 @@
                 <td>{{ intervention.id }}</td>
             </tr>
             <tr>
-                <th>Progress</th>
+                <th>Progression</th>
                 <td>{{ intervention.progress }}</td>
             </tr>
             <tr>
-                <th>InterventionType</th>
+                <th>Type d'intervention</th>
                 <td>{{ intervention.interventionType }}</td>
             </tr>
             <tr>
-                <th>Material</th>
+                <th>Equipement</th>
                 <td>{{ intervention.material }}</td>
             </tr>
             <tr>
-                <th>Emergency</th>
+                <th>Nivezaux d'urgence</th>
                 <td>{{ intervention.emergency }}</td>
             </tr>
             <tr>
@@ -30,35 +30,35 @@
                 <td>{{ intervention.description }}</td>
             </tr>
             <tr>
-                <th>RequestDate</th>
+                <th>Date de la demande</th>
                 <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Interventiondate</th>
+                <th>Date d'intervention</th>
                 <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Modificationdate</th>
+                <th>Dernier édition</th>
                 <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Paid</th>
+                <th>Réglé</th>
                 <td>{% if intervention.paid %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Clientsatisfaction</th>
+                <th>Niveaux de atisfaction</th>
                 <td>{{ intervention.clientSatisfaction }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Commentaire</th>
                 <td>{{ intervention.comment }}</td>
             </tr>
             <tr>
-                <th>Workernumber</th>
+                <th>Numero de telephone intervenant</th>
                 <td>{{ intervention.workerNumber }}</td>
             </tr>
             <tr>
-                <th>Duration</th>
+                <th>Durée</th>
                 <td>{% if intervention.duration %}{{ intervention.duration|date('H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
@@ -66,14 +66,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('intervention_index') }}">Back to the list</a>
+            <a href="{{ path('intervention_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Edit</a>
+            <a href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

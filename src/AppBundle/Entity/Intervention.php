@@ -80,7 +80,7 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="date")
+     * @ORM\Column(name="intervention_date", type="datetime")
      */
     private $interventionDate;
 
