@@ -17,21 +17,18 @@ class ContactController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
         // User mail
-        $message = (new \Swift_Message('Confirmation envoi d\'email'))
-        ->setFrom('akyoswcs@gmail.com')
-        ->setTo($this->getUser()->getEmail())
-        ->setContentType('text/html')
-        ->setBody($this->renderView('email/content.html.twig'));
-        $this->get('mailer')->send($message);
+            $message = (new \Swift_Message('Confirmation envoi d\'email'))
+            ->setFrom('akyoswcs@gmail.com')
+            ->setTo($this->getUser()->getEmail())
+            ->setContentType('text/html')
+            ->setBody($this->renderView('email/content.html.twig'));
+            $this->get('mailer')->send($message);
 
-        return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('homepage');
         }
         return $this->render('contact/index.html.twig', array(
                   'form' => $form->createView(),
          ));
     }
-
 }
