@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Common</h1>
+    <h1>Commun</h1>
 
     <table>
         <tbody>
@@ -21,11 +21,11 @@
             <a href="{{ path('common_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('common_edit', { 'id': common.id }) }}">Créer</a>
+            <a href="{{ path('common_edit', { 'id': common.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

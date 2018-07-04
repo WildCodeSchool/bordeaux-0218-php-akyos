@@ -22,6 +22,7 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
     /**
      * @var ContainerInterface
      */
+
     private $container;
     /**
      * {@inheritDoc}
@@ -74,6 +75,6 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
 
     public function getDependencies()
     {
-        return [SyndicateFixtures::class];
+        return [CondominiumFixtures::class];
     }
 }
