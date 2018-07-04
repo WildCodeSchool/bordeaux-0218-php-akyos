@@ -6,14 +6,80 @@
         <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
         <div class="sidebar-content">
             <!-- Side Header -->
-
+            
             <div class="side-header side-content bg-white-op">
                 <a href="{{ path('dashboard') }}">
-                    <img src="{{ asset('img/photos/syndic.jpg') }}"/>
                 </a>
             </div>
         </div>
         <!-- END Side Header -->
+        <!-- Side Content DMS -->
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="side-content side-content-full">
+                <ul class="nav-main">
+                    <li>
+                        <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
+                    </li>
+                    <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
+                            </i>Mes interventions</a>
+                        <ul>
+                            <li>
+                                <a href="{{ path("intervention_new") }}">Créer une nouvelle demande</a>
+                            </li>
+                            <li>
+                                <a href="{{ path("intervention_index") }}">En cours</a>
+                            </li>
+                            <li>
+                                <a href="{{ path("intervention_planned") }}">À venir</a>
+                            </li>
+                            <li>
+                                <a href="{{ path("intervention_history") }}">Archivés</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-wrench">
+                            </i>Intervenants</a>
+                        <ul>
+                            <li>
+                                <a href="{{ path('condominium_index') }}">Electriciens</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('condominium_new') }}">Plombier</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('condominium_new') }}">Serrurier</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('condominium_new') }}">Autre</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('condominium_new') }}">Créer nouvel intervenant</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="fa fa-building">
+                            </i>Syndicats</a>
+                        <ul>
+                            <li>
+                                <a href="{{ path('condominium_index') }}">Créer un nouveau syndicat</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('condominium_new') }}">Liste de tous les syndicats</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-user-follow">
+                            </i>Créer un nouvel utilisateur</a>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- END Side Content DMS -->
+        {% else %}
         <!-- Side Content -->
         <div class="side-content side-content-full">
             <ul class="nav-main">
@@ -45,7 +111,7 @@
                         <li>
                             <a href="{{ path('condominium_new') }}">Ajouter</a>
                         </li>
-                    </ul>
+                    </ul>unit
                 <li>
 
                 <li>
@@ -54,6 +120,7 @@
             </ul>
         </div>
         <!-- END Side Content -->
+        {% endif %}
     </div>
     <!-- END Sidebar Scroll Container -->
 </nav>

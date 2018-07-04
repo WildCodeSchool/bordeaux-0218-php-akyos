@@ -12,34 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Condominium
 {
-    /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="condominium")
-     *
-     */
-    private $interventions;
-
-    /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
-     *
-     */
-    private $commons;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium")
-     */
-    private $parkings;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
-     *
-     */
-    private $buildings;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="condominiums")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $syndicate;
 
     /**
      * @var int
@@ -60,7 +32,7 @@ class Condominium
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
     private $address;
 
@@ -98,6 +70,36 @@ class Condominium
      * @ORM\Column(name="private_message", type="text", nullable=true)
      */
     private $privateMessage;
+
+
+    /**
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="condominium")
+     *
+     */
+    private $interventions;
+
+    /**
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
+     *
+     */
+    private $commons;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium")
+     */
+    private $parkings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
+     *
+     */
+    private $buildings;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="condominiums")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $syndicate;
 
 
     /*****************************************/
@@ -146,7 +148,7 @@ class Condominium
     }
 
     /**
-     * Set adresse
+     * Set address
      *
      * @param string $address
      *
@@ -160,7 +162,7 @@ class Condominium
     }
 
     /**
-     * Get adresse
+     * Get address
      *
      * @return string
      */
