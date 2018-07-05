@@ -48,7 +48,6 @@ class InterventionDmsType extends AbstractType
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
         ;
-
     }
 
     public function getParent()
