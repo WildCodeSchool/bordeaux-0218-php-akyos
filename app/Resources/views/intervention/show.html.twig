@@ -22,7 +22,7 @@
                 <td>{{ intervention.material }}</td>
             </tr>
             <tr>
-                <th>Nivezaux d'urgence</th>
+                <th>Niveau d'urgence</th>
                 <td>{{ intervention.emergency }}</td>
             </tr>
             <tr>
@@ -38,15 +38,15 @@
                 <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Dernier édition</th>
+                <th>Dernière édition</th>
                 <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Réglé</th>
+                <th>Régler</th>
                 <td>{% if intervention.paid %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Niveaux de atisfaction</th>
+                <th>Niveau de atisfaction</th>
                 <td>{{ intervention.clientSatisfaction }}</td>
             </tr>
             <tr>
@@ -54,7 +54,7 @@
                 <td>{{ intervention.comment }}</td>
             </tr>
             <tr>
-                <th>Numero de telephone intervenant</th>
+                <th>Télephone intervenant</th>
                 <td>{{ intervention.workerNumber }}</td>
             </tr>
             <tr>
