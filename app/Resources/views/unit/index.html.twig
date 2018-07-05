@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Liste d'unité</h1>
+    <h1>Liste des lots</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nombre</th>
+                <th>Nombre de lot</th>
                 <th>Sol</th>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('unit_new') }}">Ajouter une unité</a>
+            <a href="{{ path('unit_new') }}">Ajouter un lot</a>
         </li>
     </ul>
 {% endblock %}

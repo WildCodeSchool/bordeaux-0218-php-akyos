@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Syndic</h1>
+    <h1>Syndics</h1>
 
     <table class="table">
         <tbody>
@@ -18,7 +18,7 @@
                 <td>{{ syndicate.address }}</td>
             </tr>
             <tr>
-                <th>telephone</th>
+                <th>téléphone</th>
                 <td>{{ syndicate.phone }}</td>
             </tr>
             <tr>
@@ -26,7 +26,7 @@
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropriété</th>
+                <th>Gestionnaire de copropriétée</th>
                 <td>{{ syndicate.condominiumManager }}</td>
             </tr>
         </tbody>
@@ -34,7 +34,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_index') }}">Retour à la list</a>
+            <a href="{{ path('syndicate_index') }}">Retour à la liste</a>
         </li>
         <li>
             <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>

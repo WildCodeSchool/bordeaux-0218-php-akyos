@@ -17,8 +17,6 @@ class ContactController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
                         // User mail
                         $message = (new \Swift_Message('Confirmation envoi d\'email'))
                             ->setFrom('akyoswcs@gmail.com')
@@ -46,6 +44,5 @@ class ContactController extends Controller
                     return $this->render('contact/index.html.twig', array(
                               'form' => $form->createView(),
                      ));
-
         }
 }

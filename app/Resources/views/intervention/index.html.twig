@@ -1,19 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Interventions list</h1>
+    <h1>Liste des interventions</h1>
 
     <table class="table table-striped table-borderless table-header-bg">
         <thead>
         <tr>
             <th>Lieu</th>
-            <th>Interventiontype</th>
-            <th>Emergency</th>
-            <th>Requestdate</th>
-            <th>Interventiondate</th>
-            <th>Paid</th>
+            <th>Type d'intervention</th>
+            <th>Niveaux d'urgence</th>
+            <th>Date de demande</th>
+            <th>Date d'intervention</th>
+            <th>Régler</th>
             <th>Avis</th>
-            <th>Progress</th>
+            <th>Progression</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -56,7 +56,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('intervention_new') }}">Create a new intervention</a>
+            <a href="{{ path('intervention_new') }}">Demande d'intervention</a>
         </li>
     </ul>
 {% endblock %}

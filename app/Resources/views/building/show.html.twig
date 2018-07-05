@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Building</h1>
+    <h1>Bâtiments</h1>
 
     <table class="table">
         <tbody>
@@ -30,11 +30,11 @@
                 <td>{{ building.energyClass }}</td>
             </tr>
             <tr>
-                <th>Nombre d'unité</th>
+                <th>Nombres de lots</th>
                 <td>{{ building.unitsNumber }}</td>
             </tr>
             <tr>
-                <th>Nombre de planchers</th>
+                <th>Nombres de planchers</th>
                 <td>{{ building.floorsNumber }}</td>
             </tr>
         </tbody>
@@ -45,11 +45,11 @@
             <a href="{{ path('building_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('building_edit', { 'id': building.id }) }}">Créer</a>
+            <a href="{{ path('building_edit', { 'id': building.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input type="submit" value="Supprimer" class="btn-danger" >
             {{ form_end(delete_form) }}
         </li>
     </ul>
