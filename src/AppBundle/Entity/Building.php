@@ -24,13 +24,13 @@ class Building
     private $parkings;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="buildings")
+     * @ORM\ManyToOne(targetEntity="Condominium", inversedBy="buildings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $condominium;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Unit", mappedBy="building")
+     * @ORM\OneToMany(targetEntity="Unit", mappedBy="building")
      *
      */
     private $units;
@@ -408,11 +408,11 @@ class Building
     /**
      * Add unit
      *
-     * @param \AppBundle\Entity\Unit $unit
+     * @param \AppBundle\Entity\Condominium $unit
      *
      * @return Building
      */
-    public function addUnit(\AppBundle\Entity\Unit $unit)
+    public function addUnit(\AppBundle\Entity\Condominium $unit)
     {
         $this->units[] = $unit;
 
@@ -422,9 +422,9 @@ class Building
     /**
      * Remove unit
      *
-     * @param \AppBundle\Entity\Unit $unit
+     * @param \AppBundle\Entity\Condominium $unit
      */
-    public function removeUnit(\AppBundle\Entity\Unit $unit)
+    public function removeUnit(\AppBundle\Entity\Condominium $unit)
     {
         $this->units->removeElement($unit);
     }

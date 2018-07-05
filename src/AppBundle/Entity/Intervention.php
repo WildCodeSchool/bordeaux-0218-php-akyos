@@ -20,7 +20,7 @@ class Intervention
     private $worker;
 
     /**
-     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventions")
+     *@ORM\ManyToOne(targetEntity="Condominium", inversedBy="interventions")
      *
      */
     private $condominium;

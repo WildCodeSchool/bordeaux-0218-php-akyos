@@ -8,7 +8,6 @@
 
     namespace AppBundle\DataFixtures;
 
-    use AppBundle\Entity\User;
     use Doctrine\Common\Persistence\ObjectManager;
     use Doctrine\Bundle\FixturesBundle\Fixture;
     use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -61,7 +60,7 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
 
         // Create our user and set details
         $user = $userManager->createUser();
-        $user->setUsername('laforest');
+        $user->setUsername('laforet');
         $user->setEmail('dijon@laforest.com');
         $user->setPlainPassword('wild');
         $user->setEnabled(true);
@@ -74,6 +73,6 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
 
     public function getDependencies()
     {
-        return [SyndicateFixtures::class];
+        return SyndicateFixtures::class;
     }
 }

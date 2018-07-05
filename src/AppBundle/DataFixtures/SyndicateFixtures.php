@@ -16,15 +16,18 @@
 class SyndicateFixtures extends Fixture
 {
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
         for ($i = 0; $i < 10; $i++) {
             $syndicate = new Syndicate();
-            $syndicate->setAddress($faker->address);
-            $syndicate->setEmail($faker->companyEmail);
             $syndicate->setName($faker->company);
+            $syndicate->setAddress($faker->address);
             $syndicate->setPhone($faker->phoneNumber);
+            $syndicate->setEmail($faker->companyEmail);
             $syndicate->setCondominiumManager($faker->name);
 
             $manager->persist($syndicate);
@@ -34,4 +37,5 @@ class SyndicateFixtures extends Fixture
         }
         $manager->flush();
     }
+
 }

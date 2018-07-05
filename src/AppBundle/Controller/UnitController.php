@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Unit;
+use AppBundle\Entity\Condominium;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -40,7 +40,7 @@ class UnitController extends Controller
      */
     public function newAction(Request $request)
     {
-        $unit = new Unit();
+        $unit = new Condominium();
         $form = $this->createForm('AppBundle\Form\UnitType', $unit);
         $form->handleRequest($request);
 
@@ -64,7 +64,7 @@ class UnitController extends Controller
      * @Route("/{id}", name="unit_show")
      * @Method("GET")
      */
-    public function showAction(Unit $unit)
+    public function showAction(Condominium $unit)
     {
         $deleteForm = $this->createDeleteForm($unit);
 
@@ -80,7 +80,7 @@ class UnitController extends Controller
      * @Route("/{id}/edit", name="unit_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Unit $unit)
+    public function editAction(Request $request, Condominium $unit)
     {
         $deleteForm = $this->createDeleteForm($unit);
         $editForm = $this->createForm('AppBundle\Form\UnitType', $unit);
@@ -105,7 +105,7 @@ class UnitController extends Controller
      * @Route("/{id}", name="unit_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Unit $unit)
+    public function deleteAction(Request $request, Condominium $unit)
     {
         $form = $this->createDeleteForm($unit);
         $form->handleRequest($request);
@@ -122,11 +122,11 @@ class UnitController extends Controller
     /**
      * Creates a form to delete a unit entity.
      *
-     * @param Unit $unit The unit entity
+     * @param Condominium $unit The unit entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Unit $unit)
+    private function createDeleteForm(Condominium $unit)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('unit_delete', array('id' => $unit->getId())))

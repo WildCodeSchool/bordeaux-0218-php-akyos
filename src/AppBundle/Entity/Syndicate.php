@@ -37,9 +37,9 @@ class Syndicate
     private $address;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=30)
+     * @ORM\Column(name="phone", type="string", length=32)
      */
     private $phone;
 
@@ -58,7 +58,7 @@ class Syndicate
     private $condominiumManager;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Condominium", mappedBy="syndicate")
+     * @ORM\OneToMany(targetEntity="Condominium", mappedBy="syndicate")
      */
     private $condominiums;
 
@@ -141,7 +141,7 @@ class Syndicate
     /**
      * Set phone
      *
-     * @param integer $phone
+     * @param string $phone
      *
      * @return Syndicate
      */
@@ -155,7 +155,7 @@ class Syndicate
     /**
      * Get phone
      *
-     * @return int
+     * @return string
      */
     public function getPhone()
     {

@@ -84,9 +84,14 @@ class InterventionFixtures extends Fixture
             ));
 
             $intervention->setDuration($faker->dateTime());
+            $intervention->setCondominium($this->getReference('condominium1'));
 
             $manager->persist($intervention);
         }
         $manager->flush();
+    }
+    public function getDependencies()
+    {
+        return CondoFixtures::class;
     }
 }

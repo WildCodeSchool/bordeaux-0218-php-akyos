@@ -60,7 +60,7 @@ class Condominium
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
     private $address;
 
@@ -72,9 +72,9 @@ class Condominium
     private $condominiumManager;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length=32)
      */
     private $phone;
 
@@ -146,7 +146,7 @@ class Condominium
     }
 
     /**
-     * Set adresse
+     * Set address
      *
      * @param string $address
      *
@@ -160,7 +160,7 @@ class Condominium
     }
 
     /**
-     * Get adresse
+     * Get address
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class Condominium
     }
 
     /**
-     * Set chargeCopropriete
+     * Set condominiumManager
      *
      * @param string $condominiumManager
      *
@@ -184,7 +184,7 @@ class Condominium
     }
 
     /**
-     * Get chargeCopropriete
+     * Get condominiumManager
      *
      * @return string
      */
@@ -194,9 +194,9 @@ class Condominium
     }
 
     /**
-     * Set telephone
+     * Set phone
      *
-     * @param integer $phone
+     * @param string $phone
      *
      * @return Condominium
      */
@@ -208,9 +208,9 @@ class Condominium
     }
 
     /**
-     * Get telephone
+     * Get phone
      *
-     * @return int
+     * @return string
      */
     public function getPhone()
     {
@@ -242,7 +242,7 @@ class Condominium
     }
 
     /**
-     * Set messagePublic
+     * Set publicMessage
      *
      * @param string $publicMessage
      *
@@ -256,7 +256,7 @@ class Condominium
     }
 
     /**
-     * Get messagePublic
+     * Get publicMessage
      *
      * @return string
      */
@@ -266,7 +266,7 @@ class Condominium
     }
 
     /**
-     * Set messagePrive
+     * Set privateMessage
      *
      * @param string $privateMessage
      *
@@ -280,7 +280,7 @@ class Condominium
     }
 
     /**
-     * Get messagePrive
+     * Get privateMessage
      *
      * @return string
      */
@@ -436,7 +436,7 @@ class Condominium
     }
 
     /**
-     * Set syndic
+     * Set syndicate
      *
      * @param \AppBundle\Entity\Syndicate $syndicate
      *
@@ -450,7 +450,7 @@ class Condominium
     }
 
     /**
-     * Get syndic
+     * Get syndicate
      *
      * @return \AppBundle\Entity\Syndicate
      */
