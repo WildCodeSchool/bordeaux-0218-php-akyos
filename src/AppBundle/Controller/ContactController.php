@@ -22,7 +22,7 @@ class ContactController extends Controller
                         // User mail
                         $message = (new \Swift_Message('Confirmation envoi d\'email'))
                             ->setFrom('akyoswcs@gmail.com')
-                            ->setTo('au_diez@yahoo.fr')//($this->getUser()->getEmail())
+                            ->setTo($this->getUser()->getEmail())
                             ->setContentType('text/html')
                             ->setBody($this->renderView('email/confirmation.html.twig'));
                         $this->get('mailer')->send($message);
