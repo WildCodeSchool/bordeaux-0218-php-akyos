@@ -17,18 +17,32 @@ class ContactController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        // User mail
-            $message = (new \Swift_Message('Confirmation envoi d\'email'))
-            ->setFrom('akyoswcs@gmail.com')
-            ->setTo($this->getUser()->getEmail())
-            ->setContentType('text/html')
-            ->setBody($this->renderView('email/content.html.twig'));
-            $this->get('mailer')->send($message);
+                        // User mail
+                        $message = (new \Swift_Message('Confirmation envoi d\'email'))
+                            ->setFrom('akyoswcs@gmail.com')
+                            ->setTo($this->getUser()->getEmail())
+                            ->setContentType('text/html')
+                            ->setBody($this->renderView('email/confirmation.html.twig'));
+                        $this->get('mailer')->send($message);
 
-            return $this->redirectToRoute('homepage');
+                        $data = $form->getData();
+
+                        // DMS mail
+                        $message = (new \Swift_Message('Nouveau message'))
+                            ->setFrom('akyoswcs@gmail.com')
+                            ->setTo('hvest.au@gmail.com')
+                            ->setContentType('text/html')
+                            ->setBody($this->renderView('email/mail.html.twig',
+                                [ 'message' => $data['text'],
+                                 'prenom' => $data['firstname'],
+                                    'nom' => $data['name']
+                                ]));
+                        $this->get('mailer')->send($message);
+
+                        return $this->redirectToRoute('dashboard');
+                    }
+                    return $this->render('contact/index.html.twig', array(
+                              'form' => $form->createView(),
+                     ));
         }
-        return $this->render('contact/index.html.twig', array(
-                  'form' => $form->createView(),
-         ));
-    }
 }
