@@ -180,7 +180,8 @@ class InterventionController extends Controller
      * Creates form determined by ROLE_USER.
      *
      */
-    public function getInterventionForm($intervention){
+    public function getInterventionForm($intervention)
+    {
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);

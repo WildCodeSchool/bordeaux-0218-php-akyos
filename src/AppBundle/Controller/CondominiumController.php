@@ -45,15 +45,13 @@ class CondominiumController extends Controller
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $form->add('syndicate');
-        }else{
+        } else {
             $condominium->setSyndicate($this->getUser()->getSyndicate());
         }
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
                 $em = $this->getDoctrine()->getManager();
             $em->persist($condominium);
             $em->flush();
