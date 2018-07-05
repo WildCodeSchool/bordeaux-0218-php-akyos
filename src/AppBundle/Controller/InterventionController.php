@@ -43,7 +43,8 @@ class InterventionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $interventions = $em->getRepository('AppBundle:Intervention')->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+        $interventions = $em->getRepository('AppBundle:Intervention')
+            ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,

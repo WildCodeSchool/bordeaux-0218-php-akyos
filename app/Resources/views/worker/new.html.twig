@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Ajouter un ouvrier</h1>
+    <h1>Ajouter un intervenant</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('worker_index') }}">Retour à la ligne</a>
+            <a href="{{ path('worker_index') }}">Retour à la liste</a>
         </li>
     </ul>
 {% endblock %}
