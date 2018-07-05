@@ -20,11 +20,5 @@
 npm-debug.log
 /node_modules/
 /web/build/
-/assets/img/*
-!/assets/img/
-/assets/img/avatars/*
-!/assets/img/avatars/
 /assets/js/*core/
 /assets/js/*plugins/
-*.php~
-npm-debug.log
