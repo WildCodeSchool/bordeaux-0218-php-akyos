@@ -54,7 +54,6 @@ class InterventionType extends AbstractType
                     return $er->condoBySyndicQueryBuilder($options['syndicateId']);
                 }
                 ));
-
     }
 
     /**

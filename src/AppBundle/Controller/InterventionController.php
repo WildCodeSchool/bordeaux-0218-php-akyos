@@ -44,7 +44,7 @@ class InterventionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+                        ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
@@ -181,11 +181,13 @@ class InterventionController extends Controller
      * Creates form determined by ROLE_USER.
      *
      */
-    public function getInterventionForm($intervention){
+    public function getInterventionForm($intervention)
+    {
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
         }
-        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array('syndicateId' => $this->getUser()->getSyndicate()->getId()));
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array(
+            'syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }

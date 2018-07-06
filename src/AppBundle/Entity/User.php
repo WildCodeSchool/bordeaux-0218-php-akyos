@@ -49,5 +49,4 @@ class User extends BaseUser
         $this->syndicate = $syndicate;
         return $this;
     }
-
 }
