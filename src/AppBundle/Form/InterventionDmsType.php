@@ -44,9 +44,11 @@ class InterventionDmsType extends AbstractType
             ))
             ->add('interventionDate')
             ->remove('condominium')
+
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
+
         ;
     }
 
