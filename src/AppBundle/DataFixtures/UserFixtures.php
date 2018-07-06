@@ -21,6 +21,7 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
     /**
      * @var ContainerInterface
      */
+
     private $container;
     /**
      * {@inheritDoc}

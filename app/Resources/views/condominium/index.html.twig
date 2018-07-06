@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>listes des copropriétées</h1>
+    <h1>Listes des copropriétés</h1>
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Adresse</th>
                 <th>Gestionnaire de copropriété</th>
                 <th>Telephone</th>
-                <th>Email</th>
+                <th>Mail</th>
                 <th>Message publique</th>
                 <th>Message privé </th>
                 <th>Actions</th>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('condominium_new') }}">Ajouter</a>
+            <a href="{{ path('condominium_new') }}">Ajouter une copropiétée</a>
         </li>
     </ul>
 {% endblock %}

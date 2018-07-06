@@ -15,9 +15,9 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname',TextType::class)
-            ->add('name',TextType::class)
-            ->add('text',TextareaType::class, array('attr' => array('maxlenght' => 250, 'label' => 'message')));
+            ->add('firstname', TextType::class)
+            ->add('name', TextType::class)
+            ->add('text', TextareaType::class, array('attr' => array('maxlenght' => 250, 'label' => 'message')));
     }
 
 

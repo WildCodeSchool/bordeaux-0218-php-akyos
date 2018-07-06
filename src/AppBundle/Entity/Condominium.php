@@ -12,34 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Condominium
 {
-    /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="condominium")
-     *
-     */
-    private $interventions;
-
-    /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
-     *
-     */
-    private $commons;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium")
-     */
-    private $parkings;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
-     *
-     */
-    private $buildings;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="condominiums")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $syndicate;
 
     /**
      * @var int
@@ -98,6 +70,36 @@ class Condominium
      * @ORM\Column(name="private_message", type="text", nullable=true)
      */
     private $privateMessage;
+
+
+    /**
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="condominium")
+     *
+     */
+    private $interventions;
+
+    /**
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
+     *
+     */
+    private $commons;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium")
+     */
+    private $parkings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
+     *
+     */
+    private $buildings;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Syndicate", inversedBy="condominiums")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $syndicate;
 
 
     /*****************************************/

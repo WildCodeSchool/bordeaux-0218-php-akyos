@@ -39,6 +39,7 @@ class InterventionFixtures extends Fixture
             $manager->persist($worker);
         }
 
+
         for ($i = 0; $i < 15; $i++) {
             $intervention = new Intervention();
 

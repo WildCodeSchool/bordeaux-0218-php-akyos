@@ -15,10 +15,6 @@
 
 class SyndicateFixtures extends Fixture
 {
-
-    /**
-     * @param ObjectManager $manager
-     */
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
@@ -31,7 +27,6 @@ class SyndicateFixtures extends Fixture
             $syndicate->setCondominiumManager($faker->name);
 
             $manager->persist($syndicate);
-
 
             $this->addReference('syndicate' . $i, $syndicate);
         }
