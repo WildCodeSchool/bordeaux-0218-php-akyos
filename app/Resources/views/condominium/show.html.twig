@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Copropriétées</h1>
+    <h1>Copropriétés</h1>
 
     <table class="table">
         <tbody>
@@ -18,7 +18,7 @@
                 <td>{{ condominium.address }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropiétée</th>
+                <th>Gestionnaire de copropiété</th>
                 <td>{{ condominium.condominiumManager }}</td>
             </tr>
             <tr>
@@ -30,11 +30,11 @@
                 <td>{{ condominium.email }}</td>
             </tr>
             <tr>
-                <th>Message publique</th>
+                <th>Message public</th>
                 <td>{{ condominium.publicMessage }}</td>
             </tr>
             <tr>
-                <th>Message privée</th>
+                <th>Message privé</th>
                 <td>{{ condominium.privateMessage }}</td>
             </tr>
         </tbody>

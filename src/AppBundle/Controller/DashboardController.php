@@ -12,7 +12,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class DashboardController extends Controller
 {
     /**
@@ -20,6 +19,6 @@ class DashboardController extends Controller
      */
     public function indexAction(Request $request)
     {
-    return $this->render('dashboard/index.html.twig');
+        return $this->render('dashboard/index.html.twig');
     }
 }

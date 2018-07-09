@@ -89,11 +89,12 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-
+/*
             return $this->redirectToRoute(
                 'intervention_show',
                 array( 'id' => $intervention->getId() )
             );
+  */
         }
 
         return $this->render('intervention/new.html.twig', array(
@@ -185,11 +186,13 @@ class InterventionController extends Controller
      * Creates form determined by ROLE_USER.
      *
      */
-    public function getInterventionForm($intervention){
+    public function getInterventionForm($intervention)
+    {
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
         }
-        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array('syndicateId' => $this->getUser()->getSyndicate()->getId()));
+        return $this->createForm('AppBundle\Form\InterventionType', $intervention, array(
+            'syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }
