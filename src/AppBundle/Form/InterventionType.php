@@ -28,35 +28,32 @@ class InterventionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder
 
-            ->add('condominium', EntityType::class, array(
-                'class' => 'AppBundle:Condominium',
-                'placeholder' => 'Sélectionnez une copropriété',
-                'query_builder' => function (CondominiumRepository $er) use ($options) {
-                    return $er->condoBySyndicQueryBuilder($options['syndicateId']);
-                }
-            ));
-
-
-
-        $builder->get('condominium')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) {
-                dump($event->getForm());
-                dump($event->getForm()->getData());
-                dump($event->getForm()->getData()->getBuildings());
-
-                $form = $event->getForm();
-                $form->getParent()->add('building', EntityType::class, array(
-                    'class' => 'AppBundle\Entity\Building',
-                    'placeholder' => 'Sélectionnez un batiment',
-                    'mapped' => false,
-                    'required' => false,
-                    'choices' => $form->getData()->getBuildings()
+        if (!in_array('ROLE_ADMIN', $options['role'])) {
+            $builder
+                ->add('condominium', EntityType::class, array(
+                    'class' => 'AppBundle:Condominium',
+                    'placeholder' => 'Sélectionnez une copropriété',
+                    'query_builder' => function (CondominiumRepository $er) use ($options) {
+                        return $er->condoBySyndicQueryBuilder($options['syndicateId']);
+                    }
                 ));
-            }
-        );
+
+
+            $builder->get('condominium')->addEventListener(
+                FormEvents::POST_SUBMIT,
+                function (FormEvent $event) {
+                    $form = $event->getForm();
+                    $form->getParent()->add('building', EntityType::class, array(
+                        'class' => 'AppBundle\Entity\Building',
+                        'placeholder' => 'Sélectionnez un batiment',
+                        'mapped' => false,
+                        'required' => false,
+                        'choices' => $form->getData()->getBuildings()
+                    ));
+                }
+            );
+        }
 
         $builder
             ->add('interventionType', ChoiceType::class, [
@@ -87,6 +84,9 @@ class InterventionType extends AbstractType
             ))
 
             ->add('comment');
+
+        dump($options['role']);
+
     }
 
     /**
@@ -97,6 +97,7 @@ class InterventionType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Intervention',
             'syndicateId' => null,
+            'role' => 'ROLE_USER',
         ));
     }
 
