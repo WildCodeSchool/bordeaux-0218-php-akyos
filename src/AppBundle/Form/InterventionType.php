@@ -55,7 +55,6 @@ class InterventionType extends AbstractType
                     'required' => false,
                     'choices' => $form->getData()->getBuildings()
                 ));
-
             }
         );
 
@@ -88,9 +87,6 @@ class InterventionType extends AbstractType
             ))
 
             ->add('comment');
-
-
-
     }
 
     /**

@@ -90,7 +90,8 @@ class InterventionController extends Controller
                 'intervention_show',
                 array( 'id' => $intervention->getId() )
             );
-  */      }
+  */
+        }
 
         return $this->render('intervention/new.html.twig', array(
             'intervention' => $intervention,
