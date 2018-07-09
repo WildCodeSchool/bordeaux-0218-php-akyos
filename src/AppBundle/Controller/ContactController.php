@@ -32,17 +32,19 @@ class ContactController extends Controller
                             ->setFrom('akyoswcs@gmail.com')
                             ->setTo('hvest.au@gmail.com')
                             ->setContentType('text/html')
-                            ->setBody($this->renderView('email/mail.html.twig',
+                            ->setBody($this->renderView(
+                                'email/mail.html.twig',
                                 [ 'message' => $data['text'],
                                  'prenom' => $data['firstname'],
                                     'nom' => $data['name']
-                                ]));
+                                ]
+                            ));
                         $this->get('mailer')->send($message);
 
                         return $this->redirectToRoute('dashboard');
-                    }
+        }
                     return $this->render('contact/index.html.twig', array(
                               'form' => $form->createView(),
                      ));
-        }
+    }
 }

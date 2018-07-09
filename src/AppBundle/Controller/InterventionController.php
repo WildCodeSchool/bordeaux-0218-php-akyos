@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Validator\Constraints\Date;
 /**
  * Intervention controller.
  *
@@ -26,7 +26,7 @@ class InterventionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+            ->findBy([ 'progress' => "En cours" ]);
 
 
         return $this->render('intervention/index.html.twig', array(
@@ -44,7 +44,7 @@ class InterventionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $interventions = $em->getRepository('AppBundle:Intervention')
-                            ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+            ->findBy([ 'progress' => "Terminé" ]);
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
@@ -61,7 +61,11 @@ class InterventionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $interventions = $em->getRepository('AppBundle:Intervention')->findAll();
+        $interventions = $em->getRepository('AppBundle:Intervention')
+            ->findBy([ 'progress' => ["À planifier",
+                "À replanifier"]
+                ]);
+
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
@@ -85,11 +89,12 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-
+/*
             return $this->redirectToRoute(
                 'intervention_show',
                 array( 'id' => $intervention->getId() )
             );
+  */
         }
 
         return $this->render('intervention/new.html.twig', array(
