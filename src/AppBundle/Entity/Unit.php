@@ -93,7 +93,7 @@ class Unit
     }
 
     /**
-     * Set numero
+     * Set number
      *
      * @param integer $number
      *
@@ -107,7 +107,7 @@ class Unit
     }
 
     /**
-     * Get numero
+     * Get number
      *
      * @return int
      */
@@ -117,7 +117,7 @@ class Unit
     }
 
     /**
-     * Set etage
+     * Set floor
      *
      * @param integer $floor
      *
@@ -131,7 +131,7 @@ class Unit
     }
 
     /**
-     * Get etage
+     * Get floor
      *
      * @return int
      */
@@ -141,7 +141,7 @@ class Unit
     }
 
     /**
-     * Set nom
+     * Set lastName
      *
      * @param string $lastName
      *
@@ -155,7 +155,7 @@ class Unit
     }
 
     /**
-     * Get nom
+     * Get lastName
      *
      * @return string
      */
@@ -165,7 +165,7 @@ class Unit
     }
 
     /**
-     * Set prenom
+     * Set firstName
      *
      * @param string $firstName
      *
@@ -179,7 +179,7 @@ class Unit
     }
 
     /**
-     * Get prenom
+     * Get firstName
      *
      * @return string
      */
@@ -237,7 +237,7 @@ class Unit
     }
 
     /**
-     * Set commentaire
+     * Set comment
      *
      * @param string $comment
      *
@@ -251,7 +251,7 @@ class Unit
     }
 
     /**
-     * Get commentaire
+     * Get comment
      *
      * @return string
      */
