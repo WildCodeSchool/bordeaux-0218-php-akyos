@@ -85,11 +85,12 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-
+/*
             return $this->redirectToRoute(
                 'intervention_show',
                 array( 'id' => $intervention->getId() )
             );
+  */
         }
 
         return $this->render('intervention/new.html.twig', array(
