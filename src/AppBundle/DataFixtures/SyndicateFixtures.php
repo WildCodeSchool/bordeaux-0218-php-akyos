@@ -33,4 +33,5 @@ class SyndicateFixtures extends Fixture
         $manager->flush();
     }
 
+
 }

@@ -74,6 +74,6 @@ class UserFixtures extends Fixture implements FixtureInterface, ContainerAwareIn
 
     public function getDependencies()
     {
-        return SyndicateFixtures::class;
+        return [SyndicateFixtures::class];
     }
 }

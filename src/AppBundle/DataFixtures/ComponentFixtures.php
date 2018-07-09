@@ -36,8 +36,10 @@ class ComponentFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies()
     {
-        return UnitFixtures::class;
-        ParkingFixtures::class;
-        CondoFixtures::class;
+        return [
+            UnitFixtures::class,
+            ParkingFixtures::class,
+            CommonFixtures::class
+        ];
     }
 }

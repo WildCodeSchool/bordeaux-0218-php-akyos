@@ -32,7 +32,8 @@ class CommonFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies()
     {
-        return CondoFixtures::class;
-        return BuildingFixtures::class;
+        return [
+            CondoFixtures::class,
+            BuildingFixtures::class];
     }
 }

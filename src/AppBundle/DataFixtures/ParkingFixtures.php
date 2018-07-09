@@ -32,7 +32,9 @@ class ParkingFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies()
     {
-        return BuildingFixtures::class;
-               CondoFixtures::class;
+        return [
+            BuildingFixtures::class,
+            CondoFixtures::class
+        ];
     }
 }

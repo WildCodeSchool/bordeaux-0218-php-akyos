@@ -10,7 +10,7 @@ namespace AppBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Condominium;
+use AppBundle\Entity\Unit;
 use Faker\Factory;
 
 class UnitFixtures extends Fixture
@@ -20,7 +20,7 @@ class UnitFixtures extends Fixture
     {
         $faker = Factory::create();
         for ($i = 0; $i < 199; $i++) {
-            $unit = new Condominium();
+            $unit = new Unit();
             $unit->setNumber($faker->numberBetween($min = 1, $max = 200));
             $unit->setFloor($faker->numberBetween($min = 0, $max = 10));
             $unit->setLastName($faker->lastName);
@@ -37,6 +37,6 @@ class UnitFixtures extends Fixture
     }
     public function getDependencies()
     {
-        return UnitFixtures::class;
+        return [BuildingFixtures::class];
     }
 }

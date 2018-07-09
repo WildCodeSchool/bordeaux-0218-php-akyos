@@ -23,7 +23,7 @@ class BuildingFixtures extends Fixture implements DependentFixtureInterface
         $faker = Factory::create();
         for ($i = 0; $i < 35; $i++) {
             $building = new Building();
-            $building->setCondominium($this->getReference('condominium'.$faker->randomElement([1, 2, 3, 4, 5])));
+            $building->setCondominium($this->getReference('condominium'.$faker->randomElement([0, 1, 2, 3, 4, 5])));
             $building->setName($faker->name);
             $building->setConstructionYear($faker->year($max = 'now'));
             $building->setConstructor($faker->company);
@@ -41,6 +41,6 @@ class BuildingFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return CondoFixtures::class;
+        return [CondoFixtures::class];
     }
 }

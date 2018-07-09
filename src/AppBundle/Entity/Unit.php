@@ -93,11 +93,11 @@ class Unit
     }
 
     /**
-     * Set numero
+     * Set number
      *
      * @param integer $number
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setNumber($number)
     {
@@ -107,7 +107,7 @@ class Unit
     }
 
     /**
-     * Get numero
+     * Get number
      *
      * @return int
      */
@@ -117,11 +117,11 @@ class Unit
     }
 
     /**
-     * Set etage
+     * Set floor
      *
      * @param integer $floor
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setFloor($floor)
     {
@@ -131,7 +131,7 @@ class Unit
     }
 
     /**
-     * Get etage
+     * Get floor
      *
      * @return int
      */
@@ -141,11 +141,11 @@ class Unit
     }
 
     /**
-     * Set nom
+     * Set lastName
      *
      * @param string $lastName
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setLastName($lastName)
     {
@@ -155,7 +155,7 @@ class Unit
     }
 
     /**
-     * Get nom
+     * Get lastName
      *
      * @return string
      */
@@ -165,11 +165,11 @@ class Unit
     }
 
     /**
-     * Set prenom
+     * Set firstName
      *
      * @param string $firstName
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setFirstName($firstName)
     {
@@ -179,7 +179,7 @@ class Unit
     }
 
     /**
-     * Get prenom
+     * Get firstName
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class Unit
      *
      * @param string $phone
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setPhone($phone)
     {
@@ -217,7 +217,7 @@ class Unit
      *
      * @param string $email
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setEmail($email)
     {
@@ -241,7 +241,7 @@ class Unit
      *
      * @param string $comment
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setComment($comment)
     {
@@ -272,7 +272,7 @@ class Unit
      *
      * @param \AppBundle\Entity\Component $component
      *
-     * @return Condominium
+     * @return Unit
      */
     public function addComponent(\AppBundle\Entity\Component $component)
     {
@@ -306,7 +306,7 @@ class Unit
      *
      * @param \AppBundle\Entity\Building $building
      *
-     * @return Condominium
+     * @return Unit
      */
     public function setBuilding(\AppBundle\Entity\Building $building = null)
     {

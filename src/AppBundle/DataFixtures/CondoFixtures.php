@@ -9,18 +9,19 @@
 namespace AppBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Condominium;
 use Faker\Factory;
 
-class CondoFixtures extends Fixture
+class CondoFixtures extends Fixture implements DependentFixtureInterface
 {
 
 
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i <= 5; $i++) {
             $condominium = new Condominium();
             $condominium->setName($faker->name);
             $condominium->setAddress($faker->address);
@@ -29,7 +30,7 @@ class CondoFixtures extends Fixture
             $condominium->setEmail($faker->companyEmail);
             $condominium->setPublicMessage($faker->text);
             $condominium->setPrivateMessage($faker->text);
-
+            $condominium->setSyndicate($this->getReference('syndicate1'));
 
             $manager->persist($condominium);
 
@@ -39,6 +40,6 @@ class CondoFixtures extends Fixture
     }
     public function getDependencies()
     {
-        return SyndicateFixtures::class;
+        return [SyndicateFixtures::class];
     }
 }
