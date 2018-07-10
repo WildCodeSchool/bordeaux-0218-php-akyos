@@ -48,7 +48,6 @@ class InterventionType extends AbstractType
 
         $builder
             ->add('interventionType', ChoiceType::class, [
-
                 'placeholder' => 'Sélectionnez un type d\'intervention',
                 'choices'  => [
                     'Électricité' => '',
@@ -56,7 +55,6 @@ class InterventionType extends AbstractType
                     'Serrurerie' => '',
                     'Autre' => '',
                 ]])
-
             ->add('emergency', ChoiceType::class, [
                 'placeholder' => 'Sélectionnez l\'urgence de l\'intervention',
                 'choices' => [
@@ -65,7 +63,6 @@ class InterventionType extends AbstractType
                     'Urgent' => 'High',
                 ]])
             ->add('description')
-
             ->add('paid')
             ->add('clientSatisfaction', RangeType::class, array(
                 'attr' => array(
@@ -73,9 +70,7 @@ class InterventionType extends AbstractType
                     'max' => 5
                 )
             ))
-
             ->add('comment');
-
     }
 
     /**

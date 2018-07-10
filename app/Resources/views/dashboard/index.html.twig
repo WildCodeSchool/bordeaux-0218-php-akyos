@@ -8,7 +8,7 @@
                 {% if is_granted('ROLE_ADMIN') %}
                 <div class="row text-center">
                     <div class="col-sm-12">
-                        <a class="block block-link-hover3 text-center" href="{{ path('condominium_new') }}">
+                        <a class="block block-link-hover3 text-center" href="{{ path('intervention_new') }}">
                             <div class="block-content block-content-full">
                                 <div class="h1 font-w700"><i class="fa fa-pencil"></i></div>
                                 <p>Créer une nouvelle demande d'intervention</p>
@@ -296,4 +296,5 @@
             </main>
         </div>
     </div>
+
 {% endblock %}
