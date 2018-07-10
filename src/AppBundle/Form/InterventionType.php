@@ -6,18 +6,12 @@ use phpDocumentor\Reflection\Types\Compound;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use AppBundle\Repository\CondominiumRepository;
-use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Building;
-use AppBundle\Entity\Condominium;
 use Symfony\Component\Form\FormEvent;
-
-
 use Symfony\Component\Security\Core\SecurityContext;
 
 class InterventionType extends AbstractType
@@ -27,8 +21,6 @@ class InterventionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-
         if (!in_array('ROLE_ADMIN', $options['role'])) {
             $builder
                 ->add('condominium', EntityType::class, array(
@@ -38,7 +30,6 @@ class InterventionType extends AbstractType
                         return $er->condoBySyndicQueryBuilder($options['syndicateId']);
                     }
                 ));
-
 
             $builder->get('condominium')->addEventListener(
                 FormEvents::POST_SUBMIT,
@@ -84,8 +75,6 @@ class InterventionType extends AbstractType
             ))
 
             ->add('comment');
-
-        dump($options['role']);
 
     }
 
