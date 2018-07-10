@@ -43,19 +43,10 @@
                             </i>Intervenants</a>
                         <ul>
                             <li>
-                                <a href="{{ path('condominium_index') }}">Electriciens</a>
+                                <a href="{{ path('worker_index') }}">Liste des intervenants</a>
                             </li>
                             <li>
-                                <a href="{{ path('condominium_new') }}">Plombier</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('condominium_new') }}">Serrurier</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('condominium_new') }}">Autre</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('condominium_new') }}">Créer nouvel intervenant</a>
+                                <a href="{{ path('worker_new') }}">Créer nouvel intervenant</a>
                             </li>
                         </ul>
                     </li>
@@ -64,16 +55,22 @@
                             </i>Syndicats</a>
                         <ul>
                             <li>
-                                <a href="{{ path('condominium_index') }}">Créer un nouveau syndicat</a>
+                                <a href="{{ path('syndicate_new') }}">Créer un nouveau syndicat</a>
                             </li>
                             <li>
-                                <a href="{{ path('condominium_new') }}">Liste de tous les syndicats</a>
+                                <a href="{{ path('syndicate_index') }}">Liste de tous les syndicats</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-user-follow">
                             </i>Créer un nouvel utilisateur</a>
+                        <ul>
+                            <li>
+                                <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -84,7 +81,7 @@
         <div class="side-content side-content-full">
             <ul class="nav-main">
                 <li>
-                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
+                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'intervention</a>
                 </li>
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">

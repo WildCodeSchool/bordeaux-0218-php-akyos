@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Intervention
@@ -21,7 +22,7 @@ class Intervention
 
     /**
      *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventions")
-     *
+     *@Assert\NotNull()
      */
     private $condominium;
 
@@ -66,6 +67,7 @@ class Intervention
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
+     *@Assert\NotBlank()
      */
     private $description;
 
