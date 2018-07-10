@@ -1,18 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Listes des ouvriers </h1>
+    <h1>Workers list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Téléphone</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Phone</th>
                 <th>Competence</th>
-                <th>Adresse</th>
-                <th>Mail</th>
+                <th>Adress</th>
+                <th>Email</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,15 +24,15 @@
                 <td>{{ worker.firstName }}</td>
                 <td>{{ worker.phone }}</td>
                 <td>{{ worker.competence }}</td>
-                <td>{{ worker.address }}</td>
+                <td>{{ worker.adress }}</td>
                 <td>{{ worker.email }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">Voir</a>
+                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
+                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -43,7 +43,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('worker_new') }}">Ajouter un ouvrier</a>
+            <a href="{{ path('worker_new') }}">Create a new worker</a>
         </li>
     </ul>
 {% endblock %}

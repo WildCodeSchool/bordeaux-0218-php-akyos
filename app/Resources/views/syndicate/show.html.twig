@@ -1,32 +1,32 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Syndics</h1>
+    <h1>Syndicate</h1>
 
-    <table class="table">
+    <table>
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ syndicate.id }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
+                <th>Name</th>
                 <td>{{ syndicate.name }}</td>
             </tr>
             <tr>
-                <th>Adresse</th>
-                <td>{{ syndicate.address }}</td>
+                <th>Adress</th>
+                <td>{{ syndicate.adress }}</td>
             </tr>
             <tr>
-                <th>téléphone</th>
+                <th>Phone</th>
                 <td>{{ syndicate.phone }}</td>
             </tr>
             <tr>
-                <th>Mail</th>
+                <th>Email</th>
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropriétée</th>
+                <th>Condominiummanager</th>
                 <td>{{ syndicate.condominiumManager }}</td>
             </tr>
         </tbody>
@@ -34,13 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_index') }}">Retour à la liste</a>
+            <a href="{{ path('syndicate_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
+            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
+        </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn-danger">
+                <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

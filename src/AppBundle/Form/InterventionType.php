@@ -25,7 +25,7 @@ class InterventionType extends AbstractType
             ->add('progress')
             ->add('interventionType', ChoiceType::class, [
                 'choices'  => [
-                    'Scheduled' => null,
+                    'En cours' => null,
                     'Done' => true,
                     'Re-schedule' => false,
                 ]])

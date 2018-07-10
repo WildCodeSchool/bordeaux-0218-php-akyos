@@ -3,9 +3,11 @@
     <!-- Header Navigation Right -->
     <ul class="nav-header pull-right">
         <li>
-            <span class="btn btn-danger intervention">
-                <a href="{{ path('intervention_new') }}">Demande d'intervention</a>
-            </span>
+            {% if is_granted('ROLE_ADMIN') %}
+
+            {% else %}
+                <a class="btn btn-danger intervention" href="{{ path('intervention_new') }}">Demande d'intervention</a>
+            {% endif %}
             <div class="btn-group">
                 <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
                     <img src="{{ asset('img/avatars/avatar10.jpg') }}" alt="Avatar">

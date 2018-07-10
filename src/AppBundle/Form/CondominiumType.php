@@ -3,11 +3,11 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class CondominiumType extends AbstractType
 {
     /**
@@ -18,13 +18,28 @@ class CondominiumType extends AbstractType
         $builder
             ->add('name')
             ->add('address', TextareaType::class)
+            ->add('buildings', CollectionType::class, array(
+            // each entry in the array will be an "building" field
+            'entry_type' => BuildingType::class,
+
+                'prototype' => true,
+               // 'prototype_data' => 'New Tag Placeholder',
+                'allow_add' => true,            // these options are passed to each "building" type
+                'entry_options' => array(
+                  'attr' => array('class' => 'building-box'),
+                 ),
+        ))
+
             ->add('condominiumManager')
             ->add('phone')
             ->add('email', EmailType::class)
             ->add('publicMessage', TextareaType::class)
             ->add('privateMessage', TextareaType::class)
             ;
-    }/**
+    }
+
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
