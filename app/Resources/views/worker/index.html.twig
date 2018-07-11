@@ -2,8 +2,7 @@
 
 {% block body %}
     <h1>Listes des intervenants</h1>
-
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -26,15 +25,19 @@
                 <td>{{ worker.competence }}</td>
                 <td>{{ worker.address }}</td>
                 <td>{{ worker.email }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+               <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('worker_show', { 'id': worker.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('worker_edit', { 'id': worker.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}

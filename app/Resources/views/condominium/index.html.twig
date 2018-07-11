@@ -28,24 +28,23 @@
                 <td>{{ condominium.email }}</td>
                 <td>{{ condominium.publicMessage }}</td>
                 <td>{{ condominium.privateMessage }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('condominium_show', { 'id': condominium.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('intervention_show', { 'id': condominium.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('intervention_edit', { 'id': condominium.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('condominium_new') }}">Ajouter une copropiété</a>
-        </li>
-    </ul>
+    <a href="{{ path('condominium_new') }}" class="btn btn-success">Ajouter une copropiété</a>
 {% endblock %}

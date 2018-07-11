@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Copropriétés</h1>
-
     <table class="table">
         <tbody>
             <tr>
@@ -22,11 +21,11 @@
                 <td>{{ condominium.condominiumManager }}</td>
             </tr>
             <tr>
-                <th>Téléphone</th>
+                <th>Phone</th>
                 <td>{{ condominium.phone }}</td>
             </tr>
             <tr>
-                <th>Mail</th>
+                <th>Email</th>
                 <td>{{ condominium.email }}</td>
             </tr>
             <tr>
@@ -42,14 +41,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('condominium_index') }}">Retour à la liste</a>
+            <a href="{{ path('condominium_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Modifier</a>
+            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

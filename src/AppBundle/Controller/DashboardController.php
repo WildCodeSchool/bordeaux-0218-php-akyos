@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Intervention;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +20,15 @@ class DashboardController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('dashboard/index.html.twig');
+
+        $interventions = $this->getDoctrine()->getRepository(Intervention::class)
+            ->findBySyndicate($this->getUser()->getSyndicate());
+
+        return $this->render(
+            'dashboard/index.html.twig',
+            [
+                'interventions' => $interventions
+            ]
+        );
     }
 }
