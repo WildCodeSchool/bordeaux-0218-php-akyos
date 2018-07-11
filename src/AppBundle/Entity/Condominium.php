@@ -46,7 +46,7 @@ class Condominium
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length=32)
      */
     private $phone;
 

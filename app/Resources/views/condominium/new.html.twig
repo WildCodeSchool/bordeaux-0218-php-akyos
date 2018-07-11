@@ -4,9 +4,28 @@
     <h1>Ajouter une Copropriété</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.buildings) }}
 
-        <div class="block-content block-content-mini block-content-full border-t">
+
+        <ul id="building-fields-list"
+            data-prototype="{{ form_widget(form.buildings.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li><</li>'|e }}">
+            {% for buildingField in form.buildings %}
+                <li>
+                    {{ form_errors(buildingField) }}
+                    {{ form_widget(buildingField) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+    <button type="button"
+            class="add-another-collection-widget"
+            data-list="#building-fields-list">Add another building</button>
+
+
+    <div class="block-content block-content-mini block-content-full border-t">
             <div class="row">
                 <div class="col-xs-6">
                     <a href="{{ path('condominium_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
@@ -17,6 +36,11 @@
             </div>
         </div>
     {{ form_end(form) }}
+
+    {% block javascripts %}
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="{{ asset('add-collection-widget.js') }}"></script>
+    {% endblock %}
 
 
 {% endblock %}
