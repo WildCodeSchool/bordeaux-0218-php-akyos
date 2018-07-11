@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Repository\WorkerRepository;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class InterventionDmsType extends AbstractType
 {
@@ -43,11 +45,27 @@ class InterventionDmsType extends AbstractType
                 )
             ))
             ->add('interventionDate')
-            ->remove('condominium')
+
+
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
+
         ;
+
+        $builder->get('condominium')->addEventListener(
+            FormEvents::POST_SUBMIT,
+            function (FormEvent $event) {
+                $form = $event->getForm();
+                $form->getParent()->add('building', EntityType::class, array(
+                    'class' => 'AppBundle\Entity\Building',
+                    'placeholder' => 'Sélectionnez un batiment',
+                    'mapped' => false,
+                    'required' => false,
+                    'choices' => $form->getData()->getBuildings()
+                ));
+            }
+        );
     }
 
     public function getParent()

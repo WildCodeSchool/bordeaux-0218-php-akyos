@@ -2,8 +2,7 @@
 
 {% block body %}
     <h1>Listes des syndics</h1>
-
-    <table class="table">
+    <table class="table table-striped table-borderless table-header-bg">
         <thead>
             <tr>
                 <th>Id</th>
@@ -11,7 +10,7 @@
                 <th>Adresse</th>
                 <th>Téléphone</th>
                 <th>Mail</th>
-                <th>Gestionnaire de copropriétée</th>
+                <th>Gestionnaire de copropriétés</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,24 +23,26 @@
                 <td>{{ syndicate.phone }}</td>
                 <td>{{ syndicate.email }}</td>
                 <td>{{ syndicate.condominiumManager }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('intervention_show', { 'id': syndicate.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('intervention_edit', { 'id': syndicate.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('syndicate_new') }}">Ajouter un syndic</a>
-        </li>
-    </ul>
+    <a class="btn btn-success"
+       href="{{ path('syndicate_new') }}">Ajouter un syndic
+    </a>
 {% endblock %}

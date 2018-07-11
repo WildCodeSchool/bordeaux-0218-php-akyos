@@ -14,11 +14,6 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
-     */
-    private $syndicate;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -26,6 +21,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Syndicate", inversedBy="users")
+     */
+    private $syndicate;
 
     /**
      * Get syndicate

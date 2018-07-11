@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Intervention
@@ -20,8 +21,8 @@ class Intervention
     private $worker;
 
     /**
-     *@ORM\ManyToOne(targetEntity="Condominium", inversedBy="interventions")
-     *
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventions")
+     *@Assert\NotNull()
      */
     private $condominium;
 
@@ -66,6 +67,7 @@ class Intervention
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
+     *@Assert\NotBlank()
      */
     private $description;
 
@@ -80,9 +82,16 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="datetime")
+     * @ORM\Column(name="intervention_date", type="date", nullable=true)
      */
     private $interventionDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="realisation_date", type="datetime", nullable=true)
+     */
+    private $realisationDate;
 
     /**
      * @var \DateTime $modificationDate

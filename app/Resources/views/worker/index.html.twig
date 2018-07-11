@@ -1,16 +1,15 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Listes des ouvriers </h1>
-
-    <table>
+    <h1>Listes des intervenants</h1>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Téléphone</th>
-                <th>Competence</th>
+                <th>Compétences</th>
                 <th>Adresse</th>
                 <th>Mail</th>
                 <th>Actions</th>
@@ -26,15 +25,19 @@
                 <td>{{ worker.competence }}</td>
                 <td>{{ worker.address }}</td>
                 <td>{{ worker.email }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+               <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('worker_show', { 'id': worker.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('worker_edit', { 'id': worker.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}

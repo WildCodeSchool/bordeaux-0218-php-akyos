@@ -9,11 +9,11 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Adresse</th>
-                <th>Gestionnaire de copropriété</th>
-                <th>Telephone</th>
+                <th>Gestionnaire de copropriétés</th>
+                <th>Téléphone</th>
                 <th>Mail</th>
-                <th>Message publique</th>
-                <th>Message privé </th>
+                <th>Message public</th>
+                <th>Message privé</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,24 +28,23 @@
                 <td>{{ condominium.email }}</td>
                 <td>{{ condominium.publicMessage }}</td>
                 <td>{{ condominium.privateMessage }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('condominium_show', { 'id': condominium.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('condominium_edit', { 'id': condominium.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('condominium_show', { 'id': condominium.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('condominium_edit', { 'id': condominium.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('condominium_new') }}">Ajouter une copropiétée</a>
-        </li>
-    </ul>
+    <a href="{{ path('condominium_new') }}" class="btn btn-success">Ajouter une copropiété</a>
 {% endblock %}

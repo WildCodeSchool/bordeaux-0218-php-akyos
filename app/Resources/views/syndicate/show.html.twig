@@ -1,8 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Syndics</h1>
-
+    <h1>Syndicat de copropriété</h1>
     <table class="table">
         <tbody>
             <tr>
@@ -18,7 +17,7 @@
                 <td>{{ syndicate.address }}</td>
             </tr>
             <tr>
-                <th>téléphone</th>
+                <th>Téléphone</th>
                 <td>{{ syndicate.phone }}</td>
             </tr>
             <tr>
@@ -26,7 +25,7 @@
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropriétée</th>
+                <th>Gestionnaire de copropriétés</th>
                 <td>{{ syndicate.condominiumManager }}</td>
             </tr>
         </tbody>
@@ -34,13 +33,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('syndicate_index') }}">Retour à la liste</a>
+            <a href="{{ path('syndicate_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
+            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
+        </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn-danger">
+                <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
