@@ -97,6 +97,26 @@
                      <source>Condominium</source>
                      <target>Copropriété</target>
        </trans-unit>
+       <trans-unit id="Hour" resname="Hour">
+                     <source>Hour</source>
+                     <target>Heure</target>
+       </trans-unit>
+       <trans-unit id="Year" resname="Year">
+                     <source>Year</source>
+                     <target>Année</target>
+       </trans-unit>
+       <trans-unit id="Month" resname="Month">
+                     <source>Month</source>
+                     <target>Mois</target>
+       </trans-unit>
+       <trans-unit id="Day" resname="Day">
+                     <source>Day</source>
+                     <target>Jour</target>
+       </trans-unit>
+       <trans-unit id="Choose a Sub Family" resname="Choose a Sub Family">
+                     <source>Choose a Sub Family</source>
+                     <target>Choisissez un sous ensemble</target>
+       </trans-unit>
 
     </body>
   </file>
