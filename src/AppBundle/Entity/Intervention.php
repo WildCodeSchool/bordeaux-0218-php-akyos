@@ -83,9 +83,16 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="datetime")
+     * @ORM\Column(name="intervention_date", type="date", nullable=true)
      */
     private $interventionDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="realisation_date", type="datetime", nullable=true)
+     */
+    private $realisationDate;
 
     /**
      * @var \DateTime $modificationDate

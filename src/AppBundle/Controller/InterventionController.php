@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Date;
+
 /**
  * Intervention controller.
  *
@@ -81,6 +82,7 @@ class InterventionController extends Controller
     public function newAction(Request $request)
     {
         $intervention = new Intervention();
+
 
         $form = $this->getInterventionForm($intervention);
         $form->handleRequest($request);
@@ -188,11 +190,13 @@ class InterventionController extends Controller
      */
     public function getInterventionForm($intervention)
     {
+        $user_roles = $this->getUser()->getRoles();
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention);
+            return $this->createForm('AppBundle\Form\InterventionDmsType', $intervention, array('role' => $user_roles));
         }
         return $this->createForm('AppBundle\Form\InterventionType', $intervention, array(
+            'role' => $user_roles,
             'syndicateId' => $this->getUser()->getSyndicate()->getId()));
     }
 }
