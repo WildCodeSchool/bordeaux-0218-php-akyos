@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class CondominiumType extends AbstractType
 {
     /**
@@ -28,7 +29,7 @@ class CondominiumType extends AbstractType
                 'entry_options' => array(
                   'attr' => array('class' => 'building-box'),
                  ),
-        ))
+            ))
 
             ->add('condominiumManager')
             ->add('phone')
