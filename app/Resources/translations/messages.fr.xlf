@@ -115,7 +115,7 @@
        </trans-unit>
        <trans-unit id="Choose a Sub Family" resname="Choose a Sub Family">
                      <source>Choose a Sub Family</source>
-                     <target>Choisissez un sous ensemble</target>
+                     <target>Sélectionnez un sous ensemble</target>
        </trans-unit>
 
     </body>
