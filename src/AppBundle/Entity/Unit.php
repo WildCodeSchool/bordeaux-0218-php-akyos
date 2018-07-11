@@ -61,9 +61,9 @@ class Unit
     private $firstName;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string")
      */
     private $phone;
 
