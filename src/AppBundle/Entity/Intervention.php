@@ -23,7 +23,6 @@ class Intervention
     /**
      *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="interventions")
      *@Assert\NotNull()
-
      */
     private $condominium;
 
