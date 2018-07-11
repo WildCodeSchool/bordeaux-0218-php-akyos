@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Listes des intervenants</h1>
-
     <table>
         <thead>
             <tr>
@@ -24,15 +23,15 @@
                 <td>{{ worker.firstName }}</td>
                 <td>{{ worker.phone }}</td>
                 <td>{{ worker.competence }}</td>
-                <td>{{ worker.address }}</td>
+                <td>{{ worker.adress }}</td>
                 <td>{{ worker.email }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">Voir</a>
+                            <a href="{{ path('worker_show', { 'id': worker.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
+                            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -43,7 +42,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('worker_new') }}">Ajouter un ouvrier</a>
+            <a href="{{ path('worker_new') }}">Create a new worker</a>
         </li>
     </ul>
 {% endblock %}
