@@ -28,24 +28,25 @@
                 <td>{{ building.energyClass }}</td>
                 <td>{{ building.unitsNumber }}</td>
                 <td>{{ building.floorsNumber }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('building_show', { 'id': building.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('building_edit', { 'id': building.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('building_show', { 'id': building.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('building_edit', { 'id': building.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('building_new') }}">Ajouter un bâtiment</a>
-        </li>
-    </ul>
+    <a class="btn btn-success"
+       href="{{ path('building_new') }}">Ajouter un bâtiment
+    </a>
 {% endblock %}

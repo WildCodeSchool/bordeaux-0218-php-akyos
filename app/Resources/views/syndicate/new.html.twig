@@ -4,13 +4,16 @@
     <h1>Ajouter un syndic</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Ajouter" class="btn btn-success"/>
+    {{ form_widget(form) }}
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="{{ path('syndicate_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-6 text-right">
+                <input type="submit" class="btn btn-success" value="Ajouter" />
+            </div>
+        </div>
+    </div>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('syndicate_index') }}">Retour à la liste</a>
-        </li>
-    </ul>
 {% endblock %}
