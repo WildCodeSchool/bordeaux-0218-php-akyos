@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Actions</th>
             </tr>
@@ -14,7 +13,6 @@
         <tbody>
         {% for common in commons %}
             <tr>
-                <td><a href="{{ path('common_show', { 'id': common.id }) }}">{{ common.id }}</a></td>
                 <td>{{ common.name }}</td>
                 <td class="text-center">
                     <div class="btn-group">

@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Catégorie</th>
                 <th>Type</th>
                 <th>Photo</th>
@@ -17,7 +16,6 @@
         <tbody>
         {% for component in components %}
             <tr>
-                <td><a href="{{ path('component_show', { 'id': component.id }) }}">{{ component.id }}</a></td>
                 <td>{{ component.category }}</td>
                 <td>{{ component.type }}</td>
                 <td>{{ component.photo }}</td>

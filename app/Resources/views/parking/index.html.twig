@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre de places</th>
                 <th>Actions</th>
             </tr>
@@ -14,7 +13,6 @@
         <tbody>
         {% for parking in parkings %}
             <tr>
-                <td><a href="{{ path('parking_show', { 'id': parking.id }) }}">{{ parking.id }}</a></td>
                 <td>{{ parking.parkingSpace }}</td>
                 <td class="text-center">
                     <div class="btn-group">
