@@ -21,14 +21,14 @@ class DashboardController extends Controller
     public function indexAction(Request $request)
     {
 
-        $interventions = $this->getDoctrine()->getRepository(Intervention::class)
-            ->findBySyndicate($this->getUser()->getSyndicate());
+        //$interventions = $this->getDoctrine()->getRepository(Intervention::class)
+            //->findBySyndicate($this->getUser()->getSyndicate());
 
         return $this->render(
-            'dashboard/index.html.twig',
-            [
-                'interventions' => $interventions
-            ]
+            'dashboard/_admin.twig.html.twig'//,
+            //[
+               // 'interventions' => $interventions
+           // ]
         );
     }
 }
