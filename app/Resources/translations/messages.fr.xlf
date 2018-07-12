@@ -47,8 +47,45 @@
        </trans-unit>
        <trans-unit id="Syndicate" resname="Syndicate">
                      <source>Syndicate</source>
-                     <target>Syndicat de copropriétés</target>
+                     <target>Syndicat de copropriété</target>
        </trans-unit>
+       <trans-unit id="Buildings" resname="Buildings">
+                     <source>Buildings</source>
+                     <target>Bâtiment</target>
+       </trans-unit>
+       <trans-unit id="Public message" resname="Public message">
+                     <source>Public message</source>
+                     <target>Message</target>
+       </trans-unit>
+       <trans-unit id="Private message" resname="Private message">
+                     <source>Private message</source>
+                     <target>Message privé</target>
+       </trans-unit>
+       <trans-unit id="Condominium" resname="Condominium">
+                     <source>Condominium</source>
+                     <target>Copropriété</target>
+       </trans-unit>
+       <trans-unit id="Intervention type" resname="Intervention type">
+                     <source>Intervention type</source>
+                     <target>Type d'intervention</target>
+       </trans-unit>
+       <trans-unit id="Emergency" resname="Emergency">
+                     <source>Emergency</source>
+                     <target>Urgence</target>
+       </trans-unit>
+       <trans-unit id="Paid" resname="Paid">
+                     <source>Paid</source>
+                     <target>Payé</target>
+       </trans-unit>
+       <trans-unit id="Client satisfaction" resname="Client satisfaction">
+                     <source>Client satisfaction</source>
+                     <target>Satisfaction client</target>
+       </trans-unit>
+       <trans-unit id="Comment" resname="Comment">
+                     <source>Comment</source>
+                     <target>Commentaire</target>
+       </trans-unit>
+
     </body>
   </file>
 </xliff>

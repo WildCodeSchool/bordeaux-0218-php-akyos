@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Année de contruction</th>
                 <th>Constructeur</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for building in buildings %}
             <tr>
-                <td><a href="{{ path('building_show', { 'id': building.id }) }}">{{ building.id }}</a></td>
                 <td>{{ building.name }}</td>
                 <td>{{ building.constructionYear }}</td>
                 <td>{{ building.constructor }}</td>

@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Numéro de lot</th>
                 <th>Sol</th>
                 <th>Nom</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for unit in units %}
             <tr>
-                <td><a href="{{ path('unit_show', { 'id': unit.id }) }}">{{ unit.id }}</a></td>
                 <td>{{ unit.number }}</td>
                 <td>{{ unit.floor }}</td>
                 <td>{{ unit.lastName }}</td>
