@@ -8,17 +8,16 @@
     {{ form_row(form.address) }}
     {{ form_row(form.buildings) }}
 
-
-        <ul id="building-fields-list"
-            data-prototype="{{ form_widget(form.buildings.vars.prototype)|e }}"
-            data-widget-tags="{{ '<li><</li>'|e }}">
-            {% for buildingField in form.buildings %}
-                <li>
-                    {{ form_errors(buildingField) }}
-                    {{ form_widget(buildingField) }}
-                </li>
-            {% endfor %}
-        </ul>
+    <ul id="building-fields-list"
+        data-prototype="{{ form_widget(form.buildings.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li><</li>'|e }}">
+        {% for buildingField in form.buildings %}
+            <li>
+                {{ form_errors(buildingField) }}
+                {{ form_widget(buildingField) }}
+            </li>
+        {% endfor %}
+    </ul>
 
     <button type="button"
             class="add-another-collection-widget"
@@ -34,7 +33,7 @@
                     <input type="submit" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
-        </div>
+    </div>
     {{ form_end(form) }}
 
     {% block javascripts %}
