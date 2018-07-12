@@ -28,7 +28,7 @@ class UnitType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Condominium'
+            'data_class' => 'AppBundle\Entity\Unit'
         ));
     }
 
