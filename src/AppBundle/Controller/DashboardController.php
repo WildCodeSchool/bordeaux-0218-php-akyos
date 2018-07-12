@@ -23,10 +23,9 @@ class DashboardController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
             $interventions = $em->getRepository('AppBundle:Intervention')
                 ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
-        }else {
+        } else {
             $interventions = $this->getDoctrine()->getRepository(Intervention::class)
                 ->findBy(
                     ['syndicate' => $this->getUser()->getSyndicate(),
@@ -40,8 +39,6 @@ class DashboardController extends Controller
             [
                 'interventions' => $interventions
             ]
-
         );
     }
-
 }
