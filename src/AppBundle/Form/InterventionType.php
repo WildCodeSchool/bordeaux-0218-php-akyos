@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use AppBundle\Repository\CondominiumRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class InterventionType extends AbstractType
 {
@@ -35,19 +36,46 @@ class InterventionType extends AbstractType
                 FormEvents::POST_SUBMIT,
                 function (FormEvent $event) {
                     $form = $event->getForm();
-                    $form->getParent()->add('building', EntityType::class, array(
+                    $builder = $form->getParent()->getConfig()->getFormFactory()->createNamedBuilder(
+                    'building',
+                    EntityType::class,
+                    null,
+                        [
                         'class' => 'AppBundle\Entity\Building',
                         'placeholder' => 'Sélectionnez un batiment',
                         'mapped' => false,
                         'required' => false,
                         'choices' => $form->getData()->getBuildings()
-                    ));
+                        ]
+                    );
+                    $builder->addEventListener(
+                        FormEvents::POST_SUBMIT,
+                        function (FormEvent $event) {
+                            dump($event->getForm());
+                        }
+                    );
+                    $form->getParent()->add($builder->getForm());
                 }
             );
+
+
         }
+
+          $builder
+            ->add('interventionPlace', ChoiceType::class, array(
+            'mapped' => false,
+            'label' => 'Lieu d\'intervention',
+            'choices' => array(
+                'Partie commune' => 'Common',
+                'Lot' => 'Unit',
+                'Parking' => 'Parking',
+            ),
+            'expanded' => true,
+        ));
 
         $builder
             ->add('interventionType', ChoiceType::class, [
+
                 'placeholder' => 'Sélectionnez un type d\'intervention',
                 'choices'  => [
                     'Électricité' => '',
@@ -55,6 +83,7 @@ class InterventionType extends AbstractType
                     'Serrurerie' => '',
                     'Autre' => '',
                 ]])
+
             ->add('emergency', ChoiceType::class, [
                 'placeholder' => 'Sélectionnez l\'urgence de l\'intervention',
                 'choices' => [
@@ -63,6 +92,7 @@ class InterventionType extends AbstractType
                     'Urgent' => 'High',
                 ]])
             ->add('description')
+
             ->add('paid')
             ->add('clientSatisfaction', RangeType::class, array(
                 'attr' => array(
@@ -70,6 +100,7 @@ class InterventionType extends AbstractType
                     'max' => 5
                 )
             ))
+
             ->add('comment');
     }
 

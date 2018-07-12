@@ -10,7 +10,7 @@ $(document).ready(function(){
         let data = {}
         data[$buildingField.attr('name')] = $buildingField.val()
         data[$field.attr('name')] = $field.val()
-
+console.log( data[$field.attr('name')] )
         // On soumet les données
         $.post($form.attr('action'), data).then(function (data) {
             //console.log($data.liste)
