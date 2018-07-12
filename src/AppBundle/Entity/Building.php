@@ -408,11 +408,11 @@ class Building
     /**
      * Add unit
      *
-     * @param \AppBundle\Entity\Condominium $unit
+     * @param \AppBundle\Entity\Unit $unit
      *
      * @return Building
      */
-    public function addUnit(\AppBundle\Entity\Condominium $unit)
+    public function addUnit(\AppBundle\Entity\Unit $unit)
     {
         $this->units[] = $unit;
 
@@ -422,9 +422,9 @@ class Building
     /**
      * Remove unit
      *
-     * @param \AppBundle\Entity\Condominium $unit
+     * @param \AppBundle\Entity\Unit $unit
      */
-    public function removeUnit(\AppBundle\Entity\Condominium $unit)
+    public function removeUnit(\AppBundle\Entity\Unit $unit)
     {
         $this->units->removeElement($unit);
     }
