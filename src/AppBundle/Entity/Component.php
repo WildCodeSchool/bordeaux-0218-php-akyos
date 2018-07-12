@@ -25,7 +25,7 @@ class Component
     private $parking;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit", inversedBy="components")
+     * @ORM\ManyToOne(targetEntity="Condominium", inversedBy="components")
      *
      */
     private $unit;
@@ -225,11 +225,11 @@ class Component
     /**
      * Set unit
      *
-     * @param \AppBundle\Entity\Unit $unit
+     * @param \AppBundle\Entity\Condominium $unit
      *
      * @return Component
      */
-    public function setUnit(\AppBundle\Entity\Unit $unit = null)
+    public function setUnit(\AppBundle\Entity\Condominium $unit = null)
     {
         $this->unit = $unit;
 
@@ -239,7 +239,7 @@ class Component
     /**
      * Get unit
      *
-     * @return \AppBundle\Entity\Unit
+     * @return \AppBundle\Entity\Condominium
      */
     public function getUnit()
     {

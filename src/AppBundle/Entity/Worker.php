@@ -43,9 +43,9 @@ class Worker
     private $firstName;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="phone", type="string", length= 30)
+     * @ORM\Column(name="phone", type="string", length= 32)
      */
     private $phone;
 
@@ -141,9 +141,9 @@ class Worker
     }
 
     /**
-     * Set telephone
+     * Set phone
      *
-     * @param integer $phone
+     * @param string $phone
      *
      * @return Worker
      */
@@ -155,9 +155,9 @@ class Worker
     }
 
     /**
-     * Get telephone
+     * Get phone
      *
-     * @return int
+     * @return string
      */
     public function getPhone()
     {
@@ -165,7 +165,7 @@ class Worker
     }
 
     /**
-     * Set specialite
+     * Set competence
      *
      * @param string $competence
      *
