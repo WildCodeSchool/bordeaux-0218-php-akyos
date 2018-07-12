@@ -47,7 +47,7 @@
        </trans-unit>
        <trans-unit id="Syndicate" resname="Syndicate">
                      <source>Syndicate</source>
-                     <target>Syndicat de copropriétés</target>
+                     <target>Syndicat de copropriété</target>
        </trans-unit>
        <trans-unit id="Intervention type" resname="Intervention type">
                      <source>Intervention type</source>
@@ -116,6 +116,10 @@
        <trans-unit id="Choose a Sub Family" resname="Choose a Sub Family">
                      <source>Choose a Sub Family</source>
                      <target>Sélectionnez un sous ensemble</target>
+       </trans-unit>
+       <trans-unit id="Building" resname="Building">
+                     <source>Building</source>
+                     <target>Bâtiment</target>
        </trans-unit>
 
     </body>
