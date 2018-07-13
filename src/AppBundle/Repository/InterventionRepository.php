@@ -24,4 +24,19 @@ class InterventionRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+
+    public function findBySyndicateAndDate(Syndicate $syndicate, \DateTime $date)
+    {
+        return $this->createQueryBuilder('i')
+            ->join('i.condominium', 'condo')
+            ->join('condo.syndicate', 's')
+            ->where('s.id = :syndicateId')
+            ->andWhere('i.interventionDate = :date')
+            ->setParameter(':syndicateId', $syndicate->getId())
+            ->setParameter(':date', $date)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

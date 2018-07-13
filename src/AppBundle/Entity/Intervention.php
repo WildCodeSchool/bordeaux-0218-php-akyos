@@ -132,7 +132,7 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="duration", type="time")
+     * @ORM\Column(name="duration", type="string", nullable=true)
      */
     private $duration;
 
@@ -514,4 +514,5 @@ class Intervention
     {
         return $this->condominium;
     }
+
 }
