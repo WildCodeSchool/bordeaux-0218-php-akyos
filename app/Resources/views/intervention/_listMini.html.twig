@@ -24,6 +24,8 @@
             </td>
              <td>{{ intervention.progress }}</td>
         </tr>
+        {% else %}
+        <tr><td colspan="4">{{ 'no intervention to display'|trans }}</td></tr>
     {% endfor %}
     </tbody>
 </table>
