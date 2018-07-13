@@ -5,7 +5,7 @@
             <main id="main-container">
                 <!-- Page Content -->
                 {% if is_granted('ROLE_ADMIN') %}
-                    {% include('dashboard/_admin.twig.html.twig') %}
+                    {% include('dashboard/_admin.html.twig') %}
                 {% else %}
                     {% include('dashboard/_syndic.html.twig') %}
                 {% endif %}

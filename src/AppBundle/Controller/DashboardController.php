@@ -20,15 +20,23 @@ class DashboardController extends Controller
      */
     public function indexAction(Request $request)
     {
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
 
-        //$interventions = $this->getDoctrine()->getRepository(Intervention::class)
-            //->findBySyndicate($this->getUser()->getSyndicate());
+            return $this->render(
+                'dashboard/index.html.twig');
+        }
 
-        return $this->render(
-            'dashboard/_admin.twig.html.twig'//,
-            //[
-               // 'interventions' => $interventions
-           // ]
-        );
+        else {
+            $interventions = $this->getDoctrine()->getRepository(Intervention::class)
+                ->findBySyndicate($this->getUser()->getSyndicate());
+
+            return $this->render(
+                'dashboard/index.html.twig',
+                [
+                    'interventions' => $interventions
+                ]
+            );
+        }
+
     }
 }
