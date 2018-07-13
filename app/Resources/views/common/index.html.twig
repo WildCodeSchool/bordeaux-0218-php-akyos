@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Actions</th>
             </tr>
@@ -14,26 +13,26 @@
         <tbody>
         {% for common in commons %}
             <tr>
-                <td><a href="{{ path('common_show', { 'id': common.id }) }}">{{ common.id }}</a></td>
                 <td>{{ common.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('common_show', { 'id': common.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('common_edit', { 'id': common.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('common_show', { 'id': common.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('common_edit', { 'id': common.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('common_new') }}">Ajouter un commun</a>
-        </li>
-    </ul>
+    <a class="btn btn-success"
+       href="{{ path('common_new') }}">Ajouter un commun
+    </a>
 {% endblock %}

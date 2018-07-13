@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Numéro de lot</th>
                 <th>Sol</th>
                 <th>Nom</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for unit in units %}
             <tr>
-                <td><a href="{{ path('unit_show', { 'id': unit.id }) }}">{{ unit.id }}</a></td>
                 <td>{{ unit.number }}</td>
                 <td>{{ unit.floor }}</td>
                 <td>{{ unit.lastName }}</td>
@@ -28,15 +26,19 @@
                 <td>{{ unit.phone }}</td>
                 <td>{{ unit.email }}</td>
                 <td>{{ unit.comment }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('unit_show', { 'id': unit.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('unit_show', { 'id': unit.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('unit_edit', { 'id': unit.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
