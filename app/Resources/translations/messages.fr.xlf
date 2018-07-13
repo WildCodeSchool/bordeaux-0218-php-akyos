@@ -129,9 +129,9 @@
                      <source>Choose a Sub Family</source>
                      <target>Sélectionnez un sous ensemble</target>
        </trans-unit>
-       <trans-unit id="Buildings" resname="Buildings">
-                     <source>Buildings</source>
-                     <target>Bâtiment</target>
+       <trans-unit id="no_intervention_to_display" resname="no intervention to display">
+                     <source>no intervention to display</source>
+                     <target>Pas d'intervention à afficher</target>
        </trans-unit>
     </body>
   </file>
