@@ -30,5 +30,8 @@ class DashboardController extends Controller
                 ->findBySyndicateAndDate($this->getUser()->getSyndicate(), new \DateTime(date('Y-m-d')));
         }
 
+        return $this->render('dashboard/index.html.twig', [
+            'interventions' => $interventions
+        ]);
     }
 }

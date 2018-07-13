@@ -50,6 +50,8 @@
                 </div>
             </td>
         </tr>
+    {% else %}
+        <tr><td colspan="9">{{ 'no intervention to display'|trans }}</td></tr>
     {% endfor %}
     </tbody>
 </table>
