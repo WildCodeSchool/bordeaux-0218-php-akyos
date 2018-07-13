@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Form\CommonType;
 
 class CondominiumType extends AbstractType
 {
@@ -29,6 +30,28 @@ class CondominiumType extends AbstractType
                 'entry_options' => array(
                   'attr' => array('class' => 'building-box'),
                  ),
+            ))
+            ->add('commons',       CollectionType::class, array(
+                // each entry in the array will be an "parking" field
+                'entry_type' => CommonType::class,
+
+                'prototype' => true,
+                // 'prototype_data' => 'New Tag Placeholder',
+                'allow_add' => true,            // these options are passed to each "building" type
+                'entry_options' => array(
+                    'attr' => array('class' => 'common-box'),
+                ),
+            ))
+            ->add('parkings', CollectionType::class, array(
+                // each entry in the array will be an "parking" field
+                'entry_type' => ParkingType::class,
+
+                'prototype' => true,
+                // 'prototype_data' => 'New Tag Placeholder',
+                'allow_add' => true,            // these options are passed to each "building" type
+                'entry_options' => array(
+                    'attr' => array('class' => 'parking-box'),
+                ),
             ))
 
             ->add('condominiumManager')

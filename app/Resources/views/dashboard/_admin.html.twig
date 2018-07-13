@@ -17,8 +17,7 @@
             <div class="col-sm-12">
                 <!-- Billing Address -->
                 <div class="block block-bordered">
-                    <div class="row">
-                        {% for intervention in interventions %}
+                    {% for intervention in interventions %}
                         <div class="col-sm-3">
                             <div class="block block-themed">
                                 <div class="block-header bg-primary">
@@ -34,6 +33,8 @@
                                 </div>
                             </div>
                         </div>
+                        {% else %}
+                            <p>Pas d'intervetion prevues aujourd'hui</p>
                         {% endfor %}
                     </div>
                 </div>
