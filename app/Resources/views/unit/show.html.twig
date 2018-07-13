@@ -35,18 +35,20 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('unit_index') }}">Retour à la  liste</a>
-        </li>
-        <li>
-            <a href="{{ path('unit_edit', { 'id': unit.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ path('unit_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+                {{ form_end(delete_form) }}
+            </div>
+            <div class="col-xs-4 text-right">
+                <a class="btn btn-success"
+                   href="{{ path('unit_edit', { 'id': unit.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

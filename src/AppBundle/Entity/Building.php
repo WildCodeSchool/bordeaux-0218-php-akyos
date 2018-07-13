@@ -24,13 +24,13 @@ class Building
     private $parkings;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="buildings")
+     * @ORM\ManyToOne(targetEntity="Condominium", inversedBy="buildings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $condominium;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Unit", mappedBy="building")
+     * @ORM\OneToMany(targetEntity="Unit", mappedBy="building")
      *
      */
     private $units;

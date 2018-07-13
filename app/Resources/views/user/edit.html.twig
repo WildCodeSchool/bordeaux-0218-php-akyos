@@ -2,20 +2,17 @@
 
 {% block body %}
     <h1>Modifier un utilisateur</h1>
-
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Modifier" />
+    {{ form_widget(edit_form) }}
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="{{ path('user_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-6 text-right">
+                <input class="btn btn-success" type="submit" value="Enregistrer" />
+            </div>
+        </div>
+    </div>
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
