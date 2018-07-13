@@ -133,8 +133,8 @@
                      <source>Choose a Sub Family</source>
                      <target>Sélectionnez un sous ensemble</target>
        </trans-unit>
-       <trans-unit id="Building" resname="Building">
-                     <source>Building</source>
+       <trans-unit id="Buildings" resname="Buildings">
+                     <source>Buildings</source>
                      <target>Bâtiment</target>
        </trans-unit>
     </body>
