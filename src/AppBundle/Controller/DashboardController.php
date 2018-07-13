@@ -20,7 +20,6 @@ class DashboardController extends Controller
      */
     public function indexAction(Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $interventions = $em->getRepository('AppBundle:Intervention')
@@ -34,11 +33,5 @@ class DashboardController extends Controller
                 );
         }
 
-        return $this->render(
-            'dashboard/index.html.twig',
-            [
-                'interventions' => $interventions
-            ]
-        );
     }
 }
