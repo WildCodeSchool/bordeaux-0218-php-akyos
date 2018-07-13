@@ -28,13 +28,13 @@
                                 <a href="{{ path("intervention_new") }}">Créer une nouvelle demande</a>
                             </li>
                             <li>
-                                <a href="{{ path("intervention_index") }}">En cours</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                             </li>
                             <li>
-                                <a href="{{ path("intervention_planned") }}">À venir</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'a-venir'}) }}">À venir</a>
                             </li>
                             <li>
-                                <a href="{{ path("intervention_history") }}">Archivées</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'archivees'}) }}">Archivées</a>
                             </li>
                         </ul>
                     </li>

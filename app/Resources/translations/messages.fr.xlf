@@ -133,6 +133,10 @@
                      <source>Building</source>
                      <target>Bâtiment</target>
        </trans-unit>
+       <trans-unit id="no_intervention_to_display" resname="no intervention to display">
+                     <source>no intervention to display</source>
+                     <target>Pas d'intervention à afficher</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>

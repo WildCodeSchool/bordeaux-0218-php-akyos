@@ -39,4 +39,18 @@ class InterventionRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+    public function findBySyndicateProgress(Syndicate $syndicate, string $progress)
+    {
+        return $this->createQueryBuilder('i')
+            ->join('i.condominium', 'condo')
+            ->join('condo.syndicate', 's')
+            ->where('s.id = :syndicateId')
+            ->andWhere('i.progress = :progress')
+            ->setParameter(':syndicateId', $syndicate->getId())
+            ->setParameter(':progress', $progress)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
