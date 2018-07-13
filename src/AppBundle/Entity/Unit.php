@@ -61,9 +61,9 @@ class Unit
     private $firstName;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length=32)
      */
     private $phone;
 
@@ -189,9 +189,9 @@ class Unit
     }
 
     /**
-     * Set telephone
+     * Set phone
      *
-     * @param integer $phone
+     * @param string $phone
      *
      * @return Unit
      */
@@ -203,9 +203,9 @@ class Unit
     }
 
     /**
-     * Get telephone
+     * Get phone
      *
-     * @return int
+     * @return string
      */
     public function getPhone()
     {

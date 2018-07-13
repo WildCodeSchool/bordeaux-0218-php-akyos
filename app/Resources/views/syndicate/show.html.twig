@@ -5,10 +5,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ syndicate.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
                 <td>{{ syndicate.name }}</td>
             </tr>
@@ -17,7 +13,7 @@
                 <td>{{ syndicate.address }}</td>
             </tr>
             <tr>
-                <th>Téléphone</th
+                <th>Téléphone</th>
                 <td>{{ syndicate.phone }}</td>
             </tr>
             <tr>
@@ -30,18 +26,20 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('syndicate_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ path('syndicate_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+                {{ form_end(delete_form) }}
+            </div>
+            <div class="col-xs-4 text-right">
+                <a class="btn btn-success"
+                   href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

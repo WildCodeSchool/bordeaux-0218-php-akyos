@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="47DEQpj" resname="">
+        <source></source>
+        <target>Hello</target>
+      </trans-unit>
+       <trans-unit id="Name" resname="Name">
+                     <source>Name</source>
+                     <target>Nom</target>
+       </trans-unit>
+       <trans-unit id="Last name" resname="Last name">
+                     <source>Last name</source>
+                     <target>Nom</target>
+       </trans-unit>
+       <trans-unit id="First name" resname="First name">
+                     <source>First name</source>
+                     <target>Prénom</target>
+       </trans-unit>
+       <trans-unit id="Phone" resname="Phone">
+                     <source>Phone</source>
+                     <target>Téléphone</target>
+       </trans-unit>
+       <trans-unit id="Competence" resname="Competence">
+                     <source>Competence</source>
+                     <target>Compétence</target>
+       </trans-unit>
+              <trans-unit id="Address" resname="Address">
+                     <source>Address</source>
+                     <target>Adresse</target>
+       </trans-unit>
+       <trans-unit id="Condominium manager" resname="Condominium manager">
+                     <source>Condominium manager</source>
+                     <target>Chargé de copropriété</target>
+       </trans-unit>
+       <trans-unit id="Username" resname="Username">
+                     <source>Username</source>
+                     <target>Nom d'utilisateur</target>
+       </trans-unit>
+       <trans-unit id="Password" resname="Password">
+                     <source>Password</source>
+                     <target>Mot de passe</target>
+       </trans-unit>
+       <trans-unit id="Syndicate" resname="Syndicate">
+                     <source>Syndicate</source>
+                     <target>Syndicat de copropriété</target>
+       </trans-unit>
+       <trans-unit id="Buildings" resname="Buildings">
+                     <source>Buildings</source>
+                     <target>Bâtiment</target>
+       </trans-unit>
+       <trans-unit id="Public message" resname="Public message">
+                     <source>Public message</source>
+                     <target>Message</target>
+       </trans-unit>
+       <trans-unit id="Private message" resname="Private message">
+                     <source>Private message</source>
+                     <target>Message privé</target>
+       </trans-unit>
+       <trans-unit id="Condominium" resname="Condominium">
+                     <source>Condominium</source>
+                     <target>Copropriété</target>
+       </trans-unit>
+       <trans-unit id="Intervention type" resname="Intervention type">
+                     <source>Intervention type</source>
+                     <target>Type d'intervention</target>
+       </trans-unit>
+       <trans-unit id="Emergency" resname="Emergency">
+                     <source>Emergency</source>
+                     <target>Urgence</target>
+       </trans-unit>
+       <trans-unit id="Paid" resname="Paid">
+                     <source>Paid</source>
+                     <target>Payé</target>
+       </trans-unit>
+       <trans-unit id="Client satisfaction" resname="Client satisfaction">
+                     <source>Client statisfaction</source>
+                     <target>Satisfaction client</target>
+       </trans-unit>
+       <trans-unit id="Comment" resname="Comment">
+                     <source>Comment</source>
+                     <target>Commentaire</target>
+       </trans-unit>
+       <trans-unit id="etat" resname="etat">
+                     <source>etat</source>
+                     <target>Progression</target>
+       </trans-unit>
+       <trans-unit id="Material" resname="Material">
+                     <source>Material</source>
+                     <target>Matériels</target>
+       </trans-unit>
+       <trans-unit id="Worker" resname="Worker">
+                     <source>Worker</source>
+                     <target>Intervenant</target>
+       </trans-unit>
+       <trans-unit id="Worker number" resname="Worker number">
+                     <source>Worker number</source>
+                     <target>Nombre d'intervenants</target>
+       </trans-unit>
+       <trans-unit id="Duration" resname="Duration">
+                     <source>Duration</source>
+                     <target>Durée</target>
+       </trans-unit>
+       <trans-unit id="Intervention date" resname="Intervention date">
+                     <source>Intervention date</source>
+                     <target>Date d'intervention</target>
+       </trans-unit>
+       <trans-unit id="Hour" resname="Hour">
+                     <source>Hour</source>
+                     <target>Heure</target>
+       </trans-unit>
+       <trans-unit id="Year" resname="Year">
+                     <source>Year</source>
+                     <target>Année</target>
+       </trans-unit>
+       <trans-unit id="Month" resname="Month">
+                     <source>Month</source>
+                     <target>Mois</target>
+       </trans-unit>
+       <trans-unit id="Day" resname="Day">
+                     <source>Day</source>
+                     <target>Jour</target>
+       </trans-unit>
+       <trans-unit id="Choose a Sub Family" resname="Choose a Sub Family">
+                     <source>Choose a Sub Family</source>
+                     <target>Sélectionnez un sous ensemble</target>
+       </trans-unit>
+       <trans-unit id="Building" resname="Building">
+                     <source>Building</source>
+                     <target>Bâtiment</target>
+       </trans-unit>
+    </body>
+  </file>
+</xliff>

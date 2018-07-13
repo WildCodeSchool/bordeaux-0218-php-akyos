@@ -20,22 +20,17 @@ class DashboardController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
-            return $this->render(
-                'dashboard/index.html.twig');
-        }
-
-        else {
+            $interventions = $em->getRepository('AppBundle:Intervention')
+                ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
+        } else {
             $interventions = $this->getDoctrine()->getRepository(Intervention::class)
-                ->findBySyndicate($this->getUser()->getSyndicate());
-
-            return $this->render(
-                'dashboard/index.html.twig',
-                [
-                    'interventions' => $interventions
-                ]
-            );
+                ->findBy(
+                    ['syndicate' => $this->getUser()->getSyndicate(),
+                        'interventionDate' => new \DateTime(date('Y-m-d'))
+                        ]
+                );
         }
 
     }
