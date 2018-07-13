@@ -7,7 +7,7 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     {% include 'dashboard/_admin.html.twig' with {'interventions': interventions }   %}
                 {% else %}
-                    {% include 'dashboard/_syndic.html.twig' with {'interventions': 'interventions' }  %}
+                    {% include 'dashboard/_syndic.html.twig' with {'interventions': interventions }  %}
                 {% endif %}
             </main>
         </div>
