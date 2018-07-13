@@ -109,10 +109,6 @@
                      <source>Intervention date</source>
                      <target>Date d'intervention</target>
        </trans-unit>
-       <trans-unit id="Condominium" resname="Condominium">
-                     <source>Condominium</source>
-                     <target>Copropriété</target>
-       </trans-unit>
        <trans-unit id="Hour" resname="Hour">
                      <source>Hour</source>
                      <target>Heure</target>
