@@ -9,6 +9,7 @@
             
             <div class="side-header side-content bg-white-op">
                 <a href="{{ path('dashboard') }}">
+                    <img src="{{ asset('img/dmp-dijon.png') }}" class="img-responsive">
                 </a>
             </div>
         </div>
@@ -24,9 +25,6 @@
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
                             </i>Mes interventions</a>
                         <ul>
-                            <li>
-                                <a href="{{ path("intervention_new") }}">Créer une nouvelle demande</a>
-                            </li>
                             <li>
                                 <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                             </li>
@@ -87,9 +85,6 @@
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
                         </i>Mes interventions</a>
                     <ul>
-                        <li>
-                            <a href="{{ path("intervention_new") }}">Créer une nouvelle demande</a>
-                        </li>
                         <li>
                             <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                         </li>

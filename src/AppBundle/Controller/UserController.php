@@ -66,6 +66,11 @@ class UserController extends Controller
      */
     public function showAction(User $user)
     {
+
+        if($user !== $this->getUser() ){
+            $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+        }
+
         $deleteForm = $this->createDeleteForm($user);
 
         return $this->render('user/show.html.twig', array(

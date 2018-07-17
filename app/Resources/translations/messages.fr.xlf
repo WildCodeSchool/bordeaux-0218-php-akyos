@@ -25,6 +25,10 @@
                      <source>Phone</source>
                      <target>Téléphone</target>
        </trans-unit>
+       <trans-unit id="Email" resname="Email">
+                     <source>Email</source>
+                     <target>E-mail</target>
+       </trans-unit>
        <trans-unit id="Competence" resname="Competence">
                      <source>Competence</source>
                      <target>Compétence</target>
