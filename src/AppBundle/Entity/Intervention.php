@@ -130,9 +130,9 @@ class Intervention
     private $workerNumber;
 
     /**
-     * @var \Time
+     * @var string
      *
-     * @ORM\Column(name="duration", type="time", nullable=true)
+     * @ORM\Column(name="duration", type="string", nullable=true)
      */
     private $duration;
 
@@ -446,7 +446,7 @@ class Intervention
     /**
      * Set duration
      *
-     * @param \Time $duration
+     * @param string $duration
      *
      * @return Intervention
      */
@@ -460,7 +460,7 @@ class Intervention
     /**
      * Get duration
      *
-     * @return \Time
+     * @return string
      *
      */
     public function getDuration()
