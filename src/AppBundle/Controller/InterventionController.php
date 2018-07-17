@@ -39,6 +39,7 @@ class InterventionController extends Controller
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
+            'progress' => $progress,
         ));
     }
 

@@ -21,6 +21,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
 {
 
     const SKILLS = array('plumber', 'electrician', 'locksmith');
+    const PROGRESS= array('a-venir', 'en-cours', 'archivees');
     /**
      * @param ObjectManager $manager
      */
@@ -47,7 +48,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
             $intervention->setWorker($worker);
 
             $intervention->setProgress($faker
-                ->randomElement([1, 2, 3, 4]));
+                ->randomElement(self::PROGRESS));
 
             $intervention->setInterventionType($faker
                 ->randomElement(self::SKILLS));
