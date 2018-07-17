@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre de places</th>
                 <th>Actions</th>
             </tr>
@@ -14,26 +13,26 @@
         <tbody>
         {% for parking in parkings %}
             <tr>
-                <td><a href="{{ path('parking_show', { 'id': parking.id }) }}">{{ parking.id }}</a></td>
                 <td>{{ parking.parkingSpace }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('parking_show', { 'id': parking.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('parking_edit', { 'id': parking.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('parking_show', { 'id': parking.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('parking_edit', { 'id': parking.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('parking_new') }}">Ajouter un parking</a>
-        </li>
-    </ul>
+    <a class="btn btn-success"
+       href="{{ path('parking_new') }}">Ajouter un parking
+    </a>
 {% endblock %}

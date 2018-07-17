@@ -11,15 +11,17 @@
 namespace AppBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Intervention;
 use AppBundle\Entity\Worker;
 use Faker\Factory;
 
-class InterventionFixtures extends Fixture
+class InterventionFixtures extends Fixture implements DependentFixtureInterface
 {
 
     const SKILLS = array('plumber', 'electrician', 'locksmith');
+    const PROGRESS= array('a-venir', 'en-cours', 'archivees');
     /**
      * @param ObjectManager $manager
      */
@@ -46,7 +48,7 @@ class InterventionFixtures extends Fixture
             $intervention->setWorker($worker);
 
             $intervention->setProgress($faker
-                ->randomElement([1, 2, 3, 4]));
+                ->randomElement(self::PROGRESS));
 
             $intervention->setInterventionType($faker
                 ->randomElement(self::SKILLS));
@@ -85,9 +87,16 @@ class InterventionFixtures extends Fixture
             ));
 
             $intervention->setDuration($faker->dateTime());
+            $intervention->setCondominium($this->getReference('condominium1'));
 
             $manager->persist($intervention);
         }
         $manager->flush();
+    }
+
+
+    public function getDependencies()
+    {
+        return [CondoFixtures::class];
     }
 }

@@ -15,86 +15,33 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class InterventionController extends Controller
 {
+
     /**
      * Lists today intervention entities.
      *
-     * @Route("/en-cours", name="intervention_index")
+     * @Route("/{progress}", name="intervention_index", requirements={"progress" = "en-cours|a-venir|archivees"})
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(string $progress)
     {
         $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
             $interventions = $em->getRepository('AppBundle:Intervention')
-                ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
-        }else{
+                ->findBy([ 'progress' => $progress]);
+        } else {
             $interventions = $this->getDoctrine()->getRepository(Intervention::class)
-                ->findBy(
-                ['syndicate' => $this->getUser()->getSyndicate(),
-                    'progress'=> "En cours"
-                ]
-            );
-        }
-
-        return $this->render('intervention/index.html.twig', array(
-            'interventions' => $interventions,
-        ));
-    }
-    /**
-     * Lists all intervention entities.
-     *
-     * @Route("/archivees", name="intervention_history")
-     * @Method("GET")
-     */
-    public function historyAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
-            $interventions = $em->getRepository('AppBundle:Intervention')
-                ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
-        }else {
-            $interventions = $this->getDoctrine()->getRepository(Intervention::class)
-                ->findBy(
-                    ['syndicate' => $this->getUser()->getSyndicate(),
-                        'progress'=> "Terminée"
-                    ]
+                ->findBySyndicateProgress(
+                    $this->getUser()->getSyndicate(),
+                    $progress
                 );
         }
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
+            'progress' => $progress,
         ));
     }
 
-    /**
-     * Lists all intervention entities.
-     *
-     * @Route("/a-venir", name="intervention_planned")
-     * @Method("GET")
-     */
-    public function plannedAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
-            $interventions = $em->getRepository('AppBundle:Intervention')
-                ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
-        }else {
-            $interventions = $this->getDoctrine()->getRepository(Intervention::class)
-                ->findBy(
-                    ['syndicate' => $this->getUser()->getSyndicate(),
-                        'progress'=> "À planifier", "À replanifier"
-                    ]
-                );
-        }
-
-
-        return $this->render('intervention/index.html.twig', array(
-            'interventions' => $interventions,
-        ));
-    }
 
     /**
      * Creates a new intervention entity.
@@ -114,7 +61,6 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-
         }
 
         return $this->render('intervention/new.html.twig', array(

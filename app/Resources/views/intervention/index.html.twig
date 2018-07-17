@@ -2,6 +2,15 @@
 
 {% block body %}
     <h1>Liste des interventions</h1>
+    {% if progress == 'en-cours' %}
+        <h1>en cours</h1>
+    {% endif %}
+    {% if progress == 'archivess' %}
+        <h1>archivées</h1>
+    {% endif %}
+    {% if progress == 'a-venir' %}
+        <h1>à venir</h1>
+    {% endif %}
     {% include 'intervention/_list.html.twig' %}
     <a href="{{ path('intervention_new') }}" class="btn btn-danger">Demande d'intervention</a>
 {% endblock %}

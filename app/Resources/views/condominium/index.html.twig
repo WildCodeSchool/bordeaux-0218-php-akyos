@@ -6,10 +6,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Adresse</th>
-                <th>Gestionnaire de copropriétés</th>
+                <th>Gestionnaire de copropriété</th>
                 <th>Téléphone</th>
                 <th>Mail</th>
                 <th>Message public</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for condominium in condominia %}
             <tr>
-                <td><a href="{{ path('condominium_show', { 'id': condominium.id }) }}">{{ condominium.id }}</a></td>
                 <td>{{ condominium.name }}</td>
                 <td>{{ condominium.address }}</td>
                 <td>{{ condominium.condominiumManager }}</td>
@@ -46,5 +44,7 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('condominium_new') }}" class="btn btn-success">Ajouter une copropiété</a>
+    <a class="btn btn-success"
+       href="{{ path('condominium_new') }}">Ajouter une copropriété
+    </a>
 {% endblock %}

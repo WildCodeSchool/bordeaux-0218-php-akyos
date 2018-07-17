@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Catégorie</th>
                 <th>Type</th>
                 <th>Photo</th>
@@ -17,29 +16,29 @@
         <tbody>
         {% for component in components %}
             <tr>
-                <td><a href="{{ path('component_show', { 'id': component.id }) }}">{{ component.id }}</a></td>
                 <td>{{ component.category }}</td>
                 <td>{{ component.type }}</td>
                 <td>{{ component.photo }}</td>
                 <td>{{ component.reference }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('component_show', { 'id': component.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('component_edit', { 'id': component.id }) }}">Modifier</a>
-                        </li>
-                    </ul>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('component_show', { 'id': component.id }) }}">
+                            <i class="si si-eye">
+                            </i>
+                        </a>
+                        <a class="btn btn-default"
+                           href="{{ path('component_edit', { 'id': component.id }) }}">
+                            <i class="fa fa-pencil">
+                            </i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('component_new') }}">Ajouter des équipements</a>
-        </li>
-    </ul>
+    <a class="btn btn-success"
+       href="{{ path('component_new') }}">Ajouter des équipements
+    </a>
 {% endblock %}

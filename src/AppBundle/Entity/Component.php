@@ -225,7 +225,7 @@ class Component
     /**
      * Set unit
      *
-     * @param \AppBundle\Entity\Unit $unit
+     * @param \AppBundle\Entity\Condominium $unit
      *
      * @return Component
      */
