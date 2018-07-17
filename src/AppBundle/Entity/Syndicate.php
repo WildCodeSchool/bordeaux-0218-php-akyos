@@ -51,13 +51,6 @@ class Syndicate
     private $email;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="condominium_manager", type="string", length=255)
-     */
-    private $condominiumManager;
-
-    /**
      * @ORM\OneToMany(targetEntity="Condominium", mappedBy="syndicate")
      */
     private $condominiums;
