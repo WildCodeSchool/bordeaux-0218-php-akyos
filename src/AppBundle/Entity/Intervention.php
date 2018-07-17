@@ -6,6 +6,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * Intervention
  *
@@ -130,9 +131,9 @@ class Intervention
     private $workerNumber;
 
     /**
-     * @var \DateTime
+     * @var \Time
      *
-     * @ORM\Column(name="duration", type="string", nullable=true)
+     * @ORM\Column(name="duration", type="time", nullable=true)
      */
     private $duration;
 
@@ -446,7 +447,7 @@ class Intervention
     /**
      * Set duration
      *
-     * @param \DateTime $duration
+     * @param \Time $duration
      *
      * @return Intervention
      */
@@ -460,7 +461,7 @@ class Intervention
     /**
      * Get duration
      *
-     * @return \DateTime
+     * @return \Time
      */
     public function getDuration()
     {
