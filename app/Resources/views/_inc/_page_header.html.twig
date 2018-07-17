@@ -7,4 +7,13 @@
         </div>
     </div>
 </div>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message|trans }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
 <!-- END Page Header -->

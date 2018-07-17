@@ -5,7 +5,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Téléphone</th>
@@ -18,7 +17,6 @@
         <tbody>
         {% for worker in workers %}
             <tr>
-                <td><a href="{{ path('worker_show', { 'id': worker.id }) }}">{{ worker.id }}</a></td>
                 <td>{{ worker.lastName }}</td>
                 <td>{{ worker.firstName }}</td>
                 <td>{{ worker.phone }}</td>

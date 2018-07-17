@@ -30,14 +30,7 @@ class InterventionDmsType extends AbstractType
                 'label' => 'etat'
             ))
             ->add('material')
-
-
-
-
             ->add('worker')
-
-
-
             ->add('workerNumber')
             ->add('duration', TimeType::class, array(
                 'placeholder' => array(
@@ -45,12 +38,9 @@ class InterventionDmsType extends AbstractType
                 )
             ))
             ->add('interventionDate')
-
-
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
-
         ;
 
         $builder->get('condominium')->addEventListener(
