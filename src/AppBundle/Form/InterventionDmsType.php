@@ -49,7 +49,7 @@ class InterventionDmsType extends AbstractType
                 $form = $event->getForm();
                 $form->getParent()->add('building', EntityType::class, array(
                     'class' => 'AppBundle\Entity\Building',
-                    'placeholder' => 'Sélectionnez un batiment',
+                    'placeholder' => 'Sélectionnez un bâtiment',
                     'mapped' => false,
                     'required' => false,
                     'choices' => $form->getData()->getBuildings()
