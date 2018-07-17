@@ -1,52 +1,69 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Listes des intervenants</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Téléphone</th>
-                <th>Compétences</th>
-                <th>Adresse</th>
-                <th>Mail</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for worker in workers %}
-            <tr>
-                <td><a href="{{ path('worker_show', { 'id': worker.id }) }}">{{ worker.id }}</a></td>
-                <td>{{ worker.lastName }}</td>
-                <td>{{ worker.firstName }}</td>
-                <td>{{ worker.phone }}</td>
-                <td>{{ worker.competence }}</td>
-                <td>{{ worker.address }}</td>
-                <td>{{ worker.email }}</td>
-                <td class="text-center">
-                    <div class="btn-group">
-                        <a class="btn btn-default"
-                           href="{{ path('worker_show', { 'id': worker.id }) }}">
-                            <i class="si si-eye">
-                            </i>
-                        </a>
-                        <a class="btn btn-default"
-                           href="{{ path('worker_edit', { 'id': worker.id }) }}">
-                            <i class="fa fa-pencil">
-                            </i>
-                        </a>
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    Listes des intervenants
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row">
+            {% for worker in workers %}
+                <div class="col-sm-6 col-md-4 col-xl-3">
+                    <!-- Contact -->
+                    <div class="block block-rounded">
+                        <div class="block-header">
+                            <ul class="block-options">
+                                <li>
+                                    <a href="{{ path('worker_show', { 'id': worker.id }) }}">
+                                        <i class="si si-pencil"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="block-title">
+                                {{ worker.lastName }} {{ worker.firstName }}
+                            </div>
+                        </div>
+                        <div class="block-content block-content-full bg-primary bg-{{ worker.competence }} text-center">
+                            <img class="img-avatar img-avatar-thumb" src="{{ asset('img/'~worker.competence~'.png') }}"
+                                 alt="">
+                            <div class="font-s13 push-10-t">{{ worker.competence|trans }}</div>
+                        </div>
+                        <div class="block-content">
+                            <table class="table table-borderless table-striped font-s13">
+                                <tbody>
+                                <tr>
+                                    <td class="font-w600" style="width: 30%;">{{ 'Address'|trans }}</td>
+                                    <td>{{ worker.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-w600">{{ 'Phone'|trans }}</td>
+                                    <td>
+                                        <a href="tel:{{ worker.phone }}">
+                                            {{ worker.phone }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-w600">{{ 'Email'|trans }}</td>
+                                    <td>
+                                        <a href="mailto:{{ worker.phone }}">
+                                        {{ worker.email }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('worker_new') }}">Ajouter un intervenant</a>
-        </li>
-    </ul>
+                    <!-- END Contact -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a class="btn btn-success" href="{{ path('worker_new') }}">Ajouter un intervenant</a>
 {% endblock %}

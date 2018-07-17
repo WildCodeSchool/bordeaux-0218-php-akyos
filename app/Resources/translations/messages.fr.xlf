@@ -25,6 +25,10 @@
                      <source>Phone</source>
                      <target>Téléphone</target>
        </trans-unit>
+       <trans-unit id="Email" resname="Email">
+                     <source>Email</source>
+                     <target>E-mail</target>
+       </trans-unit>
        <trans-unit id="Competence" resname="Competence">
                      <source>Competence</source>
                      <target>Compétence</target>
@@ -132,6 +136,14 @@
        <trans-unit id="no_intervention_to_display" resname="no intervention to display">
                      <source>no intervention to display</source>
                      <target>Pas d'intervention à afficher</target>
+       </trans-unit>
+       <trans-unit id="locksmith" resname="locksmith">
+                     <source>locksmith</source>
+                     <target>Serrurier</target>
+       </trans-unit>
+       <trans-unit id="electrician" resname="electrician">
+                     <source>electrician</source>
+                     <target>Éléctricien</target>
        </trans-unit>
     </body>
   </file>
