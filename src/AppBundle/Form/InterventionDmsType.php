@@ -21,7 +21,7 @@ class InterventionDmsType extends AbstractType
         $builder
             ->add('progress', ChoiceType::class, array(
                 'choices' => array(
-                    'placeholder' => 'Choose an option',
+                    'Progression de l\'intervention' => 'Choose an option',
                     'À planifier' => 'À planifier',
                     'En cours' => 'En cours',
                     'Terminé' => 'Terminé',
