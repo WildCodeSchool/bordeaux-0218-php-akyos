@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Repository\WorkerRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 
 class InterventionDmsType extends AbstractType
 {
@@ -20,8 +21,8 @@ class InterventionDmsType extends AbstractType
     {
         $builder
             ->add('progress', ChoiceType::class, array(
+                'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
-                    'placeholder' => 'Choose an option',
                     'À planifier' => 'À planifier',
                     'En cours' => 'En cours',
                     'Terminé' => 'Terminé',
@@ -39,6 +40,13 @@ class InterventionDmsType extends AbstractType
                 )
             ))
             ->add('interventionDate')
+            ->add('paid')
+            ->add('clientSatisfaction', RangeType::class, array(
+                'attr' => array(
+                    'min' => 1,
+                    'max' => 5
+                )
+            ))
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))

@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Building;
+
 /**
  * UnitRepository
  *
@@ -10,4 +12,13 @@ namespace AppBundle\Repository;
  */
 class UnitRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findUnitByBuilding($buildingId)
+    {
+        return $this->createQueryBuilder('u')
+            //TODO
+            ->andWhere('unit.building = :building_id')
+            ->setParameter('building_id', $buildingId)
+            ->getQuery()->getResult();
+    }
 }

@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\Building;
 use AppBundle\Entity\Condominium;
+use Doctrine\ORM\EntityRepository;
 use phpDocumentor\Reflection\Types\Compound;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -14,6 +15,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use AppBundle\Repository\CondominiumRepository;
+use AppBundle\Repository\UnitRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -33,7 +35,7 @@ class InterventionType extends AbstractType
                     'query_builder' => function (CondominiumRepository $er) use ($options) {
                         return $er->condoBySyndicQueryBuilder($options['syndicateId']);
                     },
-                    'attr' =>[
+                    'attr' => [
                         'class' => 'dynamicField',
                         'data-next' => 'building'
                     ]
@@ -46,6 +48,7 @@ class InterventionType extends AbstractType
                     $this->addBuildingField($form->getParent(), $form->getData());
                 }
             );
+        }
 
             $builder
                 ->add('interventionType', ChoiceType::class, [
@@ -65,17 +68,7 @@ class InterventionType extends AbstractType
                         'Urgent' => 'High',
                     ]])
                 ->add('description')
-                ->add('paid')
-                ->add('clientSatisfaction', RangeType::class, array(
-                    'attr' => array(
-                        'min' => 1,
-                        'max' => 5
-                    )
-                ))
                 ->add('comment');
-
-
-        }
     }
 
 
@@ -133,7 +126,7 @@ class InterventionType extends AbstractType
                 ]
             ]
         );
-/*
+
         $builder->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) {
@@ -141,27 +134,37 @@ class InterventionType extends AbstractType
                 $this->addInterventionPlaceField($form->getParent(), $form->getData());
             }
         );
-*/
+
         $form->add($builder->getForm());
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, string $interventionPlaceType)
+    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '')
     {
 
         $class = 'AppBundle\Entity\\' . $interventionPlaceType;
-        $interventionPlace = new $class();
+        $data = $form->getData();
 
-        $form->add($interventionPlaceType, EntityType::class,
-            null,
-            [
+        if (class_exists($class)) {
+            $buildingId = $data['building'];
+            $form->add(
+                $interventionPlaceType,
+                EntityType::class,
+                [
                 'class' => $class,
-                'placeholder' => 'Sélectionnez un batiment',
-                'mapped' => false,
+                'placeholder' => 'Sélectionnez un lieu d\'intervention',
+                'mapped' => true,
                 'required' => false,
                 'auto_initialize' => false,
-                //'choices' => $interventionPlace->get()
-            ]);
+                'attr' =>[
+                    'class' => 'dynamicField'
+                ],
+                'query_builder' => function (UnitRepository $er) use ($buildingId) {
+                    return $er->findUnitByBuilding($buildingId);
+                },
+                ]
+            );
+        }
     }
 
 
@@ -185,5 +188,3 @@ class InterventionType extends AbstractType
         return 'appbundle_intervention';
     }
 }
-
-
