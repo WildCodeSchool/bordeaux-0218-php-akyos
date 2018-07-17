@@ -30,13 +30,7 @@ class InterventionDmsType extends AbstractType
                 'label' => 'etat'
             ))
             ->add('material')
-
-
-
-
             ->add('worker')
-
-
 
             ->add('workerNumber')
             ->add('duration', TimeType::class, array(
@@ -45,8 +39,6 @@ class InterventionDmsType extends AbstractType
                 )
             ))
             ->add('interventionDate')
-
-
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
