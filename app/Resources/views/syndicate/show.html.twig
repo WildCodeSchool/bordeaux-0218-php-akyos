@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Syndicat de copropriété</h1>
     <table class="table">
+        <tbody>
             <tr>
                 <th>Nom</th>
                 <td>{{ syndicate.name }}</td>
@@ -31,8 +32,8 @@
                         </a>
                     </div>
                     <br>
-                    {% else %}
-        <tr><td colspan="4">Aucune copropriété</td></tr>
+                {% else %}
+                    <tr><td colspan="4">Aucune copropriété</td></tr>
                 {% endfor %}
                 </td>
             </tr>
