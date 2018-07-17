@@ -21,6 +21,7 @@ class InterventionDmsType extends AbstractType
         $builder
             ->add('progress', ChoiceType::class, array(
                 'choices' => array(
+                    'Progression de l\'intervention' => 'Choose an option',
                     'À planifier' => 'À planifier',
                     'En cours' => 'En cours',
                     'Terminé' => 'Terminé',
@@ -29,14 +30,7 @@ class InterventionDmsType extends AbstractType
                 'label' => 'etat'
             ))
             ->add('material')
-
-
-
-
             ->add('worker')
-
-
-
             ->add('workerNumber')
             ->add('duration', TimeType::class, array(
                 'placeholder' => array(
@@ -44,12 +38,9 @@ class InterventionDmsType extends AbstractType
                 )
             ))
             ->add('interventionDate')
-
-
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
-
         ;
 
         $builder->get('condominium')->addEventListener(

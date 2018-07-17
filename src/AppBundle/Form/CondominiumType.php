@@ -31,7 +31,7 @@ class CondominiumType extends AbstractType
                   'attr' => array('class' => 'building-box'),
                  ),
             ))
-            ->add('commons',       CollectionType::class, array(
+            ->add('commons', CollectionType::class, array(
                 // each entry in the array will be an "parking" field
                 'entry_type' => CommonType::class,
 

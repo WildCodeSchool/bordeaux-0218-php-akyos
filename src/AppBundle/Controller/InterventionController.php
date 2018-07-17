@@ -26,10 +26,9 @@ class InterventionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
             $interventions = $em->getRepository('AppBundle:Intervention')
                 ->findBy([ 'progress' => $progress]);
-        }else{
+        } else {
             $interventions = $this->getDoctrine()->getRepository(Intervention::class)
                 ->findBySyndicateProgress(
                     $this->getUser()->getSyndicate(),
@@ -39,6 +38,7 @@ class InterventionController extends Controller
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
+            'progress' => $progress,
         ));
     }
 
@@ -61,7 +61,6 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-
         }
 
         return $this->render('intervention/new.html.twig', array(
