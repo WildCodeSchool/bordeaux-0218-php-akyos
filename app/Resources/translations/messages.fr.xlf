@@ -133,6 +133,34 @@
                      <source>no intervention to display</source>
                      <target>Pas d'intervention à afficher</target>
        </trans-unit>
+       <trans-unit id="electrician" resname="electrician">
+                     <source>electrician</source>
+                     <target>électricien</target>
+       </trans-unit>
+       <trans-unit id="locksmith" resname="locksmith">
+                     <source>locksmith</source>
+                     <target>serrurerier</target>
+       </trans-unit>
+       <trans-unit id="plumber" resname="plumber">
+                     <source>plumber</source>
+                     <target>plombier</target>
+       </trans-unit>
+       <trans-unit id="major" resname="major">
+                     <source>major</source>
+                     <target>majeure</target>
+       </trans-unit>
+       <trans-unit id="medium" resname="medium">
+                     <source>medium</source>
+                     <target>moyenne</target>
+       </trans-unit>
+       <trans-unit id="low" resname="low">
+                     <source>low</source>
+                     <target>mineure</target>
+       </trans-unit>
+       <trans-unit id="message.sent" resname="message.sent">
+                     <source>message.sent</source>
+                     <target>Votre message a bien été envoyé à DMS, merci de votre confiance. pom ta tala</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>

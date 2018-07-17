@@ -8,10 +8,10 @@
         <!-- Section Content -->
         <div class="row items-push push-50-t push-30">
             <div class="col-md-6 col-md-offset-3">
-                <form class="form-horizontal" method="post">
+                {{ form_start(form, {attr: {class:"form-horizontal"}}) }}
                     <div class="form-group">
                         <div class="col-xs-6">
-                            {{ form_start(form) }}
+
                             <div class="form-material form-material-primary">
                                                 <label for="contact-firstname">Prénom</label>
                                                 {{ form_widget(form.firstname) }}
@@ -40,11 +40,10 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                                            <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-send pull-left"></i> Envoyer votre message</button>
+                                            <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-send pull-left"></i> Envoyer</button>
                                         </div>
                                     </div>
-                                {{ form_end(form) }}
-                </form>
+                {{form_end(form)}}
 
             </div>
         </div>

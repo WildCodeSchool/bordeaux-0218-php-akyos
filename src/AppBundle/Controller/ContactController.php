@@ -5,13 +5,14 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ContactController extends Controller
 {
     /**
      * @Route("/contact", name="contact_index")
      */
-    public function indexAction(Request $request)
+    public function indexAction(SessionInterface $session, Request $request)
     {
         $form = $this->createForm('AppBundle\Form\ContactType');
         $form->handleRequest($request);
@@ -24,6 +25,8 @@ class ContactController extends Controller
                             ->setContentType('text/html')
                             ->setBody($this->renderView('email/confirmation.html.twig'));
                         $this->get('mailer')->send($message);
+
+                        $this->addFlash('success', 'message.sent');
 
                         $data = $form->getData();
 
@@ -38,8 +41,10 @@ class ContactController extends Controller
                                  'prenom' => $data['firstname'],
                                     'nom' => $data['name']
                                 ]
+
                             ));
                         $this->get('mailer')->send($message);
+
 
                         return $this->redirectToRoute('dashboard');
         }
