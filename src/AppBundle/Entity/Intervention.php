@@ -515,5 +515,4 @@ class Intervention
     {
         return $this->condominium;
     }
-
 }
