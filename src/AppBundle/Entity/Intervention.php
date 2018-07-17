@@ -82,9 +82,16 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="intervention_date", type="datetime")
+     * @ORM\Column(name="intervention_date", type="date", nullable=true)
      */
     private $interventionDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="realisation_date", type="datetime", nullable=true)
+     */
+    private $realisationDate;
 
     /**
      * @var \DateTime $modificationDate
@@ -118,14 +125,14 @@ class Intervention
     /**
      * @var int
      *
-     * @ORM\Column(name="worker_number", type="integer")
+     * @ORM\Column(name="worker_number", type="integer", nullable=true)
      */
     private $workerNumber;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="duration", type="time")
+     * @ORM\Column(name="duration", type="string", nullable=true)
      */
     private $duration;
 
@@ -439,7 +446,7 @@ class Intervention
     /**
      * Set duration
      *
-     * @param \DateTime $duration
+     * @param string $duration
      *
      * @return Intervention
      */
@@ -453,7 +460,8 @@ class Intervention
     /**
      * Get duration
      *
-     * @return \DateTime
+     * @return string
+     *
      */
     public function getDuration()
     {

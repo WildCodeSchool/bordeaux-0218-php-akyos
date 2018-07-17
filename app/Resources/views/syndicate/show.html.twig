@@ -2,13 +2,8 @@
 
 {% block body %}
     <h1>Syndicat de copropriété</h1>
-
-    <table class="table">
+    <table class="table table-striped table-borderless table-header-bg">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ syndicate.id }}</td>
-            </tr>
             <tr>
                 <th>Nom</th>
                 <td>{{ syndicate.name }}</td>
@@ -26,22 +21,39 @@
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropriétés</th>
-                <td>{{ syndicate.condominiumManager }}</td>
+                <th>Copropriétés</th>
+                <td>
+                {% for condominium in syndicate.condominiums %}
+                  {{ condominium.name }}
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('condominium_show', { 'id': condominium.id }) }}">
+                            <i class="si si-eye"></i>
+                        </a>
+                    </div>
+                    <br>
+                {% else %}
+                    <tr><td colspan="4">Aucune copropriété</td></tr>
+                {% endfor %}
+                </td>
+
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('syndicate_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn-danger">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ path('syndicate_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+                {{ form_end(delete_form) }}
+            </div>
+            <div class="col-xs-4 text-right">
+                <a class="btn btn-success"
+                   href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

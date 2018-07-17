@@ -4,9 +4,58 @@
     <h1>Ajouter une Copropriété</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.buildings) }}
 
-        <div class="block-content block-content-mini block-content-full border-t">
+    <ul id="building-fields-list"
+        data-prototype="{{ form_widget(form.buildings.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li><</li>'|e }}">
+        {% for buildingField in form.buildings %}
+            <li>
+                {{ form_errors(buildingField) }}
+                {{ form_widget(buildingField) }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <button type="button"
+            class="add-another-collection-widget"
+            data-list="#building-fields-list">Ajouter un bâtiment</button>
+
+        <ul id="common-fields-list"
+            data-prototype="{{ form_widget(form.commons.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li></li>'|e }}">
+            {% for commonField in form.commons %}
+                <li>
+                    {{ form_errors(commonField.name) }}
+                    {{ form_widget(commonField.name) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <button type="button"
+                class="add-another-collection-widget"
+                data-list="#common-fields-list">Ajouter un commun</button>
+
+
+
+        <ul id="parking-fields-list"
+            data-prototype="{{ form_widget(form.parkings.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li></li>'|e }}">
+            {% for parkingField in form.parkings %}
+                <li>
+                    {{ form_errors(parkingField) }}
+                    {{ form_widget(parkingField) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <button type="button"
+                class="add-another-collection-widget"
+                data-list="#parking-fields-list">Ajouter un parking</button>
+
+    <div class="block-content block-content-mini block-content-full border-t">
             <div class="row">
                 <div class="col-xs-6">
                     <a href="{{ path('condominium_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
@@ -15,7 +64,7 @@
                     <input type="submit" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
-        </div>
+    </div>
     {{ form_end(form) }}
 
 

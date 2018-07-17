@@ -20,11 +20,10 @@ class SyndicateFixtures extends Fixture
         $faker = Factory::create();
         for ($i = 0; $i < 10; $i++) {
             $syndicate = new Syndicate();
-            $syndicate->setAddress($faker->address);
-            $syndicate->setEmail($faker->companyEmail);
             $syndicate->setName($faker->company);
+            $syndicate->setAddress($faker->address);
             $syndicate->setPhone($faker->phoneNumber);
-            $syndicate->setCondominiumManager($faker->name);
+            $syndicate->setEmail($faker->companyEmail);
 
             $manager->persist($syndicate);
 

@@ -9,6 +9,7 @@
             
             <div class="side-header side-content bg-white-op">
                 <a href="{{ path('dashboard') }}">
+                    <img src="{{ asset('img/dmp-dijon.png') }}" class="img-responsive">
                 </a>
             </div>
         </div>
@@ -25,21 +26,18 @@
                             </i>Mes interventions</a>
                         <ul>
                             <li>
-                                <a href="{{ path("intervention_new") }}">Créer une nouvelle demande</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                             </li>
                             <li>
-                                <a href="{{ path("intervention_index") }}">En cours</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'a-venir'}) }}">À venir</a>
                             </li>
                             <li>
-                                <a href="{{ path("intervention_planned") }}">À venir</a>
-                            </li>
-                            <li>
-                                <a href="{{ path("intervention_history") }}">Archivées</a>
+                                <a href="{{ path("intervention_index", {'progress' : 'archivees'}) }}">Archivées</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-wrench">
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench">
                             </i>Intervenants</a>
                         <ul>
                             <li>
@@ -88,13 +86,13 @@
                         </i>Mes interventions</a>
                     <ul>
                         <li>
-                            <a href="{{ path("intervention_index") }}">En cours</a>
+                            <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                         </li>
                         <li>
-                            <a href="{{ path("intervention_planned") }}">À venir</a>
+                            <a href="{{ path("intervention_index", {'progress' : 'a-venir'}) }}">À venir</a>
                         </li>
                         <li>
-                            <a href="{{ path("intervention_history") }}">Archivés</a>
+                            <a href="{{ path("intervention_index", {'progress' : 'archivees'}) }}">Archivées</a>
                         </li>
                     </ul>
                 </li>

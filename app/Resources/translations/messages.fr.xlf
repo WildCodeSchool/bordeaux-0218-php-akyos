@@ -25,6 +25,10 @@
                      <source>Phone</source>
                      <target>Téléphone</target>
        </trans-unit>
+       <trans-unit id="Email" resname="Email">
+                     <source>Email</source>
+                     <target>E-mail</target>
+       </trans-unit>
        <trans-unit id="Competence" resname="Competence">
                      <source>Competence</source>
                      <target>Compétence</target>
@@ -47,7 +51,127 @@
        </trans-unit>
        <trans-unit id="Syndicate" resname="Syndicate">
                      <source>Syndicate</source>
-                     <target>Syndicat de copropriétés</target>
+                     <target>Syndicat de copropriété</target>
+       </trans-unit>
+       <trans-unit id="Buildings" resname="Buildings">
+                     <source>Buildings</source>
+                     <target>Bâtiment</target>
+       </trans-unit>
+       <trans-unit id="Public message" resname="Public message">
+                     <source>Public message</source>
+                     <target>Message</target>
+       </trans-unit>
+       <trans-unit id="Private message" resname="Private message">
+                     <source>Private message</source>
+                     <target>Message privé</target>
+       </trans-unit>
+       <trans-unit id="Condominium" resname="Condominium">
+                     <source>Condominium</source>
+                     <target>Copropriété</target>
+       </trans-unit>
+       <trans-unit id="Intervention type" resname="Intervention type">
+                     <source>Intervention type</source>
+                     <target>Type d'intervention</target>
+       </trans-unit>
+       <trans-unit id="Emergency" resname="Emergency">
+                     <source>Emergency</source>
+                     <target>Urgence</target>
+       </trans-unit>
+       <trans-unit id="Paid" resname="Paid">
+                     <source>Paid</source>
+                     <target>Payé</target>
+       </trans-unit>
+       <trans-unit id="Client satisfaction" resname="Client satisfaction">
+                     <source>Client statisfaction</source>
+                     <target>Satisfaction client</target>
+       </trans-unit>
+       <trans-unit id="Comment" resname="Comment">
+                     <source>Comment</source>
+                     <target>Commentaire</target>
+       </trans-unit>
+       <trans-unit id="etat" resname="etat">
+                     <source>etat</source>
+                     <target>Progression</target>
+       </trans-unit>
+       <trans-unit id="Material" resname="Material">
+                     <source>Material</source>
+                     <target>Matériels</target>
+       </trans-unit>
+       <trans-unit id="Worker" resname="Worker">
+                     <source>Worker</source>
+                     <target>Intervenant</target>
+       </trans-unit>
+       <trans-unit id="Worker number" resname="Worker number">
+                     <source>Worker number</source>
+                     <target>Nombre d'intervenants</target>
+       </trans-unit>
+       <trans-unit id="Duration" resname="Duration">
+                     <source>Duration</source>
+                     <target>Durée</target>
+       </trans-unit>
+       <trans-unit id="Intervention date" resname="Intervention date">
+                     <source>Intervention date</source>
+                     <target>Date d'intervention</target>
+       </trans-unit>
+       <trans-unit id="Hour" resname="Hour">
+                     <source>Hour</source>
+                     <target>Heure</target>
+       </trans-unit>
+       <trans-unit id="Year" resname="Year">
+                     <source>Year</source>
+                     <target>Année</target>
+       </trans-unit>
+       <trans-unit id="Month" resname="Month">
+                     <source>Month</source>
+                     <target>Mois</target>
+       </trans-unit>
+       <trans-unit id="Day" resname="Day">
+                     <source>Day</source>
+                     <target>Jour</target>
+       </trans-unit>
+       <trans-unit id="Choose a Sub Family" resname="Choose a Sub Family">
+                     <source>Choose a Sub Family</source>
+                     <target>Sélectionnez un sous ensemble</target>
+       </trans-unit>
+       <trans-unit id="no_intervention_to_display" resname="no intervention to display">
+                     <source>no intervention to display</source>
+                     <target>Pas d'intervention à afficher</target>
+       </trans-unit>
+       <trans-unit id="electrician" resname="electrician">
+                     <source>electrician</source>
+                     <target>électricien</target>
+       </trans-unit>
+       <trans-unit id="locksmith" resname="locksmith">
+                     <source>locksmith</source>
+                     <target>serrurerier</target>
+       </trans-unit>
+       <trans-unit id="plumber" resname="plumber">
+                     <source>plumber</source>
+                     <target>plombier</target>
+       </trans-unit>
+       <trans-unit id="major" resname="major">
+                     <source>major</source>
+                     <target>majeure</target>
+       </trans-unit>
+       <trans-unit id="medium" resname="medium">
+                     <source>medium</source>
+                     <target>moyenne</target>
+       </trans-unit>
+       <trans-unit id="low" resname="low">
+                     <source>low</source>
+                     <target>mineure</target>
+       </trans-unit>
+       <trans-unit id="message.sent" resname="message.sent">
+                     <source>message.sent</source>
+                     <target>Votre message a bien été envoyé à DMS, merci de votre confiance.</target>
+       </trans-unit>
+       <trans-unit id="intervention.created" resname="intervention.created">
+                     <source>intervention.created</source>
+                     <target>Votre demande d'intervention a bien été prise en compte par DMS, merci de votre confiance.</target>
+       </trans-unit>
+       <trans-unit id="Building" resname="Building">
+                     <source>Building</source>
+                     <target>Bâtiment</target>
        </trans-unit>
     </body>
   </file>

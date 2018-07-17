@@ -1,14 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Worker</h1>
-
-    <table>
+    <h1>Intervenant</h1>
+    <table class="table table-striped table-borderless table-header-bg">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ worker.id }}</td>
-            </tr>
             <tr>
                 <th>Nom</th>
                 <td>{{ worker.lastName }}</td>
@@ -35,18 +30,20 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('worker_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ path('worker_index') }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+                {{ form_end(delete_form) }}
+            </div>
+            <div class="col-xs-4 text-right">
+                <a class="btn btn-success"
+                   href="{{ path('worker_edit', { 'id': worker.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

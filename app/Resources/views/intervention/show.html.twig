@@ -2,13 +2,8 @@
 
 {% block body %}
     <h1>Interventions</h1>
-
-    <table>
+    <table class="table table-striped table-borderless table-header-bg">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ intervention.id }}</td>
-            </tr>
             <tr>
                 <th>Progression</th>
                 <td>{{ intervention.progress }}</td>
@@ -63,18 +58,20 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('intervention_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="block-content block-content-mini block-content-full border-t">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="{{ path('intervention_index', {'progress':'a-venir'}) }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+                {{ form_end(delete_form) }}
+            </div>
+            <div class="col-xs-4 text-right">
+                <a class="btn btn-success"
+                   href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

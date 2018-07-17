@@ -1,38 +1,34 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Listes des syndics</h1>
-
+    <h1>Listes des syndicats de copropriété</h1>
     <table class="table table-striped table-borderless table-header-bg">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Adresse</th>
                 <th>Téléphone</th>
                 <th>Mail</th>
-                <th>Gestionnaire de copropriétés</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for syndicate in syndicates %}
             <tr>
-                <td><a href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">{{ syndicate.id }}</a></td>
                 <td>{{ syndicate.name }}</td>
                 <td>{{ syndicate.address }}</td>
                 <td>{{ syndicate.phone }}</td>
                 <td>{{ syndicate.email }}</td>
-                <td>{{ syndicate.condominiumManager }}</td>
+
                 <td class="text-center">
                     <div class="btn-group">
                         <a class="btn btn-default"
-                           href="{{ path('intervention_show', { 'id': syndicate.id }) }}">
+                           href="{{ path('syndicate_show', { 'id': syndicate.id }) }}">
                             <i class="si si-eye">
                             </i>
                         </a>
                         <a class="btn btn-default"
-                           href="{{ path('intervention_edit', { 'id': syndicate.id }) }}">
+                           href="{{ path('syndicate_edit', { 'id': syndicate.id }) }}">
                             <i class="fa fa-pencil">
                             </i>
                         </a>
@@ -42,8 +38,7 @@
         {% endfor %}
         </tbody>
     </table>
-
     <a class="btn btn-success"
-       href="{{ path('syndicate_new') }}">Ajouter un syndic
+       href="{{ path('syndicate_new') }}">Ajouter un syndicat
     </a>
 {% endblock %}

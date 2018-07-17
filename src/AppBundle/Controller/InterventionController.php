@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Intervention controller.
@@ -16,62 +15,33 @@ use Symfony\Component\Validator\Constraints\Date;
  */
 class InterventionController extends Controller
 {
+
     /**
      * Lists today intervention entities.
      *
-     * @Route("/en-cours", name="intervention_index")
+     * @Route("/{progress}", name="intervention_index", requirements={"progress" = "en-cours|a-venir|archivees"})
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(string $progress)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy([ 'progress' => "En cours" ]);
-
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $interventions = $em->getRepository('AppBundle:Intervention')
+                ->findBy([ 'progress' => $progress]);
+        } else {
+            $interventions = $this->getDoctrine()->getRepository(Intervention::class)
+                ->findBySyndicateProgress(
+                    $this->getUser()->getSyndicate(),
+                    $progress
+                );
+        }
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
-        ));
-    }
-    /**
-     * Lists all intervention entities.
-     *
-     * @Route("/archivees", name="intervention_history")
-     * @Method("GET")
-     */
-    public function historyAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy([ 'progress' => "Terminé" ]);
-
-        return $this->render('intervention/index.html.twig', array(
-            'interventions' => $interventions,
+            'progress' => $progress,
         ));
     }
 
-    /**
-     * Lists all intervention entities.
-     *
-     * @Route("/a-venir", name="intervention_planned")
-     * @Method("GET")
-     */
-    public function plannedAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $interventions = $em->getRepository('AppBundle:Intervention')
-            ->findBy([ 'progress' => ["À planifier",
-                "À replanifier"]
-                ]);
-
-
-        return $this->render('intervention/index.html.twig', array(
-            'interventions' => $interventions,
-        ));
-    }
 
     /**
      * Creates a new intervention entity.
@@ -91,12 +61,12 @@ class InterventionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($intervention);
             $em->flush();
-/*
-            return $this->redirectToRoute(
-                'intervention_show',
-                array( 'id' => $intervention->getId() )
-            );
-  */
+
+
+            $this->addFlash('success', 'intervention.created');
+
+            return $this->redirectToRoute('intervention_show', array( 'id' => $intervention->getId() ));
+
         }
 
         return $this->render('intervention/new.html.twig', array(

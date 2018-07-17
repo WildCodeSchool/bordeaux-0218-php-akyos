@@ -50,7 +50,6 @@ class InterventionDmsType extends AbstractType
             ->add('condominium', EntityType::class, array(
                 'placeholder' => 'Choose a Sub Family',
                 'class' => 'AppBundle:Condominium'))
-
         ;
 
         $builder->get('condominium')->addEventListener(
@@ -59,7 +58,7 @@ class InterventionDmsType extends AbstractType
                 $form = $event->getForm();
                 $form->getParent()->add('building', EntityType::class, array(
                     'class' => 'AppBundle\Entity\Building',
-                    'placeholder' => 'Sélectionnez un batiment',
+                    'placeholder' => 'Sélectionnez un bâtiment',
                     'mapped' => false,
                     'required' => false,
                     'choices' => $form->getData()->getBuildings()

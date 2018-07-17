@@ -25,7 +25,7 @@ class Common
     private $building;
 
     /**
-     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Condominium", inversedBy="commons")
+     *@ORM\ManyToOne(targetEntity="Condominium", inversedBy="commons")
      */
     private $condominium;
 
