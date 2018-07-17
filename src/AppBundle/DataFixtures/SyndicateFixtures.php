@@ -24,7 +24,6 @@ class SyndicateFixtures extends Fixture
             $syndicate->setAddress($faker->address);
             $syndicate->setPhone($faker->phoneNumber);
             $syndicate->setEmail($faker->companyEmail);
-            $syndicate->setCondominiumManager($faker->name);
 
             $manager->persist($syndicate);
 

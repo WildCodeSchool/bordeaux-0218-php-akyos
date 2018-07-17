@@ -16,10 +16,10 @@
                     {{ intervention.condominium.name }}
                 {% endif %}
             </td>
-            <td>{{ intervention.interventionType }}</td>
+            <td>{{ intervention.interventionType|trans }}</td>
             <td>
                     <span class="label label-{{ intervention.emergency }}">
-                        {{ intervention.emergency }}
+                        {{ intervention.emergency|trans }}
                     </span>
             </td>
              <td>{{ intervention.progress }}</td>
