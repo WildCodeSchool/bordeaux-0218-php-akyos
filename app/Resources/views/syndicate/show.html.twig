@@ -3,7 +3,6 @@
 {% block body %}
     <h1>Syndicat de copropriété</h1>
     <table class="table">
-        <tbody>
             <tr>
                 <th>Nom</th>
                 <td>{{ syndicate.name }}</td>
@@ -21,8 +20,21 @@
                 <td>{{ syndicate.email }}</td>
             </tr>
             <tr>
-                <th>Gestionnaire de copropriétés</th>
-                <td>{{ syndicate.condominiumManager }}</td>
+                <th>Copropriétés</th>
+                <td>
+                {% for condominium in syndicate.condominiums %}
+                  {{ condominium.name }}
+                    <div class="btn-group">
+                        <a class="btn btn-default"
+                           href="{{ path('condominium_show', { 'id': condominium.id }) }}">
+                            <i class="si si-eye"></i>
+                        </a>
+                    </div>
+                    <br>
+                    {% else %}
+        <tr><td colspan="4">Aucune copropriété</td></tr>
+                {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

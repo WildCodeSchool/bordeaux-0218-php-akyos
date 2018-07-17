@@ -18,8 +18,7 @@ class SyndicateType extends AbstractType
             ->add('name')
             ->add('address')
             ->add('phone')
-            ->add('email')
-            ->add('condominiumManager');
+            ->add('email');
     }/**
      * {@inheritdoc}
      */
