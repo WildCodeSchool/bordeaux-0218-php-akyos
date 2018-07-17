@@ -125,7 +125,7 @@ class Intervention
     /**
      * @var int
      *
-     * @ORM\Column(name="worker_number", type="integer")
+     * @ORM\Column(name="worker_number", type="integer", nullable=true)
      */
     private $workerNumber;
 
