@@ -159,7 +159,11 @@
        </trans-unit>
        <trans-unit id="message.sent" resname="message.sent">
                      <source>message.sent</source>
-                     <target>Votre message a bien été envoyé à DMS, merci de votre confiance. pom ta tala</target>
+                     <target>Votre message a bien été envoyé à DMS, merci de votre confiance.</target>
+       </trans-unit>
+       <trans-unit id="Building" resname="Building">
+                     <source>Building</source>
+                     <target>Bâtiment</target>
        </trans-unit>
     </body>
   </file>
