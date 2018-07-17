@@ -161,6 +161,10 @@
                      <source>message.sent</source>
                      <target>Votre message a bien été envoyé à DMS, merci de votre confiance.</target>
        </trans-unit>
+       <trans-unit id="intervention.created" resname="intervention.created">
+                     <source>intervention.created</source>
+                     <target>Votre demande d'intervention a bien été prise en compte par DMS, merci de votre confiance.</target>
+       </trans-unit>
        <trans-unit id="Building" resname="Building">
                      <source>Building</source>
                      <target>Bâtiment</target>
