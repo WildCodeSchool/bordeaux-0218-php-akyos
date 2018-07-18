@@ -13,11 +13,10 @@ use AppBundle\Entity\Building;
 class UnitRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function findUnitByBuilding($buildingId)
+    public function findUnitByBuilding(int $buildingId)
     {
         return $this->createQueryBuilder('u')
-            //TODO
-            ->andWhere('unit.building = :building_id')
+            ->where('u.building = :building_id')
             ->setParameter('building_id', $buildingId)
             ->getQuery()->getResult();
     }

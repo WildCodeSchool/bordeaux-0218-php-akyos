@@ -137,6 +137,11 @@ class Intervention
     private $duration;
 
 
+    /**
+     *
+     *
+     */
+
      /****************************************/
     /* Manual Generated methods / variables */
     /***************************************/

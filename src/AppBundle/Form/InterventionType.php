@@ -87,7 +87,7 @@ class InterventionType extends AbstractType
                 'choices' => $condominium ? $condominium->getBuildings() : [],
                 'attr' =>[
                     'class' => 'dynamicField',
-                        'data-next' => 'interventionPlaceType'
+                    'data-next' => 'interventionPlaceType'
                 ]
             ]
         );
@@ -96,14 +96,14 @@ class InterventionType extends AbstractType
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) {
                 $form = $event->getForm();
-                $this->addInterventionPlaceType($form->getParent());
+                $this->addInterventionPlaceType($form->getParent(), $form->getData());
             }
         );
 
         $form->add($builder->getForm());
     }
 
-    private function addInterventionPlaceType(FormInterface $form)
+    private function addInterventionPlaceType(FormInterface $form, ?Building $building)
     {
 
         $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
@@ -122,16 +122,16 @@ class InterventionType extends AbstractType
                 ),
                 'attr' =>[
                     'class' => 'dynamicField',
-                        'data-next' => 'interventionPlace'
+                    'data-next' => 'Unit'
                 ]
             ]
         );
 
         $builder->addEventListener(
             FormEvents::POST_SUBMIT,
-            function (FormEvent $event) {
+            function (FormEvent $event) use ($building) {
                 $form = $event->getForm();
-                $this->addInterventionPlaceField($form->getParent(), $form->getData());
+                $this->addInterventionPlaceField($form->getParent(), $form->getData(),  $building);
             }
         );
 
@@ -139,31 +139,39 @@ class InterventionType extends AbstractType
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '')
+    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', ?Building $building)
     {
 
-        $class = 'AppBundle\Entity\\' . $interventionPlaceType;
+        $class = 'AppBundle:' . $interventionPlaceType;
+
         $data = $form->getData();
 
-        if (class_exists($class)) {
-            $buildingId = $data['building'];
-            $form->add(
+        if (class_exists('AppBundle\Entity\\' . $interventionPlaceType)) {
+            $buildingId = $building ? $building->getId() : null;
+            $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
                 $interventionPlaceType,
                 EntityType::class,
+                null,
                 [
-                'class' => $class,
-                'placeholder' => 'Sélectionnez un lieu d\'intervention',
-                'mapped' => true,
-                'required' => false,
-                'auto_initialize' => false,
-                'attr' =>[
-                    'class' => 'dynamicField'
-                ],
-                'query_builder' => function (UnitRepository $er) use ($buildingId) {
-                    return $er->findUnitByBuilding($buildingId);
-                },
+                    'class' => $class,
+                    'placeholder' => 'Sélectionnez un lieu d\'intervention',
+                    'mapped' => false,
+                    'required' => false,
+                    'auto_initialize' => false,
+                    'query_builder' => function (UnitRepository $er) use ($buildingId) {
+                        return $er->createQueryBuilder('u')
+                            ->where('u.building = :building_id')
+                            ->setParameter('building_id', $buildingId)
+                            ;
+                    },
+                    'attr' =>[
+                        'class' => 'dynamicField',
+                        'data-next' => null
+                    ],
                 ]
             );
+
+            $form->add($builder->getForm());
         }
     }
 
