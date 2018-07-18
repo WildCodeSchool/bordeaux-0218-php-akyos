@@ -173,6 +173,39 @@
                      <source>Building</source>
                      <target>Bâtiment</target>
        </trans-unit>
+       <trans-unit id="Construction year" resname="Construction year">
+                     <source>Construction year</source>
+                     <target>Année de construction</target>
+       </trans-unit>
+       <trans-unit id="Constructor" resname="Constructor">
+                     <source>Constructor</source>
+                     <target>Constructeur</target>
+       </trans-unit>
+       <trans-unit id="Category" resname="Category">
+                     <source>Category</source>
+                     <target>Catégorie</target>
+       </trans-unit>
+       <trans-unit id="Energy class" resname="Energy class">
+                     <source>Energy class</source>
+                     <target>Classe énergétique</target>
+       </trans-unit>
+       <trans-unit id="Units number" resname="Units number">
+                     <source>Units number</source>
+                     <target>Nombre de lots</target>
+       </trans-unit>
+       <trans-unit id="Floors number" resname="Floors number">
+                     <source>Floors number</source>
+                     <target>Nombre d'étages</target>
+       </trans-unit>
+
+       <trans-unit id="Commons" resname="Commons">
+                     <source>Commons</source>
+                     <target>Communs</target>
+       </trans-unit>
+       <trans-unit id="Parking space" resname="Parking space">
+                     <source>Parking space</source>
+                     <target>Places de parking</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>
