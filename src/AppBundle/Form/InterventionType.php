@@ -103,7 +103,7 @@ class InterventionType extends AbstractType
         $form->add($builder->getForm());
     }
 
-    private function addInterventionPlaceType(FormInterface $form, ?Building $building)
+    private function addInterventionPlaceType(FormInterface $form, $building)
     {
 
         $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
@@ -139,7 +139,7 @@ class InterventionType extends AbstractType
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', ?Building $building)
+    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', $building)
     {
 
         $class = 'AppBundle:' . $interventionPlaceType;
