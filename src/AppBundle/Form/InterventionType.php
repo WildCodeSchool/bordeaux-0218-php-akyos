@@ -144,8 +144,6 @@ class InterventionType extends AbstractType
 
         $class = 'AppBundle:' . $interventionPlaceType;
 
-        $data = $form->getData();
-
         if (class_exists('AppBundle\Entity\\' . $interventionPlaceType)) {
             $buildingId = $building ? $building->getId() : null;
             $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
@@ -158,7 +156,7 @@ class InterventionType extends AbstractType
                     'mapped' => true,
                     'required' => false,
                     'auto_initialize' => false,
-                    'query_builder' => function (UnitRepository $er) use ($buildingId) {
+                    'query_builder' => function (EntityRepository $er) use ($buildingId) {
                         return $er->createQueryBuilder('u')
                             ->where('u.building = :building_id')
                             ->setParameter('building_id', $buildingId)

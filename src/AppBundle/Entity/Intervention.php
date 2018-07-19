@@ -51,12 +51,18 @@ class Intervention
      */
     private $id;
 
+
+    const TO_PLAN = 'a-planifier';
+    const INCOMING = 'a-venir';
+    const IN_PROGRESS = 'en-cours';
+    const ARCIVED = 'archivees';
+
     /**
      * @var integer
      *
      * @ORM\Column(name="progress", type="text", nullable=true)
      */
-    private $progress;
+    private $progress = self::TO_PLAN;
 
     /**
      * @var string

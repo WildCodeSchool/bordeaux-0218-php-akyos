@@ -30,7 +30,7 @@ class CondoFixtures extends Fixture implements DependentFixtureInterface
             $condominium->setEmail($faker->companyEmail);
             $condominium->setPublicMessage($faker->text);
             $condominium->setPrivateMessage($faker->text);
-            $condominium->setSyndicate($this->getReference('syndicate1'));
+            $condominium->setSyndicate($this->getReference('syndicate' . ($i%2) ));
 
             $manager->persist($condominium);
 

@@ -36,6 +36,9 @@
                         <li>
                             <a href="{{ path("intervention_new", {'progress' : 'en-cours'}) }}">Créer</a>
                         </li>
+                        <li>
+                            <a href="{{ path("intervention_index", {'progress' : 'a-planifier'}) }}">À planifier</a>
+                        </li>
                         {% endif %}
                         <li>
                             <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>

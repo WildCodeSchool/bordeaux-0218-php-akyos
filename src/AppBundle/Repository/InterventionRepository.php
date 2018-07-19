@@ -53,4 +53,14 @@ class InterventionRepository extends \Doctrine\ORM\EntityRepository
             ->getResult()
             ;
     }
+
+    public function countRequests(string $field, $value)
+    {
+        return $this->createQueryBuilder('i')
+            ->select('count(i.id)')
+            ->where('i.'.$field.' = :value')
+            ->setParameter('value', $value)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

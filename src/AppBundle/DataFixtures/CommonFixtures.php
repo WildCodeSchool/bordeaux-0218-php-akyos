@@ -24,6 +24,8 @@ class CommonFixtures extends Fixture implements DependentFixtureInterface
             $common = new Common();
             $common->setName($faker->name);
 
+            $common->setBuilding($this->getReference('building' . ($i%34)));
+
             $manager->persist($common);
 
             $this->addReference('common' . $i, $common);
