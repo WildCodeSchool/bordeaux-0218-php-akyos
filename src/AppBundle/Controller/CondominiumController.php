@@ -30,14 +30,12 @@ class CondominiumController extends Controller
             return $this->render('condominium/index.html.twig', array(
                 'condominia' => $condominium,
             ));
-
         } else {
             $condominium = $em->getRepository('AppBundle:Condominium')
                 ->findBy(['syndicate'=>$this->getUser()->getSyndicate()->getId()]);
             return $this->render('condominium/index.html.twig', array(
                 'condominia' => $condominium,
             ));
-
         }
     }
 
