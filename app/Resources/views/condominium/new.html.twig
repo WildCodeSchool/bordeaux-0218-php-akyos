@@ -6,9 +6,9 @@
     {{ form_start(form) }}
     {{ form_row(form.name) }}
     {{ form_row(form.address) }}
-    {{ form_row(form.buildings) }}
 
-    <ul id="building-fields-list"
+
+    {#}<ul id="building-fields-list"
         data-prototype="{{ form_widget(form.buildings.vars.prototype)|e }}"
         data-widget-tags="{{ '<li><</li>'|e }}">
         {% for buildingField in form.buildings %}
@@ -53,8 +53,9 @@
 
         <button type="button"
                 class="add-another-collection-widget"
-                data-list="#parking-fields-list">Ajouter un parking</button>
+                data-list="#parking-fields-list">Ajouter un parking</button>{#}
 
+    {{ form_end(form) }}
     <div class="block-content block-content-mini block-content-full border-t">
             <div class="row">
                 <div class="col-xs-6">
@@ -65,7 +66,6 @@
                 </div>
             </div>
     </div>
-    {{ form_end(form) }}
 
 
 {% endblock %}

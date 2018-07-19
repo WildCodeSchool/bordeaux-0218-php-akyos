@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Condominium;
+use AppBundle\Entity\Parking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -43,11 +44,11 @@ class CondominiumController extends Controller
         $condominium = new Condominium();
         $form = $this->createForm('AppBundle\Form\CondominiumType', $condominium);
 
-        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            $form->add('syndicate');
-        } else {
-            $condominium->setSyndicate($this->getUser()->getSyndicate());
-        }
+        //if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            //$form->add('syndicate');
+        //} else {
+            //$condominium->setSyndicate($this->getUser()->getSyndicate());
+        //}
 
         $form->handleRequest($request);
 

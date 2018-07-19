@@ -26,7 +26,7 @@ class Parking
     private $building;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Condominium", inversedBy="parkings")
+     * @ORM\ManyToOne(targetEntity="Condominium", inversedBy="parkings", cascade={"remove"})
      *
      */
     private $condominium;
