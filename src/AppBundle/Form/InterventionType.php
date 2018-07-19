@@ -155,7 +155,7 @@ class InterventionType extends AbstractType
                 [
                     'class' => $class,
                     'placeholder' => 'Sélectionnez un lieu d\'intervention',
-                    'mapped' => false,
+                    'mapped' => true,
                     'required' => false,
                     'auto_initialize' => false,
                     'query_builder' => function (UnitRepository $er) use ($buildingId) {

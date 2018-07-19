@@ -81,6 +81,10 @@ class Unit
      */
     private $comment;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="unit")
+     */
+    private $interventions;
 
     /**
      * Get id
@@ -328,5 +332,41 @@ class Unit
     public function __toString()
     {
         return $this->number . " étage: " . $this->floor;
+    }
+
+    /**
+     * Add intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return Unit
+     */
+    public function addIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions[] = $intervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        return $this->interventions->removeElement($intervention);
+    }
+
+    /**
+     * Get interventions.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterventions()
+    {
+        return $this->interventions;
     }
 }
