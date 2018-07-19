@@ -25,11 +25,20 @@ class CondominiumController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $condominia = $em->getRepository('AppBundle:Condominium')->findAll();
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $condominium = $em->getRepository('AppBundle:Condominium')->findAll();
+            return $this->render('condominium/index.html.twig', array(
+                'condominia' => $condominium,
+            ));
 
-        return $this->render('condominium/index.html.twig', array(
-            'condominia' => $condominia,
-        ));
+        } else {
+            $condominium = $em->getRepository('AppBundle:Condominium')
+                ->findBy(['syndicate'=>$this->getUser()->getSyndicate()->getId()]);
+            return $this->render('condominium/index.html.twig', array(
+                'condominia' => $condominium,
+            ));
+
+        }
     }
 
     /**
