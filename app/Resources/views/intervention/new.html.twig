@@ -1,24 +1,31 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Faire une demande</h1>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <div class="block-content block-content-mini block-content-full border-t">
-        <div class="row">
-            <div class="col-xs-6">
-                <a href="{{ path('intervention_index', {'progress' : 'archivees'}) }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
-            </div>
-            <div class="col-xs-6 text-right">
-                <input type="submit" class="btn btn-success" value="Ajouter" />
+    <div class="content bg-gray-lighter hidden-print">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    Faire une demande d'intervention
+                </h1>
             </div>
         </div>
     </div>
-    {{ form_end(form) }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-   <script src="/js/custom.js"></script>
+    <div class="block block-bordered">
+        <div class="block-content">
+            {{ form_start(form, {'attr' : { 'class' : 'form-horizontal push-10-t push-10'} }) }}
+            {{ form_widget(form) }}
+            <div class="block-content block-content-mini block-content-full border-t">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="{{ path('intervention_index', {'progress' : 'a-venir'}) }}"
+                           class="wizard-prev btn btn-warning">Retour à la liste</a>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <input type="submit" class="btn btn-success" value="Ajouter"/>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

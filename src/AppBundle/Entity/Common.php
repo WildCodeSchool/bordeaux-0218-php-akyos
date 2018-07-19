@@ -12,6 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Common
 {
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
     /**
      * @ORM\OneToMany(targetEntity="Component", mappedBy="common")
      *
@@ -29,21 +45,11 @@ class Common
      */
     private $condominium;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="common")
      */
-    private $name;
+    private $interventions;
 
 
     /**
@@ -162,5 +168,41 @@ class Common
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Add intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return Common
+     */
+    public function addIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions[] = $intervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        return $this->interventions->removeElement($intervention);
+    }
+
+    /**
+     * Get interventions.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterventions()
+    {
+        return $this->interventions;
     }
 }

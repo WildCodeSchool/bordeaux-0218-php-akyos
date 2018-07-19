@@ -6,7 +6,7 @@
         <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
         <div class="sidebar-content">
             <!-- Side Header -->
-            
+
             <div class="side-header side-content bg-white-op">
                 <a href="{{ path('dashboard') }}">
                     <img src="{{ asset('img/dmp-dijon.png') }}" class="img-responsive">
@@ -15,76 +15,28 @@
         </div>
         <!-- END Side Header -->
         <!-- Side Content DMS -->
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="side-content side-content-full">
-                <ul class="nav-main">
-                    <li>
-                        <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
-                            </i>Mes interventions</a>
-                        <ul>
-                            <li>
-                                <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
-                            </li>
-                            <li>
-                                <a href="{{ path("intervention_index", {'progress' : 'a-venir'}) }}">À venir</a>
-                            </li>
-                            <li>
-                                <a href="{{ path("intervention_index", {'progress' : 'archivees'}) }}">Archivées</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench">
-                            </i>Intervenants</a>
-                        <ul>
-                            <li>
-                                <a href="{{ path('worker_index') }}">Liste des intervenants</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('worker_new') }}">Créer nouvel intervenant</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="fa fa-building">
-                            </i>Syndicats</a>
-                        <ul>
-                            <li>
-                                <a href="{{ path('syndicate_new') }}">Créer un nouveau syndicat</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('syndicate_index') }}">Liste de tous les syndicats</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="si si-user-follow">
-                            </i>Créer un nouvel utilisateur</a>
-                        <ul>
-                            <li>
-                                <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
-
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-        <!-- END Side Content DMS -->
-        {% else %}
-        <!-- Side Content -->
         <div class="side-content side-content-full">
             <ul class="nav-main">
+                {% if  not is_granted('ROLE_ADMIN') %}
                 <li>
-                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'intervention</a>
+                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
                 </li>
+                {% endif %}
                 <li>
-                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-file-text-o">
-                        </i>Mes interventions</a>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">
+                        <i class="fa fa-file-text-o"></i>
+                        {% if  is_granted('ROLE_ADMIN') %}
+                            Interventions
+                        {% else %}
+                            Mes interventions
+                        {% endif %}
+                    </a>
                     <ul>
+                        {% if  is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path("intervention_new", {'progress' : 'en-cours'}) }}">Créer</a>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href="{{ path("intervention_index", {'progress' : 'en-cours'}) }}">En cours</a>
                         </li>
@@ -96,8 +48,55 @@
                         </li>
                     </ul>
                 </li>
+                {% if  is_granted('ROLE_ADMIN') %}
                 <li>
-                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i class="fa fa-building">
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench">
+                        </i>Intervenants</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('worker_index') }}">Liste des intervenants</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('worker_new') }}">Créer nouvel intervenant</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i
+                                class="fa fa-building">
+                        </i>Syndicats</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('syndicate_new') }}">Créer un nouveau syndicat</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('syndicate_index') }}">Liste de tous les syndicats</a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i
+                                class="si si-user-follow">
+                        </i>Utilisateurs</a>
+                    <ul>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_index') }}">Voir les utilisateurs</a>
+
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i
+                                class="fa fa-building">
                         </i>Mes Copropriétés</a>
                     <ul>
                         <li>
@@ -108,14 +107,14 @@
                         </li>
                     </ul>
                 <li>
-
-                <li>
-                    <a href="{{ path('contact_index') }}"><i class="fa fa-envelope-o"></i>Nous contacter</a>
-                </li>
+                {% if not is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path('contact_index') }}"><i class="fa fa-envelope-o"></i>Nous contacter</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
-        <!-- END Side Content -->
-        {% endif %}
+        <!-- END Side Content DMS -->
     </div>
     <!-- END Sidebar Scroll Container -->
 </nav>

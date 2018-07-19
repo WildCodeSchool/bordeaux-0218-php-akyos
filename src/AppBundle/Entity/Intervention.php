@@ -27,6 +27,22 @@ class Intervention
     private $condominium;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit", inversedBy="interventions")
+     */
+    private $unit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Common", inversedBy="interventions")
+     */
+    private $common;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Parking", inversedBy="interventions")
+     */
+    private $parking;
+
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -106,7 +122,7 @@ class Intervention
      *
      * @ORM\Column(name="paid", type="boolean")
      */
-    private $paid;
+    private $paid = false;
 
     /**
      * @var int
@@ -136,6 +152,11 @@ class Intervention
      */
     private $duration;
 
+
+    /**
+     *
+     *
+     */
 
      /****************************************/
     /* Manual Generated methods / variables */
@@ -514,5 +535,101 @@ class Intervention
     public function getCondominium()
     {
         return $this->condominium;
+    }
+
+    /**
+     * Set realisationDate.
+     *
+     * @param \DateTime|null $realisationDate
+     *
+     * @return Intervention
+     */
+    public function setRealisationDate($realisationDate = null)
+    {
+        $this->realisationDate = $realisationDate;
+
+        return $this;
+    }
+
+    /**
+     * Get realisationDate.
+     *
+     * @return \DateTime|null
+     */
+    public function getRealisationDate()
+    {
+        return $this->realisationDate;
+    }
+
+    /**
+     * Set unit.
+     *
+     * @param \AppBundle\Entity\Unit|null $unit
+     *
+     * @return Intervention
+     */
+    public function setUnit(\AppBundle\Entity\Unit $unit = null)
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Get unit.
+     *
+     * @return \AppBundle\Entity\Unit|null
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * Set common.
+     *
+     * @param \AppBundle\Entity\Common|null $common
+     *
+     * @return Intervention
+     */
+    public function setCommon(\AppBundle\Entity\Common $common = null)
+    {
+        $this->common = $common;
+
+        return $this;
+    }
+
+    /**
+     * Get common.
+     *
+     * @return \AppBundle\Entity\Common|null
+     */
+    public function getCommon()
+    {
+        return $this->common;
+    }
+
+    /**
+     * Set parking.
+     *
+     * @param \AppBundle\Entity\Parking|null $parking
+     *
+     * @return Intervention
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking.
+     *
+     * @return \AppBundle\Entity\Parking|null
+     */
+    public function getParking()
+    {
+        return $this->parking;
     }
 }

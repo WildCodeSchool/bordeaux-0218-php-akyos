@@ -8,6 +8,7 @@ require('jquery-countto');
 require('jquery-placeholder');
 require('js-cookie');
 require('./app.js');
+require('./intervention.js');
 require('./add-collection-widget.js');
 require('slick');
 require('chartjs');
