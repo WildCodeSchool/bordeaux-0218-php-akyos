@@ -27,6 +27,9 @@ class ParkingFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($parking);
 
             $this->addReference('parking' . $i, $parking);
+
+
+            $parking->setBuilding($this->getReference('building' . ($i%34)));
         }
         $manager->flush();
     }

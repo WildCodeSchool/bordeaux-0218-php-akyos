@@ -26,12 +26,15 @@ class DashboardController extends Controller
             $interventions = $em->getRepository('AppBundle:Intervention')
                 ->findBy([ 'interventionDate' => new \DateTime(date('Y-m-d')) ]);
         } else {
-            $interventions = $this->getDoctrine()->getRepository(Intervention::class)
+            $interventions = $em->getRepository(Intervention::class)
                 ->findBySyndicateAndDate($this->getUser()->getSyndicate(), new \DateTime(date('Y-m-d')));
         }
 
+        $newRequests = $em->getRepository(Intervention::class)->countRequests('progress', Intervention::TO_PLAN);
+
         return $this->render('dashboard/index.html.twig', [
-            'interventions' => $interventions
+            'interventions' => $interventions,
+            'newRequests' => $newRequests
         ]);
     }
 }

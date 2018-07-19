@@ -9,11 +9,12 @@
 namespace AppBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Unit;
 use Faker\Factory;
 
-class UnitFixtures extends Fixture
+class UnitFixtures extends Fixture implements DependentFixtureInterface
 {
 
     public function load(ObjectManager $manager)
@@ -28,6 +29,7 @@ class UnitFixtures extends Fixture
             $unit->setPhone($faker->phoneNumber);
             $unit->setEmail($faker->freeEmail);
             $unit->setComment($faker->text);
+            $unit->setBuilding($this->getReference('building' . ($i%34)));
 
             $manager->persist($unit);
 
