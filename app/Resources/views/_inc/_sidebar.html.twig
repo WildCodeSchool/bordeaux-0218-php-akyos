@@ -47,7 +47,7 @@
                             <a href="{{ path("intervention_index", {'progress' : 'a-venir'}) }}">À venir</a>
                         </li>
                         <li>
-                            <a href="{{ path("intervention_index", {'progress' : 'archivees'}) }}">Archivées</a>
+                            <a href="{{ path("intervention_index", {'progress' : 'realisees'}) }}">Archivées</a>
                         </li>
                     </ul>
                 </li>
@@ -98,9 +98,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}"><i
-                                class="fa fa-building">
-                        </i>Mes Copropriétés</a>
+                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{ path('condominium_index') }}">
+                        <i class="fa fa-building"></i>
+                            Copropriétés
+                    </a>
                     <ul>
                         <li>
                             <a href="{{ path('condominium_index') }}">Voir toutes</a>

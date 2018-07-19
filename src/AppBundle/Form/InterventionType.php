@@ -52,20 +52,19 @@ class InterventionType extends AbstractType
 
             $builder
                 ->add('interventionType', ChoiceType::class, [
-
                     'placeholder' => 'Sélectionnez un type d\'intervention',
                     'choices' => [
-                        'Électricité' => '',
-                        'Plomberie' => '',
-                        'Serrurerie' => '',
-                        'Autre' => '',
+                        'Électricité' => 'electrician',
+                        'Plomberie' => 'plumber',
+                        'Serrurerie' => 'locksmith',
+                        'Autre' => 'other',
                     ]])
                 ->add('emergency', ChoiceType::class, [
                     'placeholder' => 'Sélectionnez l\'urgence de l\'intervention',
                     'choices' => [
-                        'Basse' => 'Low',
-                        'Moyen' => 'Medium',
-                        'Urgent' => 'High',
+                        'Basse' => 'low',
+                        'Moyen' => 'medium',
+                        'Urgent' => 'high',
                     ]])
                 ->add('description')
                 ->add('comment');

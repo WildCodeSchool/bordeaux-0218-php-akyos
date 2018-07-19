@@ -1,76 +1,144 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Interventions</h1>
-    <table class="table table-striped table-borderless table-header-bg">
-        <tbody>
-            <tr>
-                <th>Progression</th>
-                <td>{{ intervention.progress }}</td>
-            </tr>
-            <tr>
-                <th>Type d'intervention</th>
-                <td>{{ intervention.interventionType }}</td>
-            </tr>
-            <tr>
-                <th>Équipement</th>
-                <td>{{ intervention.material }}</td>
-            </tr>
-            <tr>
-                <th>Niveau d'urgence</th>
-                <td>{{ intervention.emergency }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ intervention.description }}</td>
-            </tr>
-            <tr>
-                <th>Date de la demande</th>
-                <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Date d'intervention</th>
-                <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Dernière édition</th>
-                <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Régler</th>
-                <td>{% if intervention.paid %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Niveau de satisfaction</th>
-                <td>{{ intervention.clientSatisfaction }}</td>
-            </tr>
-            <tr>
-                <th>Commentaire</th>
-                <td>{{ intervention.comment }}</td>
-            </tr>
-            <tr>
-                <th>Téléphone intervenant</th>
-                <td>{{ intervention.workerNumber }}</td>
-            </tr>
-            <tr>
-                <th>Durée</th>
-                <td>{% if intervention.duration %}{{ intervention.duration|date('H:i:s') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="block-content block-content-mini block-content-full border-t">
-        <div class="row">
-            <div class="col-xs-4">
-                <a href="{{ path('intervention_index', {'progress':'a-venir'}) }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
+
+
+
+
+    <div class="block">
+        <div class="block-header">
+            <ul class="block-options">
+                <li>
+                    <!-- Print Page functionality is initialized in App() -> uiHelperPrint() -->
+                    <button type="button" onclick="App.initHelper('print-page');"><i class="si si-printer"></i> Imprimer
+                    </button>
+                </li>
+            </ul>
+            <h3 class="block-title">#INTER{{ intervention.id }}</h3>
+        </div>
+        <div class="block-content block-content-narrow">
+            <!-- Invoice Info -->
+            <div class="h1 text-center push-30-t push-30 hidden-print">Intervention</div>
+            <hr class="hidden-print">
+            <div class="row items-push-2x">
+                <!-- Company Info -->
+                <div class="col-xs-6 col-sm-4 col-lg-3">
+                    <p class="h2 font-w400 push-5">{{ intervention.condominium.name }}</p>
+                    <address>
+                        {{ intervention.condominium.address }}
+                    </address>
+                </div>
+                <!-- END Company Info -->
+
+                <!-- Client Info -->
+                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                    <p class="h2 font-w400 push-5">Lieu d'intervention</p>
+                    {% if intervention.common is not empty %}
+                        {{ intervention.common.name }}
+                    {% endif %}
+                    {% if intervention.unit is not empty %}
+                        {{ intervention.unit.firstName }}
+                        {{ intervention.unit.lastName }}
+                    {% endif %}
+                    {% if intervention.parking is not empty %}
+                        {{ intervention.parking.name }}
+                    {% endif %}
+                </div>
+                <!-- END Client Info -->
             </div>
-            <div class="col-xs-4 text-center">
-                {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn btn-danger" >
-                {{ form_end(delete_form) }}
+            <!-- END Invoice Info -->
+
+            <!-- Table -->
+            <div class="table-responsive push-50">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                    <tr>
+                        <th>Progression</th>
+                        <td>{{ intervention.progress }}</td>
+                    </tr>
+                    <tr>
+                        <th>Type d'intervention</th>
+                        <td>{{ intervention.interventionType }}</td>
+                    </tr>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <tr>
+                            <th>Équipement</th>
+                            <td>{{ intervention.material }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Niveau d'urgence</th>
+                        <td>{{ intervention.emergency }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ intervention.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de la demande</th>
+                        <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Date d'intervention</th>
+                        <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    </tr>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <tr>
+                            <th>Dernière édition</th>
+                            <td>{% if intervention.modificationDate %}{{ intervention.modificationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Réglée</th>
+                        <td>{% if intervention.paid %}Oui{% else %}Non{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Niveau de satisfaction</th>
+                        <td>{{ intervention.clientSatisfaction }}</td>
+                    </tr>
+                    <tr>
+                        <th>Commentaire</th>
+                        <td>{{ intervention.comment }}</td>
+                    </tr>
+                    {% if intervention.worker is not empty %}
+                        <tr>
+                            <th>Téléphone intervenant</th>
+                            <td><a href="tel:{{ intervention.worker.phone }}">{{ intervention.worker.phone }}</a></td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Durée</th>
+                        <td>{% if intervention.duration %}{{ intervention.duration }}{% endif %}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-xs-4 text-right">
-                <a class="btn btn-success"
-                   href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Modifier</a>
+            <!-- END Table -->
+
+            <!-- Footer -->
+            <hr class="hidden-print">
+            <p class="text-muted text-center">
+                <small>Thank you very much for doing business with us. We look forward to working with you again!
+                </small>
+            </p>
+            <!-- END Footer -->
+        </div>
+        <div class="block-content block-content-mini block-content-full border-t">
+            <div class="row">
+                <div class="col-xs-4">
+                    <a href="{{ path('intervention_index', {'progress':'a-venir'}) }}" class="wizard-prev btn btn-warning">Retour
+                        à la liste</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Supprimer" class="btn btn-danger">
+                    {{ form_end(delete_form) }}
+                </div>
+                <div class="col-xs-4 text-right">
+                    <a class="btn btn-success"
+                       href="{{ path('intervention_edit', { 'id': intervention.id }) }}">Modifier</a>
+                </div>
             </div>
         </div>
     </div>

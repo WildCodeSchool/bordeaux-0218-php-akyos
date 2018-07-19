@@ -29,17 +29,20 @@
     {% for intervention in interventions %}
         <div class="col-sm-3">
             <div class="block block-themed">
-                <div class="block-header bg-primary">
+                <div class="block-header bg-{{ intervention.interventionType }}">
                     <ul class="block-options">
                         <li>
-                            <button type="button"><i class="si si-settings"></i></button>
+                            <a href="{{ path('intervention_show', {'id': intervention.id }) }}">
+                                <i class="si si-eye"></i>
+                            </a>
                         </li>
                     </ul>
-                    <h3 class="block-title"></h3>
+                    <h3 class="block-title">{{ intervention.interventionType }}</h3>
                 </div>
                 <div class="block-content">
                     <p>{{ intervention.description }}
-                        <em>{{ intervention.interventionType }}</em></p>
+                    </p>
+                    <em><a href="{{ path('worker_show', {'id': intervention.worker.id }) }}">{{ intervention.worker.lastName }}{{ intervention.worker.firstName }}</a></em>
                 </div>
             </div>
         </div>

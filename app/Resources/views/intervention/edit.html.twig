@@ -1,7 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Demande d'intervention</h1>
+<div class="content bg-gray-lighter hidden-print">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                Éditer la demande d'intervention
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="block block-bordered">
+    <div class="block-content">
     {{ form_start(edit_form) }}
     {{ form_widget(edit_form) }}
     <div class="block-content block-content-mini block-content-full border-t">
@@ -15,4 +25,6 @@
         </div>
     </div>
     {{ form_end(edit_form) }}
+    </div>
+</div>
 {% endblock %}

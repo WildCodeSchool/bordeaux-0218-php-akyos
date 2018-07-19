@@ -23,6 +23,11 @@ class Parking
     private $id;
 
     /**
+     * @ORM\Column(name="name", type="string")
+     */
+    private $name;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="parking_space", type="integer")
@@ -92,6 +97,11 @@ class Parking
     public function __construct()
     {
         $this->components = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+      return 'Parking ' . $this->parkingSpace . ' places';
     }
 
     /**
@@ -210,5 +220,29 @@ class Parking
     public function getInterventions()
     {
         return $this->interventions;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return Parking
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

@@ -23,10 +23,10 @@ class InterventionDmsType extends AbstractType
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
-                    'À planifier' => 'À planifier',
-                    'En cours' => 'En cours',
-                    'Terminé' => 'Terminé',
-                    'À replanifier' => 'À replanifier',
+                    'À planifier' => 'a-planifier',
+                    'En cours' => 'en-cours',
+                    'Terminé' => 'realisees',
+                    'Planifié' => 'a-venir',
                 ),
                 'label' => 'etat'
             ))
@@ -34,11 +34,7 @@ class InterventionDmsType extends AbstractType
             ->add('worker')
 
             ->add('workerNumber')
-            ->add('duration', TimeType::class, array(
-                'placeholder' => array(
-                    'hour' => 'Heure', 'minute' => 'Minute',
-                )
-            ))
+            ->add('duration')
             ->add('interventionDate')
             ->add('paid')
             ->add('clientSatisfaction', RangeType::class, array(
