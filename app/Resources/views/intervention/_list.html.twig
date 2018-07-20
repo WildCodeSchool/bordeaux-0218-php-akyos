@@ -10,7 +10,6 @@
         {% if is_granted('ROLE_ADMIN') %}
             <th>Avis</th>
         {% endif %}
-        <th>Progression</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -35,7 +34,6 @@
             {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ intervention.clientSatisfaction }}</td>
             {% endif %}
-            <td>{{ intervention.progress }}</td>
             <td class="text-center">
                 <div class="btn-group">
                     <a class="btn btn-default"
