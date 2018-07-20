@@ -15,8 +15,7 @@ class CommonType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('building')
-            ->add('condominium');
+            ->add('building');
     }/**
      * {@inheritdoc}
      */
