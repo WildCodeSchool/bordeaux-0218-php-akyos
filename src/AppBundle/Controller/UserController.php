@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -23,9 +24,15 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
 
-        $users = $em->getRepository('AppBundle:User')->findAll();
+
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $users = $em->findAll();
+        } else {
+            $users = $em->findBy(['syndicate'=>$this->getUser()->getSyndicate()->getId()]);
+        }
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,

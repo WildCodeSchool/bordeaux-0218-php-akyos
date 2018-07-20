@@ -32,9 +32,11 @@
         </tbody>
     </table>
 
+    {% if is_granted('ROLE_ADMIN') %}
     <ul>
         <li>
             <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
         </li>
     </ul>
+    {% endif %}
 {% endblock %}
