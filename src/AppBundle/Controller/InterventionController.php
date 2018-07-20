@@ -99,7 +99,9 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
 
-        if ($intervention->getProgress() === 'realisees') {
+        if (    $intervention->getProgress() === 'realisees'
+                &&
+                !$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ) {
             $this->redirectToRoute('intervention_show', null, 401);
         }
         $deleteForm = $this->createDeleteForm($intervention);
