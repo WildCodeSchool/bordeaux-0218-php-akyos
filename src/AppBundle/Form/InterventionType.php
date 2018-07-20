@@ -102,7 +102,7 @@ class InterventionType extends AbstractType
         $form->add($builder->getForm());
     }
 
-    private function addInterventionPlaceType(FormInterface $form, ?Building $building)
+    private function addInterventionPlaceType(FormInterface $form, $building)
     {
 
         $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
