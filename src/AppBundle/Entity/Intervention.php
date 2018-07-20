@@ -338,7 +338,7 @@ class Intervention
     {
         $this->interventionDate = $interventionDate;
 
-        if($interventionDate !== null){
+        if ($interventionDate !== null) {
             $this->progress = self::INCOMING;
         }
         return $this;

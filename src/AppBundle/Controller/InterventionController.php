@@ -19,7 +19,7 @@ class InterventionController extends Controller
     /**
      * Lists today intervention entities.
      *
-     * @Route("/{progress}", name="intervention_index", 
+     * @Route("/{progress}", name="intervention_index",
      *                       requirements={"progress" = "en-cours|a-venir|realisees|a-planifier"})
      * @Method("GET")
      */
