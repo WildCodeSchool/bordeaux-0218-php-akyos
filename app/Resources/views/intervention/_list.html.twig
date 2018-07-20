@@ -7,7 +7,9 @@
         <th>Date de demande</th>
         <th>Date d'intervention</th>
         <th>Régler</th>
-        <th>Avis</th>
+        {% if is_granted('ROLE_ADMIN') %}
+            <th>Avis</th>
+        {% endif %}
         <th>Progression</th>
         <th>Actions</th>
     </tr>
@@ -15,7 +17,6 @@
     <tbody>
     {% for intervention in interventions %}
         <tr>
-
             <td>
                 {% if intervention.condominium is not empty %}
                     {{ intervention.condominium.name }}
@@ -31,7 +32,9 @@
             <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td><span class="label label-{% if intervention.paid %}paid{% else %}unpaid{% endif %}"><i
                             class="fa fa-dollar fa-2x"></i></span></td>
-            <td>{{ intervention.clientSatisfaction }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ intervention.clientSatisfaction }}</td>
+            {% endif %}
             <td>{{ intervention.progress }}</td>
             <td class="text-center">
                 <div class="btn-group">

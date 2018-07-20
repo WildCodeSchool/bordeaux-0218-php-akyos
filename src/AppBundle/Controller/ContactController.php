@@ -41,7 +41,6 @@ class ContactController extends Controller
                                  'prenom' => $data['firstname'],
                                     'nom' => $data['name']
                                 ]
-
                             ));
                         $this->get('mailer')->send($message);
 
