@@ -149,6 +149,10 @@
         <source>major</source>
         <target>majeure</target>
       </trans-unit>
+      <trans-unit id="WIJFAN" resname="high">
+              <source>high</source>
+              <target>élevée</target>
+            </trans-unit>
       <trans-unit id="wIJFand" resname="medium">
         <source>medium</source>
         <target>moyenne</target>

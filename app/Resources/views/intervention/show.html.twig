@@ -1,10 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-
-
-
-
     <div class="block">
         <div class="block-header">
             <ul class="block-options">
@@ -54,11 +50,11 @@
                     <tbody>
                     <tr>
                         <th>Progression</th>
-                        <td>{{ intervention.progress }}</td>
+                        <td>{{ intervention.progress|trans }}</td>
                     </tr>
                     <tr>
                         <th>Type d'intervention</th>
-                        <td>{{ intervention.interventionType }}</td>
+                        <td>{{ intervention.interventionType|trans }}</td>
                     </tr>
                     {% if is_granted('ROLE_ADMIN') %}
                         <tr>
@@ -68,7 +64,7 @@
                     {% endif %}
                     <tr>
                         <th>Niveau d'urgence</th>
-                        <td>{{ intervention.emergency }}</td>
+                        <td>{{ intervention.emergency|trans }}</td>
                     </tr>
                     <tr>
                         <th>Description</th>

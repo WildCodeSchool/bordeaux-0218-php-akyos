@@ -5,11 +5,14 @@
     {% if progress == 'en-cours' %}
         <h1>en cours</h1>
     {% endif %}
-    {% if progress == 'archivess' %}
-        <h1>archivées</h1>
+    {% if progress == 'realisees' %}
+        <h1>réalisées</h1>
     {% endif %}
     {% if progress == 'a-venir' %}
         <h1>à venir</h1>
+    {% endif %}
+    {% if progress == 'a-planifier' %}
+        <h1>à planifier</h1>
     {% endif %}
     {% include 'intervention/_list.html.twig' %}
 
