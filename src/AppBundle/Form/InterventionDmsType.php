@@ -24,6 +24,8 @@ class InterventionDmsType extends AbstractType
         $intervention = $options['data'];
 
         $builder
+            ->add('interventionDate')
+            ->add('paid')
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
@@ -36,24 +38,18 @@ class InterventionDmsType extends AbstractType
             ))
             ->add('material')
             ->add('worker')
-
             ->add('workerNumber')
-            ->add('duration')
-            ->add('interventionDate')
-            ->add('paid');
+            ->add('duration');
 
-        if($intervention->getProgress() === $intervention::DONE){
+        if ($intervention->getProgress() === $intervention::DONE) {
             $builder
                 ->add('clientSatisfaction', RangeType::class, array(
                     'attr' => array(
                         'min' => 1,
                         'max' => 5
                     )
-                ))
-            ;
+                ));
         }
-
-
     }
 
     public function getParent()

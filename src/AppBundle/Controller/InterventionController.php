@@ -66,7 +66,6 @@ class InterventionController extends Controller
             $this->addFlash('success', 'intervention.created');
 
             return $this->redirectToRoute('intervention_show', array( 'id' => $intervention->getId() ));
-
         }
 
         return $this->render('intervention/new.html.twig', array(
@@ -100,7 +99,7 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
 
-        if($intervention->getProgress() === 'realisees'){
+        if ($intervention->getProgress() === 'realisees') {
             $this->redirectToRoute('intervention_show', null, 401);
         }
         $deleteForm = $this->createDeleteForm($intervention);

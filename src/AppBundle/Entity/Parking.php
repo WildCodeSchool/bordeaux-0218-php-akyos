@@ -101,7 +101,7 @@ class Parking
 
     public function __toString()
     {
-      return $this->name . ' ' . $this->parkingSpace . ' places';
+        return $this->name . ' ' . $this->parkingSpace . ' places';
     }
 
     /**
