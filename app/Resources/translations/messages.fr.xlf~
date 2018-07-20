@@ -5,10 +5,6 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="47DEQpj" resname="">
-        <source></source>
-        <target>Hello</target>
-      </trans-unit>
       <trans-unit id="3NHVIj9" resname="Name">
         <source>Name</source>
         <target>Nom</target>
@@ -204,6 +200,10 @@
       <trans-unit id="wYlv4Yz" resname="Parking space">
         <source>Parking space</source>
         <target>Places de parking</target>
+      </trans-unit>
+      <trans-unit id="VPYiHWN" resname="intervention.new_request">
+        <source>intervention.new_request</source>
+        <target>{0} Aucune nouvelle demande|{1} Une nouvelle demande|]1,Inf[ %count% nouvelles demandes</target>
       </trans-unit>
     </body>
   </file>

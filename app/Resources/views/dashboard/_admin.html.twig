@@ -30,7 +30,7 @@
 <div class="row">
     {% for intervention in interventions %}
         <div class="col-sm-3">
-            <div class="block block-themed">
+            <div class="block block-themed intervention">
                 <div class="block-header bg-{{ intervention.interventionType }}">
                     <ul class="block-options">
                         <li>
@@ -41,7 +41,7 @@
                     </ul>
                     <h3 class="block-title">{{ intervention.interventionType }}</h3>
                 </div>
-                <div class="block-content" style="height: 250px;">
+                <div class="block-content">
                     <p>{{ intervention.description }}
                     </p>
                     <em><a href="{{ path('worker_show', {'id': intervention.worker.id }) }}">{{ intervention.worker.lastName }}{{ intervention.worker.firstName }}</a></em>

@@ -1,16 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Liste des interventions</h1>
-    {% if progress == 'en-cours' %}
-        <h1>en cours</h1>
-    {% endif %}
-    {% if progress == 'archivess' %}
-        <h1>archivées</h1>
-    {% endif %}
-    {% if progress == 'a-venir' %}
-        <h1>à venir</h1>
-    {% endif %}
+
+    <div class="content bg-gray-lighter hidden-print">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    Liste des interventions {{ progress|trans|lower }}
+                </h1>
+            </div>
+        </div>
+    </div>
     {% include 'intervention/_list.html.twig' %}
 
 {% endblock %}

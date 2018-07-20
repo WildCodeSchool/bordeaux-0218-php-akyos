@@ -31,14 +31,19 @@
                 <!-- END Company Info -->
 
                 <!-- Client Info -->
-                <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-6 text-right">
+                <div class="col-xs-6 col-sm-5 col-sm-offset-3 col-lg-5 col-lg-offset-4 text-right">
                     <p class="h2 font-w400 push-5">Lieu d'intervention</p>
                     {% if intervention.common is not empty %}
                         {{ intervention.common.name }}
                     {% endif %}
                     {% if intervention.unit is not empty %}
-                        {{ intervention.unit.firstName }}
-                        {{ intervention.unit.lastName }}
+                        <address>
+                            {{ intervention.unit.firstName }} {{ intervention.unit.lastName }}
+                            <br>
+                            Porte n°{{ intervention.unit.number }}
+                            <br>
+                            Etg. {{ intervention.unit.floor }}
+                        </address>
                     {% endif %}
                     {% if intervention.parking is not empty %}
                         {{ intervention.parking.name }}
@@ -52,13 +57,13 @@
             <div class="table-responsive push-50">
                 <table class="table table-bordered table-hover">
                     <tbody>
-                    <tr>
+                    <tr class="hidden-print">
                         <th>Progression</th>
-                        <td>{{ intervention.progress }}</td>
+                        <td>{{ intervention.progress|trans }}</td>
                     </tr>
                     <tr>
                         <th>Type d'intervention</th>
-                        <td>{{ intervention.interventionType }}</td>
+                        <td>{{ intervention.interventionType|trans }}</td>
                     </tr>
                     {% if is_granted('ROLE_ADMIN') %}
                         <tr>
@@ -68,7 +73,7 @@
                     {% endif %}
                     <tr>
                         <th>Niveau d'urgence</th>
-                        <td>{{ intervention.emergency }}</td>
+                        <td>{{ intervention.emergency|trans }}</td>
                     </tr>
                     <tr>
                         <th>Description</th>
@@ -107,9 +112,15 @@
                             <td><a href="tel:{{ intervention.worker.phone }}">{{ intervention.worker.phone }}</a></td>
                         </tr>
                     {% endif %}
-                    <tr>
-                        <th>Durée</th>
-                        <td>{% if intervention.duration %}{{ intervention.duration }}{% endif %}</td>
+                    {% if intervention.duration %}
+                        <tr>
+                            <th>Durée</th>
+                            <td>{{ intervention.duration }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr class="visible-print">
+                        <th>Signature</th>
+                        <td></td>
                     </tr>
                     </tbody>
                 </table>
@@ -124,10 +135,11 @@
             </p>
             <!-- END Footer -->
         </div>
-        <div class="block-content block-content-mini block-content-full border-t">
+        <div class="block-content block-content-mini block-content-full border-t hidden-print">
             <div class="row">
                 <div class="col-xs-4">
-                    <a href="{{ path('intervention_index', {'progress':'a-venir'}) }}" class="wizard-prev btn btn-warning">Retour
+                    <a href="{{ path('intervention_index', {'progress':'a-venir'}) }}"
+                       class="wizard-prev btn btn-warning">Retour
                         à la liste</a>
                 </div>
                 <div class="col-xs-4 text-center">

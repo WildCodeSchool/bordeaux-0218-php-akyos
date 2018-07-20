@@ -121,6 +121,7 @@ class InterventionType extends AbstractType
                 ),
                 'attr' =>[
                     'class' => 'dynamicField',
+                    'data-dyn-next' => 'dynamic',
                     'data-next' => 'Unit'
                 ]
             ]
