@@ -10,16 +10,49 @@
             </div>
         </div>
     </div>
+    {{ dump(form) }}
     <div class="block block-bordered">
         <div class="block-content">
             {{ form_start(form, {'attr' : { 'class' : 'form-horizontal push-10-t push-10'} }) }}
-            {{ form_widget(form) }}
+            <div class="row">
+                <div class="col-sm-4 col-sm-push-8">
+                    <div class="form-group">
+                        {% if form.paid is defined %}
+                        <div class="col-xs-12">
+                            <input class="js-datetimepicker form-control" type="text" id="{{ form.paid.vars.id }}" name="{{ form.paid.vars.full_name }}" placeholder="{{'Choose a date..'|trans}}">
+                        </div>
+                        {% endif %}
+                        <div class="col-xs-12">
+
+                            {% if form.paid is defined %}
+                            <label for="{{ form.paid.vars.id }}" class="css-input switch switch-success">
+                                <input name="{{ form.paid.vars.full_name }}" type="checkbox" checked="{{ form.paid.vars.value }}" id="{{ form.paid.vars.id }}">
+                                <span></span>
+                                {{ form.paid.vars.name }}
+                            </label>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6 col-sm-pull-3">
+                    <div class="form-group">
+                        {% for input in form.children %}
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    {{ form_row(input) }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+
             <div class="block-content block-content-mini block-content-full border-t">
                 <div class="row">
-                    <div class="col-xs-6">
-                        <a href="{{ path('intervention_index', {'progress' : 'a-venir'}) }}"
-                           class="wizard-prev btn btn-warning">Retour à la liste</a>
-                    </div>
                     <div class="col-xs-6 text-right">
                         <input type="submit" class="btn btn-success" value="Ajouter"/>
                     </div>

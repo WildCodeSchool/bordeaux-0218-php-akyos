@@ -55,7 +55,8 @@ class Intervention
     const TO_PLAN = 'a-planifier';
     const INCOMING = 'a-venir';
     const IN_PROGRESS = 'en-cours';
-    const ARCIVED = 'archivees';
+    const DONE = 'realisees';
+
 
     /**
      * @var integer
@@ -337,6 +338,9 @@ class Intervention
     {
         $this->interventionDate = $interventionDate;
 
+        if($interventionDate !== null){
+            $this->progress = self::INCOMING;
+        }
         return $this;
     }
 
