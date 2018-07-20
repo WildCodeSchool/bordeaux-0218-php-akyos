@@ -1,16 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $(document).on('change', '.dynamicField', function () {
-
         let $field = $(this);
 
+        if ($field.data('dyn-next') === 'dynamic') {
+            $field.data('next', $field.val());
+        }
 
         let $form = $field.closest('form');
-        let target = '#appbundle_intervention_' + $(this).data('next');
+        let target = '#appbundle_intervention_' + $field.data('next');
         // Les données à envoyer en Ajax
         let data = {};
 
 
-        $('.dynamicField').each(function(){
+        $('.dynamicField').each(function () {
             data[$(this).attr('name')] = $(this).val();
         });
 
@@ -20,11 +22,15 @@ $(document).ready(function(){
             let $input = $(data).find(target).parent('.form-group');
             // On remplace notre <select> actuel
             //$(target).replaceWith($input)
-            if ($(target).length)
-            {
+            if ($(target).length) {
                 $(target).parent('.form-group').remove();
             }
             $input.insertAfter($field.parent('.form-group'));
         })
-    })
+    });
+
+    // you may need to change this code if you are not using Bootstrap Datepicker
+    $('.js-datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
 });

@@ -8,7 +8,7 @@ var BaseFormPickersMore = function() {
     // Init jQuery AutoComplete example, for more examples you can check out https://github.com/Pixabay/jQuery-autoComplete
     var initAutoComplete = function(){
         // Init autocomplete functionality
-        jQuery('.js-autocomplete').autoComplete({
+        $('.js-autocomplete').autoComplete({
             minChars: 1,
             source: function(term, suggest){
                 term = term.toLowerCase();
@@ -34,4 +34,7 @@ var BaseFormPickersMore = function() {
 }();
 
 // Initialize when page loads
-jQuery(function(){ BaseFormPickersMore.init(); });
+jQuery(function(){
+    BaseFormPickersMore.init();
+    window.BaseFormPickersMore = BaseFormPickersMore;
+});

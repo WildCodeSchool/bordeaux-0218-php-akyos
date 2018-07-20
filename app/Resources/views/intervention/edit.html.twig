@@ -1,30 +1,84 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-<div class="content bg-gray-lighter hidden-print">
-    <div class="row items-push">
-        <div class="col-sm-7">
-            <h1 class="page-heading">
-                Éditer la demande d'intervention
-            </h1>
-        </div>
-    </div>
-</div>
-<div class="block block-bordered">
-    <div class="block-content">
-    {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
-    <div class="block-content block-content-mini block-content-full border-t">
-        <div class="row">
-            <div class="col-xs-6">
-                <a href="{{ path('intervention_index', {'progress': edit_form.vars.value.progress}) }}" class="wizard-prev btn btn-warning">Retour à la liste</a>
-            </div>
-            <div class="col-xs-6 text-right">
-                <input class="btn btn-success" type="submit" value="Enregistrer" />
+    <div class="content bg-gray-lighter hidden-print">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    Éditer la demande d'intervention
+                </h1>
             </div>
         </div>
     </div>
-    {{ form_end(edit_form) }}
-    </div>
+    <div class="block">
+        <div class="block-content block-content-narrow">
+            <div class="row items-push-2x">
+                <!-- Company Info -->
+                <div class="col-xs-6 col-sm-4 col-lg-3">
+                    <p class="h2 font-w400 push-5">{{ intervention.condominium.name }}</p>
+                    <address>
+                        {{ intervention.condominium.address }}
+                    </address>
+                </div>
+                <!-- END Company Info -->
+
+                <!-- Client Info -->
+                <div class="col-xs-6 col-sm-5 col-sm-offset-3 col-lg-5 col-lg-offset-4 text-right">
+                    <p class="h2 font-w400 push-5">Lieu d'intervention</p>
+                    {% if intervention.common is not empty %}
+                        {{ intervention.common.name }}
+                    {% endif %}
+                    {% if intervention.unit is not empty %}
+                        <address>
+                            {{ intervention.unit.firstName }} {{ intervention.unit.lastName }}
+                            <br>
+                            Porte n°{{ intervention.unit.number }}
+                            <br>
+                            Etg. {{ intervention.unit.floor }}
+                        </address>
+                    {% endif %}
+                    {% if intervention.parking is not empty %}
+                        {{ intervention.parking.name }}
+                    {% endif %}
+                </div>
+                <!-- END Client Info -->
+            </div>
+            <!-- END Invoice Info -->
+
+            <div class="block-content">
+                {{ form_start(edit_form) }}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="row">
+                    <div class="form-group col-sm-6">
+
+                        {{ form_row(edit_form.interventionDate) }}
+                    </div>
+                    <div class="form-group col-sm-6 text-center">
+                        <label class="css-input switch switch-default">
+                            <input name="{{ edit_form.paid.vars.full_name }}" type="checkbox" {% if edit_form.paid.vars.data %}checked="checked"{% endif %}>
+                            <span></span> Payé
+                        </label>
+                        {% do edit_form.paid.setRendered %}
+                    </div>
+
 </div>
+
+                {% endif %}
+
+                {{ form_widget(edit_form) }}
+                <div class="block-content block-content-mini block-content-full border-t">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="{{ path('intervention_index', {'progress': edit_form.vars.value.progress}) }}"
+                               class="wizard-prev btn btn-warning">Retour à la liste</a>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <input class="btn btn-success" type="submit" value="Enregistrer"/>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

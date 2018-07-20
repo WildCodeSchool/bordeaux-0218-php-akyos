@@ -99,6 +99,12 @@ class InterventionController extends Controller
      */
     public function editAction(Request $request, Intervention $intervention)
     {
+
+        if (    $intervention->getProgress() === 'realisees'
+                &&
+                !$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ) {
+            $this->redirectToRoute('intervention_show', null, 401);
+        }
         $deleteForm = $this->createDeleteForm($intervention);
         $editForm = $this->getInterventionForm($intervention);
         $editForm->handleRequest($request);
@@ -106,7 +112,7 @@ class InterventionController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('intervention_edit', array( 'id' => $intervention->getId() ));
+            return $this->redirectToRoute('intervention_show', array( 'id' => $intervention->getId() ));
         }
 
         return $this->render('intervention/edit.html.twig', array(

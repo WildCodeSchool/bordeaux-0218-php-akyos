@@ -209,6 +209,22 @@
         <source>intervention.new_request</source>
         <target>{0} Aucune nouvelle demande|{1} Une nouvelle demande|]1,Inf[ %count% nouvelles demandes</target>
       </trans-unit>
+      <trans-unit id="bSGiNvB" resname="Choose a date..">
+        <source>Choose a date..</source>
+        <target>Choisissez une date</target>
+      </trans-unit>
+      <trans-unit id="bSGiNdB" resname="a-planifier">
+        <source>a-planifier</source>
+        <target>À planifier</target>
+      </trans-unit>
+      <trans-unit id="sSGiNdB" resname="a-venir">
+        <source>a-venir</source>
+        <target>À venir</target>
+      </trans-unit>
+      <trans-unit id="sSddiNdB" resname="en-cours">
+        <source>en-cours</source>
+        <target>En cours</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

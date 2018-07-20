@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Intervention;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +21,19 @@ class InterventionDmsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $intervention = $options['data'];
+
         $builder
+            ->add('interventionDate', DateType::class,[
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                    'class' => 'js-datepicker form-control',
+                    'data-date-format'=>"dd/mm/yy"
+                    ]
+                ])
+            ->add('paid')
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
@@ -32,35 +46,18 @@ class InterventionDmsType extends AbstractType
             ))
             ->add('material')
             ->add('worker')
-
             ->add('workerNumber')
-            ->add('duration')
-            ->add('interventionDate')
-            ->add('paid')
-            ->add('clientSatisfaction', RangeType::class, array(
-                'attr' => array(
-                    'min' => 1,
-                    'max' => 5
-                )
-            ))
-            ->add('condominium', EntityType::class, array(
-                'placeholder' => 'Choose a Sub Family',
-                'class' => 'AppBundle:Condominium'))
-        ;
+            ->add('duration');
 
-        $builder->get('condominium')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) {
-                $form = $event->getForm();
-                $form->getParent()->add('building', EntityType::class, array(
-                    'class' => 'AppBundle\Entity\Building',
-                    'placeholder' => 'Sélectionnez un bâtiment',
-                    'mapped' => false,
-                    'required' => false,
-                    'choices' => $form->getData()->getBuildings()
+        if ($intervention->getProgress() === $intervention::DONE) {
+            $builder
+                ->add('clientSatisfaction', RangeType::class, array(
+                    'attr' => array(
+                        'min' => 1,
+                        'max' => 5
+                    )
                 ));
-            }
-        );
+        }
     }
 
     public function getParent()

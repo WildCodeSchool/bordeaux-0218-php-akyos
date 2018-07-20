@@ -1,39 +1,57 @@
-.label-major:extend(.label-danger all){
+.label-major:extend(.label-danger all) {
 }
-.label-high:extend(.label-warning all){
+
+.label-high:extend(.label-warning all) {
 }
-.label-medium:extend(.label-info all){
+
+.label-medium:extend(.label-info all) {
 }
-.label-low:extend(.label-success all){
+
+.label-low:extend(.label-success all) {
 }
-.label-unpaid:extend(.label-warning all){
-  display: block;
-}
-.label-paid:extend(.label-success all){
+
+.label-unpaid:extend(.label-warning all) {
   display: block;
 }
 
-.bg-electrician{
+.label-paid:extend(.label-success all) {
+  display: block;
+}
+
+.bg-electrician {
   background-color: @dme-secondary;
 }
-.bg-locksmith{
+
+.bg-locksmith {
   background-color: @dms-primary;
 }
-.bg-plumber{
+
+.bg-plumber {
   background-color: @dmp-primary;
 }
 
-.bg-danger{
+.bg-danger {
   color: #fff;
-  .h1{
+  .h1 {
     color: #fff;
   }
   .text-muted {
     color: #eeeeee;
   }
 
-  &.block{
-  background-color: darken(@brand-danger, 5%);
+  &.block {
+    background-color: darken(@brand-danger, 5%);
   }
 }
 
+.block-themed {
+  &.intervention {
+    .block-content {
+      height: 200px;
+    }
+  }
+}
+
+label.switch {
+  margin-top: 30px;
+}

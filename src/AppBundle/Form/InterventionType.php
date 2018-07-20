@@ -121,6 +121,7 @@ class InterventionType extends AbstractType
                 ),
                 'attr' =>[
                     'class' => 'dynamicField',
+                    'data-dyn-next' => 'dynamic',
                     'data-next' => 'Unit'
                 ]
             ]
@@ -138,7 +139,7 @@ class InterventionType extends AbstractType
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, $building, $interventionPlaceType = '')
+    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', $building)
     {
 
         $class = 'AppBundle:' . $interventionPlaceType;

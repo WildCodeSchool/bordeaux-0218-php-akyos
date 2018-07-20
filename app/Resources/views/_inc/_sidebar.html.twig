@@ -34,7 +34,7 @@
                     <ul>
                         {% if  is_granted('ROLE_ADMIN') %}
                         <li>
-                            <a href="{{ path("intervention_new", {'progress' : 'en-cours'}) }}">Créer</a>
+                            <a href="{{ path("intervention_new") }}">Créer</a>
                         </li>
                         <li>
                             <a href="{{ path("intervention_index", {'progress' : 'a-planifier'}) }}">À planifier</a>

@@ -89,6 +89,12 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
             $intervention->setDuration($faker->randomElement(['120min', '1 jours', '30min']));
             $intervention->setCondominium($this->getReference('condominium1'));
 
+            if ($i % 2) {
+                $intervention->setUnit($this->getReference('unit' . $i));
+            } else {
+                $intervention->setCommon($this->getReference('common' . $i));
+            }
+
             $manager->persist($intervention);
         }
         $manager->flush();
@@ -97,6 +103,11 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return [CondoFixtures::class];
+        return [
+            CondoFixtures::class,
+            UnitFixtures::class,
+            CommonFixtures::class,
+            ParkingFixtures::class
+        ];
     }
 }

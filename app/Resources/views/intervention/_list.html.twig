@@ -42,12 +42,15 @@
 
                         </i>
                     </a>
+
+                    {% if intervention.progress is not empty and intervention.progress != 'realisees' %}
                     <a class="btn btn-default"
                        href="{{ path('intervention_edit', { 'id': intervention.id }) }}">
                         <i class="fa fa-pencil">
 
                         </i>
                     </a>
+                    {% endif %}
                 </div>
             </td>
         </tr>
