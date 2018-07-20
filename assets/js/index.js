@@ -1,6 +1,7 @@
 //JS config
 require('jquery');
 require('../../node_modules/bootstrap/dist/js/bootstrap');
+require('bootstrap-datepicker');
 require('jquery-slimscroll');
 require('jquery-scroll-lock');
 require('jquery.appear');

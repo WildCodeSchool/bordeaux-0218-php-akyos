@@ -45,6 +45,7 @@
   "dependencies": {
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
+    "bootstrap-datepicker": "^1.8.0",
     "child_process": "^1.0.2",
     "fontawesome": "^4.7.2",
     "fs": "0.0.1-security",

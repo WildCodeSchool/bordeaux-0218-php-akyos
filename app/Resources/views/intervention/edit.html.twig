@@ -11,20 +11,7 @@
         </div>
     </div>
     <div class="block">
-        <div class="block-header">
-            <ul class="block-options">
-                <li>
-                    <!-- Print Page functionality is initialized in App() -> uiHelperPrint() -->
-                    <button type="button" onclick="App.initHelper('print-page');"><i class="si si-printer"></i> Imprimer
-                    </button>
-                </li>
-            </ul>
-            <h3 class="block-title">#INTER{{ intervention.id }}</h3>
-        </div>
         <div class="block-content block-content-narrow">
-            <!-- Invoice Info -->
-            <div class="h1 text-center push-30-t push-30 hidden-print">Intervention</div>
-            <hr class="hidden-print">
             <div class="row items-push-2x">
                 <!-- Company Info -->
                 <div class="col-xs-6 col-sm-4 col-lg-3">
@@ -60,6 +47,24 @@
 
             <div class="block-content">
                 {{ form_start(edit_form) }}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="row">
+                    <div class="form-group col-sm-6">
+
+                        {{ form_row(edit_form.interventionDate) }}
+                    </div>
+                    <div class="form-group col-sm-6 text-center">
+                        <label class="css-input switch switch-default">
+                            <input name="{{ edit_form.paid.vars.full_name }}" type="checkbox" {% if edit_form.paid.vars.data %}checked="checked"{% endif %}>
+                            <span></span> Payé
+                        </label>
+                        {% do edit_form.paid.setRendered %}
+                    </div>
+
+</div>
+
+                {% endif %}
+
                 {{ form_widget(edit_form) }}
                 <div class="block-content block-content-mini block-content-full border-t">
                     <div class="row">

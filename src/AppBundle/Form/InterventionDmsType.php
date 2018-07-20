@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Intervention;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,14 @@ class InterventionDmsType extends AbstractType
         $intervention = $options['data'];
 
         $builder
-            ->add('interventionDate')
+            ->add('interventionDate', DateType::class,[
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                    'class' => 'js-datepicker form-control',
+                    'data-date-format'=>"dd/mm/yy"
+                    ]
+                ])
             ->add('paid')
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',

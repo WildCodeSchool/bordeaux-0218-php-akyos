@@ -207,7 +207,7 @@
       </trans-unit>
       <trans-unit id="bSGiNvB" resname="Choose a date..">
         <source>Choose a date..</source>
-        <target>__Choose a date..</target>
+        <target>Choisissez une date</target>
       </trans-unit>
       <trans-unit id="bSGiNdB" resname="a-planifier">
         <source>a-planifier</source>
