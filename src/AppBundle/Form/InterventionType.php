@@ -103,7 +103,7 @@ class InterventionType extends AbstractType
         $form->add($builder->getForm());
     }
 
-    private function addInterventionPlaceType(FormInterface $form, ?Building $building)
+    private function addInterventionPlaceType(FormInterface $form, $building)
     {
 
         $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
@@ -131,7 +131,7 @@ class InterventionType extends AbstractType
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) use ($building) {
                 $form = $event->getForm();
-                $this->addInterventionPlaceField($form->getParent(), $form->getData(),  $building);
+                $this->addInterventionPlaceField($form->getParent(), $form->getData(), $building);
             }
         );
 
@@ -139,7 +139,7 @@ class InterventionType extends AbstractType
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', ?Building $building)
+    private function addInterventionPlaceField(FormInterface $form, $building, $interventionPlaceType = '')
     {
 
         $class = 'AppBundle:' . $interventionPlaceType;
