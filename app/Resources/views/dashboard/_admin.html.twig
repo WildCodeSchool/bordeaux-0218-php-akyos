@@ -44,7 +44,9 @@
                 <div class="block-content">
                     <p>{{ intervention.description }}
                     </p>
-                    <em><a href="{{ path('worker_show', {'id': intervention.worker.id }) }}">{{ intervention.worker.lastName }}{{ intervention.worker.firstName }}</a></em>
+                    {% if intervention.worker %}
+                        <em><a href="{{ path('worker_show', {'id': intervention.worker.id }) }}">{{ intervention.worker.lastName }}{{ intervention.worker.firstName }}</a></em>
+                    {% endif %}
                 </div>
             </div>
         </div>
