@@ -90,7 +90,7 @@ class Condominium
     private $parkings;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium", cascade={"persist", "remove"})
      *
      */
     private $buildings;

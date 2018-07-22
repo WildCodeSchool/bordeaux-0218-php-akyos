@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Condominium;
 use AppBundle\Entity\Parking;
+use AppBundle\Entity\Common;
+use AppBundle\Entity\Building;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -42,19 +44,26 @@ class CondominiumController extends Controller
     public function newAction(Request $request)
     {
         $condominium = new Condominium();
+        $building = new Building();
+        $common = new Common();
+        $parking = new Parking();
+
         $form = $this->createForm('AppBundle\Form\CondominiumType', $condominium);
 
-        //if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            //$form->add('syndicate');
-        //} else {
-            //$condominium->setSyndicate($this->getUser()->getSyndicate());
-        //}
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $form->add('syndicate');
+        } else {
+            $condominium->setSyndicate($this->getUser()->getSyndicate());
+        }
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($condominium);
+            $em->persist($building);
+            $em->persist($common);
+            $em->persist($parking);
             $em->flush();
 
             return $this->redirectToRoute('condominium_show', array('id' => $condominium->getId()));
