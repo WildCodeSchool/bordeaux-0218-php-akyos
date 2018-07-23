@@ -27,7 +27,7 @@ class InterventionDmsType extends AbstractType
         $builder
             ->add('interventionDate', DateType::class,[
                 'widget' => 'single_text',
-                'format' => 'dd-MM-yyyy',
+                'format' => 'dd/MM/yyyy',
                 'attr' => [
                     'class' => 'js-datepicker form-control',
                     'data-date-format'=>"dd/mm/yy"
