@@ -6,15 +6,7 @@ use AppBundle\Entity\Intervention;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use AppBundle\Repository\WorkerRepository;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 
 class InterventionDmsType extends AbstractType
@@ -33,7 +25,6 @@ class InterventionDmsType extends AbstractType
                     'data-date-format'=>"dd/mm/yy"
                     ]
                 ])
-            ->add('paid')
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
