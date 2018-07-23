@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommonType extends AbstractType
+class ParkingMiniType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,15 +14,14 @@ class CommonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('building');
+            ->add('parkingSpace');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Common'
+            'data_class' => 'AppBundle\Entity\Parking'
         ));
     }
 
@@ -31,6 +30,6 @@ class CommonType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_common';
+        return 'appbundle_parking';
     }
 }

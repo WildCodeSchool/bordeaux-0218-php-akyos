@@ -41,7 +41,7 @@ class Common
     private $building;
 
     /**
-     *@ORM\ManyToOne(targetEntity="Condominium", inversedBy="commons")
+     *@ORM\ManyToOne(targetEntity="Condominium", inversedBy="commons", cascade={"remove"})
      */
     private $condominium;
 

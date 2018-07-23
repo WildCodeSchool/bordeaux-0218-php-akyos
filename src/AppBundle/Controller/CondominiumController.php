@@ -3,6 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Condominium;
+use AppBundle\Entity\Parking;
+use AppBundle\Entity\Common;
+use AppBundle\Entity\Building;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -56,7 +59,7 @@ class CondominiumController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($condominium);
             $em->flush();
 

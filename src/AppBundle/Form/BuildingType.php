@@ -20,8 +20,7 @@ class BuildingType extends AbstractType
             ->add('category')
             ->add('energyClass')
             ->add('unitsNumber')
-            ->add('floorsNumber')
-            ->add('condominium');
+            ->add('floorsNumber');
     }/**
      * {@inheritdoc}
      */

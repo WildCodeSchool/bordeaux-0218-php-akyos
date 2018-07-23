@@ -8,7 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use AppBundle\Form\CommonType;
+
+
 
 class CondominiumType extends AbstractType
 {
@@ -21,39 +22,41 @@ class CondominiumType extends AbstractType
             ->add('name')
             ->add('address', TextareaType::class)
             ->add('buildings', CollectionType::class, array(
-            // each entry in the array will be an "building" field
-            'entry_type' => BuildingType::class,
-
-                'prototype' => true,
-               // 'prototype_data' => 'New Tag Placeholder',
-                'allow_add' => true,            // these options are passed to each "building" type
-                'entry_options' => array(
-                  'attr' => array('class' => 'building-box'),
-                 ),
+                 //each entry in the array will be an "building" field
+                'entry_type' => BuildingType::class,
+                'by_reference' => true,
+                'required' => false,
+                'label' => false,
+                'empty_data' => null,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+                'mapped' => true,
             ))
-            ->add('commons', CollectionType::class, array(
-                // each entry in the array will be an "parking" field
-                'entry_type' => CommonType::class,
-
-                'prototype' => true,
-                // 'prototype_data' => 'New Tag Placeholder',
-                'allow_add' => true,            // these options are passed to each "building" type
-                'entry_options' => array(
-                    'attr' => array('class' => 'common-box'),
-                ),
+            ->add('commons',       CollectionType::class, array(
+                //each entry in the array will be an "parking" field
+                'entry_type' => CommonMiniType::class,
+                'by_reference' => false,
+                'required' => false,
+                'label' => false,
+                'empty_data' => null,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+                'mapped' => true,
             ))
             ->add('parkings', CollectionType::class, array(
-                // each entry in the array will be an "parking" field
-                'entry_type' => ParkingType::class,
-
-                'prototype' => true,
-                // 'prototype_data' => 'New Tag Placeholder',
-                'allow_add' => true,            // these options are passed to each "building" type
-                'entry_options' => array(
-                    'attr' => array('class' => 'parking-box'),
-                ),
+                 //each entry in the array will be an "parking" field
+                'entry_type' => ParkingMiniType::class,
+                'by_reference' => false,
+                'required' => false,
+                'label' => false,
+                'empty_data' => null,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+                'mapped' => true,
             ))
-
             ->add('condominiumManager')
             ->add('phone')
             ->add('email', EmailType::class)
@@ -70,6 +73,7 @@ class CondominiumType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Condominium'
+
         ));
     }
 

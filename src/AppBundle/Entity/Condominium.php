@@ -79,18 +79,18 @@ class Condominium
     private $interventions;
 
     /**
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium")
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Common", mappedBy="condominium", cascade={"persist", "remove"})
      *
      */
     private $commons;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Parking", mappedBy="condominium", cascade={"persist", "remove"})
      */
     private $parkings;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Building", mappedBy="condominium", cascade={"persist", "remove"})
      *
      */
     private $buildings;
