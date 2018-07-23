@@ -98,6 +98,11 @@ class UserController extends Controller
     {
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') == false) {
+            $editForm->remove('syndicate');
+        }
+
         $editForm->remove('password');
         $editForm->handleRequest($request);
 

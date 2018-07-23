@@ -73,9 +73,9 @@ class Building
     private $category;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="energy_class", type="integer")
+     * @ORM\Column(name="energy_class", type="string")
      */
     private $energyClass;
 
@@ -215,7 +215,7 @@ class Building
     /**
      * Set energyClass
      *
-     * @param integer $energyClass
+     * @param string $energyClass
      *
      * @return Building
      */
@@ -229,7 +229,7 @@ class Building
     /**
      * Get energyClass
      *
-     * @return int
+     * @return string
      */
     public function getEnergyclass()
     {
