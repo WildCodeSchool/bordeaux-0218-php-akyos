@@ -26,8 +26,6 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
 
-
-
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $users = $em->findAll();
         } else {
