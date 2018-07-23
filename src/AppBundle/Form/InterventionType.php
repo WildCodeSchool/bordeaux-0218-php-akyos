@@ -63,8 +63,8 @@ class InterventionType extends AbstractType
                     'placeholder' => 'Sélectionnez l\'urgence de l\'intervention',
                     'choices' => [
                         'Basse' => 'low',
-                        'Moyen' => 'medium',
-                        'Urgent' => 'high',
+                        'Moyenne' => 'medium',
+                        'Majeure' => 'high',
                     ]])
                 ->add('description')
                 ->add('comment');

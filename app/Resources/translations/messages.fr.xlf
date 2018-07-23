@@ -139,7 +139,7 @@
       </trans-unit>
       <trans-unit id="uLsRv0U" resname="locksmith">
         <source>locksmith</source>
-        <target>serrurerier</target>
+        <target>serrurier</target>
       </trans-unit>
       <trans-unit id="wstG_LI" resname="plumber">
         <source>plumber</source>
@@ -224,6 +224,10 @@
       <trans-unit id="sSddiNdB" resname="en-cours">
         <source>en-cours</source>
         <target>En cours</target>
+      </trans-unit>
+      <trans-unit id="other" resname="other">
+        <source>other</source>
+        <target>autre</target>
       </trans-unit>
     </body>
   </file>

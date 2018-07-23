@@ -21,10 +21,10 @@ class WorkerType extends AbstractType
             ->add('competence', ChoiceType::class, [
                 'placeholder' => 'Sélectionnez un domaine de compétence',
                 'choices' => [
-                    'Électricité' => 'electrician',
-                    'Plomberie' => 'plumber',
-                    'Serrurerie' => 'locksmith',
-                    'Autre' => 'other',
+                    'electrician' => 'electrician',
+                    'plumber' => 'plumber',
+                    'locksmith' => 'locksmith',
+                    'other' => 'other',
                 ]])
             ->add('address')
             ->add('email');
