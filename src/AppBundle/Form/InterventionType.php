@@ -139,7 +139,7 @@ class InterventionType extends AbstractType
     }
 
 
-    private function addInterventionPlaceField(FormInterface $form, $interventionPlaceType = '', $building)
+    private function addInterventionPlaceField(FormInterface $form, $building, $interventionPlaceType = '')
     {
 
         $class = 'AppBundle:' . $interventionPlaceType;
