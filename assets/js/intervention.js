@@ -7,7 +7,7 @@ $(document).ready(function () {
         }
 
         let $form = $field.closest('form');
-        let target = '#appbundle_intervention_' + $field.data('next');
+        let target = '#' + $form.attr('name') + '_' + $field.data('next');
         // Les données à envoyer en Ajax
         let data = {};
 
