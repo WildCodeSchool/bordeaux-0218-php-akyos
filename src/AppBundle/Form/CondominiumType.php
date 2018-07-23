@@ -24,14 +24,14 @@ class CondominiumType extends AbstractType
             ->add('buildings', CollectionType::class, array(
                  //each entry in the array will be an "building" field
                 'entry_type' => BuildingType::class,
-                'by_reference' => false,
+                'by_reference' => true,
                 'required' => false,
                 'label' => false,
                 'empty_data' => null,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'delete_empty' => true,
-                'mapped' => true
+                'mapped' => true,
 
             ))
             ->add('commons',       CollectionType::class, array(
@@ -44,7 +44,7 @@ class CondominiumType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'delete_empty' => true,
-                'mapped' => true
+                'mapped' => true,
             ))
             ->add('parkings', CollectionType::class, array(
                  //each entry in the array will be an "parking" field
@@ -56,7 +56,7 @@ class CondominiumType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'delete_empty' => true,
-                'mapped' => true
+                'mapped' => true,
             ))
             ->add('condominiumManager')
             ->add('phone')

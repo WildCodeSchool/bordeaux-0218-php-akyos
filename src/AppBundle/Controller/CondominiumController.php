@@ -44,10 +44,6 @@ class CondominiumController extends Controller
     public function newAction(Request $request)
     {
         $condominium = new Condominium();
-        $building = new Building();
-        $common = new Common();
-        $parking = new Parking();
-
         $form = $this->createForm('AppBundle\Form\CondominiumType', $condominium);
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
@@ -61,9 +57,6 @@ class CondominiumController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($condominium);
-            $em->persist($building);
-            $em->persist($common);
-            $em->persist($parking);
             $em->flush();
 
             return $this->redirectToRoute('condominium_show', array('id' => $condominium->getId()));
