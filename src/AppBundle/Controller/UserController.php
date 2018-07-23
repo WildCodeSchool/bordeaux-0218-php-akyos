@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -23,9 +24,15 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
 
-        $users = $em->getRepository('AppBundle:User')->findAll();
+
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $users = $em->findAll();
+        } else {
+            $users = $em->findBy(['syndicate'=>$this->getUser()->getSyndicate()->getId()]);
+        }
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
@@ -40,6 +47,8 @@ class UserController extends Controller
      */
     public function newAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+
         $user = new User();
         $form = $this->createForm('AppBundle\Form\UserType', $user);
         $form->handleRequest($request);
@@ -66,6 +75,11 @@ class UserController extends Controller
      */
     public function showAction(User $user)
     {
+
+        if ($user !== $this->getUser()) {
+            $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
+        }
+
         $deleteForm = $this->createDeleteForm($user);
 
         return $this->render('user/show.html.twig', array(
@@ -84,7 +98,9 @@ class UserController extends Controller
     {
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);
+        $editForm->remove('password');
         $editForm->handleRequest($request);
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();

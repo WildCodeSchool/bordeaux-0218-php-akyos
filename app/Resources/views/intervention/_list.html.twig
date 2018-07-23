@@ -3,36 +3,37 @@
     <tr>
         <th>Lieu</th>
         <th>Type d'intervention</th>
-        <th>Niveaux d'urgence</th>
+        <th>Niveau d'urgence</th>
         <th>Date de demande</th>
         <th>Date d'intervention</th>
         <th>Régler</th>
-        <th>Avis</th>
-        <th>Progression</th>
+        {% if is_granted('ROLE_ADMIN') %}
+            <th>Avis</th>
+        {% endif %}
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     {% for intervention in interventions %}
         <tr>
-
             <td>
                 {% if intervention.condominium is not empty %}
                     {{ intervention.condominium.name }}
                 {% endif %}
             </td>
-            <td>{{ intervention.interventionType }}</td>
+            <td>{{ intervention.interventionType|trans}}</td>
             <td>
                     <span class="label label-{{ intervention.emergency }}">
-                        {{ intervention.emergency }}
+                        {{ intervention.emergency|trans }}
                     </span>
             </td>
             <td>{% if intervention.requestDate %}{{ intervention.requestDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>{% if intervention.interventionDate %}{{ intervention.interventionDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td><span class="label label-{% if intervention.paid %}paid{% else %}unpaid{% endif %}"><i
                             class="fa fa-dollar fa-2x"></i></span></td>
-            <td>{{ intervention.clientSatisfaction }}</td>
-            <td>{{ intervention.progress }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ intervention.clientSatisfaction }}</td>
+            {% endif %}
             <td class="text-center">
                 <div class="btn-group">
                     <a class="btn btn-default"
@@ -41,12 +42,15 @@
 
                         </i>
                     </a>
+
+                    {% if intervention.progress is not empty and intervention.progress != 'realisees' %}
                     <a class="btn btn-default"
                        href="{{ path('intervention_edit', { 'id': intervention.id }) }}">
                         <i class="fa fa-pencil">
 
                         </i>
                     </a>
+                    {% endif %}
                 </div>
             </td>
         </tr>

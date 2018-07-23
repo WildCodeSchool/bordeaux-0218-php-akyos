@@ -14,6 +14,26 @@ class Parking
 {
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(name="name", type="string")
+     */
+    private $name;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="parking_space", type="integer")
+     */
+    private $parkingSpace;
+    /**
      * @ORM\OneToMany(targetEntity="Component", mappedBy="parking")
      *
      */
@@ -31,21 +51,11 @@ class Parking
      */
     private $condominium;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="parking_space", type="integer")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Intervention", mappedBy="parking")
      */
-    private $parkingSpace;
+    private $interventions;
 
 
     /**
@@ -87,6 +97,11 @@ class Parking
     public function __construct()
     {
         $this->components = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name . ' ' . $this->parkingSpace . ' places';
     }
 
     /**
@@ -169,5 +184,65 @@ class Parking
     public function getCondominium()
     {
         return $this->condominium;
+    }
+
+    /**
+     * Add intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return Parking
+     */
+    public function addIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        $this->interventions[] = $intervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervention.
+     *
+     * @param \AppBundle\Entity\Intervention $intervention
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeIntervention(\AppBundle\Entity\Intervention $intervention)
+    {
+        return $this->interventions->removeElement($intervention);
+    }
+
+    /**
+     * Get interventions.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterventions()
+    {
+        return $this->interventions;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return Parking
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

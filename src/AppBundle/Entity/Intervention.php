@@ -27,6 +27,22 @@ class Intervention
     private $condominium;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit", inversedBy="interventions")
+     */
+    private $unit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Common", inversedBy="interventions")
+     */
+    private $common;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Parking", inversedBy="interventions")
+     */
+    private $parking;
+
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -35,12 +51,19 @@ class Intervention
      */
     private $id;
 
+
+    const TO_PLAN = 'a-planifier';
+    const INCOMING = 'a-venir';
+    const IN_PROGRESS = 'en-cours';
+    const DONE = 'realisees';
+
+
     /**
      * @var integer
      *
      * @ORM\Column(name="progress", type="text", nullable=true)
      */
-    private $progress;
+    private $progress = self::TO_PLAN;
 
     /**
      * @var string
@@ -106,7 +129,7 @@ class Intervention
      *
      * @ORM\Column(name="paid", type="boolean")
      */
-    private $paid;
+    private $paid = false;
 
     /**
      * @var int
@@ -125,17 +148,22 @@ class Intervention
     /**
      * @var int
      *
-     * @ORM\Column(name="worker_number", type="integer")
+     * @ORM\Column(name="worker_number", type="integer", nullable=true)
      */
     private $workerNumber;
 
     /**
-     * @var \DateTime
+     * @var string
      *
      * @ORM\Column(name="duration", type="string", nullable=true)
      */
     private $duration;
 
+
+    /**
+     *
+     *
+     */
 
      /****************************************/
     /* Manual Generated methods / variables */
@@ -310,6 +338,9 @@ class Intervention
     {
         $this->interventionDate = $interventionDate;
 
+        if ($interventionDate !== null) {
+            $this->progress = self::INCOMING;
+        }
         return $this;
     }
 
@@ -446,7 +477,7 @@ class Intervention
     /**
      * Set duration
      *
-     * @param \DateTime $duration
+     * @param string $duration
      *
      * @return Intervention
      */
@@ -460,7 +491,8 @@ class Intervention
     /**
      * Get duration
      *
-     * @return \DateTime
+     * @return string
+     *
      */
     public function getDuration()
     {
@@ -515,4 +547,99 @@ class Intervention
         return $this->condominium;
     }
 
+    /**
+     * Set realisationDate.
+     *
+     * @param \DateTime|null $realisationDate
+     *
+     * @return Intervention
+     */
+    public function setRealisationDate($realisationDate = null)
+    {
+        $this->realisationDate = $realisationDate;
+
+        return $this;
+    }
+
+    /**
+     * Get realisationDate.
+     *
+     * @return \DateTime|null
+     */
+    public function getRealisationDate()
+    {
+        return $this->realisationDate;
+    }
+
+    /**
+     * Set unit.
+     *
+     * @param \AppBundle\Entity\Unit|null $unit
+     *
+     * @return Intervention
+     */
+    public function setUnit(\AppBundle\Entity\Unit $unit = null)
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Get unit.
+     *
+     * @return \AppBundle\Entity\Unit|null
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * Set common.
+     *
+     * @param \AppBundle\Entity\Common|null $common
+     *
+     * @return Intervention
+     */
+    public function setCommon(\AppBundle\Entity\Common $common = null)
+    {
+        $this->common = $common;
+
+        return $this;
+    }
+
+    /**
+     * Get common.
+     *
+     * @return \AppBundle\Entity\Common|null
+     */
+    public function getCommon()
+    {
+        return $this->common;
+    }
+
+    /**
+     * Set parking.
+     *
+     * @param \AppBundle\Entity\Parking|null $parking
+     *
+     * @return Intervention
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking.
+     *
+     * @return \AppBundle\Entity\Parking|null
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
 }

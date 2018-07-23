@@ -32,7 +32,6 @@ class CondominiumType extends AbstractType
                 'allow_delete' => true,
                 'delete_empty' => true,
                 'mapped' => true,
-
             ))
             ->add('commons',       CollectionType::class, array(
                 //each entry in the array will be an "parking" field

@@ -1,5 +1,19 @@
 <div class="row text-center">
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-md-6">
+        <a class="block block-link-hover3 text-center" href="{{ path('intervention_index', {'progress' : 'a-planifier'}) }}">
+            <div class="block-content block-content-full ribbon ribbon-bookmark ribbon-danger">
+                {% if newRequests > 0 %}
+                <div class="ribbon-box font-w600">
+                    <i class="fa fa-fw fa-exclamation-circle"></i>
+                    {{ 'intervention.new_request'|transchoice(newRequests) }}
+                </div>
+                {% endif %}
+                <div class="h1 font-w700"><i class="fa fa-calendar"></i></div>
+                <p>Planifier les interventions</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-12 col-md-6">
         <a class="block block-link-hover3 text-center" href="{{ path('intervention_new') }}">
             <div class="block-content block-content-full">
                 <div class="h1 font-w700"><i class="fa fa-pencil"></i></div>
@@ -8,38 +22,37 @@
         </a>
     </div>
 </div>
-<div class="block-content">
-    <div class="block-content block-content-full">
-        <div class="row text-center">
-            <h2>Interventions du jour</h2>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- Billing Address -->
-                <div class="block block-bordered">
-                    {% for intervention in interventions %}
-                        <div class="col-sm-3">
-                            <div class="block block-themed">
-                                <div class="block-header bg-primary">
-                                    <ul class="block-options">
-                                        <li>
-                                            <button type="button"><i class="si si-settings"></i></button>
-                                        </li>
-                                    </ul>
-                                    <h3 class="block-title"></h3>
-                                </div>
-                                <div class="block-content">
-                                    <p>{{ intervention.description }}
-                                    <em>{{ intervention.interventionType }}</em></p>
-                                </div>
-                            </div>
-                        </div>
-                        {% else %}
-                            <p>Pas d'interventions prevues aujourd'hui</p>
-                        {% endfor %}
-                    </div>
+<div class="content bg-gray-lighter">
+    <h1 class="page-heading push">
+        Interventions du jour
+    </h1>
+</div>
+<div class="row">
+    {% for intervention in interventions %}
+        <div class="col-sm-3">
+            <div class="block block-themed intervention">
+                <div class="block-header bg-{{ intervention.interventionType }}">
+                    <ul class="block-options">
+                        <li>
+                            <a href="{{ path('intervention_show', {'id': intervention.id }) }}">
+                                <i class="si si-eye"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">{{ intervention.interventionType }}</h3>
+                </div>
+                <div class="block-content">
+                    <p>{{ intervention.description }}
+                    </p>
+                    {% if intervention.worker %}
+                        <em><a href="{{ path('worker_show', {'id': intervention.worker.id }) }}">{{ intervention.worker.lastName }}{{ intervention.worker.firstName }}</a></em>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        <div class="row text-center">
+            <p>Aucune interventions prévues aujourd'hui</p>
+        </div>
+    {% endfor %}
 </div>

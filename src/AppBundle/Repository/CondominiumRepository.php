@@ -10,7 +10,7 @@ namespace AppBundle\Repository;
  */
 class CondominiumRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function condoBySyndicQueryBuilder( $syndicateId)
+    public function condoBySyndicQueryBuilder($syndicateId)
     {
         return $this->createQueryBuilder('condominium')
             ->andWhere('condominium.syndicate = :syndicate_id')

@@ -21,6 +21,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
 {
 
     const SKILLS = array('plumber', 'electrician', 'locksmith');
+    const PROGRESS= array('a-venir', 'en-cours', 'archivees');
     /**
      * @param ObjectManager $manager
      */
@@ -47,7 +48,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
             $intervention->setWorker($worker);
 
             $intervention->setProgress($faker
-                ->randomElement([1, 2, 3, 4]));
+                ->randomElement(self::PROGRESS));
 
             $intervention->setInterventionType($faker
                 ->randomElement(self::SKILLS));
@@ -60,7 +61,7 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
             $intervention->setEmergency($faker->randomElement(array
             ('low', 'medium', 'major')));
 
-            $intervention->setDescription($faker->text($maxNbChars = 200));
+            $intervention->setDescription($faker->text(200));
 
             $intervention->setRequestDate($faker->dateTimeThisMonth());
 
@@ -71,22 +72,28 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
             }
             $intervention->setModificationDate($faker->dateTimeThisMonth());
 
-            $intervention->setPaid($faker->boolean($chanceOfGettingTrue = 50));
+            $intervention->setPaid($faker->boolean(50));
 
             $intervention->setclientSatisfaction($faker->biasedNumberBetween(
                 1,
                 5
             ));
 
-            $intervention->setComment($faker->text($maxNbChars = 200));
+            $intervention->setComment($faker->text(200));
 
             $intervention->setWorkerNumber($faker->biasedNumberBetween(
                 1,
                 3
             ));
 
-            $intervention->setDuration($faker->dateTime());
+            $intervention->setDuration($faker->randomElement(['120min', '1 jours', '30min']));
             $intervention->setCondominium($this->getReference('condominium1'));
+
+            if ($i % 2) {
+                $intervention->setUnit($this->getReference('unit' . $i));
+            } else {
+                $intervention->setCommon($this->getReference('common' . $i));
+            }
 
             $manager->persist($intervention);
         }
@@ -96,6 +103,11 @@ class InterventionFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return [CondoFixtures::class];
+        return [
+            CondoFixtures::class,
+            UnitFixtures::class,
+            CommonFixtures::class,
+            ParkingFixtures::class
+        ];
     }
 }

@@ -19,17 +19,17 @@ class InterventionController extends Controller
     /**
      * Lists today intervention entities.
      *
-     * @Route("/{progress}", name="intervention_index", requirements={"progress" = "en-cours|a-venir|archivees"})
+     * @Route("/{progress}", name="intervention_index",
+     *                       requirements={"progress" = "en-cours|a-venir|realisees|a-planifier"})
      * @Method("GET")
      */
     public function indexAction(string $progress)
     {
         $em = $this->getDoctrine()->getManager();
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-
             $interventions = $em->getRepository('AppBundle:Intervention')
                 ->findBy([ 'progress' => $progress]);
-        }else{
+        } else {
             $interventions = $this->getDoctrine()->getRepository(Intervention::class)
                 ->findBySyndicateProgress(
                     $this->getUser()->getSyndicate(),
@@ -39,6 +39,7 @@ class InterventionController extends Controller
 
         return $this->render('intervention/index.html.twig', array(
             'interventions' => $interventions,
+            'progress' => $progress,
         ));
     }
 
@@ -62,6 +63,10 @@ class InterventionController extends Controller
             $em->persist($intervention);
             $em->flush();
 
+
+            $this->addFlash('success', 'intervention.created');
+
+            return $this->redirectToRoute('intervention_show', array( 'id' => $intervention->getId() ));
         }
 
         return $this->render('intervention/new.html.twig', array(
@@ -94,6 +99,12 @@ class InterventionController extends Controller
      */
     public function editAction(Request $request, Intervention $intervention)
     {
+
+        if (    $intervention->getProgress() === 'realisees'
+                &&
+                !$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ) {
+            $this->redirectToRoute('intervention_show', null, 401);
+        }
         $deleteForm = $this->createDeleteForm($intervention);
         $editForm = $this->getInterventionForm($intervention);
         $editForm->handleRequest($request);
@@ -101,7 +112,7 @@ class InterventionController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('intervention_edit', array( 'id' => $intervention->getId() ));
+            return $this->redirectToRoute('intervention_show', array( 'id' => $intervention->getId() ));
         }
 
         return $this->render('intervention/edit.html.twig', array(

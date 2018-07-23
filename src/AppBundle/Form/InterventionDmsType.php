@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Intervention;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,59 +15,49 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Repository\WorkerRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 
 class InterventionDmsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $intervention = $options['data'];
+
         $builder
+            ->add('interventionDate', DateType::class,[
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+                'attr' => [
+                    'class' => 'js-datepicker form-control',
+                    'data-date-format'=>"dd/mm/yy"
+                    ]
+                ])
+            ->add('paid')
             ->add('progress', ChoiceType::class, array(
+                'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
-                    'placeholder' => 'Choose an option',
-                    'À planifier' => 'À planifier',
-                    'En cours' => 'En cours',
-                    'Terminé' => 'Terminé',
-                    'À replanifier' => 'À replanifier',
+                    'À planifier' => 'a-planifier',
+                    'En cours' => 'en-cours',
+                    'Terminé' => 'realisees',
+                    'Planifié' => 'a-venir',
                 ),
                 'label' => 'etat'
             ))
             ->add('material')
-
-
-
-
             ->add('worker')
-
-
-
             ->add('workerNumber')
-            ->add('duration', TimeType::class, array(
-                'placeholder' => array(
-                    'hour' => 'Heure', 'minute' => 'Minute',
-                )
-            ))
-            ->add('interventionDate')
+            ->add('duration');
 
-
-            ->add('condominium', EntityType::class, array(
-                'placeholder' => 'Choose a Sub Family',
-                'class' => 'AppBundle:Condominium'))
-
-        ;
-
-        $builder->get('condominium')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) {
-                $form = $event->getForm();
-                $form->getParent()->add('building', EntityType::class, array(
-                    'class' => 'AppBundle\Entity\Building',
-                    'placeholder' => 'Sélectionnez un batiment',
-                    'mapped' => false,
-                    'required' => false,
-                    'choices' => $form->getData()->getBuildings()
+        if ($intervention->getProgress() === $intervention::DONE) {
+            $builder
+                ->add('clientSatisfaction', RangeType::class, array(
+                    'attr' => array(
+                        'min' => 1,
+                        'max' => 5
+                    )
                 ));
-            }
-        );
+        }
     }
 
     public function getParent()

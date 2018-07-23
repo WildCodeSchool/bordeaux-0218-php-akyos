@@ -1421,5 +1421,6 @@ var OneUI = App;
 jQuery(function(){
     if (typeof angular == 'undefined') {
         App.init();
+        window.App = App;
     }
 });

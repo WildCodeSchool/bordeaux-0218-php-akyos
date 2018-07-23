@@ -1,11 +1,210 @@
-<?xml version="1.0"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-   <file source-language="en" datatype="plaintext" original="file.ext">
-       <body>
-           <trans-unit id="work_with_translation">
-               <source></source>
-               <target>Hello</target>
-           </trans-unit>
-       </body>
-   </file>
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="e0iIBJR" resname="Last name">
+        <source>Last name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="cC75Ie0" resname="First name">
+        <source>First name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="Y9zriAC" resname="Phone">
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="jVgAhc4" resname="Competence">
+        <source>Competence</source>
+        <target>Compétence</target>
+      </trans-unit>
+      <trans-unit id="Vu_PIJV" resname="Address">
+        <source>Address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="UsArzWV" resname="Condominium manager">
+        <source>Condominium manager</source>
+        <target>Chargé de copropriété</target>
+      </trans-unit>
+      <trans-unit id="47ienTP" resname="Username">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="vyckXud" resname="Syndicate">
+        <source>Syndicate</source>
+        <target>Syndicat de copropriété</target>
+      </trans-unit>
+      <trans-unit id="TgRFxL1" resname="Buildings">
+        <source>Buildings</source>
+        <target>Bâtiment</target>
+      </trans-unit>
+      <trans-unit id="F.w5fCp" resname="Public message">
+        <source>Public message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="ILxUfaZ" resname="Private message">
+        <source>Private message</source>
+        <target>Message privé</target>
+      </trans-unit>
+      <trans-unit id="EeEaKi_" resname="Condominium">
+        <source>Condominium</source>
+        <target>Copropriété</target>
+      </trans-unit>
+      <trans-unit id="TaFn_cx" resname="Intervention type">
+        <source>Intervention type</source>
+        <target>Type d'intervention</target>
+      </trans-unit>
+      <trans-unit id="RTjy3Ge" resname="Emergency">
+        <source>Emergency</source>
+        <target>Urgence</target>
+      </trans-unit>
+      <trans-unit id="_4G5Ya9" resname="Paid">
+        <source>Paid</source>
+        <target>Payé</target>
+      </trans-unit>
+      <trans-unit id="ShZa6fh" resname="Client satisfaction">
+        <source>Client satisfaction</source>
+        <target>Satisfaction client</target>
+      </trans-unit>
+      <trans-unit id="RPXj__x" resname="Comment">
+        <source>Comment</source>
+        <target>Commentaire</target>
+      </trans-unit>
+      <trans-unit id="NRW6qAS" resname="etat">
+        <source>etat</source>
+        <target>Progression</target>
+      </trans-unit>
+      <trans-unit id="YWyyGKZ" resname="Material">
+        <source>Material</source>
+        <target>Matériels</target>
+      </trans-unit>
+      <trans-unit id="pnsEzVx" resname="Worker">
+        <source>Worker</source>
+        <target>Intervenant</target>
+      </trans-unit>
+      <trans-unit id="csP64Ax" resname="Worker number">
+        <source>Worker number</source>
+        <target>Nombre d'intervenants</target>
+      </trans-unit>
+      <trans-unit id="T8UqPEx" resname="Duration">
+        <source>Duration</source>
+        <target>Durée</target>
+      </trans-unit>
+      <trans-unit id="6rBDccG" resname="Intervention date">
+        <source>Intervention date</source>
+        <target>Date d'intervention</target>
+      </trans-unit>
+      <trans-unit id="8AY7gIc" resname="Hour">
+        <source>Hour</source>
+        <target>Heure</target>
+      </trans-unit>
+      <trans-unit id="ifaDJWD" resname="Year">
+        <source>Year</source>
+        <target>Année</target>
+      </trans-unit>
+      <trans-unit id="MQylA_8" resname="Month">
+        <source>Month</source>
+        <target>Mois</target>
+      </trans-unit>
+      <trans-unit id="jyNk4Ru" resname="Day">
+        <source>Day</source>
+        <target>Jour</target>
+      </trans-unit>
+      <trans-unit id="Qj8xZBi" resname="Choose a Sub Family">
+        <source>Choose a Sub Family</source>
+        <target>Sélectionnez un sous ensemble</target>
+      </trans-unit>
+      <trans-unit id="yq.qZcI" resname="no intervention to display">
+        <source>no intervention to display</source>
+        <target>Pas d'intervention à afficher</target>
+      </trans-unit>
+      <trans-unit id="8qlVJV8" resname="electrician">
+        <source>electrician</source>
+        <target>électricien</target>
+      </trans-unit>
+      <trans-unit id="uLsRv0U" resname="locksmith">
+        <source>locksmith</source>
+        <target>serrurerier</target>
+      </trans-unit>
+      <trans-unit id="wstG_LI" resname="plumber">
+        <source>plumber</source>
+        <target>plombier</target>
+      </trans-unit>
+      <trans-unit id="ZVimoze" resname="major">
+        <source>major</source>
+        <target>majeure</target>
+      </trans-unit>
+      <trans-unit id="wIJFand" resname="medium">
+        <source>medium</source>
+        <target>moyenne</target>
+      </trans-unit>
+      <trans-unit id="bB.wnbO" resname="low">
+        <source>low</source>
+        <target>mineure</target>
+      </trans-unit>
+      <trans-unit id="QKnaN_Y" resname="message.sent">
+        <source>message.sent</source>
+        <target>Votre message a bien été envoyé à DMS, merci de votre confiance.</target>
+      </trans-unit>
+      <trans-unit id="OfsV50x" resname="intervention.created">
+        <source>intervention.created</source>
+        <target>Votre demande d'intervention a bien été prise en compte par DMS, merci de votre confiance.</target>
+      </trans-unit>
+      <trans-unit id="h8WRLyz" resname="Building">
+        <source>Building</source>
+        <target>Bâtiment</target>
+      </trans-unit>
+      <trans-unit id="RVNKt6H" resname="Construction year">
+        <source>Construction year</source>
+        <target>Année de construction</target>
+      </trans-unit>
+      <trans-unit id="ejkz340" resname="Constructor">
+        <source>Constructor</source>
+        <target>Constructeur</target>
+      </trans-unit>
+      <trans-unit id="KSwG8AR" resname="Category">
+        <source>Category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="g8uJNrC" resname="Energy class">
+        <source>Energy class</source>
+        <target>Classe énergétique</target>
+      </trans-unit>
+      <trans-unit id="cGbhTzi" resname="Units number">
+        <source>Units number</source>
+        <target>Nombre de lots</target>
+      </trans-unit>
+      <trans-unit id="BJaIxR2" resname="Floors number">
+        <source>Floors number</source>
+        <target>Nombre d'étages</target>
+      </trans-unit>
+      <trans-unit id="aqnxpDQ" resname="Commons">
+        <source>Commons</source>
+        <target>Communs</target>
+      </trans-unit>
+      <trans-unit id="wYlv4Yz" resname="Parking space">
+        <source>Parking space</source>
+        <target>Places de parking</target>
+      </trans-unit>
+      <trans-unit id="VPYiHWN" resname="intervention.new_request">
+        <source>intervention.new_request</source>
+        <target>{0} Aucune nouvelle demande|{1} Une nouvelle demande|]1,Inf[ %count% nouvelles demandes</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

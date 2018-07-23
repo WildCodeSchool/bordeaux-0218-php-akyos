@@ -22,11 +22,15 @@ class ParkingFixtures extends Fixture implements DependentFixtureInterface
         $faker = Factory::create();
         for ($i = 0; $i < 45; $i++) {
             $parking = new Parking();
+            $parking->setName('Parking ' .  strtoupper($faker->randomLetter) . $faker->randomDigit);
             $parking->setParkingSpace($faker->numberBetween($min = 20, $max = 100));
 
             $manager->persist($parking);
 
             $this->addReference('parking' . $i, $parking);
+
+
+            $parking->setBuilding($this->getReference('building' . ($i%34)));
         }
         $manager->flush();
     }
