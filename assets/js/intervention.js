@@ -7,7 +7,7 @@ $(document).ready(function () {
         }
 
         let $form = $field.closest('form');
-        let target = '#appbundle_intervention_' + $field.data('next');
+        let target = '#' + $form.attr('name') + '_' + $field.data('next');
         // Les données à envoyer en Ajax
         let data = {};
 
@@ -22,9 +22,22 @@ $(document).ready(function () {
             let $input = $(data).find(target).parent('.form-group');
             // On remplace notre <select> actuel
             //$(target).replaceWith($input)
+            console.log($(target));
             if ($(target).length) {
                 $(target).parent('.form-group').remove();
             }
+
+            if ($('#appbundle_interventiondms_Common').length) {
+                $('#appbundle_interventiondms_Common').parent('.form-group').remove();
+            }
+            if ($('#appbundle_interventiondms_Unit').length) {
+                $('#appbundle_interventiondms_Unit').parent('.form-group').remove();
+            }
+            if ($('#appbundle_interventiondms_Parking').length) {
+                $('#appbundle_interventiondms_Parking').parent('.form-group').remove();
+            }
+
+
             $input.insertAfter($field.parent('.form-group'));
         })
     });

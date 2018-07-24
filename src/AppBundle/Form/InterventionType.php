@@ -18,7 +18,6 @@ use AppBundle\Repository\CondominiumRepository;
 use AppBundle\Repository\UnitRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Security\Core\SecurityContext;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class InterventionType extends AbstractType
 {
@@ -27,7 +26,18 @@ class InterventionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        if (!in_array('ROLE_ADMIN', $options['role'])) {
+        if (in_array('ROLE_ADMIN', $options['role'])) {
+            $builder
+                ->add('condominium', EntityType::class, array(
+                    'class' => 'AppBundle:Condominium',
+                    'placeholder' => 'Sélectionnez une copropriété',
+                    'attr' => [
+                        'class' => 'dynamicField',
+                        'data-next' => 'building'
+                    ]
+                ));
+
+        }else {
             $builder
                 ->add('condominium', EntityType::class, array(
                     'class' => 'AppBundle:Condominium',
@@ -40,15 +50,15 @@ class InterventionType extends AbstractType
                         'data-next' => 'building'
                     ]
                 ));
-
-            $builder->get('condominium')->addEventListener(
-                FormEvents::POST_SUBMIT,
-                function (FormEvent $event) {
-                    $form = $event->getForm();
-                    $this->addBuildingField($form->getParent(), $form->getData());
-                }
-            );
         }
+
+        $builder->get('condominium')->addEventListener(
+            FormEvents::POST_SUBMIT,
+            function (FormEvent $event) {
+                $form = $event->getForm();
+                $this->addBuildingField($form->getParent(), $form->getData());
+            }
+        );
 
             $builder
                 ->add('interventionType', ChoiceType::class, [
@@ -114,6 +124,7 @@ class InterventionType extends AbstractType
                 'required' => false,
                 'auto_initialize' => false,
                 'label' => 'Lieu d\'intervention',
+                'placeholder' => 'Sélectionnez un lieu',
                 'choices' => array(
                     'Partie commune' => 'Common',
                     'Lot' => 'Unit',
@@ -152,7 +163,7 @@ class InterventionType extends AbstractType
                 null,
                 [
                     'class' => $class,
-                    'placeholder' => 'Sélectionnez un lieu d\'intervention',
+                    'placeholder' => 'Sélectionnez le lieu d\'intervention',
                     'mapped' => true,
                     'required' => false,
                     'auto_initialize' => false,
