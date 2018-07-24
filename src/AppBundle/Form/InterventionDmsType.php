@@ -37,12 +37,12 @@ class InterventionDmsType extends AbstractType
             ->add('progress', ChoiceType::class, array(
                 'placeholder' => 'Progression de l\'intervention',
                 'choices' => array(
-                    'À planifier' => 'a-planifier',
-                    'En cours' => 'en-cours',
-                    'Terminé' => 'realisees',
-                    'Planifié' => 'a-venir',
+                    'À planifier' => 'à planifier',
+                    'En cours' => 'en cours',
+                    'Terminé' => 'realisées',
+                    'Planifié' => 'à venir',
                 ),
-                'label' => 'etat'
+                'label' => 'état'
             ))
             ->add('material')
             ->add('worker')

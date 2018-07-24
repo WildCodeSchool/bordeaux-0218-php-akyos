@@ -39,7 +39,7 @@
                             </a>
                         </li>
                     </ul>
-                    <h3 class="block-title">{{ intervention.interventionType }}</h3>
+                    <h3 class="block-title">{{ intervention.interventionType|trans }}</h3>
                 </div>
                 <div class="block-content">
                     <p>{{ intervention.description }}
@@ -52,7 +52,7 @@
         </div>
     {% else %}
         <div class="row text-center">
-            <p>Aucune interventions prévues aujourd'hui</p>
+            <p>Aucune intervention prévue aujourd'hui</p>
         </div>
     {% endfor %}
 </div>
