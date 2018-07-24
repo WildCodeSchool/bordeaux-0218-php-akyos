@@ -4,7 +4,9 @@
     <h1>Ajouter une Copropriété</h1>
 
     {{ form_start(form) }}
+    {% if is_granted('ROLE_ADMIN') %}
     {{ form_row(form.syndicate) }}
+    {% endif %}
     {{ form_row(form.name) }}
     {{ form_row(form.address) }}
 
