@@ -201,6 +201,14 @@
         <source>Commons</source>
         <target>Communs</target>
       </trans-unit>
+      <trans-unit id="common" resname="Common">
+        <source>common</source>
+        <target>Commun</target>
+      </trans-unit>
+      <trans-unit id="Unit" resname="Unit">
+        <source>Unit</source>
+        <target>Lot</target>
+      </trans-unit>
       <trans-unit id="wYlv4Yz" resname="Parking space">
         <source>Parking space</source>
         <target>Places de parking</target>
