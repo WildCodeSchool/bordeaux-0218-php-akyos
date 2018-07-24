@@ -124,7 +124,7 @@ class InterventionType extends AbstractType
                 'required' => false,
                 'auto_initialize' => false,
                 'label' => 'Lieu d\'intervention',
-                'placeholder' => 'Sélectionnez un lieux',
+                'placeholder' => 'Sélectionnez un lieu',
                 'choices' => array(
                     'Partie commune' => 'Common',
                     'Lot' => 'Unit',
