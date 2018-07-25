@@ -6,6 +6,7 @@ use AppBundle\Entity\Building;
 use AppBundle\Entity\Condominium;
 use Doctrine\ORM\EntityRepository;
 use phpDocumentor\Reflection\Types\Compound;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -76,7 +77,8 @@ class InterventionType extends AbstractType
                         'Majeure' => 'high',
                     ]])
                 ->add('description')
-                ->add('comment');
+                ->add('comment')
+                ->add('paid', CheckboxType::class, ['attr' => ['class' => 'css-input switch switch-default']]);
     }
 
 
