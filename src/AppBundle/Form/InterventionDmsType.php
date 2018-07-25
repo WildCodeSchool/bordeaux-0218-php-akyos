@@ -17,6 +17,7 @@ class InterventionDmsType extends AbstractType
         $intervention = $options['data'];
 
         $builder
+            ->add('paid')
             ->add('interventionDate', DateType::class,[
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
