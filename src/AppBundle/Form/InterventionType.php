@@ -37,8 +37,7 @@ class InterventionType extends AbstractType
                         'data-next' => 'building'
                     ]
                 ));
-
-        }else {
+        } else {
             $builder
                 ->add('condominium', EntityType::class, array(
                     'class' => 'AppBundle:Condominium',
