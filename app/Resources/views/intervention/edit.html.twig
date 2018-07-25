@@ -54,11 +54,8 @@
                         {{ form_row(edit_form.interventionDate) }}
                     </div>
                     <div class="form-group col-sm-6 text-center">
-                        <label class="css-input switch switch-default">
-                            <input name="{{ edit_form.paid.vars.full_name }}" type="checkbox" {% if edit_form.paid.vars.data %}checked="checked"{% endif %}>
-                            <span></span> Payé
-                        </label>
-                        {% do edit_form.paid.setRendered %}
+                        {{ form_row(edit_form.paid) }}
+
                     </div>
 
 </div>
