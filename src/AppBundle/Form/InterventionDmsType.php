@@ -18,7 +18,7 @@ class InterventionDmsType extends AbstractType
 
         $builder
             ->add('paid')
-            ->add('interventionDate', DateType::class,[
+            ->add('interventionDate', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
                 'attr' => [
