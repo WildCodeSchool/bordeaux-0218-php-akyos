@@ -65,10 +65,10 @@
                         </i>Syndicats</a>
                     <ul>
                         <li>
-                            <a href="{{ path('syndicate_new') }}">Créer un nouveau syndicat</a>
+                            <a href="{{ path('syndicate_index') }}">Liste de tous les syndicats</a>
                         </li>
                         <li>
-                            <a href="{{ path('syndicate_index') }}">Liste de tous les syndicats</a>
+                            <a href="{{ path('syndicate_new') }}">Créer un nouveau syndicat</a>
                         </li>
                     </ul>
                 </li>
@@ -80,10 +80,10 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ path('condominium_index') }}">Voir toutes</a>
+                            <a href="{{ path('condominium_index') }}">Liste des copropriétés</a>
                         </li>
                         <li>
-                            <a href="{{ path('condominium_new') }}">Ajouter</a>
+                            <a href="{{ path('condominium_new') }}">Créer une nouvelle copropriété</a>
                         </li>
                     </ul>
                 <li>
@@ -92,6 +92,12 @@
                                 class="si si-user-follow">
                         </i>Utilisateurs</a>
                     <ul>
+                        <li>
+                            <a href="{{ path('user_index') }}">Voir les utilisateurs</a>
+
+                        </li>
+                    </ul>
+                    <ul>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li>
                                 <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
@@ -99,12 +105,7 @@
                             </li>
                         {% endif %}
                     </ul>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_index') }}">Voir les utilisateurs</a>
 
-                        </li>
-                    </ul>
                 </li>
                 {% if not is_granted('ROLE_ADMIN') %}
                     <li>
