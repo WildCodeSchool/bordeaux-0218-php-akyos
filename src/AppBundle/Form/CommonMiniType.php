@@ -15,7 +15,6 @@ class CommonMiniType extends AbstractType
     {
         $builder
             ->add('name');
-
     }/**
      * {@inheritdoc}
      */

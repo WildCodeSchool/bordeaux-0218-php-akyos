@@ -17,18 +17,13 @@
         <!-- Side Content DMS -->
         <div class="side-content side-content-full">
             <ul class="nav-main">
-                {% if  not is_granted('ROLE_ADMIN') %}
-                <li>
-                    <a href= {{ path("intervention_new") }}><i class="fa fa-flash"></i>Demande d'ntervention</a>
-                </li>
-                {% endif %}
                 <li>
                     <a class="nav-submenu" data-toggle="nav-submenu" href="#">
                         <i class="fa fa-file-text-o"></i>
                         {% if  is_granted('ROLE_ADMIN') %}
                             Interventions
                         {% else %}
-                            Mes interventions
+                            Mes demandes d'intervention
                         {% endif %}
                     </a>
                     <ul>

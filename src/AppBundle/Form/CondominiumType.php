@@ -9,8 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-
 class CondominiumType extends AbstractType
 {
     /**
@@ -33,7 +31,7 @@ class CondominiumType extends AbstractType
                 'delete_empty' => true,
                 'mapped' => true,
             ))
-            ->add('commons',       CollectionType::class, array(
+            ->add('commons', CollectionType::class, array(
                 //each entry in the array will be an "parking" field
                 'entry_type' => CommonMiniType::class,
                 'by_reference' => false,

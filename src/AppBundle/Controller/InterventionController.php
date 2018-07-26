@@ -100,7 +100,7 @@ class InterventionController extends Controller
     public function editAction(Request $request, Intervention $intervention)
     {
 
-        if (    $intervention->getProgress() === 'realisees'
+        if ($intervention->getProgress() === 'realisees'
                 &&
                 !$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ) {
             $this->redirectToRoute('intervention_show', null, 401);
@@ -139,7 +139,7 @@ class InterventionController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('intervention_index');
+        return $this->redirectToRoute('intervention_index', ['progress'=> 'a-planifier']);
     }
 
     /**
