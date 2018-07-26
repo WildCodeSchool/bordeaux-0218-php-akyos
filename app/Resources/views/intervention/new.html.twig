@@ -13,6 +13,24 @@
     <div class="block block-bordered">
         <div class="block-content">
             {{ form_start(form, {'attr' : { 'class' : 'form-horizontal push-10-t push-10'} }) }}
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="row">
+                    <div class="col-sm-5 col-sm-push-1">
+                        {{ form_row(form.interventionDate) }}
+                    </div>
+                    {% if form.paid is defined %}
+                        <div class="form-group col-sm-5 text-center">
+                            <label class="css-input switch switch-default switch-success">
+                                <input name="{{ form.paid.vars.full_name }}" type="checkbox"
+                                       {% if form.paid.vars.data %}checked="checked"{% endif %}>
+                                <span></span> Payé
+                            </label>
+                            {% do form.paid.setRendered %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            {% endif %}
             <div class="row">
                 <div class="col-sm-10  col-sm-push-1">
                     <div class="form-group">

@@ -77,8 +77,7 @@ class InterventionType extends AbstractType
                         'Élevée' => 'high',
                     ]])
                 ->add('description')
-                ->add('comment')
-                ->add('paid', CheckboxType::class, ['attr' => ['class' => 'css-input switch switch-default']]);
+                ->add('comment');
     }
 
 
