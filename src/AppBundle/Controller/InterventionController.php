@@ -139,7 +139,7 @@ class InterventionController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('intervention_index');
+        return $this->redirectToRoute('intervention_index', ['progress'=> 'a-planifier']);
     }
 
     /**

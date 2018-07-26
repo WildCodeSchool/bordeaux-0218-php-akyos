@@ -74,7 +74,7 @@ class InterventionType extends AbstractType
                     'choices' => [
                         'Basse' => 'low',
                         'Moyenne' => 'medium',
-                        'Majeure' => 'high',
+                        'Élevée' => 'high',
                     ]])
                 ->add('description')
                 ->add('comment')

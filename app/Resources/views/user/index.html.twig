@@ -33,10 +33,7 @@
     </table>
 
     {% if is_granted('ROLE_ADMIN') %}
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Ajouter un utilisateur</a>
-        </li>
-    </ul>
+            <a class="btn btn-success"
+               href="{{ path('user_new') }}">Ajouter un utilisateur</a>
     {% endif %}
 {% endblock %}
